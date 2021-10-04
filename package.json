@@ -1,5 +1,31 @@
 {
   "private": true,
   "scripts": {
+    "build": "pnpm run build --filter ./packages",
+    "format": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write"
+    ],
+    "*.ts": [
+      "prettier --parser=typescript --write"
+    ],
+    "*.vue": [
+      "prettier --parser=vue --write"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.2",
+    "flashfill": "workspace:*",
+    "lint-staged": "^11.1.2",
+    "pnpm": "^6.16.0",
+    "prettier": "^2.4.1",
+    "simple-git-hooks": "^2.6.1",
+    "tsup": "^5.2.1",
+    "typescript": "^4.4.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   }
 }

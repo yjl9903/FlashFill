@@ -2,21 +2,28 @@
   "name": "flashfill-core",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "keywords": [
+    "FlashFill"
+  ],
+  "homepage": "https://github.com/yjl9903/FlashFill#readme",
+  "bugs": {
+    "url": "https://github.com/yjl9903/FlashFill/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yjl9903/FlashFill.git"
   },
-  "keywords": [
-    "FlashFill"
-  ],
-  "author": "XLor",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/yjl9903/FlashFill/issues"
+  "author": "XLor",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "build": "rescript",
+    "clean": "rescript clean -with-deps",
+    "start": "rescript build -w"
   },
-  "homepage": "https://github.com/yjl9903/FlashFill#readme"
+  "devDependencies": {
+    "gentype": "^4.2.0",
+    "rescript": "^9.1.4"
+  }
 }
