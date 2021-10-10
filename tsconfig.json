@@ -3,7 +3,10 @@
     "module": "ESNext",
     "baseUrl": ".",
     "target": "es2016",
-    "lib": ["DOM", "ESNext"],
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -15,11 +18,13 @@
     "types": [
       "node"
     ],
-    "paths": {
-    }
+    "paths": {}
   },
   "include": [
     "./**/*.ts",
   ],
-  "exclude": ["**/dist/**", "node_modules"]
+  "exclude": [
+    "**/dist/**",
+    "node_modules"
+  ]
 }
