@@ -1,17 +1,20 @@
 mod item;
 
-use self::item::{CharItem, CharItems};
+pub use self::item::{CharItem, CharItems};
 
+#[derive(Debug)]
 pub struct RegExp {
   tokens: Vec<Token>,
 }
 
+#[derive(Debug)]
 pub enum Token {
   Chars(CharClass),
   NotChars(CharClass),
   Special(SpecialToken),
 }
 
+#[derive(Debug)]
 pub enum CharClass {
   Numeric,
   Alphabet,
@@ -22,14 +25,17 @@ pub enum CharClass {
   All,
 }
 
+#[derive(Debug)]
 pub enum SpecialToken {
   Start,
   End,
   Punctuation(char),
 }
 
+#[derive(Debug)]
 pub struct Match(usize, RegExp, usize);
 
+#[derive(Debug)]
 pub enum Position {
   CPos(i32),
   Pos(RegExp, RegExp, i32),
@@ -225,7 +231,7 @@ impl CharClass {
 }
 
 impl Match {
-  fn test(&self, input: &Vec<CharItems>) -> bool {
+  pub fn test(&self, input: &Vec<CharItems>) -> bool {
     let Match(index, regexp, k) = self;
 
     if regexp.is_empty() {
@@ -249,7 +255,7 @@ impl Match {
 }
 
 impl Position {
-  fn get(&self, str: &CharItems) -> Option<usize> {
+  pub fn get(&self, str: &CharItems) -> Option<usize> {
     match self {
       Position::CPos(k) => {
         let k = *k;

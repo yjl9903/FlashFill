@@ -1,5 +1,5 @@
 mod regexp;
-mod syntax;
+mod expr;
 
 pub use regexp::*;
-pub use syntax::*;
+pub use expr::*;
