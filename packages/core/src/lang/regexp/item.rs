@@ -4,7 +4,7 @@ use std::ops::Deref;
 pub enum CharItem {
   Start,
   End,
-  Char(char)
+  Char(char),
 }
 
 pub struct CharItems(pub Vec<CharItem>);
@@ -23,8 +23,9 @@ impl From<&String> for CharItems {
       vec![
         vec![CharItem::Start],
         s.chars().map(|c| CharItem::Char(c)).collect(),
-        vec![CharItem::End]
-      ].concat()
+        vec![CharItem::End],
+      ]
+      .concat(),
     )
   }
 }

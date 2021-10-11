@@ -1,22 +1,22 @@
 #[derive(Debug)]
 pub struct Expr {
-  pub switches: Vec<Switch>
+  pub switches: Vec<Switch>,
 }
 
 #[derive(Debug)]
 pub struct Switch {
   pub condition: Bool,
-  pub trace: Trace
+  pub trace: Trace,
 }
 
 #[derive(Debug)]
 pub struct Bool {
-  disjunct: Vec<Conjunct>
+  disjunct: Vec<Conjunct>,
 }
 
 #[derive(Debug)]
 pub struct Conjunct {
-  predicate: Vec<Predicate>
+  predicate: Vec<Predicate>,
 }
 
 #[derive(Debug)]
@@ -24,19 +24,19 @@ pub enum Predicate {
   True,
   False,
   Match,
-  NotMatch
+  NotMatch,
 }
 
 #[derive(Debug)]
 pub struct Trace {
-  pub atoms: Vec<Atom>
+  pub atoms: Vec<Atom>,
 }
 
 #[derive(Debug)]
 pub enum Atom {
   SubStr { index: i32, left: i32, right: i32 },
   ConstStr(String),
-  Loop(fn(i32) -> Expr)
+  Loop(fn(i32) -> Expr),
 }
 
 impl Expr {
@@ -45,7 +45,12 @@ impl Expr {
   }
 
   pub fn single(trace: Trace) -> Expr {
-    Expr { switches: vec![Switch { condition: Bool::truthy(), trace }] }
+    Expr {
+      switches: vec![Switch {
+        condition: Bool::truthy(),
+        trace,
+      }],
+    }
   }
 }
 
@@ -57,21 +62,29 @@ impl Trace {
 
 impl Bool {
   pub fn truthy() -> Bool {
-    Bool { disjunct: vec![Conjunct::truthy()] }
+    Bool {
+      disjunct: vec![Conjunct::truthy()],
+    }
   }
 
   pub fn falsy() -> Bool {
-    Bool { disjunct: vec![Conjunct::falsy()] }
+    Bool {
+      disjunct: vec![Conjunct::falsy()],
+    }
   }
 }
 
 impl Conjunct {
   pub fn truthy() -> Conjunct {
-    Conjunct { predicate: vec![Predicate::True] }
+    Conjunct {
+      predicate: vec![Predicate::True],
+    }
   }
 
   pub fn falsy() -> Conjunct {
-    Conjunct { predicate: vec![Predicate::False] }
+    Conjunct {
+      predicate: vec![Predicate::False],
+    }
   }
 }
 
