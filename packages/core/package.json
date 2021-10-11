@@ -25,6 +25,7 @@
   "scripts": {
     "build": "pnpm run build:esm && pnpm run build:node",
     "build:esm": "wasm-pack build -t web -d client",
-    "build:node": "wasm-pack build -t nodejs -d node"
+    "build:node": "wasm-pack build -t nodejs -d node",
+    "test": "cargo test"
   }
 }

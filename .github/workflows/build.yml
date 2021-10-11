@@ -25,3 +25,4 @@ jobs:
           version: 'latest'
       - run: pnpm install
       - run: pnpm run build
+      - run: pnpm run test
