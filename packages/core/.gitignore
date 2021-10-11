@@ -1,5 +1,8 @@
-.DS_Store
-/node_modules/
-/lib/
-.bsb.lock
-.merlin
+/target
+**/*.rs.bk
+Cargo.lock
+bin/
+pkg/
+node/
+client/
+wasm-pack.log

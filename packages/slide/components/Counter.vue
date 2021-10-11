@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import init from 'flashfill-core';
+
+init().then((wasm) => wasm.greet());
 
 const props = defineProps({
   count: {

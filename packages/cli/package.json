@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "cac": "^6.7.3",
-    "resolve-from": "^5.0.0"
+    "resolve-from": "^5.0.0",
+    "flashfill-core": "workspace:*"
   }
 }

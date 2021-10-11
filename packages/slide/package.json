@@ -1,4 +1,5 @@
 {
+  "name": "slide",
   "private": true,
   "scripts": {
     "build": "slidev build",
@@ -8,7 +9,10 @@
   "dependencies": {
     "@slidev/cli": "^0.27.2",
     "@slidev/theme-default": "*",
-    "@slidev/theme-seriph": "*"
+    "@slidev/theme-seriph": "*",
+    "flashfill-core": "workspace:*"
   },
-  "name": "slide"
+  "devDependencies": {
+    "vite-plugin-rsw": "^1.10.0"
+  }
 }

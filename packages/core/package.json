@@ -15,18 +15,16 @@
   },
   "license": "MIT",
   "author": "XLor",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "node/flashfill_core.js",
+  "module": "client/flashfill_core.js",
+  "types": "node/flashfill_core.d.ts",
+  "files": [
+    "client",
+    "node"
+  ],
   "scripts": {
-    "build": "zx scripts/build.mjs --shell powershell",
-    "clean": "rescript clean -with-deps",
-    "start": "rescript build -w"
-  },
-  "devDependencies": {
-    "copyfiles": "^2.4.1",
-    "gentype": "^4.2.0",
-    "rescript": "^9.1.4",
-    "rimraf": "^3.0.2",
-    "zx": "^4.2.0"
+    "build": "pnpm run build:esm && pnpm run build:node",
+    "build:esm": "wasm-pack build -t web -d client",
+    "build:node": "wasm-pack build -t nodejs -d node"
   }
 }
