@@ -1,6 +1,7 @@
 mod semantic;
 
 pub use super::{CharItem, CharItems};
+use crate::CharItem::Char;
 
 #[derive(Debug, Clone)]
 pub struct RegExp {
@@ -107,6 +108,14 @@ impl Token {
 
   pub fn not_uppercase() -> Token {
     Token::NotChars(CharClass::Uppercase)
+  }
+
+  pub fn whitespace() -> Token {
+    Token::Chars(CharClass::Whitespace)
+  }
+
+  pub fn not_whitespace() -> Token {
+    Token::NotChars(CharClass::Whitespace)
   }
 
   pub fn all() -> Token {
