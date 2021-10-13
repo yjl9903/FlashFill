@@ -1,4 +1,4 @@
-use flashfill::*;
+use flashfill_core::*;
 
 fn run_expr_test(expr: &Expr, samples: Vec<(Vec<&str>, &str)>) {
   for (input, ans) in samples {
