@@ -1,5 +1,5 @@
 [package]
-name = "flashfill-core"
+name = "flashfill"
 version = "0.1.0"
 authors = ["XLor <yjl9903@vip.qq.com>"]
 edition = "2018"

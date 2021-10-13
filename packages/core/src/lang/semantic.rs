@@ -96,7 +96,7 @@ impl Atom {
             break;
           }
         }
-        Err(ExprRunError("Unsupport operation".into()))
+        Ok(())
       }
     }
   }

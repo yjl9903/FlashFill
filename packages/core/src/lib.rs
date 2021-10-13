@@ -13,7 +13,7 @@ extern "C" {
   fn log(s: &str);
 }
 
-use lang::*;
+pub use lang::*;
 
 #[wasm_bindgen]
 pub fn greet() {

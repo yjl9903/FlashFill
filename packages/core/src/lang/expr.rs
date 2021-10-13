@@ -1,4 +1,4 @@
-use super::{Match, Position};
+use super::{Match, Position, RegExp};
 
 #[derive(Debug)]
 pub struct Expr {
@@ -66,6 +66,24 @@ impl Trace {
   }
 }
 
+impl Atom {
+  pub fn match_substr(index: usize, regexp: RegExp, k: i32) -> Atom {
+    Atom::SubStr {
+      index,
+      left: Position::Pos(RegExp::empty(), regexp.clone(), k),
+      right: Position::Pos(regexp, RegExp::empty(), k),
+    }
+  }
+
+  pub fn match_loop_substr(index: usize, regexp: RegExp, k1: i32, k2: i32) -> Atom {
+    Atom::SubStr {
+      index,
+      left: Position::LoopPos(RegExp::empty(), regexp.clone(), k1, k2),
+      right: Position::LoopPos(regexp, RegExp::empty(), k1, k2),
+    }
+  }
+}
+
 impl Bool {
   pub fn truthy() -> Bool {
     Bool {
@@ -92,4 +110,17 @@ impl Conjunct {
       predicate: vec![Predicate::False],
     }
   }
+}
+
+#[macro_export]
+macro_rules! expr {
+  ( $( $x: expr ), * ) => {
+    {
+      let mut temp_vec: Vec<Atom> = Vec::new();
+      $(
+        temp_vec.push($x);
+      )*
+      Expr::single(Trace::new(temp_vec))
+    }
+  };
 }

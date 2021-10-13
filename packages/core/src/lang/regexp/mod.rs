@@ -2,19 +2,19 @@ mod semantic;
 
 pub use super::{CharItem, CharItems};
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct RegExp {
   tokens: Vec<Token>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum Token {
   Chars(CharClass),
   NotChars(CharClass),
   Special(SpecialToken),
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum CharClass {
   Numeric,
   Alphabet,
@@ -25,7 +25,7 @@ pub enum CharClass {
   All,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum SpecialToken {
   Start,
   End,
@@ -53,6 +53,10 @@ pub enum Position {
 impl RegExp {
   pub fn new(tokens: Vec<Token>) -> RegExp {
     RegExp { tokens }
+  }
+
+  pub fn empty() -> RegExp {
+    RegExp { tokens: Vec::new() }
   }
 
   pub fn is_empty(&self) -> bool {
@@ -97,7 +101,36 @@ impl Token {
     Token::NotChars(CharClass::Lowercase)
   }
 
+  pub fn uppercase() -> Token {
+    Token::Chars(CharClass::Uppercase)
+  }
+
+  pub fn not_uppercase() -> Token {
+    Token::NotChars(CharClass::Uppercase)
+  }
+
   pub fn all() -> Token {
     Token::Chars(CharClass::All)
   }
+}
+
+impl From<Token> for RegExp {
+  fn from(token: Token) -> Self {
+    RegExp {
+      tokens: vec![token],
+    }
+  }
+}
+
+#[macro_export]
+macro_rules! regexp {
+  ( $( $x: expr ), * ) => {
+    {
+      let mut temp_vec: Vec<Token> = Vec::new();
+      $(
+        temp_vec.push($x);
+      )*
+      RegExp::new(temp_vec)
+    }
+  };
 }
