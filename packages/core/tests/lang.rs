@@ -123,3 +123,41 @@ fn test_example4() {
     ],
   )
 }
+
+/**
+ * Example 5
+ *
+ * Task: Split Odds
+ */
+#[test]
+fn test_example5() {
+  let p1 = Position::LoopPos(
+    Token::punctuation('(').into(),
+    regexp!(Token::numeric(), Token::punctuation('/')),
+    1,
+    0,
+  );
+  let p2 = Position::LoopPos(
+    regexp!(Token::punctuation('/'), Token::numeric()),
+    Token::punctuation(')').into(),
+    1,
+    0,
+  );
+  let expr = expr!(Atom::Loop(expr!(
+    Atom::SubStr {
+      index: 0,
+      left: p1,
+      right: p2
+    },
+    Atom::ConstStr(" # ".into())
+  )));
+
+  run_expr_test(
+    &expr,
+    vec![
+      (vec!["(6/7)(4/5)(14/1)"], "6/7 # 4/5 # 14/1 # "),
+      (vec!["49(28/11)(14/1)"], "28/11 # 14/1 # "),
+      (vec!["() (28/11)(14/1)"], "28/11 # 14/1 # "),
+    ],
+  );
+}
