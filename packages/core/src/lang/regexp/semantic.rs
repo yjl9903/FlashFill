@@ -167,57 +167,62 @@ impl Match {
 }
 
 impl Position {
-  pub fn get(&self, str: &CharItems) -> Option<usize> {
+  pub fn get(&self, input: &CharItems, loop_index: usize) -> Option<usize> {
     match self {
       Position::CPos(k) => {
         let k = *k;
         if k >= 0 {
           let k = k as usize;
-          if k < str.len() {
+          if k < input.len() {
             Some(k)
           } else {
             None
           }
         } else {
-          let k = (str.len() as i32 + k) as usize;
-          if k < str.len() {
+          let k = (input.len() as i32 + k) as usize;
+          if k < input.len() {
             Some(k)
           } else {
             None
           }
         }
       }
-      Position::Pos(r1, r2, k) => {
-        let k = *k;
-        let mut matched = 0;
-        assert!(str.len() >= 2);
-        assert!(k != 0);
-
-        let range = if k > 0 {
-          Box::new(1..str.len() - 1) as Box<dyn Iterator<Item = usize>>
-        } else {
-          Box::new((1..str.len() - 1).rev()) as Box<dyn Iterator<Item = usize>>
-        };
-
-        let k = if k > 0 { k } else { -k };
-
-        for i in range {
-          let left = &str[..i];
-          let left = r1.test_suffix(&left.into());
-          let right = &str[i..];
-          let right = r2.test_prefix(&right.into());
-          if left && right {
-            matched = matched + 1;
-          }
-          if matched == k {
-            return Some(i);
-          }
-        }
-        
-        return None;
+      Position::Pos(r1, r2, k) => find_position(input, r1, r2, *k),
+      Position::LoopPos(r1, r2, k1, k2) => {
+        let loop_index = loop_index as i32;
+        find_position(input, r1, r2, k1 * loop_index + k2)
       }
     }
   }
+}
+
+fn find_position(str: &CharItems, r1: &RegExp, r2: &RegExp, k: i32) -> Option<usize> {
+  let mut matched = 0;
+  assert!(str.len() >= 2);
+  assert!(k != 0);
+
+  let range = if k > 0 {
+    Box::new(1..str.len() - 1) as Box<dyn Iterator<Item = usize>>
+  } else {
+    Box::new((1..str.len() - 1).rev()) as Box<dyn Iterator<Item = usize>>
+  };
+
+  let k = if k > 0 { k } else { -k };
+
+  for i in range {
+    let left = &str[..i];
+    let left = r1.test_suffix(&left.into());
+    let right = &str[i..];
+    let right = r2.test_prefix(&right.into());
+    if left && right {
+      matched = matched + 1;
+    }
+    if matched == k {
+      return Some(i);
+    }
+  }
+
+  return None;
 }
 
 #[cfg(test)]
@@ -297,32 +302,32 @@ mod test_position {
     let r1 = RegExp::new(vec![Token::numeric()]);
     let r2 = RegExp::new(vec![Token::alphabet()]);
     let pos = Position::Pos(r1, r2, 1);
-    assert_eq!(pos.get(&text.into()), Some(4));
+    assert_eq!(pos.get(&text.into(), Default::default()), Some(4));
 
     let r1 = RegExp::new(vec![Token::numeric()]);
     let r2 = RegExp::new(vec![Token::alphabet()]);
     let pos = Position::Pos(r1, r2, 2);
-    assert_eq!(pos.get(&text.into()), Some(8));
+    assert_eq!(pos.get(&text.into(), Default::default()), Some(8));
 
     let r1 = RegExp::new(vec![Token::numeric()]);
     let r2 = RegExp::new(vec![Token::alphabet()]);
     let pos = Position::Pos(r1, r2, 3);
-    assert_eq!(pos.get(&text.into()), Some(12));
+    assert_eq!(pos.get(&text.into(), Default::default()), Some(12));
 
     let r1 = RegExp::new(vec![Token::numeric()]);
     let r2 = RegExp::new(vec![Token::alphabet()]);
     let pos = Position::Pos(r1, r2, -3);
-    assert_eq!(pos.get(&text.into()), Some(4));
+    assert_eq!(pos.get(&text.into(), Default::default()), Some(4));
 
     let r1 = RegExp::new(vec![Token::numeric()]);
     let r2 = RegExp::new(vec![Token::alphabet()]);
     let pos = Position::Pos(r1, r2, -2);
-    assert_eq!(pos.get(&text.into()), Some(8));
+    assert_eq!(pos.get(&text.into(), Default::default()), Some(8));
 
     let r1 = RegExp::new(vec![Token::numeric()]);
     let r2 = RegExp::new(vec![Token::alphabet()]);
     let pos = Position::Pos(r1, r2, -1);
-    assert_eq!(pos.get(&text.into()), Some(12));
+    assert_eq!(pos.get(&text.into(), Default::default()), Some(12));
   }
 
   #[test]
@@ -332,12 +337,12 @@ mod test_position {
     let r1 = RegExp::new(vec![]);
     let r2 = RegExp::new(vec![Token::numeric()]);
     let pos = Position::Pos(r1, r2, 1);
-    assert_eq!(pos.get(&text.into()), Some(4));
+    assert_eq!(pos.get(&text.into(), Default::default()), Some(4));
 
     let r1 = RegExp::new(vec![]);
     let r2 = RegExp::new(vec![Token::numeric()]);
     let pos = Position::Pos(r1, r2, -1);
-    assert_eq!(pos.get(&text.into()), Some(6));
+    assert_eq!(pos.get(&text.into(), Default::default()), Some(6));
   }
 
   #[test]
@@ -345,9 +350,9 @@ mod test_position {
     let text = &String::from("abc123d");
 
     let cpos = Position::CPos(1);
-    assert_eq!(cpos.get(&text.into()), Some(1));
+    assert_eq!(cpos.get(&text.into(), Default::default()), Some(1));
 
     let cpos = Position::CPos(-2);
-    assert_eq!(cpos.get(&text.into()), Some(7));
+    assert_eq!(cpos.get(&text.into(), Default::default()), Some(7));
   }
 }

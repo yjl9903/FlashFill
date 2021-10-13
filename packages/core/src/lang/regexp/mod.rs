@@ -38,8 +38,16 @@ pub struct Match(usize, RegExp, usize);
 #[derive(Debug)]
 pub enum Position {
   CPos(i32),
+  /**
+   * Pos(r1, r2, k)
+   */
   Pos(RegExp, RegExp, i32),
-  // LoopPos(RegExp, RegExp, i32, i32)
+  /**
+   * Pos(r1, r2, k1, k2)
+   * k = k1 * w + k2
+   * where w is the loop index
+   */
+  LoopPos(RegExp, RegExp, i32, i32),
 }
 
 impl RegExp {

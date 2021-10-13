@@ -68,8 +68,8 @@ impl Atom {
       Atom::SubStr { index, left, right } => {
         let input = context.input;
         let input = &input[*index];
-        let left = left.get(input);
-        let right = right.get(input);
+        let left = left.get(input, context.loop_index);
+        let right = right.get(input, context.loop_index);
         if let Some(left) = left {
           if let Some(right) = right {
             for i in left..right {
