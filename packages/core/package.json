@@ -15,8 +15,12 @@
   },
   "license": "MIT",
   "author": "XLor",
-  "main": "node/flashfill_core.js",
-  "module": "client/flashfill_core.js",
+  "main": "./node/flashfill_core.js",
+  "module": "./client/flashfill_core.js",
+  "exports": {
+    "import": "./client/flashfill_core.js",
+    "require": "./node/flashfill_core.js"
+  },
   "types": "node/flashfill_core.d.ts",
   "files": [
     "client",
