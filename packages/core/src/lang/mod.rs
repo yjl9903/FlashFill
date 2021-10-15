@@ -4,6 +4,6 @@ mod regexp;
 mod semantic;
 
 pub use expr::*;
-pub use item::*;
+pub(crate) use item::*;
 pub use regexp::*;
 pub use semantic::*;

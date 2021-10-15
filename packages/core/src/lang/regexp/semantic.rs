@@ -1,4 +1,4 @@
-use super::{CharClass, CharItem, CharItems, Match, Position, RegExp, SpecialToken, Token};
+use super::{CharClass, CharItem, CharItems, Match, Position, RegExp, Token};
 
 impl RegExp {
   /**
@@ -103,21 +103,19 @@ impl Token {
       CharItem::Char(c) => match self {
         Token::Chars(class) => class.test(c),
         Token::NotChars(class) => !class.test(c),
-        Token::Special(special) => match special {
-          SpecialToken::Start => false,
-          SpecialToken::End => false,
-          SpecialToken::Punctuation(p) => c == *p,
-        },
+        Token::Start => false,
+        Token::End => false,
+        Token::Punctuation(p) => c == *p,
       },
       CharItem::Start => {
-        if let Token::Special(SpecialToken::Start) = self {
+        if let Token::Start = self {
           true
         } else {
           false
         }
       }
       CharItem::End => {
-        if let Token::Special(SpecialToken::End) = self {
+        if let Token::End = self {
           true
         } else {
           false
@@ -199,7 +197,7 @@ impl Position {
 fn find_position(str: &CharItems, r1: &RegExp, r2: &RegExp, k: i32) -> Option<usize> {
   let mut matched = 0;
   assert!(str.len() >= 2);
-  assert!(k != 0);
+  assert_ne!(k, 0);
 
   let range = if k > 0 {
     Box::new(1..str.len() - 1) as Box<dyn Iterator<Item = usize>>

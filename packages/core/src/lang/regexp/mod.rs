@@ -1,7 +1,6 @@
 mod semantic;
 
-pub use super::{CharItem, CharItems};
-use crate::CharItem::Char;
+use super::{CharItem, CharItems};
 
 #[derive(Debug, Clone)]
 pub struct RegExp {
@@ -12,7 +11,9 @@ pub struct RegExp {
 pub enum Token {
   Chars(CharClass),
   NotChars(CharClass),
-  Special(SpecialToken),
+  Start,
+  End,
+  Punctuation(char),
 }
 
 #[derive(Debug, Clone)]
@@ -24,13 +25,6 @@ pub enum CharClass {
   AlphaNumeric,
   Whitespace,
   All,
-}
-
-#[derive(Debug, Clone)]
-pub enum SpecialToken {
-  Start,
-  End,
-  Punctuation(char),
 }
 
 #[derive(Debug)]
@@ -67,15 +61,15 @@ impl RegExp {
 
 impl Token {
   pub fn start() -> Token {
-    Token::Special(SpecialToken::Start)
+    Token::Start
   }
 
   pub fn end() -> Token {
-    Token::Special(SpecialToken::End)
+    Token::End
   }
 
   pub fn punctuation(c: char) -> Token {
-    Token::Special(SpecialToken::Punctuation(c))
+    Token::Punctuation(c)
   }
 
   pub fn numeric() -> Token {
