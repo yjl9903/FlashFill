@@ -28,7 +28,7 @@ pub enum CharClass {
 }
 
 #[derive(Debug)]
-pub struct Match(usize, RegExp, usize);
+pub struct Match(pub usize, pub RegExp, pub usize);
 
 #[derive(Debug)]
 pub enum Position {

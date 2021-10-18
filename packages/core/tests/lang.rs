@@ -1,3 +1,5 @@
+use std::vec;
+
 use flashfill_core::*;
 
 fn run_expr_test(expr: &Expr, samples: Vec<(Vec<&str>, &str)>) {
@@ -104,12 +106,12 @@ fn test_example3() {
  */
 #[test]
 fn test_example4() {
-  let expr = expr!(Atom::Loop(expr!(Atom::match_loop_substr(
+  let expr = expr!(atom_loop![Atom::match_loop_substr(
     0,
     Token::uppercase().into(),
     1,
     0
-  ))));
+  )]);
 
   run_expr_test(
     &expr,
@@ -143,14 +145,7 @@ fn test_example5() {
     1,
     0,
   );
-  let expr = expr!(Atom::Loop(expr!(
-    Atom::SubStr {
-      index: 0,
-      left: p1,
-      right: p2
-    },
-    Atom::ConstStr(" # ".into())
-  )));
+  let expr = expr!(atom_loop![sub_str!(0, p1, p2), const_str!(" # ")]);
 
   run_expr_test(
     &expr,
@@ -177,14 +172,7 @@ fn test_example6() {
     0,
   );
   let expr = expr!(
-    Atom::Loop(expr!(
-      Atom::SubStr {
-        index: 0,
-        left: p1,
-        right: p2
-      },
-      Atom::ConstStr(" ".into())
-    )),
+    atom_loop![sub_str!(0, p1, p2), const_str!(" ")],
     Atom::match_substr(0, Token::not_whitespace().into(), -1)
   );
 
@@ -200,6 +188,39 @@ fn test_example6() {
       (vec!["abc    def"], "abc def"),
       (vec!["abc    def   "], "abc def"),
       (vec!["   abc    def   "], "abc def"),
+    ],
+  );
+}
+
+/**
+ * Example 7
+ *
+ *
+ */
+#[test]
+fn test_example7() {
+  let expr = expr! {
+    cond![
+      and![
+        match_str!(0, Token::all()),
+        match_str!(1, Token::all())
+      ]
+    ] => [
+      sub_str!(0),
+      const_str!("("),
+      sub_str!(1),
+      const_str!(")")
+    ],
+    Bool::truthy() => []
+  };
+
+  run_expr_test(
+    &expr,
+    vec![
+      (vec!["Alex", "Asst."], "Alex(Asst.)"),
+      (vec!["Jim", "Manager"], "Jim(Manager)"),
+      (vec!["Ryan", ""], ""),
+      (vec!["", "Asst."], ""),
     ],
   );
 }

@@ -85,6 +85,10 @@ impl Atom {
 }
 
 impl Bool {
+  pub fn new(disjunct: Vec<Conjunct>) -> Bool {
+    Bool { disjunct }
+  }
+
   pub fn truthy() -> Bool {
     Bool {
       disjunct: vec![Conjunct::truthy()],
@@ -99,6 +103,10 @@ impl Bool {
 }
 
 impl Conjunct {
+  pub fn new(predicate: Vec<Predicate>) -> Conjunct {
+    Conjunct { predicate }
+  }
+
   pub fn truthy() -> Conjunct {
     Conjunct {
       predicate: vec![Predicate::True],
@@ -112,9 +120,43 @@ impl Conjunct {
   }
 }
 
+impl Predicate {
+  pub fn match_str(index: usize, regexp: RegExp, k: usize) -> Predicate {
+    Predicate::MatchPredicate(Match(index, regexp, k))
+  }
+
+  pub fn not_match_str(index: usize, regexp: RegExp, k: usize) -> Predicate {
+    Predicate::NotMatchPredicate(Match(index, regexp, k))
+  }
+}
+
+impl From<Predicate> for Bool {
+  fn from(predicate: Predicate) -> Self {
+    Bool {
+      disjunct: vec![predicate.into()],
+    }
+  }
+}
+
+impl From<Predicate> for Conjunct {
+  fn from(predicate: Predicate) -> Self {
+    Conjunct {
+      predicate: vec![predicate],
+    }
+  }
+}
+
+impl From<Conjunct> for Bool {
+  fn from(conj: Conjunct) -> Self {
+    Bool {
+      disjunct: vec![conj],
+    }
+  }
+}
+
 #[macro_export]
 macro_rules! expr {
-  ( $( $x: expr ), * ) => {
+  [ $( $x: expr ), * ] => {
     {
       let mut temp_vec: Vec<Atom> = Vec::new();
       $(
@@ -122,5 +164,76 @@ macro_rules! expr {
       )*
       Expr::single(Trace::new(temp_vec))
     }
+  };
+
+  { $($cond: expr => [$($e: expr),*]),+ } => {
+    {
+      let mut temp_vec: Vec<Switch> = Vec::new();
+      $(
+        temp_vec.push(Switch {
+          condition: $cond,
+          trace: Trace::new(vec![ $($e,)* ])
+        });
+      )*
+      Expr::new(temp_vec)
+    }
+  }
+}
+
+#[macro_export]
+macro_rules! const_str {
+  ($str: expr) => {
+    Atom::ConstStr($str.into())
+  };
+}
+
+#[macro_export]
+macro_rules! sub_str {
+  ($index: expr , $left: expr , $right: expr) => {
+    Atom::SubStr {
+      index: $index,
+      left: $left,
+      right: $right,
+    }
+  };
+
+  ($index: expr) => {
+    Atom::SubStr {
+      index: $index,
+      left: Position::CPos(0),
+      right: Position::CPos(-1),
+    }
+  };
+}
+
+#[macro_export]
+macro_rules! atom_loop {
+  [ $( $x: expr ), * ] => {
+    Atom::Loop(expr![$($x),*])
+  };
+}
+
+#[macro_export]
+macro_rules! cond {
+  [ $( $x: expr ), * ] => {
+    Bool::new(vec![ $($x.into(),)* ])
+  };
+}
+
+#[macro_export]
+macro_rules! and {
+  [ $( $x: expr ), * ] => {
+    Conjunct::new(vec![ $($x.into(),)* ])
+  };
+}
+
+#[macro_export]
+macro_rules! match_str {
+  ($index: expr, $regexp: expr, $k: expr) => {
+    Predicate::match_str($index, $regexp.into(), $k)
+  };
+
+  ($index: expr, $regexp: expr) => {
+    Predicate::match_str($index, $regexp.into(), 1)
   };
 }
