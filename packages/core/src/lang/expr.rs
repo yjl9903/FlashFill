@@ -237,3 +237,10 @@ macro_rules! match_str {
     Predicate::match_str($index, $regexp.into(), 1)
   };
 }
+
+#[macro_export]
+macro_rules! punctuation {
+  ($c: expr) => {
+    Token::Punctuation($c)
+  };
+}

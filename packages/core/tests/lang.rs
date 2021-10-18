@@ -195,7 +195,7 @@ fn test_example6() {
 /**
  * Example 7
  *
- *
+ * Conditional Concatenation
  */
 #[test]
 fn test_example7() {
@@ -221,6 +221,35 @@ fn test_example7() {
       (vec!["Jim", "Manager"], "Jim(Manager)"),
       (vec!["Ryan", ""], ""),
       (vec!["", "Asst."], ""),
+    ],
+  );
+}
+
+/**
+ * Example 8
+ *
+ * Task: Mixed Date Parsing
+ */
+#[test]
+fn test_example8() {
+  let expr = expr! {
+    cond![match_str!(0, punctuation!('/'))] => [
+      sub_str!(0, Position::Pos(Token::start().into(), regexp!(), 1), Position::Pos(regexp!(), punctuation!('/').into(), 1))
+    ],
+    cond![match_str!(0, punctuation!('.'))] => [
+      sub_str!(0, Position::Pos(punctuation!('.').into(), regexp!(), 1), Position::Pos(regexp!(), punctuation!('.').into(), 2))
+    ],
+    cond![match_str!(0, punctuation!('-'))] => [
+      sub_str!(0, Position::Pos(punctuation!('-').into(), regexp!(), 2), Position::Pos(regexp!(), Token::end().into(), 1))
+    ]
+  };
+
+  run_expr_test(
+    &expr,
+    vec![
+      (vec!["01/21/2001"], "01"),
+      (vec!["22.02.2002"], "02"),
+      (vec!["2003-23-03"], "03"),
     ],
   );
 }
