@@ -209,15 +209,15 @@ macro_rules! sub_str {
 #[macro_export]
 macro_rules! match_substr {
   ($index: expr, $regexp: expr, $k: expr) => {
-    Atom::match_substr($index, $regexp, $k)
+    Atom::match_substr($index, $regexp.into(), $k)
   };
 
   ($index: expr, $regexp: expr) => {
-    Atom::match_substr($index, $regexp, 1)
+    Atom::match_substr($index, $regexp.into(), 1)
   };
 
   ($index: expr, $regexp: expr, $k1: expr, $k2: expr) => {
-    Atom::match_loop_substr($index, $regexp, $k1, $k2)
+    Atom::match_loop_substr($index, $regexp.into(), $k1, $k2)
   };
 }
 

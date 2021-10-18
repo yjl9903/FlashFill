@@ -301,7 +301,7 @@ fn test_example9() {
       const_str!(".")
     ],
     cond![] => [
-      match_substr!(0, Token::alphabet().into(), -1),
+      match_substr!(0, Token::alphabet(), -1),
       const_str!(", "),
       first2,
       const_str!(".")
@@ -316,6 +316,41 @@ fn test_example9() {
       (vec!["Bill Gates, Sr"], "Gates, B."),
       (vec!["George Ciprian Necula"], "Necula, G."),
       (vec!["Ken McMillan, II"], "McMillan, K."),
+    ],
+  );
+}
+
+/**
+ * Example 10
+ *
+ * Task: Phone Numbers
+ */
+#[test]
+fn test_example10() {
+  let expr = expr! {
+    cond![match_str!(0, Token::numeric(), 3)] => [
+      match_substr!(0, Token::numeric(), 1),
+      const_str!("-"),
+      match_substr!(0, Token::numeric(), 2),
+      const_str!("-"),
+      match_substr!(0, Token::numeric(), 3)
+    ],
+    cond![] => [
+      const_str!("425-"),
+      match_substr!(0, Token::numeric(), 1),
+      const_str!("-"),
+      match_substr!(0, Token::numeric(), 2)
+    ]
+  };
+
+  run_expr_test(
+    &expr,
+    vec![
+      (vec!["323-708-7700"], "323-708-7700"),
+      (vec!["(425)-706-7709"], "425-706-7709"),
+      (vec!["510.220.5586"], "510-220-5586"),
+      (vec!["235 7654"], "425-235-7654"),
+      (vec!["745-8139"], "425-745-8139"),
     ],
   );
 }
