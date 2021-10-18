@@ -253,3 +253,69 @@ fn test_example8() {
     ],
   );
 }
+
+/**
+ * Example 9
+ *
+ * Task: Name Parsing
+ */
+#[test]
+fn test_example9() {
+  let first1 = sub_str!(
+    0,
+    Position::Pos(
+      regexp!(),
+      regexp!(Token::alphabet(), Token::NotPunctuation('.')),
+      1
+    ),
+    Position::Pos(
+      regexp!(),
+      regexp!(Token::lowercase(), Token::NotPunctuation('.')),
+      1
+    )
+  );
+
+  let first2 = sub_str!(
+    0,
+    Position::Pos(
+      regexp!(),
+      regexp!(Token::alphabet(), Token::NotPunctuation('.')),
+      1
+    ),
+    Position::Pos(
+      regexp!(),
+      regexp!(Token::lowercase(), Token::NotPunctuation('.')),
+      1
+    )
+  );
+
+  let expr = expr! {
+    cond![match_str!(0, punctuation!(','))] => [
+      sub_str!(
+        0,
+        Position::Pos(regexp!(), regexp!(Token::alphabet(), punctuation!(',')), 1),
+        Position::Pos(Token::alphabet().into(), punctuation!(',').into(), 1)
+      ),
+      const_str!(", "),
+      first1,
+      const_str!(".")
+    ],
+    cond![] => [
+      match_substr!(0, Token::alphabet().into(), -1),
+      const_str!(", "),
+      first2,
+      const_str!(".")
+    ]
+  };
+
+  run_expr_test(
+    &expr,
+    vec![
+      (vec!["Dr. Eran Yahav"], "Yahav, E."),
+      (vec!["Prof. Kathleen S. Fisher"], "Fisher, K."),
+      (vec!["Bill Gates, Sr"], "Gates, B."),
+      (vec!["George Ciprian Necula"], "Necula, G."),
+      (vec!["Ken McMillan, II"], "McMillan, K."),
+    ],
+  );
+}

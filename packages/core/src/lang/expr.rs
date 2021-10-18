@@ -207,6 +207,21 @@ macro_rules! sub_str {
 }
 
 #[macro_export]
+macro_rules! match_substr {
+  ($index: expr, $regexp: expr, $k: expr) => {
+    Atom::match_substr($index, $regexp, $k)
+  };
+
+  ($index: expr, $regexp: expr) => {
+    Atom::match_substr($index, $regexp, 1)
+  };
+
+  ($index: expr, $regexp: expr, $k1: expr, $k2: expr) => {
+    Atom::match_loop_substr($index, $regexp, $k1, $k2)
+  };
+}
+
+#[macro_export]
 macro_rules! atom_loop {
   [ $( $x: expr ), * ] => {
     Atom::Loop(expr![$($x),*])
@@ -215,14 +230,22 @@ macro_rules! atom_loop {
 
 #[macro_export]
 macro_rules! cond {
-  [ $( $x: expr ), * ] => {
+  [] => {
+    Bool::truthy()
+  };
+
+  [ $( $x: expr ), + ] => {
     Bool::new(vec![ $($x.into(),)* ])
   };
 }
 
 #[macro_export]
 macro_rules! and {
-  [ $( $x: expr ), * ] => {
+  [] => {
+    Conjunct::truthy()
+  };
+
+  [ $( $x: expr ), + ] => {
     Conjunct::new(vec![ $($x.into(),)* ])
   };
 }

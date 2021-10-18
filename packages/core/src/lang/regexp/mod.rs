@@ -14,6 +14,7 @@ pub enum Token {
   Start,
   End,
   Punctuation(char),
+  NotPunctuation(char),
 }
 
 #[derive(Debug, Clone)]
@@ -68,8 +69,12 @@ impl Token {
     Token::End
   }
 
-  pub fn punctuation(c: char) -> Token {
-    Token::Punctuation(c)
+  pub fn punctuation(p: char) -> Token {
+    Token::Punctuation(p)
+  }
+
+  pub fn not_punctuation(p: char) -> Token {
+    Token::NotPunctuation(p)
   }
 
   pub fn numeric() -> Token {

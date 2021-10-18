@@ -77,6 +77,7 @@ impl Token {
         Token::Start => false,
         Token::End => false,
         Token::Punctuation(p) => c == *p,
+        Token::NotPunctuation(p) => c != *p,
       },
       CharItem::Start => {
         if let Token::Start = self {
