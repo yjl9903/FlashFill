@@ -162,40 +162,44 @@ fn test_example5() {
   );
 }
 
-// /**
-//  * Example 6
-//  *
-//  * Task: Remove excess spaces
-//  */
-// #[test]
-// fn test_example6() {
-//   let p1 = Position::LoopPos(RegExp::empty(), Token::not_whitespace().into(), 1, 0);
-//   let p2 = Position::LoopPos(
-//     Token::not_whitespace().into(),
-//     regexp!(Token::whitespace(), Token::not_whitespace()),
-//     1,
-//     0,
-//   );
-//   let expr = expr!(
-//     Atom::Loop(expr!(
-//       Atom::SubStr {
-//         index: 0,
-//         left: p1,
-//         right: p2
-//       },
-//       Atom::ConstStr(" ".into())
-//     ))
-//     Atom::match_substr(0, Token::not_whitespace().into(), -1)
-//   );
-//
-//   run_expr_test(
-//     &expr,
-//     vec![
-//       (vec!["   Oege  de    Moor"], "Oege de Moor"),
-//       (
-//         vec!["Kathleen Fisher AT&T Labs"],
-//         "Kathleen Fisher AT&T Labs",
-//       ),
-//     ],
-//   );
-// }
+/**
+ * Example 6
+ *
+ * Task: Remove excess spaces
+ */
+#[test]
+fn test_example6() {
+  let p1 = Position::LoopPos(RegExp::empty(), Token::not_whitespace().into(), 1, 0);
+  let p2 = Position::LoopPos(
+    Token::not_whitespace().into(),
+    regexp!(Token::whitespace(), Token::not_whitespace()),
+    1,
+    0,
+  );
+  let expr = expr!(
+    Atom::Loop(expr!(
+      Atom::SubStr {
+        index: 0,
+        left: p1,
+        right: p2
+      },
+      Atom::ConstStr(" ".into())
+    )),
+    Atom::match_substr(0, Token::not_whitespace().into(), -1)
+  );
+
+  run_expr_test(
+    &expr,
+    vec![
+      (vec!["   Oege  de    Moor"], "Oege de Moor"),
+      (
+        vec!["  Kathleen   Fisher   AT&T  Labs"],
+        "Kathleen Fisher AT&T Labs",
+      ),
+      (vec!["   abc    "], "abc"),
+      (vec!["abc    def"], "abc def"),
+      (vec!["abc    def   "], "abc def"),
+      (vec!["   abc    def   "], "abc def"),
+    ],
+  );
+}
