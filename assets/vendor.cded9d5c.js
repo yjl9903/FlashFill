@@ -9437,7 +9437,7 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.29c4e66a.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.445838f9.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$5;
       const _component_carbon58maximize = __unplugin_components_1$1;
@@ -9592,7 +9592,7 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.77a37d6b.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.a7f99753.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9642,7 +9642,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.29c4e66a.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.445838f9.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -11714,6 +11714,21 @@ function getInt32Memory0() {
   }
   return cachegetInt32Memory0;
 }
+function dropObject(idx) {
+  if (idx < 36)
+    return;
+  heap[idx] = heap_next;
+  heap_next = idx;
+}
+function takeObject(idx) {
+  const ret = getObject(idx);
+  dropObject(idx);
+  return ret;
+}
+function run$1(inputs, results) {
+  var ret = wasm.run(addHeapObject(inputs), addHeapObject(results));
+  return takeObject(ret);
+}
 async function load(module, imports) {
   if (typeof Response === "function" && module instanceof Response) {
     if (typeof WebAssembly.instantiateStreaming === "function") {
@@ -11740,7 +11755,7 @@ async function load(module, imports) {
 }
 async function init(input) {
   if (typeof input === "undefined") {
-    input = new URL("/assets/flashfill_core_bg.b2e9ae75.wasm", self.location);
+    input = new URL("/assets/flashfill_core_bg.7186f200.wasm", self.location);
   }
   const imports = {};
   imports.wbg = {};
@@ -11759,6 +11774,9 @@ async function init(input) {
   imports.wbg.__wbg_log_28ec202ee0469987 = function(arg0, arg1) {
     console.log(getStringFromWasm0(arg0, arg1));
   };
+  imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
+    takeObject(arg0);
+  };
   if (typeof input === "string" || typeof Request === "function" && input instanceof Request || typeof URL === "function" && input instanceof URL) {
     input = fetch(input);
   }
@@ -11766,6 +11784,11 @@ async function init(input) {
   wasm = instance.exports;
   init.__wbindgen_wasm_module = module;
   return wasm;
+}
+let initialized = init();
+async function run(inputs, results) {
+  await initialized;
+  return run$1(inputs, results);
 }
 const _hoisted_1$a = {
   flex: "~",
@@ -11784,19 +11807,14 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
   },
   setup(__props) {
     const props = __props;
-    init().then((wasm2) => {
-      console.log("--- Run    ---");
-      let res = wasm2.run([
-        ["123", "456", "789"],
-        ["abc", "def", "ghi"]
-      ], [null, "123"]);
-      console.log("--- Result ---");
-      for (let line2 of res) {
-        console.log("Result:", line2);
-      }
+    const counter = ref(props.count);
+    run([
+      ["123", "456", "789"],
+      ["abc", "def", "ghi"]
+    ], [null, "123"]).then((res) => {
+      console.log(res);
       alert("FlashFill Ok");
     });
-    const counter = ref(props.count);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$a, [
         createBaseVNode("button", {
@@ -38209,7 +38227,7 @@ function useSwipeControls(root) {
   });
 }
 async function downloadPDF() {
-  const { saveAs } = await import("./FileSaver.min.3255206a.js").then(function(n) {
+  const { saveAs } = await import("./FileSaver.min.69a7cc23.js").then(function(n) {
     return n.F;
   });
   saveAs(isString$2(configs.download) ? configs.download : `${"/"}slidev-exported.pdf`, `${configs.title}.pdf`);
