@@ -1,5 +1,7 @@
 mod semantic;
 
+use std::collections::{hash_set, HashSet};
+
 use super::{CharItem, CharItems};
 
 #[derive(Debug, Clone)]
@@ -11,6 +13,8 @@ const ALL_PUNCTUATION: &'static [char] = &[
   '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=',
   '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~',
 ];
+
+const ALL_CHAR_SIZE: usize = 10 + 52 + 4 + ALL_PUNCTUATION.len();
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum Token {
@@ -131,11 +135,81 @@ impl Token {
   pub fn size(&self) -> usize {
     match self {
       Token::Chars(class) => class.size(),
-      Token::NotChars(_) => todo!(),
+      Token::NotChars(class) => ALL_CHAR_SIZE - class.size(),
       Token::Start => 1,
       Token::End => 1,
       Token::Punctuation(_) => 1,
-      Token::NotPunctuation(_) => todo!(),
+      Token::NotPunctuation(_) => ALL_CHAR_SIZE - 1,
+    }
+  }
+
+  pub fn split(&self) -> Vec<Token> {
+    match self {
+      Token::Chars(_) => vec![self.clone()],
+      Token::NotChars(class) => {
+        let all_punctuation = ALL_PUNCTUATION.iter().map(|p| Token::Punctuation(*p));
+        let mut all_char: HashSet<CharClass> = [
+          CharClass::Numeric,
+          CharClass::Uppercase,
+          CharClass::Lowercase,
+          CharClass::Whitespace,
+        ]
+        .iter()
+        .cloned()
+        .collect();
+
+        match class {
+          CharClass::Numeric => {
+            all_char.remove(&CharClass::Numeric);
+          }
+          CharClass::Alphabet => {
+            all_char.remove(&CharClass::Lowercase);
+            all_char.remove(&CharClass::Uppercase);
+          }
+          CharClass::Lowercase => {
+            all_char.remove(&CharClass::Lowercase);
+          }
+          CharClass::Uppercase => {
+            all_char.remove(&CharClass::Uppercase);
+          }
+          CharClass::AlphaNumeric => {
+            all_char.remove(&CharClass::Numeric);
+            all_char.remove(&CharClass::Lowercase);
+            all_char.remove(&CharClass::Uppercase);
+          }
+          CharClass::Whitespace => {
+            all_char.remove(&CharClass::Whitespace);
+          }
+          CharClass::All => {
+            return vec![];
+          }
+        };
+
+        all_char
+          .iter()
+          .map(|class| Token::Chars(class.clone()))
+          .chain(all_punctuation)
+          .collect()
+      }
+      Token::Start => vec![Token::Start],
+      Token::End => vec![Token::End],
+      Token::Punctuation(_) => vec![self.clone()],
+      Token::NotPunctuation(p) => [
+        Token::Chars(CharClass::Numeric),
+        Token::Chars(CharClass::Lowercase),
+        Token::Chars(CharClass::Uppercase),
+        Token::Chars(CharClass::Whitespace),
+      ]
+      .iter()
+      .cloned()
+      .chain(
+        ALL_PUNCTUATION
+          .iter()
+          .cloned()
+          .filter(|q| *p != *q)
+          .map(|q| Token::Punctuation(q)),
+      )
+      .collect(),
     }
   }
 }
@@ -157,7 +231,7 @@ impl CharClass {
       CharClass::Uppercase => 26,
       CharClass::AlphaNumeric => 10 + 52,
       CharClass::Whitespace => 4, // '\r', '\n', '\t', ' '
-      CharClass::All => 10 + 52 + 4,
+      CharClass::All => ALL_CHAR_SIZE,
     }
   }
 }

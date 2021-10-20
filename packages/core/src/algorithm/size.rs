@@ -1,4 +1,6 @@
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
+
+use crate::Token;
 
 use super::{AtomSet, Dag, ExprSet, PositionSet, RegExpSet};
 
@@ -57,7 +59,7 @@ impl PositionSet {
   pub fn size(&self) -> usize {
     match self {
       PositionSet::CPos(_) => 1,
-      PositionSet::Pos(r1, r2, _) => todo!(),
+      PositionSet::Pos(r1, r2, c) => r1.size() * r2.size() * c.len(),
       PositionSet::Empty => 0,
     }
   }
@@ -66,6 +68,18 @@ impl PositionSet {
 impl RegExpSet {
   pub fn size(&self) -> usize {
     let tokens = &self.tokens;
-    tokens.iter().fold(1, |res, token| res * 1)
+    tokens
+      .iter()
+      .fold(1, |res, tokens| res * RegExpSet::tokens_size(tokens))
+  }
+
+  fn tokens_size(tokens: &Vec<Token>) -> usize {
+    let mut set: HashSet<Token> = HashSet::new();
+    for token in tokens {
+      for token in token.split() {
+        set.insert(token);
+      }
+    }
+    set.iter().map(|token| token.size()).sum()
   }
 }
