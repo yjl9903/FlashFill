@@ -2,8 +2,6 @@ mod lang;
 
 mod algorithm;
 
-extern crate serde_json;
-
 use wasm_bindgen::prelude::*;
 
 // #[macro_use]
@@ -32,7 +30,7 @@ pub fn greet() {
 }
 
 #[wasm_bindgen]
-pub fn run(inputs: &JsValue, results: &JsValue) -> JsValue {
+pub fn run(inputs: JsValue, results: JsValue) -> JsValue {
   let inputs: Vec<Vec<String>> = inputs.into_serde().unwrap();
   let results: Vec<Option<String>> = results.into_serde().unwrap();
   let mut result: Vec<String> = algorithm::run(inputs.clone(), results);

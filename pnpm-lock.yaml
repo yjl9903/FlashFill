@@ -43,14 +43,11 @@ importers:
       '@slidev/theme-default': '*'
       '@slidev/theme-seriph': '*'
       flashfill-core: workspace:*
-      vite-plugin-rsw: ^1.10.0
     dependencies:
       '@slidev/cli': 0.27.2_typescript@4.4.3
       '@slidev/theme-default': 0.21.0
       '@slidev/theme-seriph': 0.21.0
       flashfill-core: link:../core
-    devDependencies:
-      vite-plugin-rsw: 1.10.0
 
 packages:
 
@@ -103,10 +100,6 @@ packages:
     dependencies:
       perfect-freehand: 1.0.13
     dev: false
-
-  /@iarna/toml/2.2.5:
-    resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
-    dev: true
 
   /@iconify-json/carbon/1.0.3:
     resolution: {integrity: sha512-ltobh3wpHVZelp9lEMnMYNwp4uoGO7cnBltl+tDeHgQ7qVW31JV9WdC9tOCT1zqovWmutvsmop/EcN2m74dcGA==}
@@ -2544,13 +2537,6 @@ packages:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
 
-  /rimraf/3.0.2:
-    resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
-    hasBin: true
-    dependencies:
-      glob: 7.1.6
-    dev: true
-
   /robust-predicates/3.0.1:
     resolution: {integrity: sha512-ndEIpszUHiG4HtDsQLeIuMvRsDnn8c8rYStabochtUeCvfuvNptb5TUbVD68LRAILPX7p9nqQGh4xJgn3EHS/g==}
     dev: false
@@ -2561,19 +2547,6 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
-
-  /rsw-node/1.0.2:
-    resolution: {integrity: sha512-V5Wu2GcFCTyYGlNeue95yGIBjBZVH3DA+z9SUyTENkTsX11HwqlZAxsWp891TseCzlcTJNA7i2isFZW+hngC+w==}
-    hasBin: true
-    dependencies:
-      chalk: 4.1.2
-      debug: 4.3.2
-      minimist: 1.2.5
-      rimraf: 3.0.2
-      which: 2.0.2
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
 
   /run-parallel/1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
@@ -2984,20 +2957,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: false
-
-  /vite-plugin-rsw/1.10.0:
-    resolution: {integrity: sha512-TnvoSGSDAxacZycCebYtmNM0H8Xa7mjx3JENI8RA1SrsMQSOKnjvky+uYcUwsYdIe4fVF6UHijg/FzFhHWQIyg==}
-    dependencies:
-      '@iarna/toml': 2.2.5
-      chalk: 4.1.2
-      chokidar: 3.5.2
-      debug: 4.3.2
-      fast-glob: 3.2.7
-      rsw-node: 1.0.2
-      which: 2.0.2
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
 
   /vite-plugin-vue-server-ref/0.2.4_vite@2.6.2+vue@3.2.19:
     resolution: {integrity: sha512-+WAiq0fSfP+LbmTbx2BkDrL6sGWrb0sUGZPk+G3ZbbmowFNh3TY+f+AV1ofce0rKs4hvH3zBuXxEAkTf/wQqRA==}

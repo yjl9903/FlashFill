@@ -11,8 +11,5 @@
     "@slidev/theme-default": "*",
     "@slidev/theme-seriph": "*",
     "flashfill-core": "workspace:*"
-  },
-  "devDependencies": {
-    "vite-plugin-rsw": "^1.10.0"
   }
 }
