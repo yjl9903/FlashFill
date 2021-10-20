@@ -1,1 +1,1 @@
-export function run(input: string[][]): string[];
+export function run(inputs: string[][], results: Array<string | undefined | null>): string[];

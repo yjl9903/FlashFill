@@ -32,9 +32,10 @@ pub fn greet() {
 }
 
 #[wasm_bindgen]
-pub fn run(js_objects: &JsValue) -> JsValue {
-  let inputs: Vec<Vec<String>> = js_objects.into_serde().unwrap();
-  let mut result: Vec<String> = Vec::new();
+pub fn run(inputs: &JsValue, results: &JsValue) -> JsValue {
+  let inputs: Vec<Vec<String>> = inputs.into_serde().unwrap();
+  let results: Vec<Option<String>> = results.into_serde().unwrap();
+  let mut result: Vec<String> = algorithm::run(inputs.clone(), results);
   for input in inputs {
     let line = input.join(", ");
     log(&line);
