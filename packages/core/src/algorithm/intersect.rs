@@ -11,11 +11,12 @@ impl Dag {
     let mut new_dag = Dag::new(lhs.len() * rhs.len(), new_start, new_end);
     for a in 0..lhs.len() {
       for b in 0..rhs.len() {
+        let new_from = a * rhs.len() + b;
         for (toa, fa) in lhs.edge_of(a) {
           for (tob, fb) in rhs.edge_of(b) {
             let new_to = toa * rhs.len() + tob;
             let new_f = AtomSet::intersect(fa, fb);
-            new_dag.add_edge(new_to, new_f.clone());
+            new_dag.add_edge(new_from, new_to, new_f.clone());
           }
         }
       }

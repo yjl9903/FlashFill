@@ -1,12 +1,12 @@
 use super::super::{Bool, Token};
 
 pub struct ExprSet {
-  switches: Vec<SwitchSet>,
+  pub switches: Vec<SwitchSet>,
 }
 
 pub struct SwitchSet {
-  condition: Bool,
-  trace: Dag,
+  pub condition: Bool,
+  pub trace: Dag,
 }
 
 #[derive(Clone)]
@@ -39,7 +39,7 @@ pub enum IntegerExpr {
 
 #[derive(Clone)]
 pub struct RegExpSet {
-  tokens: Vec<Vec<Token>>,
+  pub tokens: Vec<Vec<Token>>,
 }
 
 impl Dag {
@@ -67,8 +67,8 @@ impl Dag {
     self.edge.get(node).unwrap()
   }
 
-  pub fn add_edge(&mut self, to: usize, atomset: AtomSet) {
-    self.edge[to].push((to, atomset))
+  pub fn add_edge(&mut self, from: usize, to: usize, atomset: AtomSet) {
+    self.edge[from].push((to, atomset))
   }
 }
 

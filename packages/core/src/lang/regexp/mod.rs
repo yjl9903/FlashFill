@@ -7,6 +7,11 @@ pub struct RegExp {
   tokens: Vec<Token>,
 }
 
+const ALL_PUNCTUATION: &'static [char] = &[
+  '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=',
+  '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~',
+];
+
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum Token {
   Chars(CharClass),
@@ -70,10 +75,12 @@ impl Token {
   }
 
   pub fn punctuation(p: char) -> Token {
+    assert!(ALL_PUNCTUATION.contains(&p));
     Token::Punctuation(p)
   }
 
   pub fn not_punctuation(p: char) -> Token {
+    assert!(ALL_PUNCTUATION.contains(&p));
     Token::NotPunctuation(p)
   }
 
@@ -120,12 +127,37 @@ impl Token {
   pub fn all() -> Token {
     Token::Chars(CharClass::All)
   }
+
+  pub fn size(&self) -> usize {
+    match self {
+      Token::Chars(class) => class.size(),
+      Token::NotChars(_) => todo!(),
+      Token::Start => 1,
+      Token::End => 1,
+      Token::Punctuation(_) => 1,
+      Token::NotPunctuation(_) => todo!(),
+    }
+  }
 }
 
 impl From<Token> for RegExp {
   fn from(token: Token) -> Self {
     RegExp {
       tokens: vec![token],
+    }
+  }
+}
+
+impl CharClass {
+  pub fn size(&self) -> usize {
+    match self {
+      CharClass::Numeric => 10,
+      CharClass::Alphabet => 52,
+      CharClass::Lowercase => 26,
+      CharClass::Uppercase => 26,
+      CharClass::AlphaNumeric => 10 + 52,
+      CharClass::Whitespace => 4, // '\r', '\n', '\t', ' '
+      CharClass::All => 10 + 52 + 4,
     }
   }
 }
