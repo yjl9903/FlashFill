@@ -9437,7 +9437,7 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.b9d95fd7.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.29c4e66a.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$5;
       const _component_carbon58maximize = __unplugin_components_1$1;
@@ -9592,7 +9592,7 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.5702d90b.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.77a37d6b.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9642,7 +9642,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.b9d95fd7.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.29c4e66a.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -11784,7 +11784,18 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
   },
   setup(__props) {
     const props = __props;
-    init().then((wasm2) => wasm2.greet());
+    init().then((wasm2) => {
+      console.log("--- Run    ---");
+      let res = wasm2.run([
+        ["123", "456", "789"],
+        ["abc", "def", "ghi"]
+      ], [null, "123"]);
+      console.log("--- Result ---");
+      for (let line2 of res) {
+        console.log("Result:", line2);
+      }
+      alert("FlashFill Ok");
+    });
     const counter = ref(props.count);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$a, [
@@ -38198,7 +38209,7 @@ function useSwipeControls(root) {
   });
 }
 async function downloadPDF() {
-  const { saveAs } = await import("./FileSaver.min.3ebd8303.js").then(function(n) {
+  const { saveAs } = await import("./FileSaver.min.3255206a.js").then(function(n) {
     return n.F;
   });
   saveAs(isString$2(configs.download) ? configs.download : `${"/"}slidev-exported.pdf`, `${configs.title}.pdf`);
