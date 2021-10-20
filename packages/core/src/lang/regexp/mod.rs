@@ -7,7 +7,7 @@ pub struct RegExp {
   tokens: Vec<Token>,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum Token {
   Chars(CharClass),
   NotChars(CharClass),
@@ -17,7 +17,7 @@ pub enum Token {
   NotPunctuation(char),
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum CharClass {
   Numeric,
   Alphabet,
