@@ -4,7 +4,7 @@ use std::collections::HashSet;
 
 use super::{CharItem, CharItems};
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RegExp {
   tokens: Vec<Token>,
 }
@@ -58,6 +58,11 @@ pub enum Position {
 impl RegExp {
   pub fn new(tokens: Vec<Token>) -> RegExp {
     RegExp { tokens }
+  }
+
+  pub fn concat(mut r1: RegExp, mut r2: RegExp) -> RegExp {
+    r1.tokens.append(&mut r2.tokens);
+    RegExp::new(r1.tokens)
   }
 
   pub fn empty() -> RegExp {
@@ -140,6 +145,22 @@ impl Token {
       Token::End => 1,
       Token::Punctuation(_) => 1,
       Token::NotPunctuation(_) => ALL_CHAR_SIZE - 1,
+    }
+  }
+
+  pub fn find_token(c: char) -> Token {
+    if c.is_numeric() {
+      Token::numeric()
+    } else if c.is_lowercase() {
+      Token::lowercase()
+    } else if c.is_uppercase() {
+      Token::uppercase()
+    } else if c.is_whitespace() {
+      Token::whitespace()
+    } else if ALL_PUNCTUATION.contains(&c) {
+      Token::punctuation(c)
+    } else {
+      Token::all()
     }
   }
 

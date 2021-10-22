@@ -14,33 +14,24 @@ impl ExprSet {
 }
 
 impl Dag {
-  fn reverse(&self) -> Dag {
-    let mut new_dag = Dag::new(self.size(), self.end(), self.start());
-    for u in 0..self.len() {
-      for (v, f) in self.edge_of(u) {
-        new_dag.add_edge(*v, u, f.clone());
-      }
-    }
-    new_dag
-  }
-
   fn dfs(&self, u: usize, cache: &mut HashMap<usize, usize>) -> usize {
-    if u == self.end() {
+    if u == self.start() {
       return 1;
     }
     if let Some(sz) = cache.get(&u) {
       return *sz;
     }
     let mut sum = 0 as usize;
-    for (to, f) in self.edge_of(u) {
-      sum += self.dfs(*to, cache) * f.size();
+    for (to, f) in self.in_edge_of(u) {
+      let fsize: usize = f.iter().map(|f| f.size()).sum();
+      sum += self.dfs(*to, cache) * fsize;
     }
     cache.insert(u, sum);
     sum
   }
 
   pub fn size(&self) -> usize {
-    self.reverse().dfs(self.end(), &mut HashMap::new())
+    self.dfs(self.end(), &mut HashMap::new())
   }
 }
 
@@ -48,9 +39,12 @@ impl AtomSet {
   pub fn size(&self) -> usize {
     match self {
       AtomSet::LoopSet(e) => e.size(),
-      AtomSet::SubStrSet(_, pj, pk) => pj.size() * pk.size(),
+      AtomSet::SubStrSet(_, pj, pk) => {
+        let jsize: usize = pj.iter().map(|p| p.size()).sum();
+        let ksize: usize = pk.iter().map(|p| p.size()).sum();
+        jsize * ksize
+      }
       AtomSet::ConstStr(_) => 1,
-      AtomSet::Empty => 0,
     }
   }
 }
@@ -60,7 +54,6 @@ impl PositionSet {
     match self {
       PositionSet::CPos(_) => 1,
       PositionSet::Pos(r1, r2, c) => r1.size() * r2.size() * c.len(),
-      PositionSet::Empty => 0,
     }
   }
 }

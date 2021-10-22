@@ -66,6 +66,27 @@ impl RegExp {
   pub fn run<'a>(&'a self, input: &'a CharItems) -> RegExpMatches {
     RegExpMatches::new(self, input)
   }
+
+  pub fn generate(input: &CharItems) -> RegExp {
+    let mut tokens = Vec::new();
+    for ch in input.iter() {
+      match ch {
+        CharItem::Start => {
+          tokens.push(Token::Start);
+        }
+        CharItem::End => {
+          tokens.push(Token::End);
+        }
+        CharItem::Char(c) => {
+          let token = Token::find_token(*c);
+          if tokens.last() != Some(&token) {
+            tokens.push(token);
+          }
+        }
+      }
+    }
+    RegExp::new(tokens)
+  }
 }
 
 impl Token {

@@ -1,13 +1,14 @@
 use std::ops::Deref;
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum CharItem {
   Start,
   End,
   Char(char),
 }
 
-pub struct CharItems(pub Vec<CharItem>);
+#[derive(Debug, Clone, PartialEq)]
+pub struct CharItems(Vec<CharItem>);
 
 impl Deref for CharItems {
   type Target = Vec<CharItem>;
@@ -27,6 +28,13 @@ impl From<&String> for CharItems {
       ]
       .concat(),
     )
+  }
+}
+
+impl From<String> for CharItems {
+  fn from(s: String) -> Self {
+    let s = &s;
+    s.into()
   }
 }
 
