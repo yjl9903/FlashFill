@@ -7,7 +7,7 @@ importers:
       '@types/node': ^16.10.2
       flashfill: workspace:*
       lint-staged: ^11.1.2
-      pnpm: ^6.17.0
+      pnpm: ^6.18.0
       prettier: ^2.4.1
       simple-git-hooks: ^2.6.1
       tsup: ^5.2.1
@@ -17,7 +17,7 @@ importers:
       '@types/node': 16.10.2
       flashfill: link:packages/cli
       lint-staged: 11.1.2
-      pnpm: 6.17.0
+      pnpm: 6.18.0
       prettier: 2.4.1
       simple-git-hooks: 2.6.1
       tsup: 5.2.1_typescript@4.4.3
@@ -2418,8 +2418,8 @@ packages:
       semver-compare: 1.0.0
     dev: true
 
-  /pnpm/6.17.0:
-    resolution: {integrity: sha512-EgwdelfAtv5ld5J9vYLqgBjPeqjjr298o9nkVW7prT8aUFLsVet2rIP8FjdTBk7ApYDldJ2HWTkmp0qGqf1ONA==}
+  /pnpm/6.18.0:
+    resolution: {integrity: sha512-YGm1Dz8IG7szmYkpGx9WXXeidn340oSjrquCizkr9R2Pmp4NyPB8815xvaL8n0EI0fTe5+0Edx4KVAbHYF1ItA==}
     engines: {node: '>=12.17'}
     hasBin: true
     dev: true
