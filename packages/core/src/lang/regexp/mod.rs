@@ -1,6 +1,6 @@
 mod semantic;
 
-use std::collections::HashSet;
+use std::collections::{HashMap, HashSet};
 
 use super::{CharItem, CharItems};
 
@@ -16,7 +16,7 @@ const ALL_PUNCTUATION: &'static [char] = &[
 
 const ALL_CHAR_SIZE: usize = 10 + 52 + 4 + ALL_PUNCTUATION.len();
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum Token {
   Chars(CharClass),
   NotChars(CharClass),
@@ -26,7 +26,7 @@ pub enum Token {
   NotPunctuation(char),
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum CharClass {
   Numeric,
   Alphabet,
@@ -71,6 +71,10 @@ impl RegExp {
 
   pub fn is_empty(&self) -> bool {
     self.tokens.is_empty()
+  }
+
+  pub fn iter(&self) -> std::slice::Iter<Token> {
+    self.tokens.iter()
   }
 }
 
@@ -164,7 +168,57 @@ impl Token {
     }
   }
 
-  pub fn split(&self) -> Vec<Token> {
+  pub fn split(input: &CharItems) -> HashMap<Token, Vec<Token>> {
+    let mut group: HashMap<Vec<usize>, Vec<Token>> = HashMap::new();
+
+    [
+      CharClass::Numeric,
+      CharClass::Alphabet,
+      CharClass::Lowercase,
+      CharClass::Uppercase,
+      CharClass::AlphaNumeric,
+      CharClass::Whitespace,
+      CharClass::All,
+    ]
+    .iter()
+    .map(|class| [Token::Chars(class.clone()), Token::NotChars(class.clone())])
+    .chain(
+      ALL_PUNCTUATION
+        .iter()
+        .cloned()
+        .map(|p| [Token::Punctuation(p), Token::NotPunctuation(p)]),
+    )
+    .chain([[Token::Start, Token::End]])
+    .flatten()
+    .for_each(|token| {
+      let matched: Vec<usize> = input
+        .iter()
+        .enumerate()
+        .filter(|(_, c)| token.test(**c))
+        .map(|(index, _)| index)
+        .collect();
+      if !matched.is_empty() {
+        if !group.contains_key(&matched) {
+          group.insert(matched.clone(), Vec::new());
+        }
+        let group = group.get_mut(&matched).unwrap();
+        group.push(token);
+      }
+    });
+
+    group
+      .values()
+      .cloned()
+      .map(|g| {
+        g.iter()
+          .map(|token| (token.clone(), g.clone()))
+          .collect::<Vec<(Token, Vec<Token>)>>()
+      })
+      .flatten()
+      .collect()
+  }
+
+  pub fn norm(&self) -> Vec<Token> {
     match self {
       Token::Chars(_) => vec![self.clone()],
       Token::NotChars(class) => {

@@ -69,7 +69,7 @@ impl RegExpSet {
   fn tokens_size(tokens: &Vec<Token>) -> usize {
     let mut set: HashSet<Token> = HashSet::new();
     for token in tokens {
-      for token in token.split() {
+      for token in token.norm() {
         set.insert(token);
       }
     }

@@ -2,11 +2,13 @@ mod intersect;
 mod set;
 mod size;
 
+use std::collections::HashMap;
+
 pub(crate) use set::*;
 // pub(crate) use intersect::*;
 // pub(crate) use size::*;
 
-use crate::{CharItems, RegExp};
+use crate::{CharItems, RegExp, Token};
 
 pub fn run(input: Vec<Vec<String>>, result: Vec<Option<String>>) -> Vec<String> {
   let examples: Vec<(Vec<CharItems>, CharItems)> = result
@@ -80,6 +82,7 @@ fn generate_position(input: &CharItems, k: usize) -> Vec<PositionSet> {
     let reg = RegExp::generate(&input.into());
     reg_right.push((i, reg));
   }
+  let grouped = Token::split(input);
   for (l, r1) in reg_left.iter() {
     for (r, r2) in reg_right.iter() {
       let r12 = RegExp::concat(r1.clone(), r2.clone());
@@ -91,8 +94,8 @@ fn generate_position(input: &CharItems, k: usize) -> Vec<PositionSet> {
       {
         if *l == x && *r == y {
           let w = r12.run(input).count();
-          let r1 = generate_regex(r1, input);
-          let r2 = generate_regex(r2, input);
+          let r1 = generate_regex(r1, &grouped);
+          let r2 = generate_regex(r2, &grouped);
           result.push(PositionSet::Pos(
             r1,
             r2,
@@ -108,6 +111,11 @@ fn generate_position(input: &CharItems, k: usize) -> Vec<PositionSet> {
   result
 }
 
-fn generate_regex(_reg: &RegExp, _input: &CharItems) -> RegExpSet {
-  todo!()
+fn generate_regex(reg: &RegExp, grouped: &HashMap<Token, Vec<Token>>) -> RegExpSet {
+  RegExpSet {
+    tokens: reg
+      .iter()
+      .map(|token| grouped.get(token).unwrap().clone())
+      .collect(),
+  }
 }
