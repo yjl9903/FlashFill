@@ -43,3 +43,9 @@ impl From<&[CharItem]> for CharItems {
     CharItems(items.into())
   }
 }
+
+impl From<Vec<CharItem>> for CharItems {
+  fn from(items: Vec<CharItem>) -> Self {
+    CharItems(items)
+  }
+}

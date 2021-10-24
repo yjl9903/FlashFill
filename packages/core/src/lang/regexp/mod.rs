@@ -323,3 +323,70 @@ macro_rules! regexp {
     }
   };
 }
+
+#[cfg(test)]
+mod test_split {
+  use crate::lang::regexp::ALL_PUNCTUATION;
+  use crate::*;
+
+  #[test]
+  fn test_simple_split() {
+    let input = vec![
+      CharItem::Start,
+      CharItem::Char('a'),
+      CharItem::Char('b'),
+      CharItem::Char('c'),
+      CharItem::End,
+    ];
+
+    let out = Token::split(&input.into());
+
+    assert!(out.contains_key(&Token::Start));
+    assert!(out.contains_key(&Token::End));
+    assert!(out.contains_key(&Token::Chars(CharClass::Alphabet)));
+    assert!(out.contains_key(&Token::Chars(CharClass::Lowercase)));
+    assert!(!out.contains_key(&Token::Chars(CharClass::Uppercase)));
+    assert!(!out.contains_key(&Token::Chars(CharClass::Numeric)));
+    assert_ne!(
+      out.get(&Token::Start).unwrap(),
+      out.get(&Token::Chars(CharClass::AlphaNumeric)).unwrap()
+    );
+    assert_ne!(
+      out.get(&Token::End).unwrap(),
+      out.get(&Token::Chars(CharClass::AlphaNumeric)).unwrap()
+    );
+
+    for &p in ALL_PUNCTUATION {
+      assert!(out.contains_key(&Token::NotPunctuation(p)));
+    }
+  }
+
+  #[test]
+  fn test_lower_upper_numeric() {
+    let input = vec![
+      CharItem::Start,
+      CharItem::Char('a'),
+      CharItem::Char('B'),
+      CharItem::Char('C'),
+      CharItem::Char('1'),
+      CharItem::Char('2'),
+      CharItem::Char('3'),
+      CharItem::End,
+    ];
+
+    let out = Token::split(&input.into());
+
+    assert_ne!(
+      out.get(&Token::Chars(CharClass::Numeric)).unwrap(),
+      out.get(&Token::Chars(CharClass::Lowercase)).unwrap()
+    );
+    assert_ne!(
+      out.get(&Token::Chars(CharClass::Numeric)).unwrap(),
+      out.get(&Token::Chars(CharClass::Uppercase)).unwrap()
+    );
+    assert_ne!(
+      out.get(&Token::Chars(CharClass::Lowercase)).unwrap(),
+      out.get(&Token::Chars(CharClass::Uppercase)).unwrap()
+    );
+  }
+}
