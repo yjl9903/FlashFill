@@ -26,7 +26,7 @@ impl Dag {
         }
       }
     }
-    new_dag
+    new_dag.minimize()
   }
 }
 

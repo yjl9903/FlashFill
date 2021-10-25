@@ -46,7 +46,7 @@ fn generate_str(input: &Vec<CharItems>, output: &CharItems) -> Dag {
       dag.add_edge(i, j, AtomSet::ConstStr(const_str));
     }
   }
-  dag
+  dag.minimize()
 }
 
 fn generate_substring(input: &Vec<CharItems>, output: &CharItems) -> Vec<AtomSet> {

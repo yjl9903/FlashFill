@@ -1,4 +1,4 @@
-use std::collections::{HashMap, HashSet};
+use std::collections::{HashMap, HashSet, LinkedList};
 
 use crate::CharItems;
 
@@ -102,6 +102,57 @@ impl Dag {
     }
     let rev_edges = self.rev_edge.get_mut(&to).unwrap();
     rev_edges.insert(from);
+  }
+
+  pub fn minimize(&self) -> Dag {
+    let mut visited_forward: HashSet<usize> = HashSet::new();
+    let mut visited_backward: HashSet<usize> = HashSet::new();
+    {
+      let mut queue: LinkedList<usize> = LinkedList::new();
+      queue.push_back(self.start);
+      while let Some(cur) = queue.pop_front() {
+        visited_forward.insert(cur);
+        for (to, _) in self.edge_of(cur) {
+          if !visited_forward.contains(to) {
+            queue.push_back(to.clone());
+          }
+        }
+      }
+    }
+    {
+      let mut queue: LinkedList<usize> = LinkedList::new();
+      queue.push_back(self.end);
+      while let Some(cur) = queue.pop_front() {
+        visited_backward.insert(cur);
+        for (to, _) in self.in_edge_of(cur) {
+          if !visited_backward.contains(to) {
+            queue.push_back(to.clone());
+          }
+        }
+      }
+    }
+    let visited: HashMap<usize, usize> = visited_forward
+      .iter()
+      .cloned()
+      .filter(|v| visited_backward.contains(v))
+      .enumerate()
+      .map(|(val, key)| (key, val))
+      .collect();
+    let mut dag = Dag::new(
+      visited.len(),
+      *visited.get(&self.start).unwrap(),
+      *visited.get(&self.end).unwrap(),
+    );
+    for (old_from, from) in visited.iter() {
+      for (old_to, f) in self.edge_of(*old_from) {
+        if let Some(to) = visited.get(old_to) {
+          for atomset in f {
+            dag.add_edge(*from, *to, atomset.clone());
+          }
+        }
+      }
+    }
+    dag
   }
 }
 
