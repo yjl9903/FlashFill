@@ -1,6 +1,8 @@
 mod lang;
 
-mod algorithm;
+pub mod algorithm;
+
+pub use lang::*;
 
 use wasm_bindgen::prelude::*;
 
@@ -17,8 +19,6 @@ extern "C" {
   #[wasm_bindgen(js_namespace = console)]
   fn log(s: &str);
 }
-
-pub use lang::*;
 
 #[wasm_bindgen]
 pub fn greet() {

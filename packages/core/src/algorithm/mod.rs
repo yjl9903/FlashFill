@@ -1,14 +1,15 @@
 mod intersect;
+mod rank;
 mod set;
 mod size;
-
-use std::collections::HashMap;
 
 pub(crate) use set::*;
 // pub(crate) use intersect::*;
 // pub(crate) use size::*;
 
-use crate::{CharItems, RegExp, Token};
+use std::collections::HashMap;
+
+use crate::{CharItems, Expr, RegExp, Token};
 
 pub fn run(input: Vec<Vec<String>>, result: Vec<Option<String>>) -> Vec<String> {
   let examples: Vec<(Vec<CharItems>, CharItems)> = result
@@ -22,17 +23,30 @@ pub fn run(input: Vec<Vec<String>>, result: Vec<Option<String>>) -> Vec<String> 
     })
     .collect();
 
-  generate_string_program(examples);
+  let expr = generate_string_program(examples.clone());
 
-  // examples.iter().map(|(_, result)| result.clone()).collect()
-  vec![String::from("123")]
+  if let Some(expr) = expr {
+    println!("{:?}", expr);
+
+    result
+      .into_iter()
+      .enumerate()
+      .map(|(index, res)| res.unwrap_or_else(|| expr.run(&input[index])))
+      .collect()
+  } else {
+    Vec::new()
+  }
 }
 
-fn generate_string_program(examples: Vec<(Vec<CharItems>, CharItems)>) {
+fn generate_string_program(examples: Vec<(Vec<CharItems>, CharItems)>) -> Option<Expr> {
+  println!("Start gen");
   let mut dags: Vec<Dag> = Vec::new();
   for (input, output) in examples {
     dags.push(generate_str(&input, &output));
   }
+  println!("End gen");
+  let dag = dags.remove(0);
+  dag.rank().map(|t| Expr::single(t))
 }
 
 fn generate_str(input: &Vec<CharItems>, output: &CharItems) -> Dag {
@@ -50,6 +64,7 @@ fn generate_str(input: &Vec<CharItems>, output: &CharItems) -> Dag {
 }
 
 fn generate_substring(input: &Vec<CharItems>, output: &CharItems) -> Vec<AtomSet> {
+  println!("start substring {:?}", output);
   let mut result: Vec<AtomSet> = Vec::new();
   for (index, text) in input.iter().enumerate() {
     for i in 0..text.len() {
@@ -100,7 +115,7 @@ fn generate_position(input: &CharItems, k: usize) -> Vec<PositionSet> {
             r1,
             r2,
             vec![
-              IntegerExpr::Pos(index as i32),
+              IntegerExpr::Pos(index as i32 + 1),
               IntegerExpr::Pos(-(w as i32 - index as i32)),
             ],
           ));

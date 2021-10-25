@@ -1,6 +1,6 @@
 use std::collections::{HashMap, HashSet, LinkedList};
 
-use crate::{Bool, CharItems, Token, Trace};
+use crate::{Bool, CharItems, Token};
 
 pub struct ExprSet {
   pub switches: Vec<SwitchSet>,
@@ -11,7 +11,7 @@ pub struct SwitchSet {
   pub trace: Dag,
 }
 
-#[derive(Clone)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct Dag {
   size: usize,
   start: usize,
@@ -20,14 +20,14 @@ pub struct Dag {
   rev_edge: HashMap<usize, HashSet<usize>>,
 }
 
-#[derive(Clone)]
+#[derive(Clone, PartialEq, Eq)]
 pub enum AtomSet {
   LoopSet(Dag),
   SubStrSet(usize, Vec<PositionSet>, Vec<PositionSet>),
   ConstStr(CharItems),
 }
 
-#[derive(Clone)]
+#[derive(Clone, PartialEq, Eq)]
 pub enum PositionSet {
   CPos(i32),
   Pos(RegExpSet, RegExpSet, Vec<IntegerExpr>),
@@ -39,7 +39,7 @@ pub enum IntegerExpr {
   Loop(i32, i32),
 }
 
-#[derive(Clone)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct RegExpSet {
   pub tokens: Vec<Vec<Token>>,
 }

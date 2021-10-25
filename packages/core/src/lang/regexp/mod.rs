@@ -1,3 +1,4 @@
+mod ord;
 mod semantic;
 
 use std::collections::{HashMap, HashSet};
@@ -6,7 +7,7 @@ use super::{CharItem, CharItems};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RegExp {
-  tokens: Vec<Token>,
+  pub tokens: Vec<Token>,
 }
 
 const ALL_PUNCTUATION: &'static [char] = &[
@@ -16,7 +17,7 @@ const ALL_PUNCTUATION: &'static [char] = &[
 
 const ALL_CHAR_SIZE: usize = 10 + 52 + 4 + ALL_PUNCTUATION.len();
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum Token {
   Chars(CharClass),
   NotChars(CharClass),
@@ -26,7 +27,7 @@ pub enum Token {
   NotPunctuation(char),
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum CharClass {
   Numeric,
   Alphabet,
@@ -37,10 +38,10 @@ pub enum CharClass {
   All,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Match(pub usize, pub RegExp, pub usize);
 
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Position {
   CPos(i32),
   /**
@@ -67,6 +68,10 @@ impl RegExp {
 
   pub fn empty() -> RegExp {
     RegExp { tokens: Vec::new() }
+  }
+
+  pub fn len(&self) -> usize {
+    self.tokens.len()
   }
 
   pub fn is_empty(&self) -> bool {

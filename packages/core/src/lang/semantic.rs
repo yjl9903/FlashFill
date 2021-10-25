@@ -41,16 +41,6 @@ impl Expr {
     }
     panic!("Expr must have a default branch");
   }
-
-  pub fn run_sub(&self, context: &mut ExprRunContext) -> Result<(), ExprRunError> {
-    for Switch { condition, trace } in &self.switches {
-      if condition.test(context) {
-        trace.run(context)?;
-      }
-      return Ok(());
-    }
-    Err(ExprRunError("No matched branch".into()))
-  }
 }
 
 impl Trace {
@@ -92,7 +82,7 @@ impl Atom {
       Atom::Loop(sub_expr) => {
         for i in 1.. {
           let mut sub_context = context.index(i);
-          if let Err(_) = sub_expr.run_sub(&mut sub_context) {
+          if let Err(_) = sub_expr.run(&mut sub_context) {
             break;
           }
         }

@@ -29,12 +29,12 @@ pub enum Predicate {
   NotMatchPredicate(Match),
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Trace {
   pub atoms: Vec<Atom>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Atom {
   SubStr {
     index: usize,
@@ -42,7 +42,7 @@ pub enum Atom {
     right: Position,
   },
   ConstStr(String),
-  Loop(Expr),
+  Loop(Trace),
 }
 
 impl Expr {
@@ -63,6 +63,10 @@ impl Expr {
 impl Trace {
   pub fn new(atoms: Vec<Atom>) -> Trace {
     Trace { atoms }
+  }
+
+  pub fn len(&self) -> usize {
+    self.atoms.len()
   }
 }
 
@@ -224,7 +228,7 @@ macro_rules! match_substr {
 #[macro_export]
 macro_rules! atom_loop {
   [ $( $x: expr ), * ] => {
-    Atom::Loop(expr![$($x),*])
+    Atom::Loop(Trace::new(vec![$($x),*]))
   };
 }
 

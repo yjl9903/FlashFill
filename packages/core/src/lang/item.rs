@@ -7,7 +7,7 @@ pub enum CharItem {
   Char(char),
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CharItems(Vec<CharItem>);
 
 impl Deref for CharItems {
@@ -47,5 +47,18 @@ impl From<&[CharItem]> for CharItems {
 impl From<Vec<CharItem>> for CharItems {
   fn from(items: Vec<CharItem>) -> Self {
     CharItems(items)
+  }
+}
+
+impl ToString for CharItems {
+  fn to_string(&self) -> String {
+    let mut text = String::new();
+    for item in &self.0 {
+      match item {
+        CharItem::Char(c) => text.push(*c),
+        _ => {}
+      };
+    }
+    text
   }
 }
