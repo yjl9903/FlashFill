@@ -1,8 +1,6 @@
 use std::collections::{HashMap, HashSet, LinkedList};
 
-use crate::CharItems;
-
-use super::super::{Bool, Token};
+use crate::{Bool, CharItems, Token, Trace};
 
 pub struct ExprSet {
   pub switches: Vec<SwitchSet>,
