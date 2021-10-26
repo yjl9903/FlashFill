@@ -3,7 +3,7 @@ use std::{
   rc::Rc,
 };
 
-use crate::{CharClass, CharItems, Token, ALL_PUNCTUATION};
+use crate::{CharClass, CharItems, Token, ALL_PUNCTUATION, ALL_PUNCTUATION_SET};
 
 pub struct SplitResult {
   cache: Vec<Option<Rc<Vec<Token>>>>,
@@ -31,6 +31,21 @@ impl SplitResult {
 
 impl Token {
   pub fn split(input: &CharItems) -> SplitResult {
+    let exist_punc: HashSet<char> = input
+      .iter()
+      .filter_map(|c| match c {
+        crate::CharItem::Start => None,
+        crate::CharItem::End => None,
+        crate::CharItem::Char(p) => {
+          if ALL_PUNCTUATION_SET.contains(p) {
+            Some(*p)
+          } else {
+            None
+          }
+        }
+      })
+      .collect();
+
     let mut group: HashMap<Vec<usize>, Vec<Token>> = HashMap::new();
 
     [
@@ -48,6 +63,7 @@ impl Token {
       ALL_PUNCTUATION
         .iter()
         .cloned()
+        .filter(|p| exist_punc.contains(p))
         .map(|p| [Token::Punctuation(p), Token::NotPunctuation(p)]),
     )
     .chain([[Token::Start, Token::End]])

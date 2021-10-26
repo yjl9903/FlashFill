@@ -10,6 +10,12 @@ pub enum CharItem {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CharItems(Vec<CharItem>);
 
+impl CharItems {
+  pub fn same(&self, items: Vec<CharItem>) -> bool {
+    self.0 == items
+  }
+}
+
 impl Deref for CharItems {
   type Target = Vec<CharItem>;
 

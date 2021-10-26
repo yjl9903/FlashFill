@@ -1,7 +1,7 @@
 use core::panic;
 use std::collections::HashMap;
 
-use crate::{Atom, CharItems, Position, RegExp, Trace};
+use crate::{Atom, CharItems, Position, RegExp, Token, Trace};
 
 use super::{AtomSet, Dag, IntegerExpr, PositionSet, RegExpSet};
 
@@ -11,7 +11,7 @@ impl Dag {
     cur: usize,
     all_path: &mut Vec<Trace>,
     stack: &mut Vec<Atom>,
-    edges: &mut HashMap<(usize, usize), Atom>,
+    edges: &mut HashMap<(usize, usize), Option<Atom>>,
   ) {
     if all_path.len() == 100 {
       return;
@@ -22,28 +22,43 @@ impl Dag {
     }
     for (to, f) in self.edge_of(cur) {
       if !edges.contains_key(&(cur, *to)) {
-        if let Some(atom) = AtomSet::rank(f) {
-          edges.insert((cur, *to), atom);
-        }
+        // println!("--------");
+        let atomset = AtomSet::rank(f);
+        // println!("Atom: {:?}", atomset);
+        // println!("--------");
+        edges.insert((cur, *to), atomset);
       }
       let f = edges.get(&(cur, *to)).unwrap();
-      stack.push(f.clone());
-      self.r_dfs(*to, all_path, stack, edges);
-      stack.pop();
+      if let Some(f) = f {
+        stack.push(f.clone());
+        self.r_dfs(*to, all_path, stack, edges);
+        stack.pop();
+      }
     }
   }
 
   pub fn rank(&self) -> Option<Trace> {
     let mut all_path: Vec<Trace> = Vec::new();
     let mut stack: Vec<Atom> = vec![];
-    let mut edges: HashMap<(usize, usize), Atom> = HashMap::new();
+    let mut edges: HashMap<(usize, usize), Option<Atom>> = HashMap::new();
 
     self.r_dfs(self.start(), &mut all_path, &mut stack, &mut edges);
 
-    println!("Path count: {:?}", all_path.len());
-    for path in all_path.iter() {
-      println!("Trace: {:?}", path);
+    {
+      println!("Start: {:?}", self.start());
+      println!("End: {:?}", self.end());
+      println!("---");
+      for ((u, v), f) in edges.into_iter() {
+        println!("{:?}\n{:?}\n{:?}\n---", u, f, v);
+      }
     }
+
+    all_path.sort();
+
+    // println!("Path count: {:?}", all_path.len());
+    // for path in all_path.iter() {
+    //   println!("Trace: {:?}", path);
+    // }
 
     all_path.into_iter().min()
   }
@@ -187,7 +202,7 @@ impl PositionSet {
           PositionSet::CPos(p) => Some(*p),
           PositionSet::Pos(_, _, _) => None,
         })
-        .max()
+        .min()
         .map(|k| Position::CPos(k))
     }
   }
@@ -195,10 +210,52 @@ impl PositionSet {
 
 impl RegExpSet {
   fn rank(rset: &RegExpSet) -> Option<RegExp> {
-    rset
+    let tokens: Vec<Option<&Token>> = rset
       .tokens
       .iter()
-      .map(|tokens| RegExp::new(tokens.iter().cloned().collect()))
-      .min()
+      .map(|tokens| tokens.iter().min().clone())
+      .collect();
+    if tokens.contains(&None) {
+      None
+    } else {
+      Some(RegExp::new(
+        tokens.into_iter().map(|t| t.unwrap().clone()).collect(),
+      ))
+    }
+  }
+}
+
+#[cfg(test)]
+mod test_rank {
+  use crate::{algorithm::*, Atom, Position};
+
+  #[test]
+  fn test_atomset() {
+    let atomset = vec![
+      AtomSet::SubStrSet(0, vec![PositionSet::CPos(0)], vec![PositionSet::CPos(3)]),
+      AtomSet::SubStrSet(
+        0,
+        vec![PositionSet::Pos(
+          RegExpSet::new(vec![vec![Token::Start]]),
+          RegExpSet::new(vec![vec![Token::numeric()]]),
+          vec![IntegerExpr::Pos(1)],
+        )],
+        vec![PositionSet::Pos(
+          RegExpSet::new(vec![vec![Token::numeric()]]),
+          RegExpSet::new(vec![vec![Token::End]]),
+          vec![IntegerExpr::Pos(1)],
+        )],
+      ),
+    ];
+
+    let atom = AtomSet::rank(&atomset);
+    assert_ne!(
+      atom,
+      Some(Atom::SubStr {
+        index: 0,
+        left: Position::CPos(0),
+        right: Position::CPos(3)
+      })
+    );
   }
 }

@@ -65,6 +65,16 @@ impl Trace {
     Trace { atoms }
   }
 
+  pub fn is_const(&self) -> bool {
+    self.atoms.iter().all(|atom| {
+      if let Atom::ConstStr(_) = atom {
+        true
+      } else {
+        false
+      }
+    })
+  }
+
   pub fn len(&self) -> usize {
     self.atoms.len()
   }

@@ -4,6 +4,10 @@ mod split;
 
 pub use split::SplitResult;
 
+use std::collections::HashSet;
+
+use lazy_static::lazy_static;
+
 use super::{CharItem, CharItems};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -18,6 +22,10 @@ pub const ALL_PUNCTUATION: &'static [char] = &[
 ];
 
 const ALL_CHAR_SIZE: usize = 10 + 52 + 4 + ALL_PUNCTUATION.len();
+
+lazy_static! {
+  pub static ref ALL_PUNCTUATION_SET: HashSet<char> = { ALL_PUNCTUATION.iter().cloned().collect() };
+}
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum Token {
@@ -95,12 +103,12 @@ impl Token {
   }
 
   pub fn punctuation(p: char) -> Token {
-    assert!(ALL_PUNCTUATION.contains(&p));
+    assert!(ALL_PUNCTUATION_SET.contains(&p));
     Token::Punctuation(p)
   }
 
   pub fn not_punctuation(p: char) -> Token {
-    assert!(ALL_PUNCTUATION.contains(&p));
+    assert!(ALL_PUNCTUATION_SET.contains(&p));
     Token::NotPunctuation(p)
   }
 

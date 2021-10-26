@@ -2,7 +2,12 @@ use crate::{Atom, Trace};
 
 impl Ord for Trace {
   fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-    if self.len() != other.len() {
+    // self.atoms.cmp(&other.atoms)
+    let c1 = self.is_const();
+    let c2 = other.is_const();
+    if c1 || c2 {
+      c1.cmp(&c2)
+    } else if self.len() != other.len() {
       self.len().cmp(&other.len())
     } else if self == other {
       std::cmp::Ordering::Equal
@@ -59,13 +64,7 @@ impl Ord for Atom {
           },
         ) => {
           if i1 == i2 {
-            if l1 < l2 && r1 < r2 {
-              std::cmp::Ordering::Less
-            } else if l1 == l2 && r1 == r2 {
-              std::cmp::Ordering::Equal
-            } else {
-              std::cmp::Ordering::Greater
-            }
+            (l1, r1).cmp(&(l2, r2))
           } else {
             i1.cmp(i2)
           }

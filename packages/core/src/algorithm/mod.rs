@@ -24,7 +24,7 @@ pub fn run(input: Vec<Vec<String>>, result: Vec<Option<String>>) -> Vec<String> 
   let expr = generate_string_program(examples.clone());
 
   if let Some(expr) = expr {
-    println!("{:?}", expr);
+    println!("{:#?}", expr);
 
     result
       .into_iter()
@@ -48,9 +48,9 @@ fn generate_string_program(examples: Vec<(Vec<CharItems>, CharItems)>) -> Option
 }
 
 fn generate_str(input: &Vec<CharItems>, output: &CharItems) -> Dag {
-  let mut dag = Dag::new(output.len(), 0, output.len() - 1);
+  let mut dag = Dag::new(output.len() + 1, 0, output.len());
   for i in 0..output.len() {
-    for j in i + 1..output.len() {
+    for j in i + 1..=output.len() {
       let const_str: CharItems = (&output[i..j]).into();
       for atomset in generate_substring(input, &const_str) {
         dag.add_edge(i, j, atomset)
@@ -70,10 +70,13 @@ fn generate_substring(input: &Vec<CharItems>, output: &CharItems) -> Vec<AtomSet
         break;
       }
       // i .. i + output.len()
-      // cache (index, i) position
-      let y1 = generate_position(text, i);
-      let y2 = generate_position(text, i + output.len());
-      result.push(AtomSet::SubStrSet(index, y1, y2));
+      let sub_text = (&text[i..i + output.len()]).to_vec();
+      if output.same(sub_text) {
+        // cache (index, i) position
+        let y1 = generate_position(text, i);
+        let y2 = generate_position(text, i + output.len());
+        result.push(AtomSet::SubStrSet(index, y1, y2));
+      }
     }
   }
   // sort atomset
@@ -148,7 +151,20 @@ fn generate_position(input: &CharItems, k: usize) -> Vec<PositionSet> {
       }
     }
   }
-  // sort position set
+
+  result.sort_by(|a, b| match (a, b) {
+    (PositionSet::CPos(k1), PositionSet::CPos(k2)) => k1.cmp(k2),
+    (PositionSet::Pos(r11, r12, _), PositionSet::Pos(r21, r22, _)) => {
+      match (r11.len(), r12.len()).cmp(&(r21.len(), r22.len())) {
+        std::cmp::Ordering::Less => std::cmp::Ordering::Less,
+        std::cmp::Ordering::Equal => (r11.size(), r12.size()).cmp(&(r21.size(), r22.size())),
+        std::cmp::Ordering::Greater => std::cmp::Ordering::Greater,
+      }
+    }
+    (PositionSet::CPos(_), PositionSet::Pos(_, _, _)) => std::cmp::Ordering::Greater,
+    (PositionSet::Pos(_, _, _), PositionSet::CPos(_)) => std::cmp::Ordering::Less,
+  });
+
   result
 }
 
