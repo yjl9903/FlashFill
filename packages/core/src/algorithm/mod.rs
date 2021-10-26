@@ -7,9 +7,7 @@ pub(crate) use set::*;
 // pub(crate) use intersect::*;
 // pub(crate) use size::*;
 
-use std::collections::HashMap;
-
-use crate::{CharItems, Expr, RegExp, Token};
+use crate::{CharItems, Expr, RegExp, SplitResult, Token};
 
 pub fn run(input: Vec<Vec<String>>, result: Vec<Option<String>>) -> Vec<String> {
   let examples: Vec<(Vec<CharItems>, CharItems)> = result
@@ -72,11 +70,13 @@ fn generate_substring(input: &Vec<CharItems>, output: &CharItems) -> Vec<AtomSet
         break;
       }
       // i .. i + output.len()
+      // cache (index, i) position
       let y1 = generate_position(text, i);
       let y2 = generate_position(text, i + output.len());
       result.push(AtomSet::SubStrSet(index, y1, y2));
     }
   }
+  // sort atomset
   result
 }
 
@@ -111,37 +111,48 @@ fn generate_position(input: &CharItems, k: usize) -> Vec<PositionSet> {
       let reg = RegExp::concat(r1.clone(), r2.clone());
       let matched: Vec<(usize, usize)> = reg.run(input).collect();
       let pos = matched.binary_search(&(k, k)).map_or_else(|k| k, |k| k);
+
+      fn try_get(r: Option<&(usize, usize)>, k: usize) -> Option<(usize, usize)> {
+        match r {
+          Some((l, r)) => {
+            if *l <= k && k < *r {
+              Some((*l, *r))
+            } else {
+              None
+            }
+          }
+          None => None,
+        }
+      }
+
+      if let Some(_) = try_get(matched.get(pos), k)
+        .or_else(|| {
+          if pos > 0 {
+            try_get(matched.get(pos - 1), k)
+          } else {
+            None
+          }
+        })
+        .or_else(|| try_get(matched.get(pos + 1), k))
+      {
+        let r1 = generate_regex(r1, &grouped);
+        let r2 = generate_regex(r2, &grouped);
+        result.push(PositionSet::Pos(
+          r1,
+          r2,
+          vec![
+            IntegerExpr::Pos(pos as i32 + 1),
+            IntegerExpr::Pos(-(matched.len() as i32 - pos as i32)),
+          ],
+        ));
+      }
     }
   }
-  // for (l, r1) in reg_left.iter() {
-  //   for (r, r2) in reg_right.iter() {
-  //     let r12 = RegExp::concat(r1.clone(), r2.clone());
-  //     if let Some((index, (x, y))) = r12
-  //       .run(input)
-  //       .enumerate()
-  //       .take_while(|(_, (x, y))| x <= l && y <= r)
-  //       .last()
-  //     {
-  //       if *l == x && *r == y {
-  //         let w = r12.run(input).count();
-  //         let r1 = generate_regex(r1, &grouped);
-  //         let r2 = generate_regex(r2, &grouped);
-  //         result.push(PositionSet::Pos(
-  //           r1,
-  //           r2,
-  //           vec![
-  //             IntegerExpr::Pos(index as i32 + 1),
-  //             IntegerExpr::Pos(-(w as i32 - index as i32)),
-  //           ],
-  //         ));
-  //       }
-  //     }
-  //   }
-  // }
+  // sort position set
   result
 }
 
-fn generate_regex(reg: &RegExp, grouped: &HashMap<Token, Vec<Token>>) -> RegExpSet {
+fn generate_regex(reg: &RegExp, grouped: &SplitResult) -> RegExpSet {
   RegExpSet {
     tokens: reg
       .iter()

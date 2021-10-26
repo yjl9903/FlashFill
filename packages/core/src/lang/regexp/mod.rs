@@ -1,7 +1,8 @@
 mod ord;
 mod semantic;
+mod split;
 
-use std::collections::{HashMap, HashSet};
+pub use split::SplitResult;
 
 use super::{CharItem, CharItems};
 
@@ -10,9 +11,10 @@ pub struct RegExp {
   pub tokens: Vec<Token>,
 }
 
-const ALL_PUNCTUATION: &'static [char] = &[
-  '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=',
-  '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~',
+pub const ALL_PUNCTUATION: &'static [char] = &[
+  // '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=',
+  // '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~',
+  '.', '-', '_', '[', ']',
 ];
 
 const ALL_CHAR_SIZE: usize = 10 + 52 + 4 + ALL_PUNCTUATION.len();
@@ -172,126 +174,6 @@ impl Token {
       Token::all()
     }
   }
-
-  pub fn split(input: &CharItems) -> HashMap<Token, Vec<Token>> {
-    let mut group: HashMap<Vec<usize>, Vec<Token>> = HashMap::new();
-
-    [
-      CharClass::Numeric,
-      CharClass::Alphabet,
-      CharClass::Lowercase,
-      CharClass::Uppercase,
-      CharClass::AlphaNumeric,
-      CharClass::Whitespace,
-      CharClass::All,
-    ]
-    .iter()
-    .map(|class| [Token::Chars(class.clone()), Token::NotChars(class.clone())])
-    .chain(
-      ALL_PUNCTUATION
-        .iter()
-        .cloned()
-        .map(|p| [Token::Punctuation(p), Token::NotPunctuation(p)]),
-    )
-    .chain([[Token::Start, Token::End]])
-    .flatten()
-    .for_each(|token| {
-      let matched: Vec<usize> = input
-        .iter()
-        .enumerate()
-        .filter(|(_, c)| token.test(**c))
-        .map(|(index, _)| index)
-        .collect();
-      if !matched.is_empty() {
-        if !group.contains_key(&matched) {
-          group.insert(matched.clone(), Vec::new());
-        }
-        let group = group.get_mut(&matched).unwrap();
-        group.push(token);
-      }
-    });
-
-    group
-      .values()
-      .cloned()
-      .map(|g| {
-        g.iter()
-          .map(|token| (token.clone(), g.clone()))
-          .collect::<Vec<(Token, Vec<Token>)>>()
-      })
-      .flatten()
-      .collect()
-  }
-
-  pub fn norm(&self) -> Vec<Token> {
-    match self {
-      Token::Chars(_) => vec![self.clone()],
-      Token::NotChars(class) => {
-        let all_punctuation = ALL_PUNCTUATION.iter().map(|p| Token::Punctuation(*p));
-        let mut all_char: HashSet<CharClass> = [
-          CharClass::Numeric,
-          CharClass::Uppercase,
-          CharClass::Lowercase,
-          CharClass::Whitespace,
-        ]
-        .iter()
-        .cloned()
-        .collect();
-
-        match class {
-          CharClass::Numeric => {
-            all_char.remove(&CharClass::Numeric);
-          }
-          CharClass::Alphabet => {
-            all_char.remove(&CharClass::Lowercase);
-            all_char.remove(&CharClass::Uppercase);
-          }
-          CharClass::Lowercase => {
-            all_char.remove(&CharClass::Lowercase);
-          }
-          CharClass::Uppercase => {
-            all_char.remove(&CharClass::Uppercase);
-          }
-          CharClass::AlphaNumeric => {
-            all_char.remove(&CharClass::Numeric);
-            all_char.remove(&CharClass::Lowercase);
-            all_char.remove(&CharClass::Uppercase);
-          }
-          CharClass::Whitespace => {
-            all_char.remove(&CharClass::Whitespace);
-          }
-          CharClass::All => {
-            return vec![];
-          }
-        };
-
-        all_char
-          .iter()
-          .map(|class| Token::Chars(class.clone()))
-          .chain(all_punctuation)
-          .collect()
-      }
-      Token::Start => vec![Token::Start],
-      Token::End => vec![Token::End],
-      Token::Punctuation(_) => vec![self.clone()],
-      Token::NotPunctuation(p) => [
-        Token::Chars(CharClass::Numeric),
-        Token::Chars(CharClass::Lowercase),
-        Token::Chars(CharClass::Uppercase),
-        Token::Chars(CharClass::Whitespace),
-      ]
-      .iter()
-      .cloned()
-      .chain(
-        ALL_PUNCTUATION
-          .iter()
-          .cloned()
-          .filter(|q| *p != *q)
-          .map(|q| Token::Punctuation(q)),
-      )
-      .collect(),
-    }
-  }
 }
 
 impl From<Token> for RegExp {
@@ -327,71 +209,4 @@ macro_rules! regexp {
       RegExp::new(temp_vec)
     }
   };
-}
-
-#[cfg(test)]
-mod test_split {
-  use crate::lang::regexp::ALL_PUNCTUATION;
-  use crate::*;
-
-  #[test]
-  fn test_simple_split() {
-    let input = vec![
-      CharItem::Start,
-      CharItem::Char('a'),
-      CharItem::Char('b'),
-      CharItem::Char('c'),
-      CharItem::End,
-    ];
-
-    let out = Token::split(&input.into());
-
-    assert!(out.contains_key(&Token::Start));
-    assert!(out.contains_key(&Token::End));
-    assert!(out.contains_key(&Token::Chars(CharClass::Alphabet)));
-    assert!(out.contains_key(&Token::Chars(CharClass::Lowercase)));
-    assert!(!out.contains_key(&Token::Chars(CharClass::Uppercase)));
-    assert!(!out.contains_key(&Token::Chars(CharClass::Numeric)));
-    assert_ne!(
-      out.get(&Token::Start).unwrap(),
-      out.get(&Token::Chars(CharClass::AlphaNumeric)).unwrap()
-    );
-    assert_ne!(
-      out.get(&Token::End).unwrap(),
-      out.get(&Token::Chars(CharClass::AlphaNumeric)).unwrap()
-    );
-
-    for &p in ALL_PUNCTUATION {
-      assert!(out.contains_key(&Token::NotPunctuation(p)));
-    }
-  }
-
-  #[test]
-  fn test_lower_upper_numeric() {
-    let input = vec![
-      CharItem::Start,
-      CharItem::Char('a'),
-      CharItem::Char('B'),
-      CharItem::Char('C'),
-      CharItem::Char('1'),
-      CharItem::Char('2'),
-      CharItem::Char('3'),
-      CharItem::End,
-    ];
-
-    let out = Token::split(&input.into());
-
-    assert_ne!(
-      out.get(&Token::Chars(CharClass::Numeric)).unwrap(),
-      out.get(&Token::Chars(CharClass::Lowercase)).unwrap()
-    );
-    assert_ne!(
-      out.get(&Token::Chars(CharClass::Numeric)).unwrap(),
-      out.get(&Token::Chars(CharClass::Uppercase)).unwrap()
-    );
-    assert_ne!(
-      out.get(&Token::Chars(CharClass::Lowercase)).unwrap(),
-      out.get(&Token::Chars(CharClass::Uppercase)).unwrap()
-    );
-  }
 }

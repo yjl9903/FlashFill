@@ -1,4 +1,4 @@
-use crate::{Position, RegExp, Token};
+use crate::{lang::regexp::ALL_PUNCTUATION, CharClass, Position, RegExp, Token};
 
 impl Ord for Position {
   fn cmp(&self, other: &Self) -> std::cmp::Ordering {
@@ -73,21 +73,48 @@ impl PartialOrd for RegExp {
   }
 }
 
+impl CharClass {
+  pub const ALL_SIZE: usize = 7;
+
+  pub fn index(&self) -> usize {
+    match self {
+      CharClass::Numeric => 0,
+      CharClass::Whitespace => 1,
+      CharClass::Lowercase => 2,
+      CharClass::Uppercase => 3,
+      CharClass::Alphabet => 4,
+      CharClass::AlphaNumeric => 5,
+      CharClass::All => 6,
+    }
+  }
+}
+
+impl Token {
+  pub const ALL_SIZE: usize =
+    2 + CharClass::ALL_SIZE + ALL_PUNCTUATION.len() + CharClass::ALL_SIZE + ALL_PUNCTUATION.len();
+
+  pub fn index(&self) -> usize {
+    match self {
+      Token::Start => 0,
+      Token::End => 1,
+      Token::Chars(class) => 2 + class.index(),
+      Token::Punctuation(p) => {
+        2 + CharClass::ALL_SIZE + ALL_PUNCTUATION.iter().position(|q| *q == *p).unwrap()
+      }
+      Token::NotChars(class) => 2 + CharClass::ALL_SIZE + ALL_PUNCTUATION.len() + class.index(),
+      Token::NotPunctuation(p) => {
+        2 + CharClass::ALL_SIZE
+          + ALL_PUNCTUATION.len()
+          + CharClass::ALL_SIZE
+          + ALL_PUNCTUATION.iter().position(|q| *q == *p).unwrap()
+      }
+    }
+  }
+}
+
 impl Ord for Token {
   fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-    if self == other {
-      std::cmp::Ordering::Equal
-    } else if let Token::Start = self {
-      std::cmp::Ordering::Less
-    } else if let Token::Start = other {
-      std::cmp::Ordering::Greater
-    } else if let Token::End = self {
-      std::cmp::Ordering::Less
-    } else if let Token::End = other {
-      std::cmp::Ordering::Greater
-    } else {
-      self.size().cmp(&other.size())
-    }
+    self.index().cmp(&other.index())
   }
 }
 

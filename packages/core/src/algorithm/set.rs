@@ -1,4 +1,7 @@
-use std::collections::{HashMap, HashSet, LinkedList};
+use std::{
+  collections::{HashMap, HashSet, LinkedList},
+  rc::Rc,
+};
 
 use crate::{Bool, CharItems, Token};
 
@@ -43,7 +46,7 @@ pub enum IntegerExpr {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RegExpSet {
-  pub tokens: Vec<Vec<Token>>,
+  pub tokens: Vec<Rc<Vec<Token>>>,
 }
 
 impl Dag {
@@ -158,7 +161,9 @@ impl Dag {
 
 impl RegExpSet {
   pub fn new(tokens: Vec<Vec<Token>>) -> RegExpSet {
-    RegExpSet { tokens }
+    RegExpSet {
+      tokens: tokens.into_iter().map(|tokens| Rc::new(tokens)).collect(),
+    }
   }
 
   pub fn empty() -> RegExpSet {

@@ -1,5 +1,5 @@
 use core::panic;
-use std::collections::HashMap;
+use std::{collections::HashMap, rc::Rc};
 
 use crate::{Atom, CharItems, Position, RegExp, Trace};
 
@@ -18,6 +18,7 @@ impl Dag {
     }
     if cur == self.end() {
       all_path.push(Trace::new(stack.clone()));
+      return;
     }
     for (to, f) in self.edge_of(cur) {
       if !edges.contains_key(&(cur, *to)) {
@@ -38,6 +39,11 @@ impl Dag {
     let mut edges: HashMap<(usize, usize), Atom> = HashMap::new();
 
     self.r_dfs(self.start(), &mut all_path, &mut stack, &mut edges);
+
+    println!("Path count: {:?}", all_path.len());
+    for path in all_path.iter() {
+      println!("Trace: {:?}", path);
+    }
 
     all_path.into_iter().min()
   }
@@ -192,7 +198,7 @@ impl RegExpSet {
     rset
       .tokens
       .iter()
-      .map(|tokens| RegExp::new(tokens.clone()))
+      .map(|tokens| RegExp::new(tokens.iter().cloned().collect()))
       .min()
   }
 }
