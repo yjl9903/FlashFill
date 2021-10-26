@@ -200,7 +200,7 @@ mod test_split {
     );
 
     for &p in ALL_PUNCTUATION {
-      assert!(out.contains(&Token::NotPunctuation(p)));
+      assert!(!out.contains(&Token::NotPunctuation(p)));
     }
   }
 

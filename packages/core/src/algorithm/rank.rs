@@ -22,10 +22,7 @@ impl Dag {
     }
     for (to, f) in self.edge_of(cur) {
       if !edges.contains_key(&(cur, *to)) {
-        // println!("--------");
         let atomset = AtomSet::rank(f);
-        // println!("Atom: {:?}", atomset);
-        // println!("--------");
         edges.insert((cur, *to), atomset);
       }
       let f = edges.get(&(cur, *to)).unwrap();
@@ -45,20 +42,19 @@ impl Dag {
     self.r_dfs(self.start(), &mut all_path, &mut stack, &mut edges);
 
     {
-      println!("Start: {:?}", self.start());
-      println!("End: {:?}", self.end());
-      println!("---");
+      dbg!(self.start());
+      dbg!(self.end());
       for ((u, v), f) in edges.into_iter() {
-        println!("{:?}\n{:?}\n{:?}\n---", u, f, v);
+        dbg!(u, v, f);
       }
     }
 
     all_path.sort();
 
-    // println!("Path count: {:?}", all_path.len());
-    // for path in all_path.iter() {
-    //   println!("Trace: {:?}", path);
-    // }
+    dbg!(all_path.len());
+    for path in all_path.iter().take(3) {
+      dbg!(path);
+    }
 
     all_path.into_iter().min()
   }

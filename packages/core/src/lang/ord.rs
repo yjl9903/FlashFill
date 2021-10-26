@@ -64,7 +64,17 @@ impl Ord for Atom {
           },
         ) => {
           if i1 == i2 {
-            (l1, r1).cmp(&(l2, r2))
+            if l1 < l2 {
+              if r1 <= r2 {
+                std::cmp::Ordering::Less
+              } else {
+                std::cmp::Ordering::Greater
+              }
+            } else if l1 == l2 {
+              r1.cmp(&r2)
+            } else {
+              std::cmp::Ordering::Greater
+            }
           } else {
             i1.cmp(i2)
           }

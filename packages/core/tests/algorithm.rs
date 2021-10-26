@@ -19,13 +19,17 @@ use flashfill_core::algorithm::*;
 fn test_add() {
   let input = vec![
     vec!["(abc".to_string()],
-    vec!["(ABC".to_string()],
-    vec!["(123".to_string()],
+    vec!["(def".to_string()],
+    vec!["(ghi".to_string()],
   ];
 
   let result = vec![Some("(abc)".to_string()), None, None];
 
   let result = run(input, result);
 
-  println!("{:?}", result);
+  dbg!(&result);
+
+  assert!(result[0].ends_with(")"));
+  assert!(result[1].ends_with(")"));
+  assert!(result[2].ends_with(")"));
 }

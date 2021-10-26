@@ -17,12 +17,30 @@ impl Ord for Position {
       id_a.cmp(&id_b)
     } else {
       match (self, other) {
-        (Position::CPos(cp1), Position::CPos(cp2)) => cp2.cmp(cp1),
-        (Position::Pos(r11, r12, _), Position::Pos(r21, r22, _)) => {
-          if r11 < r21 && r12 < r22 {
-            std::cmp::Ordering::Less
-          } else if r11 == r21 && r12 == r22 {
-            std::cmp::Ordering::Equal
+        (Position::CPos(cp1), Position::CPos(cp2)) => cp1.cmp(cp2),
+        (Position::Pos(r11, r12, k1), Position::Pos(r21, r22, k2)) => {
+          if r11 < r21 {
+            if r12 <= r22 {
+              if k1 <= k2 {
+                std::cmp::Ordering::Less
+              } else {
+                std::cmp::Ordering::Greater
+              }
+            } else {
+              std::cmp::Ordering::Greater
+            }
+          } else if r11 == r21 {
+            if r12 < r22 {
+              if k1 <= k2 {
+                std::cmp::Ordering::Less
+              } else {
+                std::cmp::Ordering::Greater
+              }
+            } else if r12 == r22 {
+              k1.cmp(&k2)
+            } else {
+              std::cmp::Ordering::Greater
+            }
           } else {
             std::cmp::Ordering::Greater
           }

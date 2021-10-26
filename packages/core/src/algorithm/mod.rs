@@ -24,7 +24,7 @@ pub fn run(input: Vec<Vec<String>>, result: Vec<Option<String>>) -> Vec<String> 
   let expr = generate_string_program(examples.clone());
 
   if let Some(expr) = expr {
-    println!("{:#?}", expr);
+    dbg!(&expr);
 
     result
       .into_iter()
@@ -37,12 +37,12 @@ pub fn run(input: Vec<Vec<String>>, result: Vec<Option<String>>) -> Vec<String> 
 }
 
 fn generate_string_program(examples: Vec<(Vec<CharItems>, CharItems)>) -> Option<Expr> {
-  println!("Start gen");
+  dbg!("Generate start...");
   let mut dags: Vec<Dag> = Vec::new();
   for (input, output) in examples {
     dags.push(generate_str(&input, &output));
   }
-  println!("End gen");
+  dbg!("Generate end...");
   let dag = dags.remove(0);
   dag.rank().map(|t| Expr::single(t))
 }
@@ -62,7 +62,6 @@ fn generate_str(input: &Vec<CharItems>, output: &CharItems) -> Dag {
 }
 
 fn generate_substring(input: &Vec<CharItems>, output: &CharItems) -> Vec<AtomSet> {
-  println!("start substring {:?}", output);
   let mut result: Vec<AtomSet> = Vec::new();
   for (index, text) in input.iter().enumerate() {
     for i in 0..text.len() {
@@ -138,16 +137,34 @@ fn generate_position(input: &CharItems, k: usize) -> Vec<PositionSet> {
         })
         .or_else(|| try_get(matched.get(pos + 1), k))
       {
-        let r1 = generate_regex(r1, &grouped);
-        let r2 = generate_regex(r2, &grouped);
-        result.push(PositionSet::Pos(
-          r1,
-          r2,
-          vec![
-            IntegerExpr::Pos(pos as i32 + 1),
-            IntegerExpr::Pos(-(matched.len() as i32 - pos as i32)),
-          ],
-        ));
+        if let Some((l_index, (_, end))) = r1
+          .run(input)
+          .enumerate()
+          .take_while(|(_, (_, end))| *end <= k)
+          .last()
+        {
+          if end == k && l_index == pos {
+            if let Some((r_index, (start, _))) = r2
+              .run(input)
+              .enumerate()
+              .take_while(|(_, (start, _))| *start <= k)
+              .last()
+            {
+              if start == k && r_index == pos {
+                let r1 = generate_regex(r1, &grouped);
+                let r2 = generate_regex(r2, &grouped);
+                result.push(PositionSet::Pos(
+                  r1,
+                  r2,
+                  vec![
+                    IntegerExpr::Pos(pos as i32 + 1),
+                    IntegerExpr::Pos(-(matched.len() as i32 - pos as i32)),
+                  ],
+                ));
+              }
+            }
+          }
+        }
       }
     }
   }

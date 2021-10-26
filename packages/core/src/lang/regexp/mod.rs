@@ -18,13 +18,13 @@ pub struct RegExp {
 pub const ALL_PUNCTUATION: &'static [char] = &[
   // '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=',
   // '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~',
-  '.', '-', '_', '[', ']',
+  '.', '-', '_', '[', ']', '(', ')',
 ];
 
 const ALL_CHAR_SIZE: usize = 10 + 52 + 4 + ALL_PUNCTUATION.len();
 
 lazy_static! {
-  pub static ref ALL_PUNCTUATION_SET: HashSet<char> = { ALL_PUNCTUATION.iter().cloned().collect() };
+  pub static ref ALL_PUNCTUATION_SET: HashSet<char> = ALL_PUNCTUATION.iter().cloned().collect();
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -176,7 +176,7 @@ impl Token {
       Token::uppercase()
     } else if c.is_whitespace() {
       Token::whitespace()
-    } else if ALL_PUNCTUATION.contains(&c) {
+    } else if ALL_PUNCTUATION_SET.contains(&c) {
       Token::punctuation(c)
     } else {
       Token::all()
