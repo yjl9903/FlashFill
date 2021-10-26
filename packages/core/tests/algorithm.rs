@@ -12,7 +12,7 @@ use flashfill_core::algorithm::*;
 
 //   let result = run(input, result);
 
-//   println!("{:?}", result);
+//   dbg!(&result);
 // }
 
 #[test]
