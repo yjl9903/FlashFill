@@ -1,5 +1,5 @@
 use core::panic;
-use std::{collections::HashMap, rc::Rc};
+use std::collections::HashMap;
 
 use crate::{Atom, CharItems, Position, RegExp, Trace};
 
