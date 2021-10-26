@@ -85,44 +85,59 @@ fn generate_position(input: &CharItems, k: usize) -> Vec<PositionSet> {
     PositionSet::CPos(k as i32),
     PositionSet::CPos(-(input.len() as i32 - k as i32)),
   ];
-  let mut reg_left: Vec<(usize, RegExp)> = vec![(k, RegExp::empty())];
-  let mut reg_right: Vec<(usize, RegExp)> = vec![(k, RegExp::empty())];
+  let mut reg_left: Vec<RegExp> = vec![RegExp::empty()];
+  let mut reg_right: Vec<RegExp> = vec![RegExp::empty()];
   for i in (0..k).rev() {
     let input = &input[i..k];
     let reg = RegExp::generate(&input.into());
-    reg_left.push((i, reg));
+    if *reg_left.last().unwrap() != reg {
+      reg_left.push(reg);
+    }
   }
   for i in k + 1..input.len() {
     let input = &input[k..i];
     let reg = RegExp::generate(&input.into());
-    reg_right.push((i, reg));
-  }
-  let grouped = Token::split(input);
-  for (l, r1) in reg_left.iter() {
-    for (r, r2) in reg_right.iter() {
-      let r12 = RegExp::concat(r1.clone(), r2.clone());
-      if let Some((index, (x, y))) = r12
-        .run(input)
-        .enumerate()
-        .take_while(|(_, (x, y))| x <= l && y <= r)
-        .last()
-      {
-        if *l == x && *r == y {
-          let w = r12.run(input).count();
-          let r1 = generate_regex(r1, &grouped);
-          let r2 = generate_regex(r2, &grouped);
-          result.push(PositionSet::Pos(
-            r1,
-            r2,
-            vec![
-              IntegerExpr::Pos(index as i32 + 1),
-              IntegerExpr::Pos(-(w as i32 - index as i32)),
-            ],
-          ));
-        }
-      }
+    if *reg_right.last().unwrap() != reg {
+      reg_right.push(reg);
     }
   }
+  let grouped = Token::split(input);
+  for r1 in reg_left.iter() {
+    for r2 in reg_right.iter() {
+      if !r1.is_empty() && !r2.is_empty() && r1.tokens.last().unwrap() == r2.tokens.first().unwrap()
+      {
+        continue;
+      }
+      let reg = RegExp::concat(r1.clone(), r2.clone());
+      let matched: Vec<(usize, usize)> = reg.run(input).collect();
+      let pos = matched.binary_search(&(k, k)).map_or_else(|k| k, |k| k);
+    }
+  }
+  // for (l, r1) in reg_left.iter() {
+  //   for (r, r2) in reg_right.iter() {
+  //     let r12 = RegExp::concat(r1.clone(), r2.clone());
+  //     if let Some((index, (x, y))) = r12
+  //       .run(input)
+  //       .enumerate()
+  //       .take_while(|(_, (x, y))| x <= l && y <= r)
+  //       .last()
+  //     {
+  //       if *l == x && *r == y {
+  //         let w = r12.run(input).count();
+  //         let r1 = generate_regex(r1, &grouped);
+  //         let r2 = generate_regex(r2, &grouped);
+  //         result.push(PositionSet::Pos(
+  //           r1,
+  //           r2,
+  //           vec![
+  //             IntegerExpr::Pos(index as i32 + 1),
+  //             IntegerExpr::Pos(-(w as i32 - index as i32)),
+  //           ],
+  //         ));
+  //       }
+  //     }
+  //   }
+  // }
   result
 }
 
