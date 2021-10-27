@@ -9437,7 +9437,7 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.deee55c3.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.aab671c3.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$5;
       const _component_carbon58maximize = __unplugin_components_1$1;
@@ -9592,7 +9592,7 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.185213e4.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.4c374f67.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9642,7 +9642,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.deee55c3.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.aab671c3.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -11639,23 +11639,6 @@ const _sfc_main$c = {
 };
 var n4 = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-28da3d07"]]);
 let wasm;
-const heap = new Array(32).fill(void 0);
-heap.push(void 0, null, true, false);
-function getObject(idx) {
-  return heap[idx];
-}
-let heap_next = heap.length;
-function dropObject(idx) {
-  if (idx < 36)
-    return;
-  heap[idx] = heap_next;
-  heap_next = idx;
-}
-function takeObject(idx) {
-  const ret = getObject(idx);
-  dropObject(idx);
-  return ret;
-}
 let cachedTextDecoder = new TextDecoder("utf-8", { ignoreBOM: true, fatal: true });
 cachedTextDecoder.decode();
 let cachegetUint8Memory0 = null;
@@ -11668,6 +11651,9 @@ function getUint8Memory0() {
 function getStringFromWasm0(ptr, len) {
   return cachedTextDecoder.decode(getUint8Memory0().subarray(ptr, ptr + len));
 }
+const heap = new Array(32).fill(void 0);
+heap.push(void 0, null, true, false);
+let heap_next = heap.length;
 function addHeapObject(obj) {
   if (heap_next === heap.length)
     heap.push(heap.length + 1);
@@ -11675,6 +11661,9 @@ function addHeapObject(obj) {
   heap_next = heap[idx];
   heap[idx] = obj;
   return idx;
+}
+function getObject(idx) {
+  return heap[idx];
 }
 let WASM_VECTOR_LEN = 0;
 let cachedTextEncoder = new TextEncoder("utf-8");
@@ -11725,6 +11714,17 @@ function getInt32Memory0() {
   }
   return cachegetInt32Memory0;
 }
+function dropObject(idx) {
+  if (idx < 36)
+    return;
+  heap[idx] = heap_next;
+  heap_next = idx;
+}
+function takeObject(idx) {
+  const ret = getObject(idx);
+  dropObject(idx);
+  return ret;
+}
 function run$1(inputs, results) {
   var ret = wasm.run(addHeapObject(inputs), addHeapObject(results));
   return takeObject(ret);
@@ -11755,16 +11755,10 @@ async function load(module, imports) {
 }
 async function init(input) {
   if (typeof input === "undefined") {
-    input = new URL("/assets/flashfill_core_bg.679bce4a.wasm", self.location);
+    input = new URL("/assets/flashfill_core_bg.e36f7c76.wasm", self.location);
   }
   const imports = {};
   imports.wbg = {};
-  imports.wbg.__wbg_log_28ec202ee0469987 = function(arg0, arg1) {
-    console.log(getStringFromWasm0(arg0, arg1));
-  };
-  imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
-    takeObject(arg0);
-  };
   imports.wbg.__wbindgen_json_parse = function(arg0, arg1) {
     var ret = JSON.parse(getStringFromWasm0(arg0, arg1));
     return addHeapObject(ret);
@@ -11776,6 +11770,12 @@ async function init(input) {
     var len0 = WASM_VECTOR_LEN;
     getInt32Memory0()[arg0 / 4 + 1] = len0;
     getInt32Memory0()[arg0 / 4 + 0] = ptr0;
+  };
+  imports.wbg.__wbg_log_28ec202ee0469987 = function(arg0, arg1) {
+    console.log(getStringFromWasm0(arg0, arg1));
+  };
+  imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
+    takeObject(arg0);
   };
   if (typeof input === "string" || typeof Request === "function" && input instanceof Request || typeof URL === "function" && input instanceof URL) {
     input = fetch(input);
@@ -38227,7 +38227,7 @@ function useSwipeControls(root) {
   });
 }
 async function downloadPDF() {
-  const { saveAs } = await import("./FileSaver.min.f9d87d0a.js").then(function(n) {
+  const { saveAs } = await import("./FileSaver.min.bd612c83.js").then(function(n) {
     return n.F;
   });
   saveAs(isString$2(configs.download) ? configs.download : `${"/"}slidev-exported.pdf`, `${configs.title}.pdf`);
