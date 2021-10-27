@@ -5,6 +5,8 @@ use std::{
 
 use crate::{Bool, CharItems, Token};
 
+use super::SizeType;
+
 #[derive(Debug)]
 pub struct ExprSet {
   pub switches: Vec<SwitchSet>,
@@ -23,6 +25,7 @@ pub struct Dag {
   end: usize,
   edge: HashMap<usize, HashMap<usize, Vec<AtomSet>>>,
   rev_edge: HashMap<usize, HashSet<usize>>,
+  pub(super) cache_size: Option<SizeType>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -57,6 +60,7 @@ impl Dag {
       end,
       edge: HashMap::new(),
       rev_edge: HashMap::new(),
+      cache_size: None,
     }
   }
 

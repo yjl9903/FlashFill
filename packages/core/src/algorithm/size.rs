@@ -4,16 +4,16 @@ use crate::Token;
 
 use super::{AtomSet, Dag, ExprSet, PositionSet, RegExpSet};
 
-type SizeType = u128;
+pub type SizeType = u128;
 
-impl ExprSet {
-  pub fn size(&self) -> SizeType {
-    let switches = &self.switches;
-    switches
-      .into_iter()
-      .fold(1, |res, switch| res * switch.trace.size())
-  }
-}
+// impl ExprSet {
+//   pub fn size(&self) -> SizeType {
+//     let switches = &self.switches;
+//     switches
+//       .into_iter()
+//       .fold(1, |res, switch| res * switch.trace.size())
+//   }
+// }
 
 impl Dag {
   fn dfs(&self, u: usize, cache: &mut HashMap<usize, SizeType>) -> SizeType {
@@ -63,7 +63,6 @@ impl PositionSet {
 impl RegExpSet {
   pub fn size(&self) -> SizeType {
     let tokens = &self.tokens;
-    // println!("Tokens: {:#?}", tokens);
     tokens
       .iter()
       .fold(1, |res, tokens| res * RegExpSet::tokens_size(tokens))

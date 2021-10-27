@@ -1,11 +1,13 @@
 mod intersect;
+mod partition;
 mod rank;
 mod set;
 mod size;
 
+pub(crate) use intersect::*;
+pub(crate) use partition::*;
 pub(crate) use set::*;
-// pub(crate) use intersect::*;
-// pub(crate) use size::*;
+pub(crate) use size::*;
 
 use crate::{CharItems, Expr, RegExp, SplitResult, Token};
 
@@ -37,14 +39,19 @@ pub fn run(input: Vec<Vec<String>>, result: Vec<Option<String>>) -> Vec<String> 
 }
 
 fn generate_string_program(examples: Vec<(Vec<CharItems>, CharItems)>) -> Option<Expr> {
-  dbg!("Generate start...");
-  let mut dags: Vec<Dag> = Vec::new();
-  for (input, output) in examples {
-    dags.push(generate_str(&input, &output));
+  dbg!("Generate Str start...");
+  let mut traces: Vec<PartitionItem> = Vec::new();
+  for (index, (input, output)) in examples.into_iter().enumerate() {
+    let dag = generate_str(&input, &output);
+    traces.push((index, input, dag).into());
   }
-  dbg!("Generate end...");
-  let dag = dags.remove(0);
-  dag.rank().map(|t| Expr::single(t))
+  dbg!("Generate Str end...");
+  if traces.len() == 1 {
+    let dag = traces.remove(0).own_trace();
+    dag.rank().map(|t| Expr::single(t))
+  } else {
+    todo!()
+  }
 }
 
 fn generate_str(input: &Vec<CharItems>, output: &CharItems) -> Dag {
