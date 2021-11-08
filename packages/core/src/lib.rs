@@ -33,11 +33,6 @@ pub fn greet() {
 pub fn run(inputs: JsValue, results: JsValue) -> JsValue {
   let inputs: Vec<Vec<String>> = inputs.into_serde().unwrap();
   let results: Vec<Option<String>> = results.into_serde().unwrap();
-  let mut result: Vec<String> = algorithm::run(inputs.clone(), results);
-  for input in inputs {
-    let line = input.join(", ");
-    log(&line);
-    result.push(line);
-  }
-  JsValue::from_serde(&result).unwrap()
+  let answer: Vec<String> = algorithm::run(inputs, results);
+  JsValue::from_serde(&answer).unwrap()
 }
