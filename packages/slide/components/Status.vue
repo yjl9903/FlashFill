@@ -32,7 +32,7 @@ run(
     <span v-if="status === -1" class="rounded-1 w-4 h-4 inline-block mr-2"></span>
     <span v-else-if="status === 0" class="rounded-1 bg-green-400 w-4 h-4 inline-block mr-2"></span>
     <span v-else-if="status === 1" class="rounded-1 bg-red-400 w-4 h-4 inline-block mr-2"></span>
-    <span v-if="status === 0" class="text-gray-500">FlashFill Ok</span>
-    <span v-else-if="status === 1" class="text-gray-500">FlashFill Fail</span>
+    <span v-if="status === 0" class="text-gray-500">Flashfill Ok</span>
+    <span v-else-if="status === 1" class="text-gray-500">Flashfill Fail</span>
   </div>
 </template>
