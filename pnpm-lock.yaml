@@ -40,11 +40,13 @@ importers:
   packages/slide:
     specifiers:
       '@slidev/cli': ^0.27.2
+      '@slidev/theme-apple-basic': ^0.20.0
       '@slidev/theme-default': '*'
       '@slidev/theme-seriph': '*'
       flashfill-core: workspace:*
     dependencies:
       '@slidev/cli': 0.27.2_typescript@4.4.3
+      '@slidev/theme-apple-basic': 0.20.0
       '@slidev/theme-default': 0.21.0
       '@slidev/theme-seriph': 0.21.0
       flashfill-core: link:../core
@@ -273,6 +275,16 @@ packages:
     dependencies:
       '@slidev/types': 0.27.2
       js-yaml: 4.1.0
+    dev: false
+
+  /@slidev/theme-apple-basic/0.20.0:
+    resolution: {integrity: sha512-sjgxAyn63TNHsiwT/Iz2D8IjpuOg/x8l+nG2TTH3zg8XChIo7uYcNNApWH+i5zuBfaNHHUOaGLPaZw5s6fINQg==}
+    engines: {node: '>=14.0.0', slidev: '>=0.19.3'}
+    dependencies:
+      '@slidev/types': 0.22.7
+      codemirror-theme-vars: 0.1.1
+      prism-theme-vars: 0.2.2
+      theme-vitesse: 0.1.12
     dev: false
 
   /@slidev/theme-default/0.21.0:

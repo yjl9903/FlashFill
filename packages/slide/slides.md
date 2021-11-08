@@ -1,27 +1,26 @@
 ---
 # try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
-# apply any windi css classes to the current slide
-class: 'text-center'
+theme: apple-basic
 # https://sli.dev/custom/highlighters.html
 highlighter: shiki
 # show line numbers in code blocks
-lineNumbers: false
-# some information about the slides, markdown enabled
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
+lineNumbers: true
 # persist drawings in exports and build
 drawings:
   persist: false
+
+layout: intro
+class: 'text-center'
 ---
 
-# Welcome to Slidev
+<h1 class="!text-4xl">Automating string processing in spreadsheets</h1>
+<h1 class="!text-4xl">using input-output examples</h1>
+
+<h2 class="pt-10">Junliang Yan</h2>
+
+<Status></Status>
+
+<!-- # Welcome to Slidev
 
 Presentation slides for developers
 
@@ -39,7 +38,7 @@ Presentation slides for developers
     class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-logo-github />
   </a>
-</div>
+</div> -->
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)

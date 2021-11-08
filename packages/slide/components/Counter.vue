@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { run } from './flashfill';
 
 const props = defineProps({
   count: {
@@ -9,17 +8,6 @@ const props = defineProps({
 });
 
 const counter = ref(props.count);
-
-run(
-  [
-    ['123', '456', '789'],
-    ['abc', 'def', 'ghi']
-  ],
-  [null, '123']
-).then((res) => {
-  console.log(res);
-  alert('FlashFill Ok');
-});
 </script>
 
 <template>

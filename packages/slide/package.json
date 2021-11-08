@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@slidev/cli": "^0.27.2",
+    "@slidev/theme-apple-basic": "^0.20.0",
     "@slidev/theme-default": "*",
     "@slidev/theme-seriph": "*",
     "flashfill-core": "workspace:*"
