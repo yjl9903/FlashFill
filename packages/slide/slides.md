@@ -1,6 +1,10 @@
 ---
 # try also 'default' to start simple
 theme: apple-basic
+# title of your slide, will auto infer from the first header if not specified
+title: FlashFill
+# titleTemplate for the webpage, `%s` will be replaced by the page's title
+titleTemplate: '%s'
 # https://sli.dev/custom/highlighters.html
 highlighter: shiki
 # show line numbers in code blocks
