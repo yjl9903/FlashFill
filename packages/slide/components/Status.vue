@@ -16,8 +16,11 @@ run(
   ['123', 'ABC', null]
 )
   .then((res) => {
-    console.log(res);
-    status.value = 0;
+    if (res[2] === 'abc') {
+      status.value = 0;
+    } else {
+      status.value = 1;
+    }
   })
   .catch(() => {
     status.value = 1;
