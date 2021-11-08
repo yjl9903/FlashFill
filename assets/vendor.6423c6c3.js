@@ -9437,7 +9437,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.dd2d77d5.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.f3c58408.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$4;
       const _component_carbon58maximize = __unplugin_components_1;
@@ -9592,7 +9592,7 @@ const _sfc_main$o = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.eaf2cf7a.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.0f9e8c89.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9642,7 +9642,7 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.dd2d77d5.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.f3c58408.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -9889,7 +9889,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$j, [
         status.value === -1 ? (openBlock(), createElementBlock("span", _hoisted_2$g)) : status.value === 0 ? (openBlock(), createElementBlock("span", _hoisted_3$b)) : status.value === 1 ? (openBlock(), createElementBlock("span", _hoisted_4$9)) : createCommentVNode("v-if", true),
-        status.value === 0 ? (openBlock(), createElementBlock("span", _hoisted_5$6, "FlashFill Ok")) : status.value === 1 ? (openBlock(), createElementBlock("span", _hoisted_6$5, "FlashFill Fail")) : createCommentVNode("v-if", true)
+        status.value === 0 ? (openBlock(), createElementBlock("span", _hoisted_5$6, "Flashfill Ok")) : status.value === 1 ? (openBlock(), createElementBlock("span", _hoisted_6$5, "Flashfill Fail")) : createCommentVNode("v-if", true)
       ]);
     };
   }
@@ -38166,7 +38166,7 @@ function useSwipeControls(root) {
   });
 }
 async function downloadPDF() {
-  const { saveAs } = await import("./FileSaver.min.f682a3b0.js").then(function(n) {
+  const { saveAs } = await import("./FileSaver.min.4981bd5e.js").then(function(n) {
     return n.F;
   });
   saveAs(isString$2(configs.download) ? configs.download : `${"/"}slidev-exported.pdf`, `${configs.title}.pdf`);
