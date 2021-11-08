@@ -14,7 +14,7 @@ pub fn run(input: Vec<Vec<String>>, result: Vec<Option<String>>) -> Vec<String> 
   let examples: Vec<(Vec<CharItems>, CharItems)> = result
     .iter()
     .enumerate()
-    .filter(|(_, res)| res.is_some())
+    .filter(|(_, res)| res.as_ref().map_or(false, |t| !t.is_empty()))
     .map(|(index, res)| {
       let input: Vec<CharItems> = input[index].iter().map(|text| text.into()).collect();
       let result: CharItems = res.clone().unwrap().into();
@@ -57,7 +57,7 @@ fn generate_string_program(examples: Vec<(Vec<CharItems>, CharItems)>) -> Option
 }
 
 fn generate_str(input: &Vec<CharItems>, output: &CharItems) -> Dag {
-  let mut dag = Dag::new(output.len() + 1, 0, output.len());
+  let mut dag = Dag::new(output.len() + 1, 1, output.len() - 1);
   for i in 0..output.len() {
     for j in i + 1..=output.len() {
       let const_str: CharItems = (&output[i..j]).into();
@@ -94,6 +94,7 @@ fn generate_substring(input: &Vec<CharItems>, output: &CharItems) -> Vec<AtomSet
 fn generate_position(input: &CharItems, k: usize) -> Vec<PositionSet> {
   let mut result = vec![
     PositionSet::CPos(k as i32),
+    // This may cause corner error if k = input.len()
     PositionSet::CPos(-(input.len() as i32 - k as i32)),
   ];
   let mut reg_left: Vec<RegExp> = vec![RegExp::empty()];

@@ -45,7 +45,9 @@ impl Dag {
     //   dbg!(self.start());
     //   dbg!(self.end());
     //   for ((u, v), f) in edges.into_iter() {
-    //     dbg!(u, v, f);
+    //     if let Some(f) = f {
+    //       dbg!(u, v, f);
+    //     }
     //   }
     // }
 

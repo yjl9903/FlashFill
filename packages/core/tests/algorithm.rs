@@ -111,3 +111,20 @@ fn test_len_char_add() {
   assert_eq!(result[2], "(3bC)".to_string());
   assert_eq!(result[3], "(4d f)".to_string());
 }
+
+#[test]
+fn test_const() {
+  let input = vec![
+    vec!["abc".to_string(), "abc".to_string(), "666".to_string()],
+    vec!["DEFG".to_string(), "7777".to_string(), "DEFG".to_string()],
+    vec!["12345".to_string(), "12345".to_string(), "12345".to_string()],
+  ];
+
+  let result = vec![Some("abc".to_string()), Some("DEFG".to_string()), None];
+
+  let result = run(input, result);
+
+  dbg!(&result);
+
+  assert_eq!(result[2], "12345".to_string());
+}
