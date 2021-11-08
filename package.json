@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "start": "pnpm -C packages/slide run dev",
     "build": "pnpm run build --filter ./packages",
     "test": "pnpm -C packages/core run test",
     "format": "lint-staged"
