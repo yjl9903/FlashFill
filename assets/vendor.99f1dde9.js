@@ -7572,7 +7572,7 @@ function clearUndefined(obj) {
   Object.keys(obj).forEach((key) => obj[key] === void 0 ? delete obj[key] : {});
   return obj;
 }
-var _configs = { "theme": "seriph", "title": "Welcome to Slidev", "titleTemplate": "%s - Slidev", "remoteAssets": false, "monaco": "dev", "download": false, "info": '<h2>Slidev Starter Template</h2>\n<p>Presentation slides for developers.</p>\n<p>Learn more at <a href="https://sli.dev" target="_blank" rel="noopener">Sli.dev</a></p>\n', "highlighter": "shiki", "lineNumbers": false, "colorSchema": "auto", "routerMode": "history", "aspectRatio": 1.7777777777777777, "canvasWidth": 980, "selectable": false, "themeConfig": {}, "fonts": { "sans": ['"PT Serif"', "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", '"Segoe UI"', "Roboto", '"Helvetica Neue"', "Arial", '"Noto Sans"', "sans-serif", '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'], "serif": ['"PT Serif"', "ui-serif", "Georgia", "Cambria", '"Times New Roman"', "Times", "serif"], "mono": ['"PT Mono"', "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", '"Liberation Mono"', '"Courier New"', "monospace"], "webfonts": ["PT Serif", "PT Mono"], "provider": "google", "local": [], "italic": false, "weights": ["200", "400", "600"] }, "drawings": { "enabled": true, "persist": false, "presenterOnly": false, "syncAll": true }, "background": "https://source.unsplash.com/collection/94734566/1920x1080", "class": "text-center" };
+var _configs = { "theme": "apple-basic", "titleTemplate": "%s - Slidev", "remoteAssets": false, "monaco": "dev", "download": false, "info": false, "highlighter": "shiki", "lineNumbers": true, "colorSchema": "auto", "routerMode": "history", "aspectRatio": 1.7777777777777777, "canvasWidth": 980, "selectable": false, "themeConfig": {}, "fonts": { "sans": ['"Helvetica Neue"', "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", '"Segoe UI"', "Roboto", "Arial", '"Noto Sans"', "sans-serif", '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'], "serif": ["ui-serif", "Georgia", "Cambria", '"Times New Roman"', "Times", "serif"], "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", '"Liberation Mono"', '"Courier New"', "monospace"], "webfonts": ["Helvetica Neue"], "provider": "google", "local": ["Helvetica Neue"], "italic": false, "weights": ["200", "400", "600"] }, "drawings": { "enabled": true, "persist": false, "presenterOnly": false, "syncAll": true }, "layout": "intro", "class": "text-center" };
 function define(target, key, value) {
   Object.defineProperty(target, key, {
     value,
@@ -8600,7 +8600,7 @@ function registerShortcuts() {
   });
   strokeShortcut("f", () => fullscreen.toggle());
 }
-const _hoisted_1$K = {
+const _hoisted_1$J = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -8611,13 +8611,13 @@ const _hoisted_2$y = /* @__PURE__ */ createBaseVNode("path", {
   d: "M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$s = [
+const _hoisted_3$r = [
   _hoisted_2$y
 ];
-function render$g(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$K, _hoisted_3$s);
+function render$e(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$J, _hoisted_3$r);
 }
-var __unplugin_components_0$6 = { name: "carbon-close", render: render$g };
+var __unplugin_components_0$5 = { name: "carbon-close", render: render$e };
 function getSlideClass(route2) {
   var _a2, _b2;
   const no = (_b2 = (_a2 = route2 == null ? void 0 : route2.meta) == null ? void 0 : _a2.slide) == null ? void 0 : _b2.no;
@@ -8637,7 +8637,7 @@ const CLASS_VCLICK_HIDDEN_EXP = "slidev-vclick-hidden-explicitly";
 const CLASS_VCLICK_CURRENT = "slidev-vclick-current";
 const CLASS_VCLICK_PRIOR = "slidev-vclick-prior";
 var SlideContainer_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$A = /* @__PURE__ */ defineComponent({
+const _sfc_main$B = /* @__PURE__ */ defineComponent({
   props: {
     width: {
       type: Number
@@ -8742,8 +8742,8 @@ var SlideWrapper = defineComponent({
     return (_b2 = (_a2 = this.$slots) == null ? void 0 : _a2.default) == null ? void 0 : _b2.call(_a2);
   }
 });
-const _hoisted_1$J = ["innerHTML"];
-const _sfc_main$z = /* @__PURE__ */ defineComponent({
+const _hoisted_1$I = ["innerHTML"];
+const _sfc_main$A = /* @__PURE__ */ defineComponent({
   props: {
     page: { type: Number, required: true }
   },
@@ -8756,14 +8756,14 @@ const _sfc_main$z = /* @__PURE__ */ defineComponent({
         },
         class: "w-full h-full absolute top-0 pointer-events-none",
         innerHTML: unref(serverDrawingState)[__props.page]
-      }, null, 8, _hoisted_1$J)) : createCommentVNode("v-if", true);
+      }, null, 8, _hoisted_1$I)) : createCommentVNode("v-if", true);
     };
   }
 });
 var SlidesOverview_vue_vue_type_style_index_0_lang = "";
-const _hoisted_1$I = { class: "slides-overview bg-main !bg-opacity-75 p-16 overflow-y-auto" };
+const _hoisted_1$H = { class: "slides-overview bg-main !bg-opacity-75 p-16 overflow-y-auto" };
 const _hoisted_2$x = ["onClick"];
-const _sfc_main$y = /* @__PURE__ */ defineComponent({
+const _sfc_main$z = /* @__PURE__ */ defineComponent({
   props: {
     modelValue: { type: Boolean, required: true }
   },
@@ -8790,9 +8790,9 @@ const _sfc_main$y = /* @__PURE__ */ defineComponent({
       return 300;
     });
     return (_ctx, _cache) => {
-      const _component_carbon58close = __unplugin_components_0$6;
+      const _component_carbon58close = __unplugin_components_0$5;
       return openBlock(), createElementBlock(Fragment, null, [
-        withDirectives(createBaseVNode("div", _hoisted_1$I, [
+        withDirectives(createBaseVNode("div", _hoisted_1$H, [
           createBaseVNode("div", {
             class: "grid gap-y-4 gap-x-8 w-full",
             style: normalizeStyle(`grid-template-columns: repeat(auto-fit,minmax(${unref(cardWidth)}px,1fr))`)
@@ -8806,14 +8806,14 @@ const _sfc_main$y = /* @__PURE__ */ defineComponent({
                   class: "inline-block border border-gray-400 rounded border-opacity-50 overflow-hidden bg-main hover:border-$slidev-theme-primary",
                   onClick: ($event) => go$1(+route2.path)
                 }, [
-                  createVNode(_sfc_main$A, {
+                  createVNode(_sfc_main$B, {
                     key: route2.path,
                     width: unref(cardWidth),
                     "clicks-disabled": true,
                     class: "pointer-events-none"
                   }, {
                     default: withCtx(() => [
-                      createVNode(_sfc_main$z, {
+                      createVNode(_sfc_main$A, {
                         page: +route2.path
                       }, null, 8, ["page"]),
                       createVNode(unref(SlideWrapper), {
@@ -8847,11 +8847,11 @@ const _sfc_main$y = /* @__PURE__ */ defineComponent({
   }
 });
 var _imports_0 = "/assets/logo.b72bde5d.png";
-const _hoisted_1$H = {
+const _hoisted_1$G = {
   key: 0,
   class: "fixed top-0 bottom-0 left-0 right-0 grid z-20"
 };
-const _sfc_main$x = /* @__PURE__ */ defineComponent({
+const _sfc_main$y = /* @__PURE__ */ defineComponent({
   props: {
     modelValue: {
       default: false
@@ -8869,7 +8869,7 @@ const _sfc_main$x = /* @__PURE__ */ defineComponent({
     }
     return (_ctx, _cache) => {
       return openBlock(), createBlock(KeepAlive, null, [
-        unref(value) ? (openBlock(), createElementBlock("div", _hoisted_1$H, [
+        unref(value) ? (openBlock(), createElementBlock("div", _hoisted_1$G, [
           createBaseVNode("div", {
             bg: "black opacity-80",
             class: "absolute top-0 bottom-0 left-0 right-0 -z-1",
@@ -8887,9 +8887,9 @@ const _sfc_main$x = /* @__PURE__ */ defineComponent({
   }
 });
 var InfoDialog_vue_vue_type_style_index_0_lang = "";
-const _hoisted_1$G = { class: "slidev-info-dialog slidev-layout flex flex-col gap-4 text-base" };
+const _hoisted_1$F = { class: "slidev-info-dialog slidev-layout flex flex-col gap-4 text-base" };
 const _hoisted_2$w = ["innerHTML"];
-const _hoisted_3$r = /* @__PURE__ */ createBaseVNode("a", {
+const _hoisted_3$q = /* @__PURE__ */ createBaseVNode("a", {
   href: "https://github.com/slidevjs/slidev",
   target: "_blank",
   class: "!opacity-100 !border-none !text-current"
@@ -8907,7 +8907,7 @@ const _hoisted_3$r = /* @__PURE__ */ createBaseVNode("a", {
     ])
   ])
 ], -1);
-const _sfc_main$w = /* @__PURE__ */ defineComponent({
+const _sfc_main$x = /* @__PURE__ */ defineComponent({
   props: {
     modelValue: {
       default: false
@@ -8919,19 +8919,19 @@ const _sfc_main$w = /* @__PURE__ */ defineComponent({
     const value = useVModel(props, "modelValue", emit);
     const hasInfo = computed(() => typeof configs.info === "string");
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$x, {
+      return openBlock(), createBlock(_sfc_main$y, {
         modelValue: unref(value),
         "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => isRef(value) ? value.value = $event : null),
         class: "px-6 py-4"
       }, {
         default: withCtx(() => [
-          createBaseVNode("div", _hoisted_1$G, [
+          createBaseVNode("div", _hoisted_1$F, [
             unref(hasInfo) ? (openBlock(), createElementBlock("div", {
               key: 0,
               class: "mb-4",
               innerHTML: unref(configs).info
             }, null, 8, _hoisted_2$w)) : createCommentVNode("v-if", true),
-            _hoisted_3$r
+            _hoisted_3$q
           ])
         ]),
         _: 1
@@ -8946,8 +8946,8 @@ var _export_sfc = (sfc, props) => {
   }
   return sfc;
 };
-const _hoisted_1$F = ["disabled", "onKeydown"];
-const _sfc_main$v = /* @__PURE__ */ defineComponent({
+const _hoisted_1$E = ["disabled", "onKeydown"];
+const _sfc_main$w = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const input = ref();
     const text = ref("");
@@ -8990,27 +8990,27 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
             withKeys(close, ["escape"])
           ],
           onBlur: close
-        }, null, 42, _hoisted_1$F), [
+        }, null, 42, _hoisted_1$E), [
           [vModelText, text.value]
         ])
       ], 2);
     };
   }
 });
-var Goto = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["__scopeId", "data-v-a4267212"]]);
-const _sfc_main$u = /* @__PURE__ */ defineComponent({
+var Goto = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["__scopeId", "data-v-a4267212"]]);
+const _sfc_main$v = /* @__PURE__ */ defineComponent({
   setup(__props) {
     shallowRef();
     shallowRef();
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
-        createVNode(_sfc_main$y, {
+        createVNode(_sfc_main$z, {
           modelValue: unref(showOverview),
           "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => isRef(showOverview) ? showOverview.value = $event : null)
         }, null, 8, ["modelValue"]),
         createVNode(Goto),
         createCommentVNode("v-if", true),
-        unref(configs).info ? (openBlock(), createBlock(_sfc_main$w, {
+        unref(configs).info ? (openBlock(), createBlock(_sfc_main$x, {
           key: 1,
           modelValue: unref(showInfoDialog),
           "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => isRef(showInfoDialog) ? showInfoDialog.value = $event : null)
@@ -9019,7 +9019,7 @@ const _sfc_main$u = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _hoisted_1$E = {
+const _hoisted_1$D = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -9030,19 +9030,19 @@ const _hoisted_2$v = /* @__PURE__ */ createBaseVNode("path", {
   d: "M4 18v2h6.586L2 28.582L3.414 30L12 21.414V28h2V18H4z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$q = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_3$p = /* @__PURE__ */ createBaseVNode("path", {
   d: "M30 3.416L28.592 2L20 10.586V4h-2v10h10v-2h-6.586L30 3.416z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_4$i = [
+const _hoisted_4$h = [
   _hoisted_2$v,
-  _hoisted_3$q
+  _hoisted_3$p
 ];
-function render$f(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$E, _hoisted_4$i);
+function render$d(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$D, _hoisted_4$h);
 }
-var __unplugin_components_0$5 = { name: "carbon-minimize", render: render$f };
-const _hoisted_1$D = {
+var __unplugin_components_0$4 = { name: "carbon-minimize", render: render$d };
+const _hoisted_1$C = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -9053,19 +9053,19 @@ const _hoisted_2$u = /* @__PURE__ */ createBaseVNode("path", {
   d: "M20 2v2h6.586L18 12.582L19.414 14L28 5.414V12h2V2H20z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$p = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_3$o = /* @__PURE__ */ createBaseVNode("path", {
   d: "M14 19.416L12.592 18L4 26.586V20H2v10h10v-2H5.414L14 19.416z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_4$h = [
+const _hoisted_4$g = [
   _hoisted_2$u,
-  _hoisted_3$p
+  _hoisted_3$o
 ];
-function render$e(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$D, _hoisted_4$h);
+function render$c(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$C, _hoisted_4$g);
 }
-var __unplugin_components_1$1 = { name: "carbon-maximize", render: render$e };
-const _hoisted_1$C = {
+var __unplugin_components_1 = { name: "carbon-maximize", render: render$c };
+const _hoisted_1$B = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -9076,14 +9076,14 @@ const _hoisted_2$t = /* @__PURE__ */ createBaseVNode("path", {
   d: "M14 26l1.41-1.41L7.83 17H28v-2H7.83l7.58-7.59L14 6L4 16l10 10z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$o = [
+const _hoisted_3$n = [
   _hoisted_2$t
 ];
-function render$d(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$C, _hoisted_3$o);
+function render$b(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$B, _hoisted_3$n);
 }
-var __unplugin_components_2$1 = { name: "carbon-arrow-left", render: render$d };
-const _hoisted_1$B = {
+var __unplugin_components_2 = { name: "carbon-arrow-left", render: render$b };
+const _hoisted_1$A = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -9094,14 +9094,14 @@ const _hoisted_2$s = /* @__PURE__ */ createBaseVNode("path", {
   d: "M18 6l-1.43 1.393L24.15 15H4v2h20.15l-7.58 7.573L18 26l10-10L18 6z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$n = [
+const _hoisted_3$m = [
   _hoisted_2$s
 ];
-function render$c(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$B, _hoisted_3$n);
+function render$a(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$A, _hoisted_3$m);
 }
-var __unplugin_components_0$4 = { name: "carbon-arrow-right", render: render$c };
-const _hoisted_1$A = {
+var __unplugin_components_3 = { name: "carbon-arrow-right", render: render$a };
+const _hoisted_1$z = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -9112,14 +9112,14 @@ const _hoisted_2$r = /* @__PURE__ */ createBaseVNode("path", {
   d: "M8 4v4H4V4zm2-2H2v8h8zm8 2v4h-4V4zm2-2h-8v8h8zm8 2v4h-4V4zm2-2h-8v8h8zM8 14v4H4v-4zm2-2H2v8h8zm8 2v4h-4v-4zm2-2h-8v8h8zm8 2v4h-4v-4zm2-2h-8v8h8zM8 24v4H4v-4zm2-2H2v8h8zm8 2v4h-4v-4zm2-2h-8v8h8zm8 2v4h-4v-4zm2-2h-8v8h8z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$m = [
+const _hoisted_3$l = [
   _hoisted_2$r
 ];
-function render$b(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$A, _hoisted_3$m);
+function render$9(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$z, _hoisted_3$l);
 }
-var __unplugin_components_4 = { name: "carbon-apps", render: render$b };
-const _hoisted_1$z = {
+var __unplugin_components_4 = { name: "carbon-apps", render: render$9 };
+const _hoisted_1$y = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -9130,14 +9130,14 @@ const _hoisted_2$q = /* @__PURE__ */ createBaseVNode("path", {
   d: "M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$l = [
+const _hoisted_3$k = [
   _hoisted_2$q
 ];
-function render$a(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$z, _hoisted_3$l);
+function render$8(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$y, _hoisted_3$k);
 }
-var __unplugin_components_5 = { name: "carbon-moon", render: render$a };
-const _hoisted_1$y = {
+var __unplugin_components_5 = { name: "carbon-moon", render: render$8 };
+const _hoisted_1$x = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -9148,11 +9148,11 @@ const _hoisted_2$p = /* @__PURE__ */ createStaticVNode('<path d="M16 12.005a4 4 
 const _hoisted_11$1 = [
   _hoisted_2$p
 ];
-function render$9(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$y, _hoisted_11$1);
+function render$7(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$x, _hoisted_11$1);
 }
-var __unplugin_components_6 = { name: "carbon-sun", render: render$9 };
-const _hoisted_1$x = {
+var __unplugin_components_6 = { name: "carbon-sun", render: render$7 };
+const _hoisted_1$w = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -9163,14 +9163,14 @@ const _hoisted_2$o = /* @__PURE__ */ createBaseVNode("path", {
   d: "M213.663 202.343a8 8 0 0 1-11.315 11.314L139.23 150.54l-20.304 55.836a15.86 15.86 0 0 1-14.957 10.532h-.084a15.855 15.855 0 0 1-14.976-10.382L30.695 51.289a16 16 0 0 1 20.598-20.6l155.238 58.214a16 16 0 0 1-.15 30.018l-55.837 20.305z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$k = [
+const _hoisted_3$j = [
   _hoisted_2$o
 ];
-function render$8(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$x, _hoisted_3$k);
+function render$6(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$w, _hoisted_3$j);
 }
-var __unplugin_components_0$3 = { name: "ph-cursor-fill", render: render$8 };
-const _hoisted_1$w = {
+var __unplugin_components_0$3 = { name: "ph-cursor-fill", render: render$6 };
+const _hoisted_1$v = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -9181,19 +9181,19 @@ const _hoisted_2$n = /* @__PURE__ */ createBaseVNode("path", {
   d: "M27.307 6.107L30 3.414L28.586 2l-2.693 2.693L24.8 3.6a1.933 1.933 0 0 0-2.8 0l-18 18V28h6.4l18-18a1.933 1.933 0 0 0 0-2.8zM9.6 26H6v-3.6L23.4 5L27 8.6z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$j = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_3$i = /* @__PURE__ */ createBaseVNode("path", {
   d: "M9 11.586L16.586 4L18 5.414L10.414 13z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_4$g = [
+const _hoisted_4$f = [
   _hoisted_2$n,
-  _hoisted_3$j
+  _hoisted_3$i
 ];
-function render$7(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$w, _hoisted_4$g);
+function render$5(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$v, _hoisted_4$f);
 }
-var __unplugin_components_0$2 = { name: "carbon-pen", render: render$7 };
-const _hoisted_1$v = {
+var __unplugin_components_0$2 = { name: "carbon-pen", render: render$5 };
+const _hoisted_1$u = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -9204,19 +9204,19 @@ const _hoisted_2$m = /* @__PURE__ */ createBaseVNode("path", {
   d: "M26 24v4H6v-4H4v4a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2v-4z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$i = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_3$h = /* @__PURE__ */ createBaseVNode("path", {
   d: "M26 14l-1.41-1.41L17 20.17V2h-2v18.17l-7.59-7.58L6 14l10 10l10-10z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_4$f = [
+const _hoisted_4$e = [
   _hoisted_2$m,
-  _hoisted_3$i
+  _hoisted_3$h
 ];
-function render$6(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$v, _hoisted_4$f);
+function render$4(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$u, _hoisted_4$e);
 }
-var __unplugin_components_13 = { name: "carbon-download", render: render$6 };
-const _hoisted_1$u = {
+var __unplugin_components_13 = { name: "carbon-download", render: render$4 };
+const _hoisted_1$t = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -9227,24 +9227,24 @@ const _hoisted_2$l = /* @__PURE__ */ createBaseVNode("path", {
   d: "M17 22v-8h-4v2h2v6h-3v2h8v-2h-3z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$h = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_3$g = /* @__PURE__ */ createBaseVNode("path", {
   d: "M16 8a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 8z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_4$e = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_4$d = /* @__PURE__ */ createBaseVNode("path", {
   d: "M16 30a14 14 0 1 1 14-14a14 14 0 0 1-14 14zm0-26a12 12 0 1 0 12 12A12 12 0 0 0 16 4z",
   fill: "currentColor"
 }, null, -1);
 const _hoisted_5$7 = [
   _hoisted_2$l,
-  _hoisted_3$h,
-  _hoisted_4$e
+  _hoisted_3$g,
+  _hoisted_4$d
 ];
-function render$5(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$u, _hoisted_5$7);
+function render$3(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$t, _hoisted_5$7);
 }
-var __unplugin_components_14 = { name: "carbon-information", render: render$5 };
-const _hoisted_1$t = {
+var __unplugin_components_14 = { name: "carbon-information", render: render$3 };
+const _hoisted_1$s = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -9255,19 +9255,19 @@ const _hoisted_2$k = /* @__PURE__ */ createBaseVNode("path", {
   d: "M30 8h-4.1c-.5-2.3-2.5-4-4.9-4s-4.4 1.7-4.9 4H2v2h14.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H30V8zm-9 4c-1.7 0-3-1.3-3-3s1.3-3 3-3s3 1.3 3 3s-1.3 3-3 3z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$g = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_3$f = /* @__PURE__ */ createBaseVNode("path", {
   d: "M2 24h4.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H30v-2H15.9c-.5-2.3-2.5-4-4.9-4s-4.4 1.7-4.9 4H2v2zm9-4c1.7 0 3 1.3 3 3s-1.3 3-3 3s-3-1.3-3-3s1.3-3 3-3z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_4$d = [
+const _hoisted_4$c = [
   _hoisted_2$k,
-  _hoisted_3$g
+  _hoisted_3$f
 ];
-function render$4(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$t, _hoisted_4$d);
+function render$2(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$s, _hoisted_4$c);
 }
-var __unplugin_components_15 = { name: "carbon-settings-adjust", render: render$4 };
-const _hoisted_1$s = {
+var __unplugin_components_15 = { name: "carbon-settings-adjust", render: render$2 };
+const _hoisted_1$r = {
   class: "slidev-icon",
   width: "1.2em",
   height: "1.2em",
@@ -9278,19 +9278,19 @@ const _hoisted_2$j = /* @__PURE__ */ createBaseVNode("path", {
   d: "M13 24l-9-9l1.414-1.414L13 21.171L26.586 7.586L28 9L13 24z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$f = [
+const _hoisted_3$e = [
   _hoisted_2$j
 ];
-function render$3(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$s, _hoisted_3$f);
+function render$1(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$r, _hoisted_3$e);
 }
-var __unplugin_components_0$1 = { name: "carbon-checkmark", render: render$3 };
+var __unplugin_components_0$1 = { name: "carbon-checkmark", render: render$1 };
 var SelectList_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _hoisted_1$r = { class: "select-list" };
+const _hoisted_1$q = { class: "select-list" };
 const _hoisted_2$i = { class: "title" };
-const _hoisted_3$e = { class: "items" };
-const _hoisted_4$c = ["onClick"];
-const _sfc_main$t = /* @__PURE__ */ defineComponent({
+const _hoisted_3$d = { class: "items" };
+const _hoisted_4$b = ["onClick"];
+const _sfc_main$u = /* @__PURE__ */ defineComponent({
   props: {
     modelValue: {
       type: [Object, String, Number]
@@ -9307,9 +9307,9 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
     const value = useVModel(props, "modelValue", emit, { passive: true });
     return (_ctx, _cache) => {
       const _component_carbon58checkmark = __unplugin_components_0$1;
-      return openBlock(), createElementBlock("div", _hoisted_1$r, [
+      return openBlock(), createElementBlock("div", _hoisted_1$q, [
         createBaseVNode("div", _hoisted_2$i, toDisplayString(__props.title), 1),
-        createBaseVNode("div", _hoisted_3$e, [
+        createBaseVNode("div", _hoisted_3$d, [
           (openBlock(true), createElementBlock(Fragment, null, renderList(__props.items, (item) => {
             return openBlock(), createElementBlock("div", {
               key: item.value,
@@ -9324,16 +9324,16 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
                 class: normalizeClass(["text-green-500", { "opacity-0": unref(value) !== item.value }])
               }, null, 8, ["class"]),
               createTextVNode(" " + toDisplayString(item.display || item.value), 1)
-            ], 10, _hoisted_4$c);
+            ], 10, _hoisted_4$b);
           }), 128))
         ])
       ]);
     };
   }
 });
-var SelectList = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["__scopeId", "data-v-dfba9102"]]);
-const _hoisted_1$q = { class: "text-sm" };
-const _sfc_main$s = /* @__PURE__ */ defineComponent({
+var SelectList = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["__scopeId", "data-v-dfba9102"]]);
+const _hoisted_1$p = { class: "text-sm" };
+const _sfc_main$t = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const items = [
       {
@@ -9346,7 +9346,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
       }
     ];
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$q, [
+      return openBlock(), createElementBlock("div", _hoisted_1$p, [
         createVNode(SelectList, {
           modelValue: unref(slideScale),
           "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => isRef(slideScale) ? slideScale.value = $event : null),
@@ -9357,12 +9357,12 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _hoisted_1$p = {
+const _hoisted_1$o = {
   key: 0,
   class: "rounded-md bg-main shadow absolute bottom-10 left-0 z-20",
   "dark:border": "~ gray-400 opacity-10"
 };
-const _sfc_main$r = /* @__PURE__ */ defineComponent({
+const _sfc_main$s = /* @__PURE__ */ defineComponent({
   props: {
     modelValue: {
       default: false
@@ -9395,7 +9395,7 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
           })
         ], 2),
         (openBlock(), createBlock(KeepAlive, null, [
-          unref(value) ? (openBlock(), createElementBlock("div", _hoisted_1$p, [
+          unref(value) ? (openBlock(), createElementBlock("div", _hoisted_1$o, [
             renderSlot(_ctx.$slots, "menu")
           ])) : createCommentVNode("v-if", true)
         ], 1024))
@@ -9403,21 +9403,21 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _sfc_main$q = {};
-const _hoisted_1$o = { class: "w-1px m-2 opacity-10 bg-current" };
-function _sfc_render$3(_ctx, _cache) {
-  return openBlock(), createElementBlock("div", _hoisted_1$o);
+const _sfc_main$r = {};
+const _hoisted_1$n = { class: "w-1px m-2 opacity-10 bg-current" };
+function _sfc_render$4(_ctx, _cache) {
+  return openBlock(), createElementBlock("div", _hoisted_1$n);
 }
-var VerticalDivider = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$3]]);
-const _hoisted_1$n = { class: "icon-btn" };
+var VerticalDivider = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$4]]);
+const _hoisted_1$m = { class: "icon-btn" };
 const _hoisted_2$h = {
   class: "h-40px flex",
   p: "l-1 t-0.5 r-2",
   text: "sm leading-2"
 };
-const _hoisted_3$d = { class: "my-auto" };
-const _hoisted_4$b = { class: "opacity-50" };
-const _sfc_main$p = /* @__PURE__ */ defineComponent({
+const _hoisted_3$c = { class: "my-auto" };
+const _hoisted_4$a = { class: "opacity-50" };
+const _sfc_main$q = /* @__PURE__ */ defineComponent({
   props: {
     persist: {
       default: false
@@ -9437,12 +9437,12 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.de929469.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.c30df46f.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
-      const _component_carbon58minimize = __unplugin_components_0$5;
-      const _component_carbon58maximize = __unplugin_components_1$1;
-      const _component_carbon58arrow_left = __unplugin_components_2$1;
-      const _component_carbon58arrow_right = __unplugin_components_0$4;
+      const _component_carbon58minimize = __unplugin_components_0$4;
+      const _component_carbon58maximize = __unplugin_components_1;
+      const _component_carbon58arrow_left = __unplugin_components_2;
+      const _component_carbon58arrow_right = __unplugin_components_3;
       const _component_carbon58apps = __unplugin_components_4;
       const _component_carbon_moon = __unplugin_components_5;
       const _component_carbon_sun = __unplugin_components_6;
@@ -9532,22 +9532,22 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
           }, [
             createVNode(_component_carbon58information)
           ])) : createCommentVNode("v-if", true),
-          !unref(isPresenter) && !unref(isEmbedded) ? (openBlock(), createBlock(_sfc_main$r, { key: 8 }, {
+          !unref(isPresenter) && !unref(isEmbedded) ? (openBlock(), createBlock(_sfc_main$s, { key: 8 }, {
             button: withCtx(() => [
-              createBaseVNode("button", _hoisted_1$n, [
+              createBaseVNode("button", _hoisted_1$m, [
                 createVNode(_component_carbon58settings_adjust)
               ])
             ]),
             menu: withCtx(() => [
-              createVNode(_sfc_main$s)
+              createVNode(_sfc_main$t)
             ]),
             _: 1
           })) : createCommentVNode("v-if", true),
           !unref(isEmbedded) ? (openBlock(), createBlock(VerticalDivider, { key: 9 })) : createCommentVNode("v-if", true),
           createBaseVNode("div", _hoisted_2$h, [
-            createBaseVNode("div", _hoisted_3$d, [
+            createBaseVNode("div", _hoisted_3$c, [
               createTextVNode(toDisplayString(unref(currentPage)) + " ", 1),
-              createBaseVNode("span", _hoisted_4$b, "/ " + toDisplayString(unref(total)), 1)
+              createBaseVNode("span", _hoisted_4$a, "/ " + toDisplayString(unref(total)), 1)
             ])
           ])
         ], 34)
@@ -9565,15 +9565,15 @@ var GlobalBottom = {
     return [];
   }
 };
-const _hoisted_1$m = {
+const _hoisted_1$l = {
   key: 0,
   class: "absolute top-0 left-0 right-0 bottom-0 pointer-events-none text-xl"
 };
-const _sfc_main$o = /* @__PURE__ */ defineComponent({
+const _sfc_main$p = /* @__PURE__ */ defineComponent({
   setup(__props) {
     return (_ctx, _cache) => {
       const _component_ph58cursor_fill = __unplugin_components_0$3;
-      return unref(serverState).cursor ? (openBlock(), createElementBlock("div", _hoisted_1$m, [
+      return unref(serverState).cursor ? (openBlock(), createElementBlock("div", _hoisted_1$l, [
         createVNode(_component_ph58cursor_fill, {
           class: "absolute",
           style: normalizeStyle({ left: `${unref(serverState).cursor.x}%`, top: `${unref(serverState).cursor.y}%` })
@@ -9582,7 +9582,7 @@ const _sfc_main$o = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _sfc_main$n = /* @__PURE__ */ defineComponent({
+const _sfc_main$o = /* @__PURE__ */ defineComponent({
   setup(__props) {
     watch(currentRoute, () => {
       var _a2, _b2;
@@ -9592,7 +9592,7 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.c945300a.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.40a33439.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9618,12 +9618,12 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
         createCommentVNode(" Global Top "),
         createVNode(unref(GlobalTop)),
         unref(DrawingLayer) ? (openBlock(), createBlock(unref(DrawingLayer), { key: 0 })) : createCommentVNode("v-if", true),
-        !unref(isPresenter) ? (openBlock(), createBlock(_sfc_main$o, { key: 1 })) : createCommentVNode("v-if", true)
+        !unref(isPresenter) ? (openBlock(), createBlock(_sfc_main$p, { key: 1 })) : createCommentVNode("v-if", true)
       ], 64);
     };
   }
 });
-const _sfc_main$m = /* @__PURE__ */ defineComponent({
+const _sfc_main$n = /* @__PURE__ */ defineComponent({
   setup(__props) {
     registerShortcuts();
     const root = ref();
@@ -9642,7 +9642,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.de929469.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.c30df46f.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -9654,7 +9654,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
           class: "grid grid-cols-[1fr,max-content]",
           style: normalizeStyle(unref(themeVars))
         }, [
-          createVNode(_sfc_main$A, {
+          createVNode(_sfc_main$B, {
             class: "w-full h-full",
             style: normalizeStyle({ background: "var(--slidev-slide-container-background, black)" }),
             width: unref(isPrintMode) ? unref(windowSize).width.value : void 0,
@@ -9662,7 +9662,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
             onPointerdown: onClick
           }, {
             default: withCtx(() => [
-              createVNode(_sfc_main$n)
+              createVNode(_sfc_main$o)
             ]),
             controls: withCtx(() => [
               createBaseVNode("div", {
@@ -9671,7 +9671,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
                   unref(isDrawing) ? "pointer-events-none" : ""
                 ]])
               }, [
-                createVNode(_sfc_main$p, {
+                createVNode(_sfc_main$q, {
                   class: "m-auto",
                   persist: unref(presistNav)
                 }, null, 8, ["persist"])
@@ -9685,145 +9685,240 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
           }, 8, ["style", "width", "scale"]),
           createCommentVNode("v-if", true)
         ], 4),
-        createVNode(_sfc_main$u)
+        createVNode(_sfc_main$v)
       ], 64);
     };
   }
 });
 var end_vue_vue_type_style_index_0_scopde_true_lang = "";
-const _sfc_main$l = {};
-const _hoisted_1$l = { class: "slidev-layout end" };
-function _sfc_render$2(_ctx, _cache) {
-  return openBlock(), createElementBlock("div", _hoisted_1$l, " END ");
+const _sfc_main$m = {};
+const _hoisted_1$k = { class: "slidev-layout end" };
+function _sfc_render$3(_ctx, _cache) {
+  return openBlock(), createElementBlock("div", _hoisted_1$k, " END ");
 }
-var __layout__end = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$2]]);
-const _hoisted_1$k = {
-  class: "slidev-icon",
-  width: "1.2em",
-  height: "1.2em",
-  preserveAspectRatio: "xMidYMid meet",
-  viewBox: "0 0 32 32"
-};
-const _hoisted_2$g = /* @__PURE__ */ createBaseVNode("path", {
-  d: "M2 26h28v2H2z",
-  fill: "currentColor"
-}, null, -1);
-const _hoisted_3$c = /* @__PURE__ */ createBaseVNode("path", {
-  d: "M25.4 9c.8-.8.8-2 0-2.8l-3.6-3.6c-.8-.8-2-.8-2.8 0l-15 15V24h6.4l15-15zm-5-5L24 7.6l-3 3L17.4 7l3-3zM6 22v-3.6l10-10l3.6 3.6l-10 10H6z",
-  fill: "currentColor"
-}, null, -1);
-const _hoisted_4$a = [
-  _hoisted_2$g,
-  _hoisted_3$c
-];
-function render$2(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$k, _hoisted_4$a);
+var __layout__end = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$3]]);
+let wasm;
+let cachedTextDecoder = new TextDecoder("utf-8", { ignoreBOM: true, fatal: true });
+cachedTextDecoder.decode();
+let cachegetUint8Memory0 = null;
+function getUint8Memory0() {
+  if (cachegetUint8Memory0 === null || cachegetUint8Memory0.buffer !== wasm.memory.buffer) {
+    cachegetUint8Memory0 = new Uint8Array(wasm.memory.buffer);
+  }
+  return cachegetUint8Memory0;
 }
-var __unplugin_components_1 = { name: "carbon-edit", render: render$2 };
-const _hoisted_1$j = {
-  class: "slidev-icon",
-  width: "1.2em",
-  height: "1.2em",
-  preserveAspectRatio: "xMidYMid meet",
-  viewBox: "0 0 32 32"
-};
-const _hoisted_2$f = /* @__PURE__ */ createBaseVNode("path", {
-  d: "M16 2a14 14 0 0 0-4.43 27.28c.7.13 1-.3 1-.67v-2.38c-3.89.84-4.71-1.88-4.71-1.88a3.71 3.71 0 0 0-1.62-2.05c-1.27-.86.1-.85.1-.85a2.94 2.94 0 0 1 2.14 1.45a3 3 0 0 0 4.08 1.16a2.93 2.93 0 0 1 .88-1.87c-3.1-.36-6.37-1.56-6.37-6.92a5.4 5.4 0 0 1 1.44-3.76a5 5 0 0 1 .14-3.7s1.17-.38 3.85 1.43a13.3 13.3 0 0 1 7 0c2.67-1.81 3.84-1.43 3.84-1.43a5 5 0 0 1 .14 3.7a5.4 5.4 0 0 1 1.44 3.76c0 5.38-3.27 6.56-6.39 6.91a3.33 3.33 0 0 1 .95 2.59v3.84c0 .46.25.81 1 .67A14 14 0 0 0 16 2z",
-  "fill-rule": "evenodd",
-  fill: "currentColor"
-}, null, -1);
-const _hoisted_3$b = [
-  _hoisted_2$f
-];
-function render$1(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$j, _hoisted_3$b);
+function getStringFromWasm0(ptr, len) {
+  return cachedTextDecoder.decode(getUint8Memory0().subarray(ptr, ptr + len));
 }
-var __unplugin_components_2 = { name: "carbon-logo-github", render: render$1 };
-function resolveAssetUrl$1(url) {
-  if (url.startsWith("/"))
-    return "/" + url.slice(1);
-  return url;
+const heap = new Array(32).fill(void 0);
+heap.push(void 0, null, true, false);
+let heap_next = heap.length;
+function addHeapObject(obj) {
+  if (heap_next === heap.length)
+    heap.push(heap.length + 1);
+  const idx = heap_next;
+  heap_next = heap[idx];
+  heap[idx] = obj;
+  return idx;
 }
-function handleBackground$1(background, dim = false) {
-  const isColor = background && background[0] === "#" && background.startsWith("rgb");
-  const style = {
-    background: isColor ? background : void 0,
-    color: background && !isColor ? "white" : void 0,
-    backgroundImage: isColor ? void 0 : background ? dim ? `linear-gradient(#0005, #0008), url(${resolveAssetUrl$1(background)})` : `url("${resolveAssetUrl$1(background)}")` : void 0,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    backgroundSize: "cover"
+function getObject(idx) {
+  return heap[idx];
+}
+let WASM_VECTOR_LEN = 0;
+let cachedTextEncoder = new TextEncoder("utf-8");
+const encodeString = typeof cachedTextEncoder.encodeInto === "function" ? function(arg, view) {
+  return cachedTextEncoder.encodeInto(arg, view);
+} : function(arg, view) {
+  const buf = cachedTextEncoder.encode(arg);
+  view.set(buf);
+  return {
+    read: arg.length,
+    written: buf.length
   };
-  if (!style.background)
-    delete style.background;
-  return style;
-}
-const _hoisted_1$i = { class: "my-auto w-full" };
-const _sfc_main$k = /* @__PURE__ */ defineComponent({
-  props: {
-    background: {
-      default: "https://source.unsplash.com/collection/94734566/1920x1080"
+};
+function passStringToWasm0(arg, malloc, realloc) {
+  if (realloc === void 0) {
+    const buf = cachedTextEncoder.encode(arg);
+    const ptr2 = malloc(buf.length);
+    getUint8Memory0().subarray(ptr2, ptr2 + buf.length).set(buf);
+    WASM_VECTOR_LEN = buf.length;
+    return ptr2;
+  }
+  let len = arg.length;
+  let ptr = malloc(len);
+  const mem = getUint8Memory0();
+  let offset = 0;
+  for (; offset < len; offset++) {
+    const code2 = arg.charCodeAt(offset);
+    if (code2 > 127)
+      break;
+    mem[ptr + offset] = code2;
+  }
+  if (offset !== len) {
+    if (offset !== 0) {
+      arg = arg.slice(offset);
     }
-  },
+    ptr = realloc(ptr, len, len = offset + arg.length * 3);
+    const view = getUint8Memory0().subarray(ptr + offset, ptr + len);
+    const ret = encodeString(arg, view);
+    offset += ret.written;
+  }
+  WASM_VECTOR_LEN = offset;
+  return ptr;
+}
+let cachegetInt32Memory0 = null;
+function getInt32Memory0() {
+  if (cachegetInt32Memory0 === null || cachegetInt32Memory0.buffer !== wasm.memory.buffer) {
+    cachegetInt32Memory0 = new Int32Array(wasm.memory.buffer);
+  }
+  return cachegetInt32Memory0;
+}
+function dropObject(idx) {
+  if (idx < 36)
+    return;
+  heap[idx] = heap_next;
+  heap_next = idx;
+}
+function takeObject(idx) {
+  const ret = getObject(idx);
+  dropObject(idx);
+  return ret;
+}
+function run$1(inputs, results) {
+  var ret = wasm.run(addHeapObject(inputs), addHeapObject(results));
+  return takeObject(ret);
+}
+async function load(module, imports) {
+  if (typeof Response === "function" && module instanceof Response) {
+    if (typeof WebAssembly.instantiateStreaming === "function") {
+      try {
+        return await WebAssembly.instantiateStreaming(module, imports);
+      } catch (e) {
+        if (module.headers.get("Content-Type") != "application/wasm") {
+          console.warn("`WebAssembly.instantiateStreaming` failed because your server does not serve wasm with `application/wasm` MIME type. Falling back to `WebAssembly.instantiate` which is slower. Original error:\n", e);
+        } else {
+          throw e;
+        }
+      }
+    }
+    const bytes = await module.arrayBuffer();
+    return await WebAssembly.instantiate(bytes, imports);
+  } else {
+    const instance = await WebAssembly.instantiate(module, imports);
+    if (instance instanceof WebAssembly.Instance) {
+      return { instance, module };
+    } else {
+      return instance;
+    }
+  }
+}
+async function init(input) {
+  if (typeof input === "undefined") {
+    input = new URL("/assets/flashfill_core_bg.9d4ce4ff.wasm", self.location);
+  }
+  const imports = {};
+  imports.wbg = {};
+  imports.wbg.__wbindgen_json_parse = function(arg0, arg1) {
+    var ret = JSON.parse(getStringFromWasm0(arg0, arg1));
+    return addHeapObject(ret);
+  };
+  imports.wbg.__wbindgen_json_serialize = function(arg0, arg1) {
+    const obj = getObject(arg1);
+    var ret = JSON.stringify(obj === void 0 ? null : obj);
+    var ptr0 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+    var len0 = WASM_VECTOR_LEN;
+    getInt32Memory0()[arg0 / 4 + 1] = len0;
+    getInt32Memory0()[arg0 / 4 + 0] = ptr0;
+  };
+  imports.wbg.__wbg_log_28ec202ee0469987 = function(arg0, arg1) {
+    console.log(getStringFromWasm0(arg0, arg1));
+  };
+  imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
+    takeObject(arg0);
+  };
+  if (typeof input === "string" || typeof Request === "function" && input instanceof Request || typeof URL === "function" && input instanceof URL) {
+    input = fetch(input);
+  }
+  const { instance, module } = await load(await input, imports);
+  wasm = instance.exports;
+  init.__wbindgen_wasm_module = module;
+  return wasm;
+}
+let initialized = init();
+async function run(inputs, results) {
+  await initialized;
+  return run$1(inputs, results);
+}
+const _hoisted_1$j = { class: "absolute top-4 right-4 flex items-center" };
+const _hoisted_2$g = {
+  key: 0,
+  class: "rounded-1 w-4 h-4 inline-block mr-2"
+};
+const _hoisted_3$b = {
+  key: 1,
+  class: "rounded-1 bg-green-400 w-4 h-4 inline-block mr-2"
+};
+const _hoisted_4$9 = {
+  key: 2,
+  class: "rounded-1 bg-red-400 w-4 h-4 inline-block mr-2"
+};
+const _hoisted_5$6 = {
+  key: 3,
+  class: "text-gray-500"
+};
+const _hoisted_6$5 = {
+  key: 4,
+  class: "text-gray-500"
+};
+const _sfc_main$l = /* @__PURE__ */ defineComponent({
   setup(__props) {
-    const props = __props;
-    const style = computed(() => handleBackground$1(props.background, true));
+    const status = ref(-1);
+    run([
+      ["123", "456", "789"],
+      ["ABC", "DEF", "GHI"],
+      ["abc", "def", "ghi"]
+    ], ["123", "ABC", null]).then((res) => {
+      console.log(res);
+      status.value = 0;
+    }).catch(() => {
+      status.value = 1;
+    });
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", {
-        class: "slidev-layout cover text-center",
-        style: normalizeStyle(unref(style))
-      }, [
-        createBaseVNode("div", _hoisted_1$i, [
-          renderSlot(_ctx.$slots, "default")
-        ])
-      ], 4);
+      return openBlock(), createElementBlock("div", _hoisted_1$j, [
+        status.value === -1 ? (openBlock(), createElementBlock("span", _hoisted_2$g)) : status.value === 0 ? (openBlock(), createElementBlock("span", _hoisted_3$b)) : status.value === 1 ? (openBlock(), createElementBlock("span", _hoisted_4$9)) : createCommentVNode("v-if", true),
+        status.value === 0 ? (openBlock(), createElementBlock("span", _hoisted_5$6, "FlashFill Ok")) : status.value === 1 ? (openBlock(), createElementBlock("span", _hoisted_6$5, "FlashFill Fail")) : createCommentVNode("v-if", true)
+      ]);
     };
   }
 });
-const _hoisted_1$h = /* @__PURE__ */ createBaseVNode("h1", null, "Welcome to Slidev", -1);
-const _hoisted_2$e = /* @__PURE__ */ createBaseVNode("p", null, "Presentation slides for developers", -1);
-const _hoisted_3$a = { class: "pt-12" };
-const _hoisted_4$9 = /* @__PURE__ */ createTextVNode(" Press Space for next page ");
-const _hoisted_5$6 = { class: "abs-br m-6 flex gap-2" };
-const _hoisted_6$5 = {
-  href: "https://github.com/slidevjs/slidev",
-  target: "_blank",
-  alt: "GitHub",
-  class: "text-xl icon-btn opacity-50 !border-none !hover:text-white"
-};
+const _sfc_main$k = {};
+const _hoisted_1$i = { class: "slidev-layout intro" };
+const _hoisted_2$f = { class: "my-auto" };
+function _sfc_render$2(_ctx, _cache) {
+  return openBlock(), createElementBlock("div", _hoisted_1$i, [
+    createBaseVNode("div", _hoisted_2$f, [
+      renderSlot(_ctx.$slots, "default")
+    ])
+  ]);
+}
+var InjectedLayout$2 = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$2]]);
+const _hoisted_1$h = /* @__PURE__ */ createBaseVNode("h1", { class: "!text-4xl" }, "Automating string processing in spreadsheets", -1);
+const _hoisted_2$e = /* @__PURE__ */ createBaseVNode("h1", { class: "!text-4xl" }, "using input-output examples", -1);
+const _hoisted_3$a = /* @__PURE__ */ createBaseVNode("h2", { class: "pt-10" }, "Junliang Yan", -1);
 const _sfc_main$j = {
   setup(__props) {
-    const frontmatter = { "theme": "seriph", "background": "https://source.unsplash.com/collection/94734566/1920x1080", "class": "text-center", "highlighter": "shiki", "lineNumbers": false, "info": "## Slidev Starter Template\nPresentation slides for developers.\n\nLearn more at [Sli.dev](https://sli.dev)\n", "drawings": { "persist": false } };
+    const frontmatter = { "theme": "apple-basic", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center" };
     return (_ctx, _cache) => {
-      const _component_carbon58arrow_right = __unplugin_components_0$4;
-      const _component_carbon58edit = __unplugin_components_1;
-      const _component_carbon_logo_github = __unplugin_components_2;
-      return openBlock(), createBlock(_sfc_main$k, normalizeProps(guardReactiveProps(frontmatter)), {
+      const _component_Status = _sfc_main$l;
+      return openBlock(), createBlock(InjectedLayout$2, normalizeProps(guardReactiveProps(frontmatter)), {
         default: withCtx(() => [
           _hoisted_1$h,
           _hoisted_2$e,
-          createBaseVNode("div", _hoisted_3$a, [
-            createBaseVNode("span", {
-              onClick: _cache[0] || (_cache[0] = (...args) => _ctx.$slidev.nav.next && _ctx.$slidev.nav.next(...args)),
-              class: "px-2 py-1 rounded cursor-pointer",
-              hover: "bg-white bg-opacity-10"
-            }, [
-              _hoisted_4$9,
-              createVNode(_component_carbon58arrow_right, { class: "inline" })
-            ])
+          _hoisted_3$a,
+          createBaseVNode("p", null, [
+            createVNode(_component_Status)
           ]),
-          createBaseVNode("div", _hoisted_5$6, [
-            createBaseVNode("button", {
-              onClick: _cache[1] || (_cache[1] = ($event) => _ctx.$slidev.nav.openInEditor()),
-              title: "Open in Editor",
-              class: "text-xl icon-btn opacity-50 !border-none !hover:text-white"
-            }, [
-              createVNode(_component_carbon58edit)
-            ]),
-            createBaseVNode("a", _hoisted_6$5, [
-              createVNode(_component_carbon_logo_github)
-            ])
-          ])
+          createCommentVNode(' # Welcome to Slidev\n\nPresentation slides for developers\n\n<div class="pt-12">\n  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">\n    Press Space for next page <carbon:arrow-right class="inline"/>\n  </span>\n</div>\n\n<div class="abs-br m-6 flex gap-2">\n  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">\n    <carbon:edit />\n  </button>\n  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"\n    class="text-xl icon-btn opacity-50 !border-none !hover:text-white">\n    <carbon-logo-github />\n  </a>\n</div> ')
         ]),
         _: 1
       }, 16);
@@ -11313,12 +11408,12 @@ const _sfc_main$d = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$c, [
         createBaseVNode("div", {
-          class: normalizeClass(["slidev-layout default", props.class])
+          class: normalizeClass(["slidev-layout default image-right", props.class])
         }, [
           renderSlot(_ctx.$slots, "default")
         ], 2),
         createBaseVNode("div", {
-          class: "w-full w-full",
+          class: "my-14 mr-14",
           style: normalizeStyle(unref(style))
         }, null, 4)
       ]);
@@ -11326,7 +11421,7 @@ const _sfc_main$d = /* @__PURE__ */ defineComponent({
   }
 });
 var _4_md_vue_type_style_index_0_scoped_true_lang = "";
-const _withScopeId = (n) => (pushScopeId("data-v-28da3d07"), n = n(), popScopeId(), n);
+const _withScopeId = (n) => (pushScopeId("data-v-0d632628"), n = n(), popScopeId(), n);
 const _hoisted_1$b = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("h1", null, "Code", -1));
 const _hoisted_2$a = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("p", null, [
   /* @__PURE__ */ createTextVNode("Use code snippets and get the highlighting directly!"),
@@ -11637,159 +11732,7 @@ const _sfc_main$c = {
     };
   }
 };
-var n4 = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-28da3d07"]]);
-let wasm;
-let cachedTextDecoder = new TextDecoder("utf-8", { ignoreBOM: true, fatal: true });
-cachedTextDecoder.decode();
-let cachegetUint8Memory0 = null;
-function getUint8Memory0() {
-  if (cachegetUint8Memory0 === null || cachegetUint8Memory0.buffer !== wasm.memory.buffer) {
-    cachegetUint8Memory0 = new Uint8Array(wasm.memory.buffer);
-  }
-  return cachegetUint8Memory0;
-}
-function getStringFromWasm0(ptr, len) {
-  return cachedTextDecoder.decode(getUint8Memory0().subarray(ptr, ptr + len));
-}
-const heap = new Array(32).fill(void 0);
-heap.push(void 0, null, true, false);
-let heap_next = heap.length;
-function addHeapObject(obj) {
-  if (heap_next === heap.length)
-    heap.push(heap.length + 1);
-  const idx = heap_next;
-  heap_next = heap[idx];
-  heap[idx] = obj;
-  return idx;
-}
-function getObject(idx) {
-  return heap[idx];
-}
-let WASM_VECTOR_LEN = 0;
-let cachedTextEncoder = new TextEncoder("utf-8");
-const encodeString = typeof cachedTextEncoder.encodeInto === "function" ? function(arg, view) {
-  return cachedTextEncoder.encodeInto(arg, view);
-} : function(arg, view) {
-  const buf = cachedTextEncoder.encode(arg);
-  view.set(buf);
-  return {
-    read: arg.length,
-    written: buf.length
-  };
-};
-function passStringToWasm0(arg, malloc, realloc) {
-  if (realloc === void 0) {
-    const buf = cachedTextEncoder.encode(arg);
-    const ptr2 = malloc(buf.length);
-    getUint8Memory0().subarray(ptr2, ptr2 + buf.length).set(buf);
-    WASM_VECTOR_LEN = buf.length;
-    return ptr2;
-  }
-  let len = arg.length;
-  let ptr = malloc(len);
-  const mem = getUint8Memory0();
-  let offset = 0;
-  for (; offset < len; offset++) {
-    const code2 = arg.charCodeAt(offset);
-    if (code2 > 127)
-      break;
-    mem[ptr + offset] = code2;
-  }
-  if (offset !== len) {
-    if (offset !== 0) {
-      arg = arg.slice(offset);
-    }
-    ptr = realloc(ptr, len, len = offset + arg.length * 3);
-    const view = getUint8Memory0().subarray(ptr + offset, ptr + len);
-    const ret = encodeString(arg, view);
-    offset += ret.written;
-  }
-  WASM_VECTOR_LEN = offset;
-  return ptr;
-}
-let cachegetInt32Memory0 = null;
-function getInt32Memory0() {
-  if (cachegetInt32Memory0 === null || cachegetInt32Memory0.buffer !== wasm.memory.buffer) {
-    cachegetInt32Memory0 = new Int32Array(wasm.memory.buffer);
-  }
-  return cachegetInt32Memory0;
-}
-function dropObject(idx) {
-  if (idx < 36)
-    return;
-  heap[idx] = heap_next;
-  heap_next = idx;
-}
-function takeObject(idx) {
-  const ret = getObject(idx);
-  dropObject(idx);
-  return ret;
-}
-function run$1(inputs, results) {
-  var ret = wasm.run(addHeapObject(inputs), addHeapObject(results));
-  return takeObject(ret);
-}
-async function load(module, imports) {
-  if (typeof Response === "function" && module instanceof Response) {
-    if (typeof WebAssembly.instantiateStreaming === "function") {
-      try {
-        return await WebAssembly.instantiateStreaming(module, imports);
-      } catch (e) {
-        if (module.headers.get("Content-Type") != "application/wasm") {
-          console.warn("`WebAssembly.instantiateStreaming` failed because your server does not serve wasm with `application/wasm` MIME type. Falling back to `WebAssembly.instantiate` which is slower. Original error:\n", e);
-        } else {
-          throw e;
-        }
-      }
-    }
-    const bytes = await module.arrayBuffer();
-    return await WebAssembly.instantiate(bytes, imports);
-  } else {
-    const instance = await WebAssembly.instantiate(module, imports);
-    if (instance instanceof WebAssembly.Instance) {
-      return { instance, module };
-    } else {
-      return instance;
-    }
-  }
-}
-async function init(input) {
-  if (typeof input === "undefined") {
-    input = new URL("/assets/flashfill_core_bg.3bc89230.wasm", self.location);
-  }
-  const imports = {};
-  imports.wbg = {};
-  imports.wbg.__wbindgen_json_parse = function(arg0, arg1) {
-    var ret = JSON.parse(getStringFromWasm0(arg0, arg1));
-    return addHeapObject(ret);
-  };
-  imports.wbg.__wbindgen_json_serialize = function(arg0, arg1) {
-    const obj = getObject(arg1);
-    var ret = JSON.stringify(obj === void 0 ? null : obj);
-    var ptr0 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
-    var len0 = WASM_VECTOR_LEN;
-    getInt32Memory0()[arg0 / 4 + 1] = len0;
-    getInt32Memory0()[arg0 / 4 + 0] = ptr0;
-  };
-  imports.wbg.__wbg_log_28ec202ee0469987 = function(arg0, arg1) {
-    console.log(getStringFromWasm0(arg0, arg1));
-  };
-  imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
-    takeObject(arg0);
-  };
-  if (typeof input === "string" || typeof Request === "function" && input instanceof Request || typeof URL === "function" && input instanceof URL) {
-    input = fetch(input);
-  }
-  const { instance, module } = await load(await input, imports);
-  wasm = instance.exports;
-  init.__wbindgen_wasm_module = module;
-  return wasm;
-}
-let initialized = init();
-async function run(inputs, results) {
-  await initialized;
-  return run$1(inputs, results);
-}
+var n4 = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-0d632628"]]);
 const _hoisted_1$a = {
   flex: "~",
   w: "min",
@@ -11808,13 +11751,6 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const props = __props;
     const counter = ref(props.count);
-    run([
-      ["123", "456", "789"],
-      ["abc", "def", "ghi"]
-    ], [null, "123"]).then((res) => {
-      console.log(res);
-      alert("FlashFill Ok");
-    });
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$a, [
         createBaseVNode("button", {
@@ -38068,16 +38004,16 @@ const _sfc_main$1 = {
   }
 };
 var _rawRoutes = [
-  { path: "1", name: "page-1", component: _sfc_main$j, meta: { "theme": "seriph", "background": "https://source.unsplash.com/collection/94734566/1920x1080", "class": "text-center", "highlighter": "shiki", "lineNumbers": false, "info": "## Slidev Starter Template\nPresentation slides for developers.\n\nLearn more at [Sli.dev](https://sli.dev)\n", "drawings": { "persist": false }, "title": "Welcome to Slidev", "slide": { "start": 0, "end": 47, "note": "The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)", "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 0, "no": 1 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "2", name: "page-2", component: n2, meta: { "slide": { "start": 48, "end": 83, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 1, "no": 2 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "3", name: "page-3", component: _sfc_main$g, meta: { "slide": { "start": 84, "end": 106, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 2, "no": 3 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "4", name: "page-4", component: n4, meta: { "layout": "image-right", "image": "https://source.unsplash.com/collection/94734566/1920x1080", "slide": { "start": 106, "end": 146, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 3, "no": 4 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "5", name: "page-5", component: _sfc_main$8, meta: { "slide": { "start": 147, "end": 179, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 4, "no": 5 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "6", name: "page-6", component: _sfc_main$7, meta: { "class": "px-20", "slide": { "start": 179, "end": 210, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "7", name: "page-7", component: _sfc_main$6, meta: { "preload": false, "slide": { "start": 210, "end": 286, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "8", name: "page-8", component: _sfc_main$5, meta: { "slide": { "start": 287, "end": 314, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 7, "no": 8 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "9", name: "page-9", component: _sfc_main$3, meta: { "slide": { "start": 315, "end": 340, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 8, "no": 9 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "10", name: "page-10", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 340, "end": 349, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 9, "no": 10 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "1", name: "page-1", component: _sfc_main$j, meta: { "theme": "apple-basic", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center", "slide": { "start": 0, "end": 46, "note": "The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)", "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 0, "no": 1 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "2", name: "page-2", component: n2, meta: { "slide": { "start": 47, "end": 82, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 1, "no": 2 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "3", name: "page-3", component: _sfc_main$g, meta: { "slide": { "start": 83, "end": 105, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 2, "no": 3 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "4", name: "page-4", component: n4, meta: { "layout": "image-right", "image": "https://source.unsplash.com/collection/94734566/1920x1080", "slide": { "start": 105, "end": 145, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 3, "no": 4 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "5", name: "page-5", component: _sfc_main$8, meta: { "slide": { "start": 146, "end": 178, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 4, "no": 5 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "6", name: "page-6", component: _sfc_main$7, meta: { "class": "px-20", "slide": { "start": 178, "end": 209, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "7", name: "page-7", component: _sfc_main$6, meta: { "preload": false, "slide": { "start": 209, "end": 285, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "8", name: "page-8", component: _sfc_main$5, meta: { "slide": { "start": 286, "end": 313, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 7, "no": 8 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "9", name: "page-9", component: _sfc_main$3, meta: { "slide": { "start": 314, "end": 339, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 8, "no": 9 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "10", name: "page-10", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 339, "end": 348, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 9, "no": 10 }, "__clicksElements": [], "__preloaded": false } },
   { path: "11", component: __layout__end, meta: { layout: "end" } }
 ];
 const rawRoutes = _rawRoutes;
@@ -38085,7 +38021,7 @@ const routes = [
   {
     name: "play",
     path: "/",
-    component: _sfc_main$m,
+    component: _sfc_main$n,
     children: [
       ...rawRoutes
     ]
@@ -38227,7 +38163,7 @@ function useSwipeControls(root) {
   });
 }
 async function downloadPDF() {
-  const { saveAs } = await import("./FileSaver.min.d6cd265e.js").then(function(n) {
+  const { saveAs } = await import("./FileSaver.min.acb409ef.js").then(function(n) {
     return n.F;
   });
   saveAs(isString$2(configs.download) ? configs.download : `${"/"}slidev-exported.pdf`, `${configs.title}.pdf`);
@@ -41137,11 +41073,9 @@ var windiBase = "";
 var windiComponents = "";
 var vars = "";
 var index = "";
+var code$1 = "";
+var layout = "";
 var code = "";
-var layoutsBase = "";
-var layouts = "";
-var prism = "";
-var shiki = "";
 var katex_min = "";
 var windiUtilities = "";
 const app = createApp(_sfc_main);
