@@ -135,7 +135,8 @@ pub fn generate_partitions(all_traces: Vec<PartitionItem>) -> Vec<PartitionItem>
     cache_rank: &HashMap<(usize, usize), (usize, f64)>,
     cache_intersect: &HashMap<(usize, usize), Option<Dag>>,
   ) -> Option<(usize, usize)> {
-    let all_traces: Vec<&PartitionItem> = cache_partition.values().collect();
+    let mut all_traces: Vec<&PartitionItem> = cache_partition.values().collect();
+    all_traces.sort_by_key(|t| t.index());
     let mut ans = (0 as usize, 0.0);
     let mut pos: Option<(usize, usize)> = None;
     for i in 0..all_traces.len() {
