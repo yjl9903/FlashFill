@@ -18,7 +18,7 @@ impl Dag {
             for fx in fa {
               for fy in fb {
                 if let Some(new_f) = AtomSet::intersect(fx, fy) {
-                  new_dag.add_edge(new_from, new_to, new_f.clone());
+                  new_dag.add_edge(new_from, new_to, new_f);
                 }
               }
             }

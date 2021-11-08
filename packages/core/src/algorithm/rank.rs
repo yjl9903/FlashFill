@@ -41,13 +41,13 @@ impl Dag {
 
     self.r_dfs(self.start(), &mut all_path, &mut stack, &mut edges);
 
-    {
-      dbg!(self.start());
-      dbg!(self.end());
-      for ((u, v), f) in edges.into_iter() {
-        dbg!(u, v, f);
-      }
-    }
+    // {
+    //   dbg!(self.start());
+    //   dbg!(self.end());
+    //   for ((u, v), f) in edges.into_iter() {
+    //     dbg!(u, v, f);
+    //   }
+    // }
 
     all_path.sort();
 

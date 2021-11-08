@@ -4,7 +4,6 @@ mod rank;
 mod set;
 mod size;
 
-pub(crate) use intersect::*;
 pub(crate) use partition::*;
 pub(crate) use set::*;
 pub(crate) use size::*;
@@ -50,7 +49,10 @@ fn generate_string_program(examples: Vec<(Vec<CharItems>, CharItems)>) -> Option
     let dag = traces.remove(0).own_trace();
     dag.rank().map(|t| Expr::single(t))
   } else {
-    todo!()
+    let mut traces = generate_partitions(traces);
+    dbg!(traces.len());
+    let dag = traces.remove(0).own_trace();
+    dag.rank().map(|t| Expr::single(t))
   }
 }
 

@@ -33,3 +33,24 @@ fn test_add() {
   assert!(result[1].ends_with(")"));
   assert!(result[2].ends_with(")"));
 }
+
+// #[test]
+// fn test_multi_add() {
+//   let input = vec![
+//     vec!["(abc".to_string()],
+//     vec!["(def".to_string()],
+//     vec!["(ghi".to_string()],
+//     vec!["(jkl".to_string()],
+//   ];
+
+//   let result = vec![Some("(abc)".to_string()), Some("(def)".to_string()), None, None];
+
+//   let result = run(input, result);
+
+//   dbg!(&result);
+
+//   assert_eq!(result[0], "(abc)".to_string());
+//   assert_eq!(result[1], "(def)".to_string());
+//   assert_eq!(result[2], "(ghi)".to_string());
+//   assert_eq!(result[3], "(jkl)".to_string());
+// }

@@ -2,7 +2,7 @@ use std::collections::{HashMap, HashSet};
 
 use crate::Token;
 
-use super::{AtomSet, Dag, ExprSet, PositionSet, RegExpSet};
+use super::{AtomSet, Dag, PositionSet, RegExpSet};
 
 pub type SizeType = u128;
 
