@@ -64,6 +64,17 @@ impl Dag {
     }
   }
 
+  pub fn empty() -> Dag {
+    Dag {
+      size: 1,
+      start: 0,
+      end: 0,
+      edge: HashMap::new(),
+      rev_edge: HashMap::new(),
+      cache_size: None,
+    }
+  }
+
   pub fn len(&self) -> usize {
     self.size
   }
@@ -145,21 +156,25 @@ impl Dag {
       .enumerate()
       .map(|(val, key)| (key, val))
       .collect();
-    let mut dag = Dag::new(
-      visited.len(),
-      *visited.get(&self.start).unwrap(),
-      *visited.get(&self.end).unwrap(),
-    );
-    for (old_from, from) in visited.iter() {
-      for (old_to, f) in self.edge_of(*old_from) {
-        if let Some(to) = visited.get(old_to) {
-          for atomset in f {
-            dag.add_edge(*from, *to, atomset.clone());
+    if let Some(start) = visited.get(&self.start) {
+      if let Some(end) = visited.get(&self.end) {
+        let mut dag = Dag::new(visited.len(), *start, *end);
+        for (old_from, from) in visited.iter() {
+          for (old_to, f) in self.edge_of(*old_from) {
+            if let Some(to) = visited.get(old_to) {
+              for atomset in f {
+                dag.add_edge(*from, *to, atomset.clone());
+              }
+            }
           }
         }
+        dag
+      } else {
+        Dag::empty()
       }
+    } else {
+      Dag::empty()
     }
-    dag
   }
 }
 

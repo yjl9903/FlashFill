@@ -59,3 +59,55 @@ fn test_multi_add() {
   assert_eq!(result[2], "(ghi)".to_string());
   assert_eq!(result[3], "(jkl)".to_string());
 }
+
+#[test]
+fn test_len_add() {
+  let input = vec![
+    vec!["(a".to_string()],
+    vec!["(bc".to_string()],
+    vec!["(def".to_string()],
+    vec!["(ghij".to_string()],
+  ];
+
+  let result = vec![
+    Some("(a)".to_string()),
+    Some("(bc)".to_string()),
+    None,
+    None,
+  ];
+
+  let result = run(input, result);
+
+  dbg!(&result);
+
+  assert_eq!(result[0], "(a)".to_string());
+  assert_eq!(result[1], "(bc)".to_string());
+  assert_eq!(result[2], "(def)".to_string());
+  assert_eq!(result[3], "(ghij)".to_string());
+}
+
+#[test]
+fn test_len_char_add() {
+  let input = vec![
+    vec!["(1".to_string()],
+    vec!["(2a".to_string()],
+    vec!["(3bC".to_string()],
+    vec!["(4d f".to_string()],
+  ];
+
+  let result = vec![
+    Some("(1)".to_string()),
+    Some("(2a)".to_string()),
+    None,
+    None,
+  ];
+
+  let result = run(input, result);
+
+  dbg!(&result);
+
+  assert_eq!(result[0], "(1)".to_string());
+  assert_eq!(result[1], "(2a)".to_string());
+  assert_eq!(result[2], "(3bC)".to_string());
+  assert_eq!(result[3], "(4d f)".to_string());
+}
