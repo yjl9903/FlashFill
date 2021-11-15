@@ -33,10 +33,23 @@ const markDirty = (index: number) => {
 async function start() {
   output.value = rawOutput.value.map((out, id) => (dirty.value[id] ? out : null));
   running.value = true;
-  const result = await run(
-    data.value.map((data) => data.input),
-    output.value
-  );
+
+  console.log('Run:');
+  for (let i = 0; i < rawInput.value.length; i++) {
+    const text = `[${rawInput.value[i].map((t) => `\`${t}\``).join(', ')}] => \`${
+      output.value[i] ?? ''
+    }\``;
+    console.log(text);
+  }
+  const result = await run(rawInput.value, output.value);
+  console.log('Result:');
+  for (let i = 0; i < rawInput.value.length; i++) {
+    const text = `[${rawInput.value[i].map((t) => `\`${t}\``).join(', ')}] => \`${
+      result[i] ?? ''
+    }\``;
+    console.log(text);
+  }
+
   if (result) {
     for (let i = 0; i < result.length; i++) {
       output.value[i] = result[i];
