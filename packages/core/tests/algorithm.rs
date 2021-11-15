@@ -128,3 +128,20 @@ fn test_const() {
 
   assert_eq!(result[2], "12345".to_string());
 }
+
+#[test]
+fn test_const_split() {
+  let input = vec![
+    vec!["123456789".to_string()],
+    vec!["987654321".to_string()],
+    vec!["312389123".to_string()],
+  ];
+
+  let result = vec![Some("123-456-789".to_string()), Some("987-654-321".to_string()), None];
+
+  let result = run(input, result);
+
+  dbg!(&result);
+
+  assert_eq!(result[2], "312-389-123".to_string());
+}
