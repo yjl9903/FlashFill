@@ -32,6 +32,10 @@ const markDirty = (index: number) => {
 
 async function start() {
   output.value = rawOutput.value.map((out, id) => (dirty.value[id] ? out : null));
+  if (output.value.every((out) => out !== null)) {
+    return;
+  }
+
   running.value = true;
 
   console.log('Run:');
@@ -51,12 +55,22 @@ async function start() {
   }
 
   if (result) {
+    let errorFlag = true;
     for (let i = 0; i < result.length; i++) {
       output.value[i] = result[i];
       rawOutput.value[i] = result[i];
+      if (!dirty.value[i]) {
+        if (result[i].length > 0) {
+          errorFlag = false;
+        }
+      }
     }
     running.value = false;
-    status.value = 1;
+    if (errorFlag) {
+      status.value = -1;
+    } else {
+      status.value = 1;
+    }
   } else {
     // error
     status.value = -1;
