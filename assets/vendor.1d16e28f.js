@@ -7572,7 +7572,7 @@ function clearUndefined(obj) {
   Object.keys(obj).forEach((key) => obj[key] === void 0 ? delete obj[key] : {});
   return obj;
 }
-var _configs = { "theme": "apple-basic", "titleTemplate": "%s - Slidev", "remoteAssets": false, "monaco": "dev", "download": false, "info": false, "highlighter": "shiki", "lineNumbers": true, "colorSchema": "auto", "routerMode": "history", "aspectRatio": 1.7777777777777777, "canvasWidth": 980, "selectable": false, "themeConfig": {}, "fonts": { "sans": ['"Helvetica Neue"', "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", '"Segoe UI"', "Roboto", "Arial", '"Noto Sans"', "sans-serif", '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'], "serif": ["ui-serif", "Georgia", "Cambria", '"Times New Roman"', "Times", "serif"], "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", '"Liberation Mono"', '"Courier New"', "monospace"], "webfonts": ["Helvetica Neue"], "provider": "google", "local": ["Helvetica Neue"], "italic": false, "weights": ["200", "400", "600"] }, "drawings": { "enabled": true, "persist": false, "presenterOnly": false, "syncAll": true }, "layout": "intro", "class": "text-center" };
+var _configs = { "theme": "apple-basic", "title": "FlashFill", "titleTemplate": "%s", "remoteAssets": false, "monaco": "dev", "download": false, "info": false, "highlighter": "shiki", "lineNumbers": true, "colorSchema": "auto", "routerMode": "history", "aspectRatio": 1.7777777777777777, "canvasWidth": 980, "selectable": false, "themeConfig": {}, "fonts": { "sans": ['"Helvetica Neue"', "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", '"Segoe UI"', "Roboto", "Arial", '"Noto Sans"', "sans-serif", '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'], "serif": ["ui-serif", "Georgia", "Cambria", '"Times New Roman"', "Times", "serif"], "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", '"Liberation Mono"', '"Courier New"', "monospace"], "webfonts": ["Helvetica Neue"], "provider": "google", "local": ["Helvetica Neue"], "italic": false, "weights": ["200", "400", "600"] }, "drawings": { "enabled": true, "persist": false, "presenterOnly": false, "syncAll": true }, "layout": "intro", "class": "text-center" };
 function define(target, key, value) {
   Object.defineProperty(target, key, {
     value,
@@ -9437,7 +9437,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.f3c58408.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.960162f7.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$4;
       const _component_carbon58maximize = __unplugin_components_1;
@@ -9592,7 +9592,7 @@ const _sfc_main$o = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.0f9e8c89.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.543ddacb.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9642,7 +9642,7 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.f3c58408.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.960162f7.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -9814,7 +9814,7 @@ async function load(module, imports) {
 }
 async function init(input) {
   if (typeof input === "undefined") {
-    input = new URL("/assets/flashfill_core_bg.cfc10d5d.wasm", self.location);
+    input = new URL("/assets/flashfill_core_bg.374ebc87.wasm", self.location);
   }
   const imports = {};
   imports.wbg = {};
@@ -9910,7 +9910,7 @@ const _hoisted_2$e = /* @__PURE__ */ createBaseVNode("h1", { class: "!text-4xl" 
 const _hoisted_3$a = /* @__PURE__ */ createBaseVNode("h2", { class: "pt-10" }, "Junliang Yan", -1);
 const _sfc_main$j = {
   setup(__props) {
-    const frontmatter = { "theme": "apple-basic", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center" };
+    const frontmatter = { "theme": "apple-basic", "titleTemplate": "%s", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center" };
     return (_ctx, _cache) => {
       const _component_Status = _sfc_main$l;
       return openBlock(), createBlock(InjectedLayout$2, normalizeProps(guardReactiveProps(frontmatter)), {
@@ -38007,16 +38007,16 @@ const _sfc_main$1 = {
   }
 };
 var _rawRoutes = [
-  { path: "1", name: "page-1", component: _sfc_main$j, meta: { "theme": "apple-basic", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center", "slide": { "start": 0, "end": 46, "note": "The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)", "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 0, "no": 1 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "2", name: "page-2", component: n2, meta: { "slide": { "start": 47, "end": 82, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 1, "no": 2 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "3", name: "page-3", component: _sfc_main$g, meta: { "slide": { "start": 83, "end": 105, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 2, "no": 3 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "4", name: "page-4", component: n4, meta: { "layout": "image-right", "image": "https://source.unsplash.com/collection/94734566/1920x1080", "slide": { "start": 105, "end": 145, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 3, "no": 4 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "5", name: "page-5", component: _sfc_main$8, meta: { "slide": { "start": 146, "end": 178, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 4, "no": 5 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "6", name: "page-6", component: _sfc_main$7, meta: { "class": "px-20", "slide": { "start": 178, "end": 209, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "7", name: "page-7", component: _sfc_main$6, meta: { "preload": false, "slide": { "start": 209, "end": 285, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "8", name: "page-8", component: _sfc_main$5, meta: { "slide": { "start": 286, "end": 313, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 7, "no": 8 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "9", name: "page-9", component: _sfc_main$3, meta: { "slide": { "start": 314, "end": 339, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 8, "no": 9 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "10", name: "page-10", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 339, "end": 348, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 9, "no": 10 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "1", name: "page-1", component: _sfc_main$j, meta: { "theme": "apple-basic", "title": "FlashFill", "titleTemplate": "%s", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center", "slide": { "start": 0, "end": 50, "note": "The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)", "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 0, "no": 1 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "2", name: "page-2", component: n2, meta: { "slide": { "start": 51, "end": 86, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 1, "no": 2 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "3", name: "page-3", component: _sfc_main$g, meta: { "slide": { "start": 87, "end": 109, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 2, "no": 3 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "4", name: "page-4", component: n4, meta: { "layout": "image-right", "image": "https://source.unsplash.com/collection/94734566/1920x1080", "slide": { "start": 109, "end": 149, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 3, "no": 4 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "5", name: "page-5", component: _sfc_main$8, meta: { "slide": { "start": 150, "end": 182, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 4, "no": 5 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "6", name: "page-6", component: _sfc_main$7, meta: { "class": "px-20", "slide": { "start": 182, "end": 213, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "7", name: "page-7", component: _sfc_main$6, meta: { "preload": false, "slide": { "start": 213, "end": 289, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "8", name: "page-8", component: _sfc_main$5, meta: { "slide": { "start": 290, "end": 317, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 7, "no": 8 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "9", name: "page-9", component: _sfc_main$3, meta: { "slide": { "start": 318, "end": 343, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 8, "no": 9 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "10", name: "page-10", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 343, "end": 352, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 9, "no": 10 }, "__clicksElements": [], "__preloaded": false } },
   { path: "11", component: __layout__end, meta: { layout: "end" } }
 ];
 const rawRoutes = _rawRoutes;
@@ -38166,7 +38166,7 @@ function useSwipeControls(root) {
   });
 }
 async function downloadPDF() {
-  const { saveAs } = await import("./FileSaver.min.4981bd5e.js").then(function(n) {
+  const { saveAs } = await import("./FileSaver.min.0fbd0021.js").then(function(n) {
     return n.F;
   });
   saveAs(isString$2(configs.download) ? configs.download : `${"/"}slidev-exported.pdf`, `${configs.title}.pdf`);
