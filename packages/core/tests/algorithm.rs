@@ -116,11 +116,15 @@ fn test_len_char_add() {
 fn test_const() {
   let input = vec![
     vec!["abc".to_string(), "abc".to_string(), "666".to_string()],
-    vec!["DEFG".to_string(), "7777".to_string(), "DEFG".to_string()],
-    vec!["12345".to_string(), "12345".to_string(), "12345".to_string()],
+    vec!["1234".to_string(), "7777".to_string(), "DEFG".to_string()],
+    vec![
+      "12345".to_string(),
+      "12345".to_string(),
+      "12345".to_string(),
+    ],
   ];
 
-  let result = vec![Some("abc".to_string()), Some("DEFG".to_string()), None];
+  let result = vec![Some("abc".to_string()), Some("1234".to_string()), None];
 
   let result = run(input, result);
 
@@ -137,11 +141,32 @@ fn test_const_split() {
     vec!["312389123".to_string()],
   ];
 
-  let result = vec![Some("123-456-789".to_string()), Some("987-654-321".to_string()), None];
+  let result = vec![
+    Some("123-456-789".to_string()),
+    Some("987-654-321".to_string()),
+    None,
+  ];
 
   let result = run(input, result);
 
   dbg!(&result);
 
   assert_eq!(result[2], "312-389-123".to_string());
+}
+
+#[test]
+fn test_extract_city() {
+  let input = vec![
+    vec!["js, nanjing, nju".to_string()],
+    vec!["hb, wuhan, hust".to_string()],
+    vec!["sd, jinan, sdu".to_string()],
+  ];
+
+  let result = vec![Some("nanjing".to_string()), None, None];
+
+  let result = run(input, result);
+
+  dbg!(&result);
+
+  // assert_eq!(result[2], "312-389-123".to_string());
 }

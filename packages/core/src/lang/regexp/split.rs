@@ -5,6 +5,7 @@ use std::{
 
 use crate::{CharClass, CharItems, Token, ALL_PUNCTUATION, ALL_PUNCTUATION_SET};
 
+#[derive(Debug)]
 pub struct SplitResult {
   cache: Vec<Option<Rc<Vec<Token>>>>,
 }

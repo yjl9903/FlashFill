@@ -52,7 +52,8 @@ impl Iterator for RegExpMatches<'_> {
         self.start = core::cmp::max(pt, self.start + 1);
         return result;
       }
-      self.start = core::cmp::max(pt, self.start + 1);
+      // self.start = core::cmp::max(pt, self.start + 1);
+      self.start = self.start + 1;
     }
 
     return None;
@@ -242,6 +243,17 @@ mod regexp_test {
     let input = &String::from("123");
     let regexp = RegExp::new(vec![]);
     assert_eq!(regexp.run(&input.into()).next(), Some((0, 0)));
+  }
+
+  #[test]
+  fn test_city() {
+    let input = &String::from("jiangsu, nanjing, nju");
+    let regexp = RegExp::new(vec![
+      Token::Chars(CharClass::Lowercase),
+      Token::Punctuation(','),
+      Token::Chars(CharClass::Whitespace),
+    ]);
+    assert_eq!(regexp.run(&input.into()).next(), Some((1, 10)));
   }
 }
 

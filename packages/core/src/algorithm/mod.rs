@@ -122,55 +122,39 @@ fn generate_position(input: &CharItems, k: usize) -> Vec<PositionSet> {
       }
       let reg = RegExp::concat(r1.clone(), r2.clone());
       let matched: Vec<(usize, usize)> = reg.run(input).collect();
-      let pos = matched.binary_search(&(k, k)).map_or_else(|k| k, |k| k);
 
-      fn try_get(r: Option<&(usize, usize)>, k: usize) -> Option<(usize, usize)> {
-        match r {
-          Some((l, r)) => {
-            if *l <= k && k < *r {
-              Some((*l, *r))
-            } else {
-              None
-            }
-          }
-          None => None,
-        }
-      }
-
-      if let Some(_) = try_get(matched.get(pos), k)
-        .or_else(|| {
-          if pos > 0 {
-            try_get(matched.get(pos - 1), k)
-          } else {
-            None
-          }
-        })
-        .or_else(|| try_get(matched.get(pos + 1), k))
-      {
-        if let Some((l_index, (_, end))) = r1
-          .run(input)
-          .enumerate()
-          .take_while(|(_, (_, end))| *end <= k)
-          .last()
-        {
-          if end == k && l_index == pos {
-            if let Some((r_index, (start, _))) = r2
-              .run(input)
-              .enumerate()
-              .take_while(|(_, (start, _))| *start <= k)
-              .last()
+      let matched_len = matched.len();
+      for (pos, (l, r)) in matched.into_iter().enumerate() {
+        if l <= k && k < r {
+          if let Some((_l_index, (_, end))) = r1
+            .run(input)
+            .enumerate()
+            .take_while(|(_, (_, end))| *end <= k)
+            .last()
+          {
+            if end == k
+            /* && l_index == pos */
             {
-              if start == k && r_index == pos {
-                let r1 = generate_regex(r1, &grouped);
-                let r2 = generate_regex(r2, &grouped);
-                result.push(PositionSet::Pos(
-                  r1,
-                  r2,
-                  vec![
-                    IntegerExpr::Pos(pos as i32 + 1),
-                    IntegerExpr::Pos(-(matched.len() as i32 - pos as i32)),
-                  ],
-                ));
+              if let Some((_r_index, (start, _))) = r2
+                .run(input)
+                .enumerate()
+                .take_while(|(_, (start, _))| *start <= k)
+                .last()
+              {
+                if start == k
+                /* && r_index == pos */
+                {
+                  let r1 = generate_regex(r1, &grouped);
+                  let r2 = generate_regex(r2, &grouped);
+                  result.push(PositionSet::Pos(
+                    r1,
+                    r2,
+                    vec![
+                      IntegerExpr::Pos(pos as i32 + 1),
+                      IntegerExpr::Pos(-(matched_len as i32 - pos as i32)),
+                    ],
+                  ));
+                }
               }
             }
           }

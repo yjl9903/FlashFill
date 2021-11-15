@@ -31,11 +31,17 @@ class: 'text-center'
 # Live Demo
 
 <flashfill edit :data="[
-  { input: ['abc'], output: '(abc)' },
-  { input: ['def'], output: '(def)' },
+  { input: ['A', 'Jiangsu, Nanjing, Nanjing University'], output: 'Nanjing' },
+  { input: ['B', 'Hubei, Wuhan, HUST'] },
+  { input: ['C', 'Shandong, Jinan, SDU'] }
+]" />
+
+<!-- <flashfill edit :data="[
+  { input: ['abc'], },
+  { input: ['def'], },
   { input: ['ghi'], },
   { input: ['jkl'], },
-]" />
+]" /> -->
 
 ---
 

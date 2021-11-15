@@ -116,7 +116,9 @@ pub fn generate_partitions(all_traces: Vec<PartitionItem>) -> Vec<PartitionItem>
       })
       .sum();
 
-    let cs2 = dag.size() as f64 / std::cmp::max(pair.0.size(), pair.1.size()) as f64;
+    let fz = dag.size();
+    let fm = std::cmp::max(pair.0.size(), pair.1.size());
+    let cs2 = fz as f64 / fm as f64;
 
     (cs1, cs2)
   }

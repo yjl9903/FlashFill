@@ -23,13 +23,16 @@ impl Dag {
     if let Some(sz) = cache.get(&u) {
       return *sz;
     }
-    let mut sum: SizeType = 0;
+    let mut ans: SizeType = 0;
     for (to, f) in self.in_edge_of(u) {
       let fsize: SizeType = f.iter().map(|f| f.size()).sum();
-      sum += self.dfs(*to, cache) * fsize;
+      match self.dfs(*to, cache).checked_mul(fsize) {
+        Some(x) => ans += x,
+        None => return SizeType::max_value(),
+      }
     }
-    cache.insert(u, sum);
-    sum
+    cache.insert(u, ans);
+    ans
   }
 
   pub fn size(&self) -> SizeType {
