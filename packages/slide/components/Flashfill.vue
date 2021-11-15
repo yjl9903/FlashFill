@@ -85,7 +85,7 @@ async function start() {
         <th v-for="i in inputLength">
           <span>Input {{ i }}</span>
         </th>
-        <th style="border-left-width: 3px">
+        <th style="border-left-width: 3px; width: 40%">
           <div class="flex justify-between">
             <span>
               <span>Output</span>
@@ -104,11 +104,12 @@ async function start() {
           <span v-if="!edit">{{ row.input[j - 1] }}</span>
           <input v-else-if="rawInput" type="text" v-model="rawInput[i][j - 1]" />
         </td>
-        <td style="border-left-width: 3px">
+        <td style="border-left-width: 3px" :class="!dirty[i] && status === 1 && 'bg-green-100'">
           <span v-if="!running && !edit">{{ output[i] }}</span>
           <input
             v-else-if="!running && edit"
             type="text"
+            :class="!dirty[i] && status === 1 && 'bg-green-100'"
             v-model="rawOutput[i]"
             @change="markDirty(i)"
           />
