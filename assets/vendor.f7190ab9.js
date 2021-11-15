@@ -9577,7 +9577,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.06e9037c.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.808f74c4.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$3;
       const _component_carbon58maximize = __unplugin_components_1$1;
@@ -9732,7 +9732,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.3f131db1.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.d00fad9b.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9782,7 +9782,7 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.06e9037c.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.808f74c4.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -9954,7 +9954,7 @@ async function load(module, imports) {
 }
 async function init(input) {
   if (typeof input === "undefined") {
-    input = new URL("/assets/flashfill_core_bg.374ebc87.wasm", self.location);
+    input = new URL("/assets/flashfill_core_bg.7a93a0cd.wasm", self.location);
   }
   const imports = {};
   imports.wbg = {};
@@ -10148,7 +10148,7 @@ const _hoisted_1$i = {
   class: "font-mono w-full"
 };
 const _hoisted_2$e = { style: { "border-top-width": "1px" } };
-const _hoisted_3$a = { style: { "border-left-width": "3px" } };
+const _hoisted_3$a = { style: { "border-left-width": "3px", "width": "40%" } };
 const _hoisted_4$9 = { class: "flex justify-between" };
 const _hoisted_5$6 = /* @__PURE__ */ createBaseVNode("span", null, "Output", -1);
 const _hoisted_6$5 = { key: 0 };
@@ -10156,10 +10156,9 @@ const _hoisted_7$4 = { key: 1 };
 const _hoisted_8$3 = { key: 2 };
 const _hoisted_9$1 = { key: 0 };
 const _hoisted_10$1 = ["onUpdate:modelValue"];
-const _hoisted_11$1 = { style: { "border-left-width": "3px" } };
-const _hoisted_12$1 = { key: 0 };
-const _hoisted_13 = ["onUpdate:modelValue", "onChange"];
-const _hoisted_14 = { key: 2 };
+const _hoisted_11$1 = { key: 0 };
+const _hoisted_12$1 = ["onUpdate:modelValue", "onChange"];
+const _hoisted_13 = { key: 2 };
 const _sfc_main$k = /* @__PURE__ */ defineComponent({
   props: {
     data: null,
@@ -10274,16 +10273,20 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
                   ]) : createCommentVNode("v-if", true)
                 ]);
               }), 256)),
-              createBaseVNode("td", _hoisted_11$1, [
-                !running.value && !unref(edit) ? (openBlock(), createElementBlock("span", _hoisted_12$1, toDisplayString(output.value[i]), 1)) : !running.value && unref(edit) ? withDirectives((openBlock(), createElementBlock("input", {
+              createBaseVNode("td", {
+                style: { "border-left-width": "3px" },
+                class: normalizeClass(!dirty.value[i] && status.value === 1 && "bg-green-100")
+              }, [
+                !running.value && !unref(edit) ? (openBlock(), createElementBlock("span", _hoisted_11$1, toDisplayString(output.value[i]), 1)) : !running.value && unref(edit) ? withDirectives((openBlock(), createElementBlock("input", {
                   key: 1,
                   type: "text",
+                  class: normalizeClass(!dirty.value[i] && status.value === 1 && "bg-green-100"),
                   "onUpdate:modelValue": ($event) => rawOutput.value[i] = $event,
                   onChange: ($event) => markDirty(i)
-                }, null, 40, _hoisted_13)), [
+                }, null, 42, _hoisted_12$1)), [
                   [vModelText, rawOutput.value[i]]
-                ]) : (openBlock(), createElementBlock("span", _hoisted_14, toDisplayString(output.value[i]), 1))
-              ])
+                ]) : (openBlock(), createElementBlock("span", _hoisted_13, toDisplayString(output.value[i]), 1))
+              ], 2)
             ]);
           }), 256))
         ])
@@ -10312,12 +10315,11 @@ const _sfc_main$i = {
             createVNode(_component_flashfill, {
               edit: "",
               data: [
-                { input: ["abc"], output: "(abc)" },
-                { input: ["def"], output: "(def)" },
-                { input: ["ghi"] },
-                { input: ["jkl"] }
+                { input: ["A", "Jiangsu, Nanjing, Nanjing University"], output: "Nanjing" },
+                { input: ["B", "Hubei, Wuhan, HUST"] },
+                { input: ["C", "Shandong, Jinan, SDU"] }
               ]
-            }, null, 8, ["data"])
+            })
           ])
         ]),
         _: 1
@@ -38394,16 +38396,21 @@ const _sfc_main$1 = {
 };
 var _rawRoutes = [
   { path: "1", name: "page-1", component: _sfc_main$l, meta: { "theme": "apple-basic", "title": "FlashFill", "titleTemplate": "%s", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center", "slide": { "start": 0, "end": 28, "note": "", "filepath": "slides.md", "id": 0, "no": 1 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "2", name: "page-2", component: _sfc_main$i, meta: { "slide": { "start": 29, "end": 39, "filepath": "slides.md", "id": 1, "no": 2 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "3", name: "page-3", component: n3, meta: { "slide": { "start": 40, "end": 75, "filepath": "slides.md", "id": 2, "no": 3 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "4", name: "page-4", component: _sfc_main$g, meta: { "slide": { "start": 76, "end": 98, "filepath": "slides.md", "id": 3, "no": 4 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "5", name: "page-5", component: n5, meta: { "layout": "image-right", "image": "https://source.unsplash.com/collection/94734566/1920x1080", "slide": { "start": 98, "end": 138, "filepath": "slides.md", "id": 4, "no": 5 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "6", name: "page-6", component: _sfc_main$8, meta: { "slide": { "start": 139, "end": 171, "filepath": "slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "7", name: "page-7", component: _sfc_main$7, meta: { "class": "px-20", "slide": { "start": 171, "end": 202, "filepath": "slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "8", name: "page-8", component: _sfc_main$6, meta: { "preload": false, "slide": { "start": 202, "end": 278, "filepath": "slides.md", "id": 7, "no": 8 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "9", name: "page-9", component: _sfc_main$5, meta: { "slide": { "start": 279, "end": 306, "filepath": "slides.md", "id": 8, "no": 9 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "10", name: "page-10", component: _sfc_main$3, meta: { "slide": { "start": 307, "end": 332, "filepath": "slides.md", "id": 9, "no": 10 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "11", name: "page-11", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 332, "end": 341, "filepath": "slides.md", "id": 10, "no": 11 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "2", name: "page-2", component: _sfc_main$i, meta: { "slide": { "start": 29, "end": 45, "note": `<flashfill edit :data="[
+  { input: ['abc'], },
+  { input: ['def'], },
+  { input: ['ghi'], },
+  { input: ['jkl'], },
+]" />`, "filepath": "slides.md", "id": 1, "no": 2 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "3", name: "page-3", component: n3, meta: { "slide": { "start": 46, "end": 81, "filepath": "slides.md", "id": 2, "no": 3 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "4", name: "page-4", component: _sfc_main$g, meta: { "slide": { "start": 82, "end": 104, "filepath": "slides.md", "id": 3, "no": 4 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "5", name: "page-5", component: n5, meta: { "layout": "image-right", "image": "https://source.unsplash.com/collection/94734566/1920x1080", "slide": { "start": 104, "end": 144, "filepath": "slides.md", "id": 4, "no": 5 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "6", name: "page-6", component: _sfc_main$8, meta: { "slide": { "start": 145, "end": 177, "filepath": "slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "7", name: "page-7", component: _sfc_main$7, meta: { "class": "px-20", "slide": { "start": 177, "end": 208, "filepath": "slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "8", name: "page-8", component: _sfc_main$6, meta: { "preload": false, "slide": { "start": 208, "end": 284, "filepath": "slides.md", "id": 7, "no": 8 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "9", name: "page-9", component: _sfc_main$5, meta: { "slide": { "start": 285, "end": 312, "filepath": "slides.md", "id": 8, "no": 9 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "10", name: "page-10", component: _sfc_main$3, meta: { "slide": { "start": 313, "end": 338, "filepath": "slides.md", "id": 9, "no": 10 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "11", name: "page-11", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 338, "end": 347, "filepath": "slides.md", "id": 10, "no": 11 }, "__clicksElements": [], "__preloaded": false } },
   { path: "12", component: __layout__end, meta: { layout: "end" } }
 ];
 const rawRoutes = _rawRoutes;
@@ -38556,7 +38563,7 @@ function useSwipeControls(root) {
   });
 }
 async function downloadPDF() {
-  const { saveAs } = await import("./FileSaver.min.4bc66cb2.js").then(function(n) {
+  const { saveAs } = await import("./FileSaver.min.3d39df02.js").then(function(n) {
     return n.F;
   });
   saveAs(isString$1(configs.download) ? configs.download : `${"/"}slidev-exported.pdf`, `${configs.title}.pdf`);
