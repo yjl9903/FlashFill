@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { run } from './flashfill';
+import { run } from './run';
 
 // -1 -> Waiting
 // 0  -> Ok

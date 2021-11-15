@@ -7,10 +7,13 @@
     "export": "slidev export"
   },
   "dependencies": {
-    "@slidev/cli": "^0.27.2",
+    "@slidev/cli": "^0.27.14",
     "@slidev/theme-apple-basic": "^0.20.0",
     "@slidev/theme-default": "*",
     "@slidev/theme-seriph": "*",
     "flashfill-core": "workspace:*"
+  },
+  "devDependencies": {
+    "@iconify-json/mdi": "^1.0.10"
   }
 }
