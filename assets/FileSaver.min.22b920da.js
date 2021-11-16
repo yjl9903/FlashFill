@@ -1,4 +1,3 @@
-import { C as commonjsGlobal } from "./vendor.7ff14b3e.js";
 function _mergeNamespaces(n, m) {
   m.forEach(function(e) {
     Object.keys(e).forEach(function(k) {
@@ -15,6 +14,7 @@ function _mergeNamespaces(n, m) {
   });
   return Object.freeze(n);
 }
+var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 var FileSaver_min$2 = { exports: {} };
 (function(module, exports) {
   (function(a, b) {
