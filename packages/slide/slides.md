@@ -107,7 +107,7 @@ class: text-center
 
 Trace Expr is a <span class="font-bold underline">concatenation</span> of the <span class="font-bold underline">substrings of inputs</span> or a <span class="font-bold underline">constant string</span>.
 
-<div class="w-full text-center">
+<div v-click class="w-full text-center">
   <img class="inline-block" src="/trace.png" alt="spreadsheets" style="zoom: 70%;">
   <p class="font-mono mt-8">
     <span>Output: 「A lives at nanjing」</span>
@@ -120,16 +120,109 @@ $$
 $$ -->
 
 ---
+clicks: 5
+---
 
 # SubString
+
+<div class="font-mono text-center">
+  <span>SubStr(</span>
+  <span v-click="1">Input</span>
+  <span>, </span>
+  <span v-click="2">Left</span>
+  <span>, </span>
+  <span v-click="2">Right</span>
+  <span>)</span>
+</div>
+
+<p v-click="1"><span font="mono">Input&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span> <strong>Index</strong>, which input string is used.</p>
+<p v-click="2"><span font="mono">Left, Right:</span> <strong>Position Expressions</strong>, the range of substring.</p>
+
+<table class="mt-8" v-click="2">
+  <thead>
+    <tr>
+      <th class="!font-bold">Name</th>
+      <th class="!font-bold">Address</th>
+      <th class="!font-bold">City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td font="mono">A</td>
+      <td font="mono" :class="$slidev.nav.clicks >= 3 && 'bg-green-100'">
+        <span>Jiangsu, </span>
+        <span v-click="4" class="font-bold text-blue-500">|</span>
+        <span>nanjing</span>
+        <span v-click="4" class="font-bold text-fuchsia-500">|</span>
+        <span>, nju</span>
+      </td>
+      <td>
+        <span v-click="2" font="mono">nanjing</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="mt-8 font-mono text-center">
+  <mdi-close v-click="5" class="text-red-500" />
+  <span v-click="2">SubStr(</span>
+  <span v-click="3" class="text-green-500">Address</span>
+  <span v-click="2">, </span>
+  <span v-click="4" class="text-blue-500">CPos(9)</span>
+  <span v-click="2">, </span>
+  <span v-click="4" class="text-fuchsia-500">CPos(-6)</span>
+  <span v-click="2">)</span>
+</div>
+
+<div class="mt-4 font-mono text-center" v-click="5">
+  <mdi-check class="text-green-500"  />
+  <span>SubStr(</span>
+  <span class="text-green-500">Address</span>
+  <span>, </span>
+  <span class="text-blue-500">Pos(ε,RE,2)</span>
+  <span>, </span>
+  <span class="text-fuchsia-500">Pos(RE,ε,2)</span>
+  <span>)</span>
+</div>
+
+<div class="mt-2 font-mono text-center" v-click="5">
+where RE = LowercaseTokens
+</div>
 
 ---
 
 # Regular Expressions
 
+Only use a **small subset of regular expressions**.
+
+Regular Expression is **a sequence of tokens**.
+
+<blockquote v-click class="mt-8">
+  <p font="mono" text="center">R = TokenSequence(LowercaseTokens, NumericTokens)</p>
+
+  <p font="mono" text="center">R = [a-z]+ [0-9]+</p>
+</blockquote>
+
+<div v-click class="mt-8 flex items-center justify-center">
+  <div>
+    <p>No kleen star <span font="mono">([a-z]*)</span>.</p>
+    <p>No disjunct operation <span font="mono">([a-z] | [0-9])</span>.</p>
+  </div>
+  <div>
+    <mdi-arrow-right-bold />
+  </div>
+  <div>
+    <span>Efficient Algorithm</span>
+  </div>
+</div>
+
 ---
 
-# Atom
+# Conditionals
+
+---
+
+# Example
 
 <!-- $$
 \begin{array}{rcl}

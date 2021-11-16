@@ -16,23 +16,25 @@ First (**next slide**), let us have a quick look at this string manipulation lan
 
 We assume that the output string is a concatenation of the substrings of inputs or a constant string. So, the main body of the language, called Trace Expression, is a concatenation of some atom string expressions.
 
-See this example (**points to slide**), the output string consists of 3 parts, the first part "A" comes from the first input, and the second part is a constant string " lives at ", and the last part "nanjing" is a substring extracted from the second input. The constant string and substring are all atom expressions. Then we concatenate them together to get the output string.
+See this example (**points to slide**), the output string consists of 3 parts, the first part "A" comes from the first input, and the second part is a constant string " lives at " encoded in the program, and the last part "nanjing" is a substring of the second input. The constant string and substring are all atom expressions. Then we concatenate them together to get the output string.
 
 ### Substring
 
-Then (**next slide**), let us see more details about what substring is. The substring consists of 3 parameters. We first choose an index $i$, denoted which input string is used, and two positions $p_1, p_2$ denoted the left and right boundaries of substring.
+Then (**next slide**), let us see more details about what substring is. The substring consists of 3 parameters. We first choose an index $i$, that denotes which input string is used (**next click**), and two positions $left, right$ which denots the left and right boundaries of substring. And the concrete position are evaluationed by a position expression.
 
-And the concrete position are evaluationed by a position expression. The first type of position expressions is a constant position, $CPos(k)$. Non-negative index $k$ is the $k$-th index from the left side, while the negative is from the right side. In this example (**points to slide**), $CPos(1)$ means the second position from the left side, and $CPos(-1)$ is the last position. Then, this program can generate the output string using the first input with the first character removed.
+For this example, we want to extract the substring "nanjing". We first choose input column Adress. Then we need to find the left and right position. While the $CPos(k)$ is a position expression which evaluates to a constant number. Non-negative index $k$ is the $k$-th index from the left side, while the negative is from the right side.
 
-However, this is not all about substring and position expression. Let us bring some power of regular expressions to this language.
+However, in this way, we losses much generalization ability. If we use some different provinces or universities, then we will get wrong results (**next click**). As a result, we can use regular expressions.
+
+$Pos$ is another kind of position expression. The first two parameters are regular expressions $r_1$ and $r_2$. It finds the a position that can split the input string with two parts, left and right. There exists a suffix of the left part is accepted by the first regular expression $r_1$, and a prefix of the right part is accepted by $r_2$.
 
 ### Regular Expressions
 
 In our string manipulation language, we only use a small subset of regular expressions. It is just a sequence of tokens. Each token is a category of characters, like letters, digits, spaces, and so on. In this example, this regular expression will accept the strings that start with as least one lowercase letter and end with at least one digit number, which is equivalent with the normal regular expressions `[a-z]+[0-9]+`.
 
-Then, another position expression is $Pos(r_1, r_2, c)$. It finds the $c$-th position that split the input string with two parts, left and right. There exists a suffix of the left part is accepted by the first regular expression $r_1$, and a prefix of the right part is accepted by $r_2$.
+Notice that we don't support the kleen star and disjunct operation. Although we losses some expressiveness, but we can have a more efficient synthesize algorithm for that the kleen star and disjunct will cosume lots of time when synthesizing program.
 
-Notice that we don't support the kleene start and disjunct operation, because these will cosume lots of time when synthesizing program. However, we make a trade-off that use top-level conditionals.
+And we also make a trade-off that use top-level conditionals (**next slide**).
 
 ### Conditionals
 
