@@ -1,4 +1,4 @@
-import { d as defineComponent, C as inject, D as injectionSlideScale, r as ref, E as onMounted, A as drauu, G as watch, H as loadCanvas, I as onBeforeUnmount, o as openBlock, c as createElementBlock } from "./vendor.0e4c1adf.js";
+import { d as defineComponent, C as inject, D as injectionSlideScale, r as ref, E as onMounted, A as drauu, G as watch, H as loadCanvas, I as onBeforeUnmount, o as openBlock, c as createElementBlock } from "./vendor.ac671470.js";
 const _sfc_main = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const scale = inject(injectionSlideScale);

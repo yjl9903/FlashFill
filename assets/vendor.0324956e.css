@@ -1654,6 +1654,9 @@ pre[class*='language-'] {
 .font-bold {
   font-weight: 700;
 }
+.\!font-bold {
+  font-weight: 700 !important;
+}
 .font-700 {
   font-weight: 700;
 }
@@ -1804,6 +1807,9 @@ pre[class*='language-'] {
 }
 .mt-12 {
   margin-top: 3rem;
+}
+.mt-4 {
+  margin-top: 1rem;
 }
 .ml-14 {
   margin-left: 3.5rem;
@@ -2067,6 +2073,9 @@ pre[class*='language-'] {
 .text-center {
   text-align: center;
 }
+[text~="center"] {
+  text-align: center;
+}
 .text-\$slidev-theme-primary {
   color: var(--slidev-theme-primary);
 }
@@ -2114,6 +2123,14 @@ pre[class*='language-'] {
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgba(107, 114, 128, var(--tw-text-opacity));
+}
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgba(59, 130, 246, var(--tw-text-opacity));
+}
+.text-fuchsia-500 {
+  --tw-text-opacity: 1;
+  color: rgba(217, 70, 239, var(--tw-text-opacity));
 }
 .text-\[\#181818\] {
   --tw-text-opacity: 1;
