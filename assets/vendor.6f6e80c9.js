@@ -9503,7 +9503,7 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.a8f508cd.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.6ad307d3.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$3;
       const _component_carbon58maximize = __unplugin_components_1$2;
@@ -9658,7 +9658,7 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.648d84a7.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.27485a08.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9708,7 +9708,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.a8f508cd.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.6ad307d3.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -10104,23 +10104,28 @@ const _hoisted_1$8 = {
   class: "font-mono w-full"
 };
 const _hoisted_2$6 = { style: { "border-top-width": "1px" } };
-const _hoisted_3$5 = { class: "flex justify-between" };
-const _hoisted_4$1 = /* @__PURE__ */ createBaseVNode("span", null, "Output", -1);
-const _hoisted_5$1 = { key: 0 };
-const _hoisted_6$1 = { key: 1 };
-const _hoisted_7$1 = { key: 2 };
-const _hoisted_8$1 = { key: 0 };
-const _hoisted_9$1 = ["onUpdate:modelValue"];
-const _hoisted_10$1 = { key: 0 };
-const _hoisted_11$1 = ["onUpdate:modelValue", "onChange"];
-const _hoisted_12$1 = { key: 2 };
+const _hoisted_3$5 = { key: 0 };
+const _hoisted_4$1 = { key: 1 };
+const _hoisted_5$1 = { class: "flex justify-between" };
+const _hoisted_6$1 = { key: 0 };
+const _hoisted_7$1 = { key: 1 };
+const _hoisted_8$1 = { key: 2 };
+const _hoisted_9$1 = { key: 3 };
+const _hoisted_10$1 = { key: 4 };
+const _hoisted_11$1 = { key: 0 };
+const _hoisted_12$1 = ["onUpdate:modelValue"];
+const _hoisted_13$1 = { key: 0 };
+const _hoisted_14$1 = ["onUpdate:modelValue", "onChange"];
+const _hoisted_15$1 = { key: 2 };
 const _sfc_main$7 = /* @__PURE__ */ defineComponent({
   props: {
     data: null,
     edit: { type: Boolean },
     append: { type: Boolean },
     outputWidth: null,
-    hideRun: { type: Boolean }
+    hideRun: { type: Boolean },
+    inputLabel: null,
+    outputLabel: null
   },
   setup(__props) {
     const props = __props;
@@ -10194,20 +10199,20 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
           createBaseVNode("tr", _hoisted_2$6, [
             (openBlock(true), createElementBlock(Fragment, null, renderList(unref(inputLength), (i) => {
               return openBlock(), createElementBlock("th", null, [
-                createBaseVNode("span", null, "Input " + toDisplayString(i), 1)
+                __props.inputLabel && !!__props.inputLabel[i - 1] ? (openBlock(), createElementBlock("span", _hoisted_3$5, toDisplayString(__props.inputLabel[i - 1]), 1)) : (openBlock(), createElementBlock("span", _hoisted_4$1, "Input " + toDisplayString(i), 1))
               ]);
             }), 256)),
             createBaseVNode("th", {
               style: normalizeStyle({ borderLeftWidth: "3px", width: (_a2 = __props.outputWidth) != null ? _a2 : "40%" })
             }, [
-              createBaseVNode("div", _hoisted_3$5, [
+              createBaseVNode("div", _hoisted_5$1, [
                 createBaseVNode("span", null, [
-                  _hoisted_4$1,
-                  running.value ? (openBlock(), createElementBlock("span", _hoisted_5$1, [
+                  !!__props.outputLabel ? (openBlock(), createElementBlock("span", _hoisted_6$1, toDisplayString(__props.outputLabel), 1)) : (openBlock(), createElementBlock("span", _hoisted_7$1, "Output")),
+                  running.value ? (openBlock(), createElementBlock("span", _hoisted_8$1, [
                     createVNode(_component_mdi_loading, { class: "animate-spin text-light-900" })
-                  ])) : status.value === 1 ? (openBlock(), createElementBlock("span", _hoisted_6$1, [
+                  ])) : status.value === 1 ? (openBlock(), createElementBlock("span", _hoisted_9$1, [
                     createVNode(_component_mdi_check, { class: "text-green-500" })
-                  ])) : status.value === -1 ? (openBlock(), createElementBlock("span", _hoisted_7$1, [
+                  ])) : status.value === -1 ? (openBlock(), createElementBlock("span", _hoisted_10$1, [
                     createVNode(_component_mdi_close, { class: "text-red-500" })
                   ])) : createCommentVNode("v-if", true)
                 ]),
@@ -10225,11 +10230,11 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
             return openBlock(), createElementBlock("tr", null, [
               (openBlock(true), createElementBlock(Fragment, null, renderList(unref(inputLength), (j2) => {
                 return openBlock(), createElementBlock("td", null, [
-                  !unref(edit) ? (openBlock(), createElementBlock("span", _hoisted_8$1, toDisplayString(row.input[j2 - 1]), 1)) : rawInput.value ? withDirectives((openBlock(), createElementBlock("input", {
+                  !unref(edit) ? (openBlock(), createElementBlock("span", _hoisted_11$1, toDisplayString(row.input[j2 - 1]), 1)) : rawInput.value ? withDirectives((openBlock(), createElementBlock("input", {
                     key: 1,
                     type: "text",
                     "onUpdate:modelValue": ($event) => rawInput.value[i][j2 - 1] = $event
-                  }, null, 8, _hoisted_9$1)), [
+                  }, null, 8, _hoisted_12$1)), [
                     [vModelText, rawInput.value[i][j2 - 1]]
                   ]) : createCommentVNode("v-if", true)
                 ]);
@@ -10238,15 +10243,15 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                 style: { "border-left-width": "3px" },
                 class: normalizeClass(!dirty.value[i] && status.value === 1 && "bg-green-100")
               }, [
-                !running.value && !unref(edit) ? (openBlock(), createElementBlock("span", _hoisted_10$1, toDisplayString(output.value[i]), 1)) : !running.value && unref(edit) ? withDirectives((openBlock(), createElementBlock("input", {
+                !running.value && !unref(edit) ? (openBlock(), createElementBlock("span", _hoisted_13$1, toDisplayString(output.value[i]), 1)) : !running.value && unref(edit) ? withDirectives((openBlock(), createElementBlock("input", {
                   key: 1,
                   type: "text",
                   class: normalizeClass(!dirty.value[i] && status.value === 1 && "bg-green-100"),
                   "onUpdate:modelValue": ($event) => rawOutput.value[i] = $event,
                   onChange: ($event) => markDirty(i)
-                }, null, 42, _hoisted_11$1)), [
+                }, null, 42, _hoisted_14$1)), [
                   [vModelText, rawOutput.value[i]]
-                ]) : (openBlock(), createElementBlock("span", _hoisted_12$1, toDisplayString(output.value[i]), 1))
+                ]) : (openBlock(), createElementBlock("span", _hoisted_15$1, toDisplayString(output.value[i]), 1))
               ], 2)
             ]);
           }), 256))
@@ -10278,7 +10283,9 @@ const _sfc_main$6 = {
                 { input: ["B", "Hubei, wuhan, hust"] },
                 { input: ["C", "Shandong, jinan, sdu"] },
                 { input: ["D", "Hunan, changsha, csu"] }
-              ]
+              ],
+              "input-label": ["Name", "Adress"],
+              "output-label": "City"
             })
           ]),
           createBaseVNode("h2", null, [
