@@ -35,6 +35,8 @@ class: text-center
 <img class="inline-block mt-8" src="/spreadsheets.png" alt="spreadsheets" style="zoom: 60%;">
 
 ---
+clicks: 1
+---
 
 # Collect cities of residence
 
