@@ -4,7 +4,7 @@
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",
-    "export": "slidev export"
+    "export": "slidev export --with-clicks --output dist/slides.pdf"
   },
   "dependencies": {
     "@slidev/cli": "^0.27.14",
@@ -14,6 +14,7 @@
     "flashfill-core": "workspace:*"
   },
   "devDependencies": {
-    "@iconify-json/mdi": "^1.0.10"
+    "@iconify-json/mdi": "^1.0.10",
+    "playwright-chromium": "^1.16.3"
   }
 }

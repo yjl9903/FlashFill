@@ -3,6 +3,7 @@
   "scripts": {
     "start": "pnpm -C packages/slide run dev",
     "build": "pnpm run build --filter ./packages",
+    "export": "pnpm -C packages/slide run export",
     "test": "pnpm -C packages/core run test",
     "format": "lint-staged"
   },
