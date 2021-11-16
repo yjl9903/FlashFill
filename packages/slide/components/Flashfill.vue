@@ -8,6 +8,8 @@ const props = defineProps<{
   append?: boolean;
   outputWidth?: string | number;
   hideRun?: boolean;
+  inputLabel?: string[];
+  outputLabel?: string;
 }>();
 const { data, edit } = toRefs(props);
 
@@ -85,12 +87,14 @@ async function start() {
     <thead>
       <tr style="border-top-width: 1px">
         <th v-for="i in inputLength">
-          <span>Input {{ i }}</span>
+          <span v-if="inputLabel && !!inputLabel[i - 1]">{{ inputLabel[i - 1] }}</span>
+          <span v-else>Input {{ i }}</span>
         </th>
         <th :style="{ borderLeftWidth: '3px', width: outputWidth ?? '40%' }">
           <div class="flex justify-between">
             <span>
-              <span>Output</span>
+              <span v-if="!!outputLabel">{{ outputLabel }}</span>
+              <span v-else>Output</span>
               <span v-if="running"><mdi-loading class="animate-spin text-light-900" /></span>
               <span v-else-if="status === 1"><mdi-check class="text-green-500" /></span>
               <span v-else-if="status === -1"><mdi-close class="text-red-500" /></span>

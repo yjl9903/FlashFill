@@ -43,7 +43,7 @@ class: text-center
   { input: ['B', 'Hubei, wuhan, hust'] },
   { input: ['C', 'Shandong, jinan, sdu'] },
   { input: ['D', 'Hunan, changsha, csu'] }
-]" />
+]" :input-label="['Name', 'Adress']" output-label="City" />
 
 <h2>
   <mdi-close class="text-red-500" v-click="1" />
