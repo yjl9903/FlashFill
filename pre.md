@@ -12,4 +12,4 @@ In this work (**next slide**), there are two main sections. We first describe a 
 
 First (**next slide**), let us have a quick look at this string manipulation language. 
 
-
+We assume that the output string is a concatenation of the substrings of inputs or a constant string. So, the main body of the language, called Trace Expression, is a concatenation of some atom string expressions, like a substring of the second input or a constant string (**points to slide**).

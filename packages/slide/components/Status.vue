@@ -28,7 +28,7 @@ run(
 </script>
 
 <template>
-  <div class="absolute top-4 right-4 flex items-center">
+  <div class="absolute text-lg top-4 right-4 flex items-center">
     <span v-if="status === -1" class="rounded-1 w-4 h-4 inline-block mr-2"></span>
     <span v-else-if="status === 0" class="rounded-1 bg-green-400 w-4 h-4 inline-block mr-2"></span>
     <span v-else-if="status === 1" class="rounded-1 bg-red-400 w-4 h-4 inline-block mr-2"></span>

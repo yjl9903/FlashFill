@@ -6,8 +6,9 @@ const props = defineProps<{
   data: Array<{ input: string[]; output?: string }>;
   edit?: boolean;
   append?: boolean;
-  outputWidth?: string | number;
   hideRun?: boolean;
+  inputWidth?: string[] | number[];
+  outputWidth?: string | number;
   inputLabel?: string[];
   outputLabel?: string;
 }>();
@@ -83,15 +84,15 @@ async function start() {
 </script>
 
 <template>
-  <table v-if="data.length > 0" class="font-mono w-full">
+  <table v-if="data.length > 0" class="font-mono" style="table-layout: fixed">
     <thead>
       <tr style="border-top-width: 1px">
-        <th v-for="i in inputLength">
+        <th v-for="i in inputLength" :width="inputWidth && inputWidth[i - 1]">
           <span v-if="inputLabel && !!inputLabel[i - 1]">{{ inputLabel[i - 1] }}</span>
           <span v-else>Input {{ i }}</span>
         </th>
-        <th :style="{ borderLeftWidth: '3px', width: outputWidth ?? '40%' }">
-          <div class="flex justify-between">
+        <th :style="{ borderLeftWidth: '3px', width: outputWidth ?? '20%' }">
+          <div class="flex justify-between overflow-auto">
             <span>
               <span v-if="!!outputLabel">{{ outputLabel }}</span>
               <span v-else>Output</span>
@@ -112,14 +113,14 @@ async function start() {
       <tr v-for="(row, i) in data">
         <td v-for="j in inputLength">
           <span v-if="!edit">{{ row.input[j - 1] }}</span>
-          <input v-else-if="rawInput" type="text" v-model="rawInput[i][j - 1]" />
+          <input v-else-if="rawInput" type="text" v-model="rawInput[i][j - 1]" class="w-full" />
         </td>
         <td style="border-left-width: 3px" :class="!dirty[i] && status === 1 && 'bg-green-100'">
           <span v-if="!running && !edit">{{ output[i] }}</span>
           <input
             v-else-if="!running && edit"
             type="text"
-            :class="!dirty[i] && status === 1 && 'bg-green-100'"
+            :class="[!dirty[i] && status === 1 && 'bg-green-100', 'w-full']"
             v-model="rawOutput[i]"
             @change="markDirty(i)"
           />
