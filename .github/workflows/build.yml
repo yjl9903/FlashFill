@@ -25,6 +25,7 @@ jobs:
           version: 'latest'
       - run: pnpm install
       - run: pnpm run build
+      - run: pnpm run export
       - run: pnpm run test
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
