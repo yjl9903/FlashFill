@@ -91,7 +91,7 @@ input[type="number"][data-v-5af5c1d4] {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}h1[data-v-0eef5bf3] {
+}h1[data-v-2c15e3d2] {
   background-color: #2B90B6;
   background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
   background-size: 100%;
@@ -99,16 +99,16 @@ input[type="number"][data-v-5af5c1d4] {
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
-}.footnotes-sep[data-v-28ab6fd3] {
+}.footnotes-sep[data-v-0897bcd4] {
   margin-top: 5rem;
   opacity: 0.1;
 }
-.footnotes[data-v-28ab6fd3] {
+.footnotes[data-v-0897bcd4] {
   font-size: 0.875rem;
   line-height: 1.25rem;
   opacity: 0.75;
 }
-.footnote-backref[data-v-28ab6fd3] {
+.footnote-backref[data-v-0897bcd4] {
   display: none;
 }/* windicss layer base */
 *, ::before, ::after {
