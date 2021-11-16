@@ -31,8 +31,11 @@ pub fn greet() {
 
 #[wasm_bindgen]
 pub fn run(inputs: JsValue, results: JsValue) -> JsValue {
+  log("Start parsing input...");
   let inputs: Vec<Vec<String>> = inputs.into_serde().unwrap();
+  log("Start parsing output...");
   let results: Vec<Option<String>> = results.into_serde().unwrap();
+  log("Start running...");
   let answer: Vec<String> = algorithm::run(inputs, results);
   JsValue::from_serde(&answer).unwrap()
 }

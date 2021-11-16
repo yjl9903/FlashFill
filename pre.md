@@ -40,9 +40,9 @@ And we also make a trade-off that use top-level conditionals (**next slide**).
 
 The top-level of the string language is `Switch` that receives pairs of a boolean expression and a trace expression. The string language will evaluate the trace expression corresponding to the first satisfied boolean expression.
 
-### Example
-
 Now, this is all the language constructions. The top-level is some switch-cases. Then, if the input satifies a boolean expression, the corresponding trace expression is evaluated. Then all the atom expressions in trace will be evaluated one by one. Finally, we get the output string.
+
+### Example
 
 Let's see an example.
 

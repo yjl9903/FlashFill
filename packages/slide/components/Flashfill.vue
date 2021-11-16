@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { toRefs, ref, computed } from 'vue';
+import { toRefs, toRaw, ref, computed } from 'vue';
 import { run } from './run';
 
 const props = defineProps<{
@@ -22,7 +22,7 @@ const output = ref(data.value.map((data) => data.output));
 const running = ref(false);
 const status = ref(0); // 0: wait, 1: ok, -1: error
 
-const dirty = ref(data.value.map((data) => !!data.output));
+const dirty = ref(data.value.map((data) => !!data.output && data.output.length > 0));
 const markDirty = (index: number) => {
   status.value = 0;
   const cur = rawOutput.value[index];
@@ -40,6 +40,9 @@ async function start() {
   if (output.value.every((out) => out !== null)) {
     return;
   }
+  if (output.value.every((out) => out === null)) {
+    return;
+  }
 
   running.value = true;
 
@@ -50,16 +53,21 @@ async function start() {
     }\``;
     console.log(text);
   }
-  const result = await run(rawInput.value, output.value);
-  console.log('Result:');
-  for (let i = 0; i < rawInput.value.length; i++) {
-    const text = `[${rawInput.value[i].map((t) => `\`${t}\``).join(', ')}] => \`${
-      result[i] ?? ''
-    }\``;
-    console.log(text);
-  }
 
-  if (result) {
+  const input = rawInput.value.map((row) => [...row]);
+  console.log([...output.value]);
+  const result = await run(input, [...output.value]);
+  console.log(result);
+
+  if (!!result && result.length === output.value.length) {
+    console.log('Result:');
+    for (let i = 0; i < rawInput.value.length; i++) {
+      const text = `[${rawInput.value[i].map((t) => `\`${t}\``).join(', ')}] => \`${
+        result[i] ?? ''
+      }\``;
+      console.log(text);
+    }
+
     let errorFlag = true;
     for (let i = 0; i < result.length; i++) {
       output.value[i] = result[i];
@@ -78,6 +86,7 @@ async function start() {
     }
   } else {
     // error
+    running.value = false;
     status.value = -1;
   }
 }
@@ -92,17 +101,20 @@ async function start() {
           <span v-else>Input {{ i }}</span>
         </th>
         <th :style="{ borderLeftWidth: '3px', width: outputWidth ?? '20%' }">
-          <div class="flex justify-between overflow-auto">
-            <span>
-              <span v-if="!!outputLabel">{{ outputLabel }}</span>
-              <span v-else>Output</span>
-              <span v-if="running"><mdi-loading class="animate-spin text-light-900" /></span>
+          <div class="flex justify-between">
+            <span class="inline-block w-full">
+              <span v-if="!!outputLabel" class="overflow-hidden">{{ outputLabel }}</span>
+              <span v-else class="overflow-hidden">Output</span>
+
+              <span v-if="running"
+                ><mdi-loading class="overflow-hidden text-sm animate-spin text-light-900"
+              /></span>
               <span v-else-if="status === 1"><mdi-check class="text-green-500" /></span>
               <span v-else-if="status === -1"><mdi-close class="text-red-500" /></span>
             </span>
             <mdi-play-circle
               v-if="!hideRun"
-              class="ml-1 text-green-500 cursor-pointer"
+              class="ml-1 text-green-500 cursor-pointer inline-block overflow-hidden"
               @click="start"
             />
           </div>

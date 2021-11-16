@@ -212,7 +212,7 @@ Regular Expression is **a sequence of tokens**.
     <mdi-arrow-right-bold />
   </div>
   <div>
-    <span>Efficient Algorithm</span>
+    <span class="font-bold">Efficient Algorithm</span>
   </div>
 </div>
 
@@ -220,9 +220,14 @@ Regular Expression is **a sequence of tokens**.
 
 # Conditionals
 
----
+<!-- <div class="font-mono text-center">
+  <span>Switch(</span>
+  <span>(b, e)</span>
+  <span>, ...</span>
+  <span>)</span>
+</div> -->
 
-# Example
+<img src="/ast.png" alt="ast" style="zoom: 80%">
 
 <!-- $$
 \begin{array}{rcl}
@@ -232,6 +237,22 @@ Regular Expression is **a sequence of tokens**.
 % & | & \text{Loop}(\lambda w : e)
 \end{array}
 $$ -->
+
+---
+
+# Example
+
+<div class="w-full">
+  <flashfill edit :data="[
+    { input: ['123', '321'], output: 'case 123: return 321;' },
+    { input: ['456', '654'], output: 'case 456: return 654;' },
+    { input: ['789', '987'] },
+    { input: ['147', '741'] },
+    { input: ['258', '852'] },
+    { input: ['369', '963'] },
+  ]" :input-label="['Num', 'Rev']" output-label="Code"
+  :input-width="[240, 240]" :output-width="480" />
+</div>
 
 ---
 
