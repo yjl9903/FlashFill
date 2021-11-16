@@ -9503,7 +9503,7 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.999fe870.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.0ccec462.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$3;
       const _component_carbon58maximize = __unplugin_components_1$2;
@@ -9658,7 +9658,7 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.8a3537e2.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.04034d48.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9708,7 +9708,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.999fe870.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.0ccec462.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -10438,7 +10438,7 @@ const _hoisted_15 = [
 ];
 const _sfc_main$5 = {
   setup(__props) {
-    const frontmatter = {};
+    const frontmatter = { "clicks": 2 };
     return (_ctx, _cache) => {
       const _component_carbon_dot_mark = __unplugin_components_0;
       const _component_v_click = __unplugin_components_1;
@@ -10563,10 +10563,10 @@ var _rawRoutes = [
   { path: "1", name: "page-1", component: _sfc_main$a, meta: { "theme": "apple-basic", "title": "FlashFill", "titleTemplate": "%s", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center", "slide": { "start": 0, "end": 28, "note": "", "filepath": "slides.md", "id": 0, "no": 1 }, "__clicksElements": [], "__preloaded": false } },
   { path: "2", name: "page-2", component: _sfc_main$8, meta: { "class": "text-center", "slide": { "start": 28, "end": 36, "filepath": "slides.md", "id": 1, "no": 2 }, "__clicksElements": [], "__preloaded": false } },
   { path: "3", name: "page-3", component: _sfc_main$6, meta: { "clicks": 1, "slide": { "start": 36, "end": 59, "filepath": "slides.md", "id": 2, "no": 3 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "4", name: "page-4", component: _sfc_main$5, meta: { "slide": { "start": 60, "end": 98, "filepath": "slides.md", "id": 3, "no": 4 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "5", name: "page-5", component: _sfc_main$4, meta: { "slide": { "start": 99, "end": 102, "filepath": "slides.md", "id": 4, "no": 5 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "6", name: "page-6", component: _sfc_main$3, meta: { "slide": { "start": 103, "end": 106, "filepath": "slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "7", name: "page-7", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 106, "end": 117, "filepath": "slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "4", name: "page-4", component: _sfc_main$5, meta: { "clicks": 2, "slide": { "start": 59, "end": 100, "filepath": "slides.md", "id": 3, "no": 4 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "5", name: "page-5", component: _sfc_main$4, meta: { "slide": { "start": 101, "end": 104, "filepath": "slides.md", "id": 4, "no": 5 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "6", name: "page-6", component: _sfc_main$3, meta: { "slide": { "start": 105, "end": 108, "filepath": "slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "7", name: "page-7", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 108, "end": 119, "filepath": "slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
   { path: "8", component: __layout__end, meta: { layout: "end" } }
 ];
 const rawRoutes = _rawRoutes;
