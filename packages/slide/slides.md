@@ -105,18 +105,19 @@ class: text-center
 
 # Trace
 
-Output string is a <span class="font-bold underline">concatenation</span> of the <span class="font-bold underline">substrings of inputs</span> or a <span class="font-bold underline">constant string</span>.
+Trace Expr is a <span class="font-bold underline">concatenation</span> of the <span class="font-bold underline">substrings of inputs</span> or a <span class="font-bold underline">constant string</span>.
 
+<div class="w-full text-center">
+  <img class="inline-block" src="/trace.png" alt="spreadsheets" style="zoom: 70%;">
+  <p class="font-mono mt-8">
+    <span>Output: 「A lives at nanjing」</span>
+  </p>
+</div>
+
+<!-- 
 $$
 \text{Trace Expr } e := \text{Concatenation}(f_1, f_2, \dots, f_n) 
-$$
-
-<!--
-Input: A    ...., nanjing, ....
-
-Output: A + lives at + nanjing
-Substr + ConstStr + SubStr
--->
+$$ -->
 
 ---
 
@@ -130,14 +131,14 @@ Substr + ConstStr + SubStr
 
 # Atom
 
-$$
+<!-- $$
 \begin{array}{rcl}
 \text{Trace Expr  } ~ e & := & \text{Concatenation}(f_1, f_2, \dots, f_n) \\
 \text{Atom Expr  } ~ f & := & \text{SubStr}(v_i, p_1, p_2) \\
 & | & \text{ConstStr}(s) \\
 % & | & \text{Loop}(\lambda w : e)
 \end{array}
-$$
+$$ -->
 
 ---
 
