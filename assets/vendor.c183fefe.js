@@ -9577,7 +9577,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.808f74c4.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.bd8e9cf9.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$3;
       const _component_carbon58maximize = __unplugin_components_1$1;
@@ -9732,7 +9732,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.d00fad9b.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.ccbee9e4.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9782,7 +9782,7 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.808f74c4.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.bd8e9cf9.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -10315,9 +10315,9 @@ const _sfc_main$i = {
             createVNode(_component_flashfill, {
               edit: "",
               data: [
-                { input: ["A", "Jiangsu, Nanjing, Nanjing University"], output: "Nanjing" },
-                { input: ["B", "Hubei, Wuhan, HUST"] },
-                { input: ["C", "Shandong, Jinan, SDU"] }
+                { input: ["A", "Jiangsu, nanjing, nju"], output: "nanjing" },
+                { input: ["B", "Hubei, wuhan, hust"] },
+                { input: ["C", "Shandong, jinan, sdu"] }
               ]
             })
           ])
@@ -38563,7 +38563,7 @@ function useSwipeControls(root) {
   });
 }
 async function downloadPDF() {
-  const { saveAs } = await import("./FileSaver.min.3d39df02.js").then(function(n) {
+  const { saveAs } = await import("./FileSaver.min.8b5b9b0f.js").then(function(n) {
     return n.F;
   });
   saveAs(isString$1(configs.download) ? configs.download : `${"/"}slidev-exported.pdf`, `${configs.title}.pdf`);
