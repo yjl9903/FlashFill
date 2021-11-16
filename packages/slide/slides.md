@@ -38,16 +38,22 @@ class: text-center
 
 # Collect cities of residence
 
-<flashfill class="mt-20" edit :data="[
+<flashfill class="mt-12" edit :data="[
   { input: ['A', 'Jiangsu, nanjing, nju'] },
   { input: ['B', 'Hubei, wuhan, hust'] },
   { input: ['C', 'Shandong, jinan, sdu'] },
   { input: ['D', 'Hunan, changsha, csu'] }
 ]" />
 
-<v-click>
-  <h2 class="underline">Flashfill using input-output example</h2>
-</v-click>
+<h2>
+  <mdi-close class="text-red-500" v-click="1" />
+  <span class="underline">Copy-Paste one by one?</span>
+</h2>
+
+<h2 v-click="1">
+  <mdi-check class="text-green-500" />
+  <span class="underline">Flashfill using input-output example!</span>
+</h2>
 
 ---
 
