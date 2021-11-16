@@ -58,6 +58,8 @@ clicks: 1
 </h2>
 
 ---
+clicks: 2
+---
 
 # Flashfill using input-output examples
 

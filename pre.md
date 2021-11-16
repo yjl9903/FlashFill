@@ -8,7 +8,7 @@ While large number of these users are not programmers, and they may face some tr
 
 In this work (**next slide**), there are two main sections. We first describe a simple string manipulation language that is expressive enough to solve a lot of real-world tasks. Then (**next part**) we design a learning algorithm to synthesize a program in this language with some given input-output examples.
 
-## Language
+## Language for Constructing Output Strings
 
 First (**next slide**), let us have a quick look at this string manipulation language. 
 
