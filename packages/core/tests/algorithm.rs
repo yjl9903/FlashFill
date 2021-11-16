@@ -170,3 +170,21 @@ fn test_extract_city() {
 
   assert_eq!(result[2], "jinan".to_string());
 }
+
+#[test]
+fn test_extract_switch() {
+  let input = vec![
+    vec!["123".to_string(), "321".to_string()],
+    vec!["124".to_string(), "421".to_string()],
+    vec!["125".to_string(), "521".to_string()],
+  ];
+
+  let result = vec![Some("case 123: return 321;".to_string()), Some("case 124: return 421;".to_string()), None];
+
+  let result = run(input, result);
+
+  dbg!(&result);
+
+  assert_eq!(result[2], "case 125: return 521;".to_string());
+}
+
