@@ -7540,7 +7540,7 @@ function objectMap(obj, fn) {
 function objectKeys(obj) {
   return Object.keys(obj);
 }
-var _configs = { "theme": "apple-basic", "title": "FlashFill", "titleTemplate": "%s", "remoteAssets": false, "monaco": "dev", "download": false, "info": false, "highlighter": "shiki", "lineNumbers": true, "colorSchema": "auto", "routerMode": "history", "aspectRatio": 1.7777777777777777, "canvasWidth": 980, "selectable": false, "themeConfig": {}, "fonts": { "sans": ['"Helvetica Neue"', "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", '"Segoe UI"', "Roboto", "Arial", '"Noto Sans"', "sans-serif", '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'], "serif": ["ui-serif", "Georgia", "Cambria", '"Times New Roman"', "Times", "serif"], "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", '"Liberation Mono"', '"Courier New"', "monospace"], "webfonts": ["Helvetica Neue"], "provider": "google", "local": ["Helvetica Neue"], "italic": false, "weights": ["200", "400", "600"] }, "drawings": { "enabled": true, "persist": false, "presenterOnly": false, "syncAll": true }, "plantUmlServer": "https://www.plantuml.com/plantuml", "layout": "intro", "class": "text-center" };
+var _configs = { "theme": "./theme", "title": "FlashFill", "titleTemplate": "%s", "remoteAssets": false, "monaco": "dev", "download": false, "info": false, "highlighter": "shiki", "lineNumbers": true, "colorSchema": "auto", "routerMode": "history", "aspectRatio": 1.3333333333333333, "canvasWidth": 980, "selectable": false, "themeConfig": {}, "fonts": { "sans": ['"Helvetica Neue"', "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", '"Segoe UI"', "Roboto", "Arial", '"Noto Sans"', "sans-serif", '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'], "serif": ["ui-serif", "Georgia", "Cambria", '"Times New Roman"', "Times", "serif"], "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", '"Liberation Mono"', '"Courier New"', "monospace"], "webfonts": ["Helvetica Neue"], "provider": "google", "local": ["Helvetica Neue"], "italic": false, "weights": ["200", "400", "600"] }, "drawings": { "enabled": true, "persist": false, "presenterOnly": false, "syncAll": true }, "plantUmlServer": "https://www.plantuml.com/plantuml", "layout": "intro", "class": "text-center" };
 function define(target, key, value) {
   Object.defineProperty(target, key, {
     value,
@@ -8673,15 +8673,15 @@ const _hoisted_1$H = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$w = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$x = /* @__PURE__ */ createBaseVNode("path", {
   d: "M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$r = [
-  _hoisted_2$w
+const _hoisted_3$s = [
+  _hoisted_2$x
 ];
 function render$j(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$H, _hoisted_3$r);
+  return openBlock(), createElementBlock("svg", _hoisted_1$H, _hoisted_3$s);
 }
 var __unplugin_components_0$6 = { name: "carbon-close", render: render$j };
 function getSlideClass(route2) {
@@ -8828,7 +8828,7 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
 });
 var SlidesOverview_vue_vue_type_style_index_0_lang = "";
 const _hoisted_1$F = { class: "slides-overview bg-main !bg-opacity-75 p-16 overflow-y-auto" };
-const _hoisted_2$v = ["onClick"];
+const _hoisted_2$w = ["onClick"];
 const _sfc_main$q = /* @__PURE__ */ defineComponent({
   props: {
     modelValue: { type: Boolean }
@@ -8890,7 +8890,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
                     ]),
                     _: 2
                   }, 1032, ["width"])
-                ], 8, _hoisted_2$v),
+                ], 8, _hoisted_2$w),
                 createBaseVNode("div", {
                   class: "absolute top-0 opacity-50",
                   style: normalizeStyle(`left: ${unref(cardWidth) + 5}px`)
@@ -8954,8 +8954,8 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
 });
 var InfoDialog_vue_vue_type_style_index_0_lang = "";
 const _hoisted_1$D = { class: "slidev-info-dialog slidev-layout flex flex-col gap-4 text-base" };
-const _hoisted_2$u = ["innerHTML"];
-const _hoisted_3$q = /* @__PURE__ */ createBaseVNode("a", {
+const _hoisted_2$v = ["innerHTML"];
+const _hoisted_3$r = /* @__PURE__ */ createBaseVNode("a", {
   href: "https://github.com/slidevjs/slidev",
   target: "_blank",
   class: "!opacity-100 !border-none !text-current"
@@ -8996,8 +8996,8 @@ const _sfc_main$o = /* @__PURE__ */ defineComponent({
               key: 0,
               class: "mb-4",
               innerHTML: unref(configs).info
-            }, null, 8, _hoisted_2$u)) : createCommentVNode("v-if", true),
-            _hoisted_3$q
+            }, null, 8, _hoisted_2$v)) : createCommentVNode("v-if", true),
+            _hoisted_3$r
           ])
         ]),
         _: 1
@@ -9092,20 +9092,20 @@ const _hoisted_1$B = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$t = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$u = /* @__PURE__ */ createBaseVNode("path", {
   d: "M30 8h-4.1c-.5-2.3-2.5-4-4.9-4s-4.4 1.7-4.9 4H2v2h14.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H30V8zm-9 4c-1.7 0-3-1.3-3-3s1.3-3 3-3s3 1.3 3 3s-1.3 3-3 3z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$p = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_3$q = /* @__PURE__ */ createBaseVNode("path", {
   d: "M2 24h4.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H30v-2H15.9c-.5-2.3-2.5-4-4.9-4s-4.4 1.7-4.9 4H2v2zm9-4c1.7 0 3 1.3 3 3s-1.3 3-3 3s-3-1.3-3-3s1.3-3 3-3z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_4$a = [
-  _hoisted_2$t,
-  _hoisted_3$p
+const _hoisted_4$c = [
+  _hoisted_2$u,
+  _hoisted_3$q
 ];
 function render$i(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$B, _hoisted_4$a);
+  return openBlock(), createElementBlock("svg", _hoisted_1$B, _hoisted_4$c);
 }
 var __unplugin_components_15 = { name: "carbon-settings-adjust", render: render$i };
 const _hoisted_1$A = {
@@ -9115,25 +9115,25 @@ const _hoisted_1$A = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$s = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$t = /* @__PURE__ */ createBaseVNode("path", {
   d: "M17 22v-8h-4v2h2v6h-3v2h8v-2h-3z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$o = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_3$p = /* @__PURE__ */ createBaseVNode("path", {
   d: "M16 8a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 8z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_4$9 = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_4$b = /* @__PURE__ */ createBaseVNode("path", {
   d: "M16 30a14 14 0 1 1 14-14a14 14 0 0 1-14 14zm0-26a12 12 0 1 0 12 12A12 12 0 0 0 16 4z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_5$3 = [
-  _hoisted_2$s,
-  _hoisted_3$o,
-  _hoisted_4$9
+const _hoisted_5$4 = [
+  _hoisted_2$t,
+  _hoisted_3$p,
+  _hoisted_4$b
 ];
 function render$h(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$A, _hoisted_5$3);
+  return openBlock(), createElementBlock("svg", _hoisted_1$A, _hoisted_5$4);
 }
 var __unplugin_components_14 = { name: "carbon-information", render: render$h };
 const _hoisted_1$z = {
@@ -9143,20 +9143,20 @@ const _hoisted_1$z = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$r = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$s = /* @__PURE__ */ createBaseVNode("path", {
   d: "M26 24v4H6v-4H4v4a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2v-4z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$n = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_3$o = /* @__PURE__ */ createBaseVNode("path", {
   d: "M26 14l-1.41-1.41L17 20.17V2h-2v18.17l-7.59-7.58L6 14l10 10l10-10z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_4$8 = [
-  _hoisted_2$r,
-  _hoisted_3$n
+const _hoisted_4$a = [
+  _hoisted_2$s,
+  _hoisted_3$o
 ];
 function render$g(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$z, _hoisted_4$8);
+  return openBlock(), createElementBlock("svg", _hoisted_1$z, _hoisted_4$a);
 }
 var __unplugin_components_13 = { name: "carbon-download", render: render$g };
 const _hoisted_1$y = {
@@ -9166,20 +9166,20 @@ const _hoisted_1$y = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$q = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$r = /* @__PURE__ */ createBaseVNode("path", {
   d: "M27.307 6.107L30 3.414L28.586 2l-2.693 2.693L24.8 3.6a1.933 1.933 0 0 0-2.8 0l-18 18V28h6.4l18-18a1.933 1.933 0 0 0 0-2.8zM9.6 26H6v-3.6L23.4 5L27 8.6z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$m = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_3$n = /* @__PURE__ */ createBaseVNode("path", {
   d: "M9 11.586L16.586 4L18 5.414L10.414 13z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_4$7 = [
-  _hoisted_2$q,
-  _hoisted_3$m
+const _hoisted_4$9 = [
+  _hoisted_2$r,
+  _hoisted_3$n
 ];
 function render$f(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$y, _hoisted_4$7);
+  return openBlock(), createElementBlock("svg", _hoisted_1$y, _hoisted_4$9);
 }
 var __unplugin_components_0$5 = { name: "carbon-pen", render: render$f };
 const _hoisted_1$x = {
@@ -9189,15 +9189,15 @@ const _hoisted_1$x = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 256 256"
 };
-const _hoisted_2$p = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$q = /* @__PURE__ */ createBaseVNode("path", {
   d: "M213.663 202.343a8 8 0 0 1-11.315 11.314L139.23 150.54l-20.304 55.836a15.86 15.86 0 0 1-14.957 10.532h-.084a15.855 15.855 0 0 1-14.976-10.382L30.695 51.289a16 16 0 0 1 20.598-20.6l155.238 58.214a16 16 0 0 1-.15 30.018l-55.837 20.305z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$l = [
-  _hoisted_2$p
+const _hoisted_3$m = [
+  _hoisted_2$q
 ];
 function render$e(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$x, _hoisted_3$l);
+  return openBlock(), createElementBlock("svg", _hoisted_1$x, _hoisted_3$m);
 }
 var __unplugin_components_0$4 = { name: "ph-cursor-fill", render: render$e };
 const _hoisted_1$w = {
@@ -9207,9 +9207,9 @@ const _hoisted_1$w = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$o = /* @__PURE__ */ createStaticVNode('<path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path>', 9);
+const _hoisted_2$p = /* @__PURE__ */ createStaticVNode('<path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path>', 9);
 const _hoisted_11$2 = [
-  _hoisted_2$o
+  _hoisted_2$p
 ];
 function render$d(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$w, _hoisted_11$2);
@@ -9222,15 +9222,15 @@ const _hoisted_1$v = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$n = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$o = /* @__PURE__ */ createBaseVNode("path", {
   d: "M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$k = [
-  _hoisted_2$n
+const _hoisted_3$l = [
+  _hoisted_2$o
 ];
 function render$c(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$v, _hoisted_3$k);
+  return openBlock(), createElementBlock("svg", _hoisted_1$v, _hoisted_3$l);
 }
 var __unplugin_components_5 = { name: "carbon-moon", render: render$c };
 const _hoisted_1$u = {
@@ -9240,15 +9240,15 @@ const _hoisted_1$u = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$m = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$n = /* @__PURE__ */ createBaseVNode("path", {
   d: "M8 4v4H4V4zm2-2H2v8h8zm8 2v4h-4V4zm2-2h-8v8h8zm8 2v4h-4V4zm2-2h-8v8h8zM8 14v4H4v-4zm2-2H2v8h8zm8 2v4h-4v-4zm2-2h-8v8h8zm8 2v4h-4v-4zm2-2h-8v8h8zM8 24v4H4v-4zm2-2H2v8h8zm8 2v4h-4v-4zm2-2h-8v8h8zm8 2v4h-4v-4zm2-2h-8v8h8z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$j = [
-  _hoisted_2$m
+const _hoisted_3$k = [
+  _hoisted_2$n
 ];
 function render$b(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$u, _hoisted_3$j);
+  return openBlock(), createElementBlock("svg", _hoisted_1$u, _hoisted_3$k);
 }
 var __unplugin_components_4 = { name: "carbon-apps", render: render$b };
 const _hoisted_1$t = {
@@ -9258,15 +9258,15 @@ const _hoisted_1$t = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$l = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$m = /* @__PURE__ */ createBaseVNode("path", {
   d: "M18 6l-1.43 1.393L24.15 15H4v2h20.15l-7.58 7.573L18 26l10-10L18 6z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$i = [
-  _hoisted_2$l
+const _hoisted_3$j = [
+  _hoisted_2$m
 ];
 function render$a(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$t, _hoisted_3$i);
+  return openBlock(), createElementBlock("svg", _hoisted_1$t, _hoisted_3$j);
 }
 var __unplugin_components_3$2 = { name: "carbon-arrow-right", render: render$a };
 const _hoisted_1$s = {
@@ -9276,15 +9276,15 @@ const _hoisted_1$s = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$k = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$l = /* @__PURE__ */ createBaseVNode("path", {
   d: "M14 26l1.41-1.41L7.83 17H28v-2H7.83l7.58-7.59L14 6L4 16l10 10z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$h = [
-  _hoisted_2$k
+const _hoisted_3$i = [
+  _hoisted_2$l
 ];
 function render$9(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$s, _hoisted_3$h);
+  return openBlock(), createElementBlock("svg", _hoisted_1$s, _hoisted_3$i);
 }
 var __unplugin_components_2$1 = { name: "carbon-arrow-left", render: render$9 };
 const _hoisted_1$r = {
@@ -9294,20 +9294,20 @@ const _hoisted_1$r = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$j = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$k = /* @__PURE__ */ createBaseVNode("path", {
   d: "M20 2v2h6.586L18 12.582L19.414 14L28 5.414V12h2V2H20z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$g = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_3$h = /* @__PURE__ */ createBaseVNode("path", {
   d: "M14 19.416L12.592 18L4 26.586V20H2v10h10v-2H5.414L14 19.416z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_4$6 = [
-  _hoisted_2$j,
-  _hoisted_3$g
+const _hoisted_4$8 = [
+  _hoisted_2$k,
+  _hoisted_3$h
 ];
 function render$8(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$r, _hoisted_4$6);
+  return openBlock(), createElementBlock("svg", _hoisted_1$r, _hoisted_4$8);
 }
 var __unplugin_components_1$2 = { name: "carbon-maximize", render: render$8 };
 const _hoisted_1$q = {
@@ -9317,20 +9317,20 @@ const _hoisted_1$q = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$i = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$j = /* @__PURE__ */ createBaseVNode("path", {
   d: "M4 18v2h6.586L2 28.582L3.414 30L12 21.414V28h2V18H4z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$f = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_3$g = /* @__PURE__ */ createBaseVNode("path", {
   d: "M30 3.416L28.592 2L20 10.586V4h-2v10h10v-2h-6.586L30 3.416z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_4$5 = [
-  _hoisted_2$i,
-  _hoisted_3$f
+const _hoisted_4$7 = [
+  _hoisted_2$j,
+  _hoisted_3$g
 ];
 function render$7(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$q, _hoisted_4$5);
+  return openBlock(), createElementBlock("svg", _hoisted_1$q, _hoisted_4$7);
 }
 var __unplugin_components_0$3 = { name: "carbon-minimize", render: render$7 };
 const _hoisted_1$p = {
@@ -9340,22 +9340,22 @@ const _hoisted_1$p = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$h = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$i = /* @__PURE__ */ createBaseVNode("path", {
   d: "M13 24l-9-9l1.414-1.414L13 21.171L26.586 7.586L28 9L13 24z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$e = [
-  _hoisted_2$h
+const _hoisted_3$f = [
+  _hoisted_2$i
 ];
 function render$6(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$p, _hoisted_3$e);
+  return openBlock(), createElementBlock("svg", _hoisted_1$p, _hoisted_3$f);
 }
 var __unplugin_components_0$2 = { name: "carbon-checkmark", render: render$6 };
 var SelectList_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _hoisted_1$o = { class: "select-list" };
-const _hoisted_2$g = { class: "title" };
-const _hoisted_3$d = { class: "items" };
-const _hoisted_4$4 = ["onClick"];
+const _hoisted_2$h = { class: "title" };
+const _hoisted_3$e = { class: "items" };
+const _hoisted_4$6 = ["onClick"];
 const _sfc_main$l = /* @__PURE__ */ defineComponent({
   props: {
     modelValue: {
@@ -9374,8 +9374,8 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       const _component_carbon58checkmark = __unplugin_components_0$2;
       return openBlock(), createElementBlock("div", _hoisted_1$o, [
-        createBaseVNode("div", _hoisted_2$g, toDisplayString(__props.title), 1),
-        createBaseVNode("div", _hoisted_3$d, [
+        createBaseVNode("div", _hoisted_2$h, toDisplayString(__props.title), 1),
+        createBaseVNode("div", _hoisted_3$e, [
           (openBlock(true), createElementBlock(Fragment, null, renderList(__props.items, (item) => {
             return openBlock(), createElementBlock("div", {
               key: item.value,
@@ -9390,7 +9390,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
                 class: normalizeClass(["text-green-500", { "opacity-0": unref(value) !== item.value }])
               }, null, 8, ["class"]),
               createTextVNode(" " + toDisplayString(item.display || item.value), 1)
-            ], 10, _hoisted_4$4);
+            ], 10, _hoisted_4$6);
           }), 128))
         ])
       ]);
@@ -9476,13 +9476,13 @@ function _sfc_render$4(_ctx, _cache) {
 }
 var VerticalDivider = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$4]]);
 const _hoisted_1$k = { class: "icon-btn" };
-const _hoisted_2$f = {
+const _hoisted_2$g = {
   class: "h-40px flex",
   p: "l-1 t-0.5 r-2",
   text: "sm leading-2"
 };
-const _hoisted_3$c = { class: "my-auto" };
-const _hoisted_4$3 = { class: "opacity-50" };
+const _hoisted_3$d = { class: "my-auto" };
+const _hoisted_4$5 = { class: "opacity-50" };
 const _sfc_main$h = /* @__PURE__ */ defineComponent({
   props: {
     persist: {
@@ -9503,7 +9503,7 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.0ccec462.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.685e29e3.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$3;
       const _component_carbon58maximize = __unplugin_components_1$2;
@@ -9610,10 +9610,10 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent({
             _: 1
           })) : createCommentVNode("v-if", true),
           !unref(isEmbedded) ? (openBlock(), createBlock(VerticalDivider, { key: 9 })) : createCommentVNode("v-if", true),
-          createBaseVNode("div", _hoisted_2$f, [
-            createBaseVNode("div", _hoisted_3$c, [
+          createBaseVNode("div", _hoisted_2$g, [
+            createBaseVNode("div", _hoisted_3$d, [
               createTextVNode(toDisplayString(unref(currentPage)) + " ", 1),
-              createBaseVNode("span", _hoisted_4$3, "/ " + toDisplayString(unref(total)), 1)
+              createBaseVNode("span", _hoisted_4$5, "/ " + toDisplayString(unref(total)), 1)
             ])
           ])
         ], 34)
@@ -9658,7 +9658,7 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.04034d48.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.78163833.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9708,7 +9708,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.0ccec462.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.685e29e3.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -9919,20 +9919,20 @@ async function run(inputs, results) {
     return void 0;
   }
 }
-const _hoisted_1$h = { class: "absolute top-4 right-4 flex items-center" };
-const _hoisted_2$e = {
+const _hoisted_1$h = { class: "absolute text-lg top-4 right-4 flex items-center" };
+const _hoisted_2$f = {
   key: 0,
   class: "rounded-1 w-4 h-4 inline-block mr-2"
 };
-const _hoisted_3$b = {
+const _hoisted_3$c = {
   key: 1,
   class: "rounded-1 bg-green-400 w-4 h-4 inline-block mr-2"
 };
-const _hoisted_4$2 = {
+const _hoisted_4$4 = {
   key: 2,
   class: "rounded-1 bg-red-400 w-4 h-4 inline-block mr-2"
 };
-const _hoisted_5$2 = {
+const _hoisted_5$3 = {
   key: 3,
   class: "text-gray-500"
 };
@@ -9958,36 +9958,38 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$h, [
-        status.value === -1 ? (openBlock(), createElementBlock("span", _hoisted_2$e)) : status.value === 0 ? (openBlock(), createElementBlock("span", _hoisted_3$b)) : status.value === 1 ? (openBlock(), createElementBlock("span", _hoisted_4$2)) : createCommentVNode("v-if", true),
-        status.value === 0 ? (openBlock(), createElementBlock("span", _hoisted_5$2, "Flashfill Ok")) : status.value === 1 ? (openBlock(), createElementBlock("span", _hoisted_6$2, "Flashfill Fail")) : createCommentVNode("v-if", true)
+        status.value === -1 ? (openBlock(), createElementBlock("span", _hoisted_2$f)) : status.value === 0 ? (openBlock(), createElementBlock("span", _hoisted_3$c)) : status.value === 1 ? (openBlock(), createElementBlock("span", _hoisted_4$4)) : createCommentVNode("v-if", true),
+        status.value === 0 ? (openBlock(), createElementBlock("span", _hoisted_5$3, "Flashfill Ok")) : status.value === 1 ? (openBlock(), createElementBlock("span", _hoisted_6$2, "Flashfill Fail")) : createCommentVNode("v-if", true)
       ]);
     };
   }
 });
 const _sfc_main$b = {};
 const _hoisted_1$g = { class: "slidev-layout intro" };
-const _hoisted_2$d = { class: "my-auto" };
+const _hoisted_2$e = { class: "my-auto" };
 function _sfc_render$2(_ctx, _cache) {
   return openBlock(), createElementBlock("div", _hoisted_1$g, [
-    createBaseVNode("div", _hoisted_2$d, [
+    createBaseVNode("div", _hoisted_2$e, [
       renderSlot(_ctx.$slots, "default")
     ])
   ]);
 }
 var InjectedLayout$2 = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$2]]);
-const _hoisted_1$f = /* @__PURE__ */ createBaseVNode("h1", { class: "!text-4xl" }, "Automating string processing in spreadsheets", -1);
-const _hoisted_2$c = /* @__PURE__ */ createBaseVNode("h1", { class: "!text-4xl" }, "using input-output examples", -1);
-const _hoisted_3$a = /* @__PURE__ */ createBaseVNode("h2", { class: "pt-20 text-gray-500" }, "Junliang Yan", -1);
+const _hoisted_1$f = /* @__PURE__ */ createBaseVNode("h1", { class: "!text-4xl" }, "Automating string processing", -1);
+const _hoisted_2$d = /* @__PURE__ */ createBaseVNode("h1", { class: "!text-4xl" }, "in spreadsheets", -1);
+const _hoisted_3$b = /* @__PURE__ */ createBaseVNode("h1", { class: "!text-4xl" }, "using input-output examples", -1);
+const _hoisted_4$3 = /* @__PURE__ */ createBaseVNode("h2", { class: "pt-20 text-gray-500" }, "Junliang Yan", -1);
 const _sfc_main$a = {
   setup(__props) {
-    const frontmatter = { "theme": "apple-basic", "titleTemplate": "%s", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center" };
+    const frontmatter = { "theme": "./theme", "aspectRatio": "4/3", "titleTemplate": "%s", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center" };
     return (_ctx, _cache) => {
       const _component_Status = _sfc_main$c;
       return openBlock(), createBlock(InjectedLayout$2, normalizeProps(guardReactiveProps(frontmatter)), {
         default: withCtx(() => [
           _hoisted_1$f,
-          _hoisted_2$c,
-          _hoisted_3$a,
+          _hoisted_2$d,
+          _hoisted_3$b,
+          _hoisted_4$3,
           createBaseVNode("p", null, [
             createVNode(_component_Status)
           ])
@@ -10007,11 +10009,11 @@ function _sfc_render$1(_ctx, _cache) {
 }
 var InjectedLayout$1 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$1]]);
 const _hoisted_1$d = /* @__PURE__ */ createBaseVNode("h1", null, "Spreadsheets", -1);
-const _hoisted_2$b = /* @__PURE__ */ createBaseVNode("img", {
+const _hoisted_2$c = /* @__PURE__ */ createBaseVNode("img", {
   class: "inline-block mt-8",
   src: _imports_0,
   alt: "spreadsheets",
-  style: { "zoom": "60%" }
+  style: { "zoom": "80%" }
 }, null, -1);
 const _sfc_main$8 = {
   setup(__props) {
@@ -10020,7 +10022,7 @@ const _sfc_main$8 = {
       return openBlock(), createBlock(InjectedLayout$1, normalizeProps(guardReactiveProps(frontmatter)), {
         default: withCtx(() => [
           _hoisted_1$d,
-          _hoisted_2$b
+          _hoisted_2$c
         ]),
         _: 1
       }, 16);
@@ -10034,15 +10036,15 @@ const _hoisted_1$c = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 24 24"
 };
-const _hoisted_2$a = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$b = /* @__PURE__ */ createBaseVNode("path", {
   d: "M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59L21 7z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$9 = [
-  _hoisted_2$a
+const _hoisted_3$a = [
+  _hoisted_2$b
 ];
 function render$5(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$c, _hoisted_3$9);
+  return openBlock(), createElementBlock("svg", _hoisted_1$c, _hoisted_3$a);
 }
 var __unplugin_components_2 = { name: "mdi-check", render: render$5 };
 const _hoisted_1$b = {
@@ -10052,15 +10054,15 @@ const _hoisted_1$b = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 24 24"
 };
-const _hoisted_2$9 = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$a = /* @__PURE__ */ createBaseVNode("path", {
   d: "M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$8 = [
-  _hoisted_2$9
+const _hoisted_3$9 = [
+  _hoisted_2$a
 ];
 function render$4(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$b, _hoisted_3$8);
+  return openBlock(), createElementBlock("svg", _hoisted_1$b, _hoisted_3$9);
 }
 var __unplugin_components_1$1 = { name: "mdi-close", render: render$4 };
 const _hoisted_1$a = {
@@ -10070,15 +10072,15 @@ const _hoisted_1$a = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 24 24"
 };
-const _hoisted_2$8 = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$9 = /* @__PURE__ */ createBaseVNode("path", {
   d: "M10 16.5v-9l6 4.5M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$7 = [
-  _hoisted_2$8
+const _hoisted_3$8 = [
+  _hoisted_2$9
 ];
 function render$3(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$a, _hoisted_3$7);
+  return openBlock(), createElementBlock("svg", _hoisted_1$a, _hoisted_3$8);
 }
 var __unplugin_components_3$1 = { name: "mdi-play-circle", render: render$3 };
 const _hoisted_1$9 = {
@@ -10088,42 +10090,45 @@ const _hoisted_1$9 = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 24 24"
 };
-const _hoisted_2$7 = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$8 = /* @__PURE__ */ createBaseVNode("path", {
   d: "M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$6 = [
-  _hoisted_2$7
+const _hoisted_3$7 = [
+  _hoisted_2$8
 ];
 function render$2(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$9, _hoisted_3$6);
+  return openBlock(), createElementBlock("svg", _hoisted_1$9, _hoisted_3$7);
 }
 var __unplugin_components_0$1 = { name: "mdi-loading", render: render$2 };
 const _hoisted_1$8 = {
   key: 0,
-  class: "font-mono w-full"
+  class: "font-mono",
+  style: { "table-layout": "fixed" }
 };
-const _hoisted_2$6 = { style: { "border-top-width": "1px" } };
-const _hoisted_3$5 = { key: 0 };
-const _hoisted_4$1 = { key: 1 };
-const _hoisted_5$1 = { class: "flex justify-between" };
-const _hoisted_6$1 = { key: 0 };
-const _hoisted_7$1 = { key: 1 };
-const _hoisted_8$1 = { key: 2 };
-const _hoisted_9$1 = { key: 3 };
-const _hoisted_10$1 = { key: 4 };
-const _hoisted_11$1 = { key: 0 };
-const _hoisted_12$1 = ["onUpdate:modelValue"];
-const _hoisted_13$1 = { key: 0 };
-const _hoisted_14$1 = ["onUpdate:modelValue", "onChange"];
-const _hoisted_15$1 = { key: 2 };
+const _hoisted_2$7 = { style: { "border-top-width": "1px" } };
+const _hoisted_3$6 = ["width"];
+const _hoisted_4$2 = { key: 0 };
+const _hoisted_5$2 = { key: 1 };
+const _hoisted_6$1 = { class: "flex justify-between overflow-auto" };
+const _hoisted_7$1 = { key: 0 };
+const _hoisted_8$1 = { key: 1 };
+const _hoisted_9$1 = { key: 2 };
+const _hoisted_10$1 = { key: 3 };
+const _hoisted_11$1 = { key: 4 };
+const _hoisted_12$1 = { key: 0 };
+const _hoisted_13$1 = ["onUpdate:modelValue"];
+const _hoisted_14$1 = { key: 0 };
+const _hoisted_15$1 = ["onUpdate:modelValue", "onChange"];
+const _hoisted_16$1 = { key: 2 };
 const _sfc_main$7 = /* @__PURE__ */ defineComponent({
   props: {
     data: null,
     edit: { type: Boolean },
     append: { type: Boolean },
-    outputWidth: null,
     hideRun: { type: Boolean },
+    inputWidth: null,
+    outputWidth: null,
     inputLabel: null,
     outputLabel: null
   },
@@ -10196,23 +10201,25 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
       const _component_mdi_play_circle = __unplugin_components_3$1;
       return unref(data2).length > 0 ? (openBlock(), createElementBlock("table", _hoisted_1$8, [
         createBaseVNode("thead", null, [
-          createBaseVNode("tr", _hoisted_2$6, [
+          createBaseVNode("tr", _hoisted_2$7, [
             (openBlock(true), createElementBlock(Fragment, null, renderList(unref(inputLength), (i) => {
-              return openBlock(), createElementBlock("th", null, [
-                __props.inputLabel && !!__props.inputLabel[i - 1] ? (openBlock(), createElementBlock("span", _hoisted_3$5, toDisplayString(__props.inputLabel[i - 1]), 1)) : (openBlock(), createElementBlock("span", _hoisted_4$1, "Input " + toDisplayString(i), 1))
-              ]);
+              return openBlock(), createElementBlock("th", {
+                width: __props.inputWidth && __props.inputWidth[i - 1]
+              }, [
+                __props.inputLabel && !!__props.inputLabel[i - 1] ? (openBlock(), createElementBlock("span", _hoisted_4$2, toDisplayString(__props.inputLabel[i - 1]), 1)) : (openBlock(), createElementBlock("span", _hoisted_5$2, "Input " + toDisplayString(i), 1))
+              ], 8, _hoisted_3$6);
             }), 256)),
             createBaseVNode("th", {
-              style: normalizeStyle({ borderLeftWidth: "3px", width: (_a2 = __props.outputWidth) != null ? _a2 : "40%" })
+              style: normalizeStyle({ borderLeftWidth: "3px", width: (_a2 = __props.outputWidth) != null ? _a2 : "20%" })
             }, [
-              createBaseVNode("div", _hoisted_5$1, [
+              createBaseVNode("div", _hoisted_6$1, [
                 createBaseVNode("span", null, [
-                  !!__props.outputLabel ? (openBlock(), createElementBlock("span", _hoisted_6$1, toDisplayString(__props.outputLabel), 1)) : (openBlock(), createElementBlock("span", _hoisted_7$1, "Output")),
-                  running.value ? (openBlock(), createElementBlock("span", _hoisted_8$1, [
+                  !!__props.outputLabel ? (openBlock(), createElementBlock("span", _hoisted_7$1, toDisplayString(__props.outputLabel), 1)) : (openBlock(), createElementBlock("span", _hoisted_8$1, "Output")),
+                  running.value ? (openBlock(), createElementBlock("span", _hoisted_9$1, [
                     createVNode(_component_mdi_loading, { class: "animate-spin text-light-900" })
-                  ])) : status.value === 1 ? (openBlock(), createElementBlock("span", _hoisted_9$1, [
+                  ])) : status.value === 1 ? (openBlock(), createElementBlock("span", _hoisted_10$1, [
                     createVNode(_component_mdi_check, { class: "text-green-500" })
-                  ])) : status.value === -1 ? (openBlock(), createElementBlock("span", _hoisted_10$1, [
+                  ])) : status.value === -1 ? (openBlock(), createElementBlock("span", _hoisted_11$1, [
                     createVNode(_component_mdi_close, { class: "text-red-500" })
                   ])) : createCommentVNode("v-if", true)
                 ]),
@@ -10230,11 +10237,12 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
             return openBlock(), createElementBlock("tr", null, [
               (openBlock(true), createElementBlock(Fragment, null, renderList(unref(inputLength), (j2) => {
                 return openBlock(), createElementBlock("td", null, [
-                  !unref(edit) ? (openBlock(), createElementBlock("span", _hoisted_11$1, toDisplayString(row.input[j2 - 1]), 1)) : rawInput.value ? withDirectives((openBlock(), createElementBlock("input", {
+                  !unref(edit) ? (openBlock(), createElementBlock("span", _hoisted_12$1, toDisplayString(row.input[j2 - 1]), 1)) : rawInput.value ? withDirectives((openBlock(), createElementBlock("input", {
                     key: 1,
                     type: "text",
-                    "onUpdate:modelValue": ($event) => rawInput.value[i][j2 - 1] = $event
-                  }, null, 8, _hoisted_12$1)), [
+                    "onUpdate:modelValue": ($event) => rawInput.value[i][j2 - 1] = $event,
+                    class: "w-full"
+                  }, null, 8, _hoisted_13$1)), [
                     [vModelText, rawInput.value[i][j2 - 1]]
                   ]) : createCommentVNode("v-if", true)
                 ]);
@@ -10243,15 +10251,15 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                 style: { "border-left-width": "3px" },
                 class: normalizeClass(!dirty.value[i] && status.value === 1 && "bg-green-100")
               }, [
-                !running.value && !unref(edit) ? (openBlock(), createElementBlock("span", _hoisted_13$1, toDisplayString(output.value[i]), 1)) : !running.value && unref(edit) ? withDirectives((openBlock(), createElementBlock("input", {
+                !running.value && !unref(edit) ? (openBlock(), createElementBlock("span", _hoisted_14$1, toDisplayString(output.value[i]), 1)) : !running.value && unref(edit) ? withDirectives((openBlock(), createElementBlock("input", {
                   key: 1,
                   type: "text",
-                  class: normalizeClass(!dirty.value[i] && status.value === 1 && "bg-green-100"),
+                  class: normalizeClass([!dirty.value[i] && status.value === 1 && "bg-green-100", "w-full"]),
                   "onUpdate:modelValue": ($event) => rawOutput.value[i] = $event,
                   onChange: ($event) => markDirty(i)
-                }, null, 42, _hoisted_14$1)), [
+                }, null, 42, _hoisted_15$1)), [
                   [vModelText, rawOutput.value[i]]
-                ]) : (openBlock(), createElementBlock("span", _hoisted_15$1, toDisplayString(output.value[i]), 1))
+                ]) : (openBlock(), createElementBlock("span", _hoisted_16$1, toDisplayString(output.value[i]), 1))
               ], 2)
             ]);
           }), 256))
@@ -10261,8 +10269,10 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
   }
 });
 const _hoisted_1$7 = /* @__PURE__ */ createBaseVNode("h1", null, "Collect cities of residence", -1);
-const _hoisted_2$5 = /* @__PURE__ */ createBaseVNode("span", { class: "underline" }, "Copy-Paste one by one?", -1);
-const _hoisted_3$4 = /* @__PURE__ */ createBaseVNode("span", { class: "underline" }, "Flashfill using input-output example!", -1);
+const _hoisted_2$6 = { class: "w-full" };
+const _hoisted_3$5 = { class: "mt-8" };
+const _hoisted_4$1 = /* @__PURE__ */ createBaseVNode("span", { class: "underline" }, "Copy-Paste one by one?", -1);
+const _hoisted_5$1 = /* @__PURE__ */ createBaseVNode("span", { class: "underline" }, "Flashfill using input-output example!", -1);
 const _sfc_main$6 = {
   setup(__props) {
     const frontmatter = { "clicks": 1 };
@@ -10274,9 +10284,9 @@ const _sfc_main$6 = {
       return openBlock(), createBlock(InjectedLayout$1, normalizeProps(guardReactiveProps(frontmatter)), {
         default: withCtx(() => [
           _hoisted_1$7,
-          createBaseVNode("p", null, [
+          createBaseVNode("div", _hoisted_2$6, [
             createVNode(_component_flashfill, {
-              class: "mt-12",
+              class: "mt-8",
               edit: "",
               data: [
                 { input: ["A", "Jiangsu, nanjing, nju"] },
@@ -10285,18 +10295,20 @@ const _sfc_main$6 = {
                 { input: ["D", "Hunan, changsha, csu"] }
               ],
               "input-label": ["Name", "Adress"],
-              "output-label": "City"
+              "output-label": "City",
+              "input-width": [120, 420],
+              "output-width": 160
             })
           ]),
-          createBaseVNode("h2", null, [
+          createBaseVNode("h2", _hoisted_3$5, [
             withDirectives(createVNode(_component_mdi_close, { class: "text-red-500" }, null, 512), [
               [_directive_click, 1]
             ]),
-            _hoisted_2$5
+            _hoisted_4$1
           ]),
           withDirectives(createBaseVNode("h2", null, [
             createVNode(_component_mdi_check, { class: "text-green-500" }),
-            _hoisted_3$4
+            _hoisted_5$1
           ], 512), [
             [_directive_click, 1]
           ])
@@ -10313,15 +10325,15 @@ const _hoisted_1$6 = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 24 24"
 };
-const _hoisted_2$4 = /* @__PURE__ */ createBaseVNode("path", {
+const _hoisted_2$5 = /* @__PURE__ */ createBaseVNode("path", {
   d: "M4 15V9h8V4.16L19.84 12L12 19.84V15H4z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$3 = [
-  _hoisted_2$4
+const _hoisted_3$4 = [
+  _hoisted_2$5
 ];
 function render$1(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$6, _hoisted_3$3);
+  return openBlock(), createElementBlock("svg", _hoisted_1$6, _hoisted_3$4);
 }
 var __unplugin_components_3 = { name: "mdi-arrow-right-bold", render: render$1 };
 var VClicks = defineComponent({
@@ -10399,42 +10411,43 @@ const _hoisted_1$5 = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$3 = /* @__PURE__ */ createBaseVNode("circle", {
+const _hoisted_2$4 = /* @__PURE__ */ createBaseVNode("circle", {
   cx: "16",
   cy: "16",
   r: "8",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$2 = [
-  _hoisted_2$3
+const _hoisted_3$3 = [
+  _hoisted_2$4
 ];
 function render(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$5, _hoisted_3$2);
+  return openBlock(), createElementBlock("svg", _hoisted_1$5, _hoisted_3$3);
 }
 var __unplugin_components_0 = { name: "carbon-dot-mark", render };
 const _hoisted_1$4 = /* @__PURE__ */ createBaseVNode("h1", null, "Flashfill using input-output examples", -1);
-const _hoisted_2$2 = /* @__PURE__ */ createBaseVNode("h3", { class: "mt-12" }, null, -1);
-const _hoisted_3$1 = /* @__PURE__ */ createTextVNode(" String Manipulation Language");
-const _hoisted_4 = { class: "mt-8" };
-const _hoisted_5 = /* @__PURE__ */ createTextVNode(" Algorithm to ");
-const _hoisted_6 = /* @__PURE__ */ createBaseVNode("strong", null, "synthesize", -1);
-const _hoisted_7 = /* @__PURE__ */ createTextVNode(" a program with ");
-const _hoisted_8 = /* @__PURE__ */ createBaseVNode("strong", null, "input-output examples", -1);
-const _hoisted_9 = { class: "flex justify-center items-center font-2xl" };
-const _hoisted_10 = /* @__PURE__ */ createBaseVNode("p", { class: "text-center" }, [
+const _hoisted_2$3 = /* @__PURE__ */ createBaseVNode("h3", { class: "mt-8" }, null, -1);
+const _hoisted_3$2 = { class: "text-xl" };
+const _hoisted_4 = /* @__PURE__ */ createTextVNode(" String Manipulation Language");
+const _hoisted_5 = { class: "mt-8 text-xl" };
+const _hoisted_6 = /* @__PURE__ */ createTextVNode();
+const _hoisted_7 = /* @__PURE__ */ createBaseVNode("strong", null, "Synthesize", -1);
+const _hoisted_8 = /* @__PURE__ */ createTextVNode(" a program with ");
+const _hoisted_9 = /* @__PURE__ */ createBaseVNode("strong", null, "input-output examples", -1);
+const _hoisted_10 = { class: "flex justify-center items-center mt-12" };
+const _hoisted_11 = /* @__PURE__ */ createBaseVNode("p", { class: "text-center" }, [
   /* @__PURE__ */ createBaseVNode("span", null, "Input-output examples")
 ], -1);
-const _hoisted_11 = { class: "mx-8 text-center" };
-const _hoisted_12 = /* @__PURE__ */ createBaseVNode("div", null, "Synthesize", -1);
-const _hoisted_13 = /* @__PURE__ */ createBaseVNode("pre", { class: "slidev-code border" }, [
+const _hoisted_12 = { class: "ml-2 mr-2 text-center" };
+const _hoisted_13 = /* @__PURE__ */ createBaseVNode("div", null, "Synthesize", -1);
+const _hoisted_14 = /* @__PURE__ */ createBaseVNode("pre", { class: "slidev-code border !text-lg" }, [
   /* @__PURE__ */ createBaseVNode("code", null, "SubStr2(\n  Input(2),\n  TokenSeq(AlphaToken),\n  2\n)")
 ], -1);
-const _hoisted_14 = /* @__PURE__ */ createBaseVNode("p", { class: "text-center" }, [
+const _hoisted_15 = /* @__PURE__ */ createBaseVNode("p", { class: "text-center" }, [
   /* @__PURE__ */ createBaseVNode("span", null, "Program")
 ], -1);
-const _hoisted_15 = [
-  _hoisted_13,
-  _hoisted_14
+const _hoisted_16 = [
+  _hoisted_14,
+  _hoisted_15
 ];
 const _sfc_main$5 = {
   setup(__props) {
@@ -10448,29 +10461,29 @@ const _sfc_main$5 = {
       return openBlock(), createBlock(InjectedLayout$1, normalizeProps(guardReactiveProps(frontmatter)), {
         default: withCtx(() => [
           _hoisted_1$4,
-          _hoisted_2$2,
+          _hoisted_2$3,
           createVNode(_component_v_click, null, {
             default: withCtx(() => [
-              createBaseVNode("p", null, [
+              createBaseVNode("p", _hoisted_3$2, [
                 createVNode(_component_carbon_dot_mark),
-                _hoisted_3$1
+                _hoisted_4
               ])
             ]),
             _: 1
           }),
           createVNode(_component_v_click, null, {
             default: withCtx(() => [
-              createBaseVNode("p", _hoisted_4, [
+              createBaseVNode("p", _hoisted_5, [
                 createVNode(_component_carbon_dot_mark),
-                _hoisted_5,
                 _hoisted_6,
                 _hoisted_7,
-                _hoisted_8
+                _hoisted_8,
+                _hoisted_9
               ])
             ]),
             _: 1
           }),
-          createBaseVNode("div", _hoisted_9, [
+          createBaseVNode("div", _hoisted_10, [
             withDirectives(createBaseVNode("div", null, [
               createVNode(_component_flashfill, {
                 class: "text-sm",
@@ -10478,21 +10491,23 @@ const _sfc_main$5 = {
                 "output-width": "200",
                 data: [
                   { input: ["A", "Jiangsu, nanjing, nju"], output: "nanjing" }
-                ]
-              }),
-              _hoisted_10
+                ],
+                "input-label": ["1", "Input(2)"],
+                "input-width": [30, 120]
+              }, null, 8, ["input-label"]),
+              _hoisted_11
             ], 512), [
               [_directive_click, 2]
             ]),
-            withDirectives(createBaseVNode("div", _hoisted_11, [
-              _hoisted_12,
+            withDirectives(createBaseVNode("div", _hoisted_12, [
+              _hoisted_13,
               createBaseVNode("div", null, [
                 createVNode(_component_mdi_arrow_right_bold)
               ])
             ], 512), [
               [_directive_click, 2]
             ]),
-            withDirectives(createBaseVNode("div", null, _hoisted_15, 512), [
+            withDirectives(createBaseVNode("div", null, _hoisted_16, 512), [
               [_directive_click, 1]
             ])
           ])
@@ -10503,13 +10518,25 @@ const _sfc_main$5 = {
   }
 };
 const _hoisted_1$3 = /* @__PURE__ */ createBaseVNode("h1", null, "String Manipulation Language", -1);
+const _hoisted_2$2 = /* @__PURE__ */ createBaseVNode("h3", { class: "mt-8" }, null, -1);
+const _hoisted_3$1 = /* @__PURE__ */ createBaseVNode("p", null, [
+  /* @__PURE__ */ createTextVNode("Output string is a "),
+  /* @__PURE__ */ createBaseVNode("span", { class: "font-bold underline" }, "concatenation"),
+  /* @__PURE__ */ createTextVNode(" of the "),
+  /* @__PURE__ */ createBaseVNode("span", { class: "font-bold underline" }, "substrings of inputs"),
+  /* @__PURE__ */ createTextVNode(" or a "),
+  /* @__PURE__ */ createBaseVNode("span", { class: "font-bold underline" }, "constant string"),
+  /* @__PURE__ */ createTextVNode(".")
+], -1);
 const _sfc_main$4 = {
   setup(__props) {
     const frontmatter = {};
     return (_ctx, _cache) => {
       return openBlock(), createBlock(InjectedLayout$1, normalizeProps(guardReactiveProps(frontmatter)), {
         default: withCtx(() => [
-          _hoisted_1$3
+          _hoisted_1$3,
+          _hoisted_2$2,
+          _hoisted_3$1
         ]),
         _: 1
       }, 16);
@@ -10560,13 +10587,13 @@ const _sfc_main$1 = {
   }
 };
 var _rawRoutes = [
-  { path: "1", name: "page-1", component: _sfc_main$a, meta: { "theme": "apple-basic", "title": "FlashFill", "titleTemplate": "%s", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center", "slide": { "start": 0, "end": 28, "note": "", "filepath": "slides.md", "id": 0, "no": 1 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "2", name: "page-2", component: _sfc_main$8, meta: { "class": "text-center", "slide": { "start": 28, "end": 36, "filepath": "slides.md", "id": 1, "no": 2 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "3", name: "page-3", component: _sfc_main$6, meta: { "clicks": 1, "slide": { "start": 36, "end": 59, "filepath": "slides.md", "id": 2, "no": 3 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "4", name: "page-4", component: _sfc_main$5, meta: { "clicks": 2, "slide": { "start": 59, "end": 100, "filepath": "slides.md", "id": 3, "no": 4 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "5", name: "page-5", component: _sfc_main$4, meta: { "slide": { "start": 101, "end": 104, "filepath": "slides.md", "id": 4, "no": 5 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "6", name: "page-6", component: _sfc_main$3, meta: { "slide": { "start": 105, "end": 108, "filepath": "slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "7", name: "page-7", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 108, "end": 119, "filepath": "slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "1", name: "page-1", component: _sfc_main$a, meta: { "theme": "./theme", "aspectRatio": "4/3", "title": "FlashFill", "titleTemplate": "%s", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center", "slide": { "start": 0, "end": 21, "filepath": "slides.md", "id": 0, "no": 1 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "2", name: "page-2", component: _sfc_main$8, meta: { "class": "text-center", "slide": { "start": 21, "end": 29, "filepath": "slides.md", "id": 1, "no": 2 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "3", name: "page-3", component: _sfc_main$6, meta: { "clicks": 1, "slide": { "start": 29, "end": 55, "filepath": "slides.md", "id": 2, "no": 3 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "4", name: "page-4", component: _sfc_main$5, meta: { "clicks": 2, "slide": { "start": 55, "end": 96, "filepath": "slides.md", "id": 3, "no": 4 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "5", name: "page-5", component: _sfc_main$4, meta: { "slide": { "start": 97, "end": 106, "filepath": "slides.md", "id": 4, "no": 5 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "6", name: "page-6", component: _sfc_main$3, meta: { "slide": { "start": 107, "end": 110, "filepath": "slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "7", name: "page-7", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 110, "end": 121, "filepath": "slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
   { path: "8", component: __layout__end, meta: { layout: "end" } }
 ];
 const rawRoutes = _rawRoutes;
