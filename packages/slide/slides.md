@@ -31,9 +31,9 @@ class: 'text-center'
 # Live Demo
 
 <flashfill edit :data="[
-  { input: ['A', 'Jiangsu, Nanjing, Nanjing University'], output: 'Nanjing' },
-  { input: ['B', 'Hubei, Wuhan, HUST'] },
-  { input: ['C', 'Shandong, Jinan, SDU'] }
+  { input: ['A', 'Jiangsu, nanjing, nju'], output: 'nanjing' },
+  { input: ['B', 'Hubei, wuhan, hust'] },
+  { input: ['C', 'Shandong, jinan, sdu'] }
 ]" />
 
 <!-- <flashfill edit :data="[
