@@ -20,331 +20,89 @@ class: 'text-center'
 <h1 class="!text-4xl">Automating string processing in spreadsheets</h1>
 <h1 class="!text-4xl">using input-output examples</h1>
 
-<h2 class="pt-10">Junliang Yan</h2>
+<h2 class="pt-20 text-gray-500">Junliang Yan</h2>
 
 <Status></Status>
 
 <!--  -->
 
 ---
+class: text-center
+---
 
 # Spreadsheets
 
+<img class="inline-block mt-8" src="/spreadsheets.png" alt="spreadsheets" style="zoom: 60%;">
+
 ---
 
-# Live Demo
+# Collect cities of residence
 
-<flashfill edit :data="[
-  { input: ['A', 'Jiangsu, nanjing, nju'], output: 'nanjing' },
+<flashfill class="mt-20" edit :data="[
+  { input: ['A', 'Jiangsu, nanjing, nju'] },
   { input: ['B', 'Hubei, wuhan, hust'] },
-  { input: ['C', 'Shandong, jinan, sdu'] }
+  { input: ['C', 'Shandong, jinan, sdu'] },
+  { input: ['D', 'Hunan, changsha, csu'] }
 ]" />
 
-<!-- <flashfill edit :data="[
-  { input: ['abc'], },
-  { input: ['def'], },
-  { input: ['ghi'], },
-  { input: ['jkl'], },
-]" /> -->
+<v-click>
+  <h2 class="underline">Flashfill using input-output example</h2>
+</v-click>
 
 ---
 
-# What is Slidev?
+# Flashfill using input-output examples
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+<h3 class="mt-12"></h3>
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
+<v-click>
+  <p><carbon-dot-mark /> String Manipulation Language</p>
+</v-click>
 
-<br>
-<br>
+<v-click>
+  <p class="mt-8"><carbon-dot-mark /> Algorithm to <strong>synthesize</strong> a program with <strong>input-output examples</strong></p>
+</v-click>
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  -moz-text-fill-color: transparent;
-}
-</style>
-
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
-
-### Keyboard Shortcuts
-
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
----
-
-# Code
-
-Use code snippets and get the highlighting directly![^1]
-
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = {...user, ...update}  
-  saveUser(id, newUser)
-}
-```
-
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="-t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
+<div class="flex justify-center items-center font-2xl">
+  <div v-click="2">
+    <flashfill class="text-sm" hide-run output-width="200" :data="[
+      { input: ['A', 'Jiangsu, nanjing, nju'], output: 'nanjing' },
+    ]" />
+    <p class="text-center">
+      <span>Input-output examples</span>
+    </p>
   </div>
-
-  <div 
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
+  <div class="mx-8 text-center" v-click="2">
+    <div>Synthesize</div>
+    <div><mdi-arrow-right-bold /></div>
+  </div>
+  <div v-click="1">
+    <pre class="slidev-code border"><code>SubStr2(
+  Input(2),
+  TokenSeq(AlphaToken),
+  2
+)</code></pre>
+    <p class="text-center">
+      <span>Program</span>
+    </p>
   </div>
 </div>
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
+---
 
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
+# String Manipulation Language
 
 ---
 
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-2 gap-10 pt-4 -mb-6">
-
-```mermaid {scale: 0.9}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
-
+# Alogrithm
 
 ---
 layout: center
 class: text-center
 ---
 
-# Learn More
+# END
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+<div class="h-8"></div>
+
+# Q & A

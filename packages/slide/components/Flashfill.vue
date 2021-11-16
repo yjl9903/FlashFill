@@ -6,6 +6,8 @@ const props = defineProps<{
   data: Array<{ input: string[]; output?: string }>;
   edit?: boolean;
   append?: boolean;
+  outputWidth?: string | number;
+  hideRun?: boolean;
 }>();
 const { data, edit } = toRefs(props);
 
@@ -85,7 +87,7 @@ async function start() {
         <th v-for="i in inputLength">
           <span>Input {{ i }}</span>
         </th>
-        <th style="border-left-width: 3px; width: 40%">
+        <th :style="{ borderLeftWidth: '3px', width: outputWidth ?? '40%' }">
           <div class="flex justify-between">
             <span>
               <span>Output</span>
@@ -93,7 +95,11 @@ async function start() {
               <span v-else-if="status === 1"><mdi-check class="text-green-500" /></span>
               <span v-else-if="status === -1"><mdi-close class="text-red-500" /></span>
             </span>
-            <mdi-play-circle class="ml-1 text-green-500 cursor-pointer" @click="start" />
+            <mdi-play-circle
+              v-if="!hideRun"
+              class="ml-1 text-green-500 cursor-pointer"
+              @click="start"
+            />
           </div>
         </th>
       </tr>
