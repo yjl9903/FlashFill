@@ -157,9 +157,9 @@ fn test_const_split() {
 #[test]
 fn test_extract_city() {
   let input = vec![
-    vec!["js, nanjing, nju".to_string()],
-    vec!["hb, wuhan, hust".to_string()],
-    vec!["sd, jinan, sdu".to_string()],
+    vec!["jiangsu, nanjing, nju".to_string()],
+    vec!["hubei, wuhan, hust".to_string()],
+    vec!["shandong, jinan, sdu".to_string()],
   ];
 
   let result = vec![Some("nanjing".to_string()), None, None];
@@ -168,5 +168,5 @@ fn test_extract_city() {
 
   dbg!(&result);
 
-  // assert_eq!(result[2], "312-389-123".to_string());
+  assert_eq!(result[2], "jinan".to_string());
 }
