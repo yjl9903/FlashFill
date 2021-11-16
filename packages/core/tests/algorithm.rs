@@ -179,7 +179,11 @@ fn test_extract_switch() {
     vec!["125".to_string(), "521".to_string()],
   ];
 
-  let result = vec![Some("case 123: return 321;".to_string()), Some("case 124: return 421;".to_string()), None];
+  let result = vec![
+    Some("case 123: return 321;".to_string()),
+    Some("case 124: return 421;".to_string()),
+    None,
+  ];
 
   let result = run(input, result);
 
@@ -187,4 +191,3 @@ fn test_extract_switch() {
 
   assert_eq!(result[2], "case 125: return 521;".to_string());
 }
-
