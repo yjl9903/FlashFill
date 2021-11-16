@@ -10,6 +10,61 @@ In this work (**next slide**), there are two main sections. We first describe a 
 
 ## Language for Constructing Output Strings
 
-First (**next slide**), let us have a quick look at this string manipulation language. 
+First (**next slide**), let us have a quick look at this string manipulation language (**next slide**).
 
-We assume that the output string is a concatenation of the substrings of inputs or a constant string. So, the main body of the language, called Trace Expression, is a concatenation of some atom string expressions, like a substring of the second input or a constant string (**points to slide**).
+### Trace
+
+We assume that the output string is a concatenation of the substrings of inputs or a constant string. So, the main body of the language, called Trace Expression, is a concatenation of some atom string expressions.
+
+See this example (**points to slide**), the output string consists of 3 parts, the first part "A" comes from the first input, and the second part is a constant string " lives at ", and the last part "nanjing" is a substring extracted from the second input. The constant string and substring are all atom expressions. Then we concatenate them together to get the output string.
+
+### Substring
+
+Then (**next slide**), let us see more details about what substring is. The substring consists of 3 parameters. We first choose an index $i$, denoted which input string is used, and two positions $p_1, p_2$ denoted the left and right boundaries of substring.
+
+And the concrete position are evaluationed by a position expression. The first type of position expressions is a constant position, $CPos(k)$. Non-negative index $k$ is the $k$-th index from the left side, while the negative is from the right side. In this example (**points to slide**), $CPos(1)$ means the second position from the left side, and $CPos(-1)$ is the last position. Then, this program can generate the output string using the first input with the first character removed.
+
+However, this is not all about substring and position expression. Let us bring some power of regular expressions to this language.
+
+### Regular Expressions
+
+In our string manipulation language, we only use a small subset of regular expressions. It is just a sequence of tokens. Each token is a category of characters, like letters, digits, spaces, and so on. In this example, this regular expression will accept the strings that start with as least one lowercase letter and end with at least one digit number, which is equivalent with the normal regular expressions `[a-z]+[0-9]+`.
+
+Then, another position expression is $Pos(r_1, r_2, c)$. It finds the $c$-th position that split the input string with two parts, left and right. There exists a suffix of the left part is accepted by the first regular expression $r_1$, and a prefix of the right part is accepted by $r_2$.
+
+Notice that we don't support the kleene start and disjunct operation, because these will cosume lots of time when synthesizing program. However, we make a trade-off that use top-level conditionals.
+
+### Conditionals
+
+The top-level of the string language is `Switch` that receives pairs of a boolean expression and a trace expression. The string language will evaluate the trace expression corresponding to the first satisfied boolean expression.
+
+### Example
+
+Now, this is all the language constructions. The top-level is some switch-cases. Then, if the input satifies a boolean expression, the corresponding trace expression is evaluated. Then all the atom expressions in trace will be evaluated one by one. Finally, we get the output string.
+
+Let's see an example.
+
+## Algorithm
+
+Now, it is ready to introduce the algorithm to synthesize a program.
+
+First, let us formally define the problem we want to solve.
+
+Given some input-output examples $(i_1, o_1), (i_2, o_2), \dots$, synthesize a program $P$ such that $P(i_1) = o_1, \dots, P(i_n)=o_n$.
+
+However, synthesizing this program directly seems to be hard. We can solve it in another way. 
+
+Generate a program $P_i$ for each input-output example pair, and then merge them together to get the final program $P$ (**Highlight in the slide**). Sometimes, the merging operation may fail, so that in this case it is necessary to introduce a new switch-case expression.
+
+This is general steps of the algorithm.
+
+### Learn Trace
+
+Let us talk about the first step. The goal of the first step is to generate a program $P_k$ for each input-output example $(i_k, o_k)$ such that $P_k(i_k)=o_k$.
+
+See this example, for us we know the output string is generated in this way. But the algorithm does not know, so this trace is also valid, as this is (**explain the example in the slide**). Since algorithm doesn't know what we really need, we must store them all for further computation. And this is our basic idea, to iterative all possible trace expressions that can construct the given output string. But the number of these traces is exponential in size of the output string, while iterating and storing consumes lots of time and space.
+
+So that we need to use a more effective way, or data structure to expressive it, which is a Directed Acyclic Graph.
+
+## Extensions
+

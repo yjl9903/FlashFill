@@ -15,7 +15,7 @@ class: text-center
 <h1 class="!text-4xl">in spreadsheets</h1>
 <h1 class="!text-4xl">using input-output examples</h1>
 
-<h2 class="pt-20 text-gray-500">Junliang Yan</h2>
+<h2 class="pt-20 text-gray-500 !font-normal">Junliang Yan</h2>
 
 <Status></Status>
 
@@ -95,14 +95,49 @@ clicks: 2
 </div>
 
 ---
+layout: center
+class: text-center
+---
 
-# String Manipulation Language
+# Constructing Output Strings Language
 
-<h3 class="mt-8"></h3>
+---
+
+# Trace
 
 Output string is a <span class="font-bold underline">concatenation</span> of the <span class="font-bold underline">substrings of inputs</span> or a <span class="font-bold underline">constant string</span>.
 
+$$
+\text{Trace Expr } e := \text{Concatenation}(f_1, f_2, \dots, f_n) 
+$$
 
+<!--
+Input: A    ...., nanjing, ....
+
+Output: A + lives at + nanjing
+Substr + ConstStr + SubStr
+-->
+
+---
+
+# SubString
+
+---
+
+# Regular Expressions
+
+---
+
+# Atom
+
+$$
+\begin{array}{rcl}
+\text{Trace Expr  } ~ e & := & \text{Concatenation}(f_1, f_2, \dots, f_n) \\
+\text{Atom Expr  } ~ f & := & \text{SubStr}(v_i, p_1, p_2) \\
+& | & \text{ConstStr}(s) \\
+% & | & \text{Loop}(\lambda w : e)
+\end{array}
+$$
 
 ---
 
