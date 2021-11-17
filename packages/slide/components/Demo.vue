@@ -1,20 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const data = ref([
-  { input: ['Jiangsu, nanjing, nju'] },
-  { input: ['Hubei, wuhan, hust'] },
-  { input: ['Shandong, jinan, sdu'] },
-  { input: ['Hunan, changsha, csu'] }
-]);
-
-const push = () => {
-  data.value.push({ input: [''] });
-};
-
-const pop = () => {
-  data.value.pop();
-};
+const data = ref([{ input: [''] }, { input: [''] }, { input: [''] }, { input: [''] }]);
 </script>
 
 <template>
