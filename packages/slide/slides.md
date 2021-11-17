@@ -304,11 +304,11 @@ clicks: 3
 
 2. <span v-click="2"><span class="font-bold underline">Intersect programs</span> into non-empty partitions <strong>greedily</strong></span>
 
-<span v-click="2" class="flex justify-center">$(\text{Intersect}(P_1, P_2), \{i_1, i_2\}), (\text{Intersect}(P_3, \dots), \{i_3, \dots\}), \dots$</span>
+<span v-click="2" class="flex justify-center">$(P_1 \cap P_2, \{(i_1,o_1), (i_2,o_2)\}), (P_3 \cap \dots, \{(i_3,o_3), \dots\}), \dots$</span>
 
 3. <span v-click="3"><span class="font-bold underline">Construct boolean classification</span> for partitions</span>
 
-<span v-click="3" class="flex justify-center">$(\text{Boolean Expr}, \text{Intersect}(P_1, P_2)), \dots$</span>
+<span v-click="3" class="flex justify-center">$(\text{Boolean Expression}, P_1 \cap P_2), \dots$</span>
 
 <style>
 ol {
@@ -330,7 +330,7 @@ ol {
 
 > **Goal**. Intersect programs into non-empty partitions
 > 
-> $$(\text{Intersect}(P_1, P_2), \{i_1, i_2\}), (\text{Intersect}(P_3, \dots), \{i_3, \dots\}), \dots$$
+> $$(P_1 \cap P_2, \{(i_1,o_1), (i_2,o_2)\}), (P_3 \cap \dots, \{(i_3,o_3), \dots\}), \dots$$
 
 ---
 
@@ -338,7 +338,7 @@ ol {
 
 > **Goal**. Construct boolean classification for partitions
 >
-> $$(\text{Boolean Expr}, \text{Intersect}(P_1, P_2)), \dots$$
+> $$(\text{Boolean Expression}, P_1 \cap P_2), \dots$$
 
 ---
 layout: center
