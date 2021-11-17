@@ -109,7 +109,11 @@ class: text-center
 
 Trace Expr is a <span class="font-bold underline">concatenation</span> of atom expressions, <span class="font-bold underline">substrings of inputs</span> or a <span class="font-bold underline">constant string</span>.
 
-<div v-click class="w-full text-center">
+<div font="mono" text="center">
+  <span>Trace(ConstStr(...), SubStr(...), ...)</span>
+</div>
+
+<div v-click class="w-full mt-4 text-center">
   <img class="inline-block" src="/trace.png" alt="spreadsheets" style="zoom: 70%;">
   <p class="font-mono mt-8">
     <span>Output: 「A lives at nanjing」</span>
