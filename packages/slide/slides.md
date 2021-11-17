@@ -99,13 +99,15 @@ layout: center
 class: text-center
 ---
 
-# Constructing Output Strings Language
+# String Manipulation Language
+
+## Construct Output Strings
 
 ---
 
 # Trace
 
-Trace Expr is a <span class="font-bold underline">concatenation</span> of the <span class="font-bold underline">substrings of inputs</span> or a <span class="font-bold underline">constant string</span>.
+Trace Expr is a <span class="font-bold underline">concatenation</span> of atom expressions, <span class="font-bold underline">substrings of inputs</span> or a <span class="font-bold underline">constant string</span>.
 
 <div v-click class="w-full text-center">
   <img class="inline-block" src="/trace.png" alt="spreadsheets" style="zoom: 70%;">
@@ -195,7 +197,7 @@ where RE = LowercaseTokens
 
 Only use a **small subset of regular expressions**.
 
-Regular Expression is **a sequence of tokens**.
+<mdi-arrow-right /> **A Sequence of Tokens**.
 
 <blockquote v-click class="mt-8">
   <p font="mono" text="center">R = TokenSequence(LowercaseTokens, NumericTokens)</p>
@@ -205,8 +207,8 @@ Regular Expression is **a sequence of tokens**.
 
 <div v-click class="mt-8 flex items-center justify-center">
   <div>
-    <p>No kleen star <span font="mono">([a-z]*)</span>.</p>
-    <p>No disjunct operation <span font="mono">([a-z] | [0-9])</span>.</p>
+    <p>No <span class="underline">kleen star</span> <span font="mono">([a-z]*)</span>.</p>
+    <p>No <span class="underline">disjunct operation</span> <span font="mono">([a-z] | [0-9])</span>.</p>
   </div>
   <div>
     <mdi-arrow-right-bold />
@@ -246,17 +248,53 @@ $$ -->
   <flashfill edit :data="[
     { input: ['123', '321'], output: 'case 123: return 321;' },
     { input: ['456', '654'], output: 'case 456: return 654;' },
-    { input: ['789', '987'] },
     { input: ['147', '741'] },
     { input: ['258', '852'] },
-    { input: ['369', '963'] },
   ]" :input-label="['Num', 'Rev']" output-label="Code"
-  :input-width="[240, 240]" :output-width="480" />
+  :input-width="[180, 180]" :output-width="600" />
+</div>
+
+<div font="mono">
+  <p>Trace("case ", SubStr(Num, CPos(0), CPos(-1)),</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;": return ", SubStr(Rev, CPos(0), CPos(-1)),</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";")</p>
 </div>
 
 ---
 
-# Alogrithm
+# Example
+
+<div class="w-full">
+  <flashfill class="mt-8" edit :data="[
+    { input: ['Check-in: 2000 mora'], output: '2000 mora' },
+    { input: ['New character: 180 fate'], output: '180 fate' },
+    { input: ['Intertwined fate: 160 primogem'] },
+    { input: ['New weapon: 240 fate'] }
+  ]" :input-label="['Item']"
+  :input-width="[540]" :output-width="240" />
+</div>
+
+<div font="mono">
+  <p>Trace(SubStr(Item,</p>
+  <p>Pos(TokenSeq(Colon, Space), TokenSeq(Numeric), -1),</p>
+  <p>CPos(-1)))</p>
+</div>
+
+---
+layout: center
+class: text-center
+---
+# Alogrithom
+
+## Synthesize a program with input-output examples
+
+---
+
+# Goal
+
+> Given some input-output examples $(i_1, o_1), \dots, (i_n, o_n)$,
+> 
+> Synthesize a program $P$ such that $P(i_1) = o_1, \dots, P(i_n)=o_n$.
 
 ---
 layout: center

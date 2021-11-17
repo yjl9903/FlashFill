@@ -2,9 +2,9 @@
 
 Today, I will talk about automating string processing in spreadsheets using input-output examples (**next slide**).
 
-Nowadays, spreadsheets are widely used in our daily life. Scientists use spreadsheets to organize experimental data. Marketing manager use spreadsheets to analyze the sales of goods. And we also use online spreadsheets to collect personal information (**points to picture in the slide**).
+Nowadays, spreadsheets are widely used in our daily life. Scientists use spreadsheets to organize experimental data. Marketing managers use spreadsheets to analyze the sales of goods. And we also use online spreadsheets to collect personal information (**points to picture in the slide**).
 
-While large number of these users are not programmers, and they may face some troubles. Image this situation (**next slide**) that you are the class president, and you want to collect the cities that your classmates live to check whether they come from cities at high risk. But you have get the data like this, the full address of students (**points to slides**). And you just want to **extract** the city from these string. To solve it, for the users who are not programmers, they can select-copy-paste one by one, and it seems hard for them to write some string manipulation scripts with something like regular expressions. However, with the help of our technique, flashfill (**next part**), end-users just need to write a few output examples, click Run. (**perform a demo**). Now, the rest cities are generated here (**points to slides**).
+While large number of these spreadsheets users are not programmers, and they may face some troubles doing string manipulation. Image this situation (**next slide**) that you are the class president, and you want to collect the cities that your classmates live to check whether they come from cities at high risk. But you have get the data like this, the full address of students (**points to slides**). And you just want to **extract** the city from these string. To solve it, for the users who are not programmers, they can select-copy-paste one by one, and it seems hard for them to write some string manipulation scripts with something like regular expressions. However, with the help of our technique, flashfill (**next part**), end-users just need to write a few output examples, click Run. (**perform a demo**). Now, the rest cities are generated here (**points to slides**). It is convenient.
 
 In this work (**next slide**), there are two main sections. We first describe a simple string manipulation language that is expressive enough to solve a lot of real-world tasks. Then (**next part**) we design a learning algorithm to synthesize a program in this language with some given input-output examples.
 
@@ -34,13 +34,13 @@ In our string manipulation language, we only use a small subset of regular expre
 
 Notice that we don't support the kleen star and disjunct operation. Although we losses some expressiveness, but we can have a more efficient synthesize algorithm for that the kleen star and disjunct will cosume lots of time when synthesizing program.
 
-And we also make a trade-off that use top-level conditionals (**next slide**).
+Moreover, we also make a trade-off that use top-level conditionals (**next slide**).
 
 ### Conditionals
 
 The top-level of the string language is `Switch` that receives pairs of a boolean expression and a trace expression. The string language will evaluate the trace expression corresponding to the first satisfied boolean expression.
 
-Now, this is all the language constructions. The top-level is some switch-cases. Then, if the input satifies a boolean expression, the corresponding trace expression is evaluated. Then all the atom expressions in trace will be evaluated one by one. Finally, we get the output string.
+The top-level is some switch-cases. Then, if the input satifies a boolean expression, the corresponding trace expression is evaluated. Then all the atom expressions in trace will be evaluated one by one. Finally, we get the output string. Now, this is all the language constructions.
 
 ### Example
 
@@ -70,3 +70,4 @@ So that we need to use a more effective way, or data structure to expressive it,
 
 ## Extensions
 
+##### 
