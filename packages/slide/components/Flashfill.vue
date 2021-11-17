@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { toRefs, toRaw, ref, computed } from 'vue';
+import { toRefs, watch, ref, computed } from 'vue';
 import { run } from './run';
 
 const props = defineProps<{
@@ -33,6 +33,23 @@ const markDirty = (index: number) => {
   } else {
     dirty.value[index] = false;
   }
+};
+
+const push = () => {
+  data.value.push({ input: [''] });
+  status.value = 0;
+  dirty.value = data.value.map((data) => !!data.output && data.output.length > 0);
+  output.value = data.value.map((data) => data.output);
+  rawOutput.value = data.value.map((data) => data.output);
+  rawInput.value = data.value.map((data) => data.input);
+};
+const pop = () => {
+  data.value.pop();
+  status.value = 0;
+  dirty.value = data.value.map((data) => !!data.output && data.output.length > 0);
+  output.value = data.value.map((data) => data.output);
+  rawOutput.value = data.value.map((data) => data.output);
+  rawInput.value = data.value.map((data) => data.input);
 };
 
 async function start() {
@@ -122,8 +139,8 @@ async function start() {
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(row, i) in data">
-        <td v-for="j in inputLength">
+      <tr v-for="(row, i) in data" :key="i">
+        <td v-for="j in inputLength" :key="j">
           <span v-if="!edit">{{ row.input[j - 1] }}</span>
           <input v-else-if="rawInput" type="text" v-model="rawInput[i][j - 1]" class="w-full" />
         </td>
@@ -141,4 +158,10 @@ async function start() {
       </tr>
     </tbody>
   </table>
+  <div v-if="append" class="mt-4">
+    <button @click="push" class="underline !outline-transparent mr-2 hover:text-gray-500">
+      Push
+    </button>
+    <button @click="pop" class="underline !outline-transparent hover:text-gray-500">Pop</button>
+  </div>
 </template>

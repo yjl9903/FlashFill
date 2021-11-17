@@ -76,6 +76,10 @@ There is a oberservation that the left position expression is not related to the
 
 ### Intersect
 
+After the first step, we have generated $n$ string programs for each input-output example. In this second step, our goal is to split the programs into several groups, where the programs in will be intersected together, and the result program should be non-empty. By the way, if all the programs can be intersected into a single non-empty program, then it is just what we want, return it.
+
+In this step, we use 
+
 ## Extensions
 
 ### Loop
