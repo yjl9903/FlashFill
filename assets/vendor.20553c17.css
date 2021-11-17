@@ -2137,6 +2137,10 @@ pre[class*='language-'] {
   --tw-text-opacity: 1;
   color: rgba(217, 70, 239, var(--tw-text-opacity));
 }
+.text-amber-500 {
+  --tw-text-opacity: 1;
+  color: rgba(245, 158, 11, var(--tw-text-opacity));
+}
 .text-\[\#181818\] {
   --tw-text-opacity: 1;
   color: rgba(24, 24, 24, var(--tw-text-opacity));
