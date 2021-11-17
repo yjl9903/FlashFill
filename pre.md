@@ -12,9 +12,11 @@ In this work (**next slide**), there are two main sections. We first describe a 
 
 First (**next slide**), let us have a quick look at this string manipulation language (**next slide**).
 
+One basic assumption in our work is that the output string is generated from the input string. The string language only do syntactic pattern mattching and copy-paste the input to the output.
+
 ### Trace
 
-We assume that the output string is a concatenation of the substrings of inputs or a constant string. So, the main body of the language, called Trace Expression, is a concatenation of some atom string expressions.
+So here is the main body of the language, called Trace Expression. It is a concatenation of some atom string expressions.
 
 See this example (**points to slide**), the output string consists of 3 parts, the first part "A" comes from the first input, and the second part is a constant string " lives at " encoded in the program, and the last part "nanjing" is a substring of the second input. The constant string and substring are all atom expressions. Then we concatenate them together to get the output string.
 
