@@ -9509,7 +9509,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.3663e3e7.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.2588710b.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$5;
       const _component_carbon58maximize = __unplugin_components_1$3;
@@ -9664,7 +9664,7 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.cdeb6d37.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.d3144876.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9714,7 +9714,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.3663e3e7.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.2588710b.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -13521,7 +13521,7 @@ const _hoisted_50$1 = /* @__PURE__ */ createBaseVNode("span", {
     ])
   ])
 ], -1);
-const _hoisted_51$1 = { class: "mt-4 flex justify-center" };
+const _hoisted_51$1 = { class: "mt-8 flex justify-center" };
 const _hoisted_52$1 = {
   src: _imports_0,
   alt: "abcdef",
@@ -13537,7 +13537,10 @@ const _hoisted_54$1 = {
   alt: "cdef",
   style: { "zoom": "48%" }
 };
-const _hoisted_55$1 = { text: "center" };
+const _hoisted_55$1 = {
+  class: "mt-8 mb-4",
+  text: "center"
+};
 const _hoisted_56 = /* @__PURE__ */ createTextVNode("Iterative ");
 const _hoisted_57 = /* @__PURE__ */ createBaseVNode("span", { class: "font-bold" }, "all", -1);
 const _hoisted_58 = /* @__PURE__ */ createTextVNode(" possible trace expressions ");
