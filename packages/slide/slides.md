@@ -350,11 +350,17 @@ clicks: 5
 
 <span font="mono">Edges</span> = <span class="font-bold underline">Each substring</span> $(i, j)$ where $i < j$.
 
+<div class="flex justify-center">
+  <img src="/dag.png" alt="cdef" style="zoom: 50%;">
+</div>
+
+Example. $(0, 2) \to \texttt{ab}, (2, 4) \to \texttt{cd}$.
+
 <!-- image -->
 
-<p text="center">
+<div v-click text="center" class="mt-8">
 The origin <span class="font-bold">exponential</span> problem <mdi-arrow-right /> <span class="font-bold underline">Quadratic</span> sub-problems!
-</p>
+</div>
 
 ---
 
@@ -366,10 +372,24 @@ The origin <span class="font-bold">exponential</span> problem <mdi-arrow-right /
 
 > **Goal**. For **each of $n^2$ substrings**, find all possible **atom expressions** to generate it.
 
+<span font="mono">Input&nbsp;&nbsp;:</span> 「Jiangsu, <span class="underline text-amber-500">nanjing</span>, nju」
+
+<span font="mono">Program:</span> &nbsp;&nbsp;<span font="mono">ConstStr("nanjing")</span>
+
+<span font="mono">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span font="mono">SubStr(Address, CPos(9), CPos(-6))</span>
+
+<span font="mono">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span font="mono">SubStr(Address, CPos(9), CPos(16))</span>
+
+<span font="mono">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span font="mono">...</span>
+
 <!-- image -->
 
-<p font="bold" text="center">
-Use Brute-force!
+<p v-click>
+  <span></span>
+</p>
+
+<p v-click-after font="bold" text="center">
+  <span>Use Brute-force!</span>
 </p>
 
 ---

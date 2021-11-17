@@ -64,13 +64,15 @@ Let us talk about the first step. The goal of the first step is to generate a pr
 
 See this example, for us we know the output string is generated in this way. But the algorithm does not know, so this trace is also valid, as this is (**explain the example in the slide**). Since algorithm doesn't know what we really need, we must store them all for further computation. And this is our basic idea, to iterative all possible trace expressions that can construct the given output string. But the number of these traces is exponential in size of the output string, while iterating and storing consumes lots of time and space.
 
-So that we need to use a more effective way, or data structure to expressive it, which is a Directed Acyclic Graph (DAG).
+Here our solution is to use a more effective way, or data structure to express it, which is a Directed Acyclic Graph (DAG).
 
-In this DAG, we create a node for each position with in the output string. We create an edge from position $i$ to any latter position $j$, which denotes a substring of the ouptut. Then, all the valid trace can be expressed a path from the 1-st node to the last node (**explain examples**).
+In this DAG, we create a node for each position with in the output string. We create an edge from position $i$ to any latter position $j$, which denotes a substring of the ouptut. Then, all the valid trace can be expressed a path from the 1-st node to the last node (**explain examples**). For example, we can go through the path $0 \to 2 \to 4$, the edge from $0$ to $2$ is `ab`, and the edge from $2$ to $4$ is `cd`.
 
-Now, we can divide the origin exponential problem to quadratic sub-problems, that how to generate each substring of output using some input strings.
+This dag structure can divide the origin exponential problem to quadratic sub-problems. Before, we iterate all the possible trace path, but now we only need to iterate each substring of output. The number of substring is obviously $n^2$.
 
-So, the next goal of the algorithm is to solve these sub-problems. For each of the $n^2$ substrings, find all possible atom expressions to generate it. Just like the previous talk, generating a substring atomic may contain several different solutions. But this time, it does not explode exponentially. We can iterate all the input string, and find substrings that match the output, then generate the position expression for the left and right boundaries.
+So, our next goal of the algorithm is to solve these sub-problems. That is to say, for each of the $n^2$ substrings of the output string, find all possible atom expressions to generate it. Just like the previous talk, generating a substring atomic may contain several different solutions. For example, we can just use a constant string to generate it, or we can use the `SubStr` constructor. 
+
+There is a oberservation that the left position expression is not related to the right. And considering our definition of regular expression is resricted to a token sequence, so the generation of regular expression can be done by iterating the input string. In short, at this time, you can just use brute-force iteration to generate atom expressions.
 
 ### Intersect
 
