@@ -9509,7 +9509,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.b8066a0c.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.56513003.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$6;
       const _component_carbon58maximize = __unplugin_components_1$3;
@@ -9664,7 +9664,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.9fe24b45.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.37e1283e.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9714,7 +9714,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.b8066a0c.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.56513003.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -15806,12 +15806,7 @@ const _sfc_main$3 = {
 };
 const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   setup(__props) {
-    const data2 = ref([
-      { input: ["Jiangsu, nanjing, nju"] },
-      { input: ["Hubei, wuhan, hust"] },
-      { input: ["Shandong, jinan, sdu"] },
-      { input: ["Hunan, changsha, csu"] }
-    ]);
+    const data2 = ref([{ input: [""] }, { input: [""] }, { input: [""] }, { input: [""] }]);
     return (_ctx, _cache) => {
       const _component_flashfill = _sfc_main$l;
       return openBlock(), createBlock(_component_flashfill, {
