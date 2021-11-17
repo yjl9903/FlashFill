@@ -384,11 +384,7 @@ The origin <span class="font-bold">exponential</span> problem <mdi-arrow-right /
 
 <!-- image -->
 
-<p v-click>
-  <span></span>
-</p>
-
-<p v-click-after font="bold" text="center">
+<p v-click font="bold" text="center">
   <span>Use Brute-force!</span>
 </p>
 
