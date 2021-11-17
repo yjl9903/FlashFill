@@ -9509,7 +9509,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.ade3a59f.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.85406342.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$5;
       const _component_carbon58maximize = __unplugin_components_1$3;
@@ -9664,7 +9664,7 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.e058ac00.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.27b76e43.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9714,7 +9714,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.ade3a59f.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.85406342.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -10117,7 +10117,7 @@ const _hoisted_3$h = ["width"];
 const _hoisted_4$b = { key: 0 };
 const _hoisted_5$b = { key: 1 };
 const _hoisted_6$a = { class: "flex justify-between" };
-const _hoisted_7$9 = { class: "inline-block w-full" };
+const _hoisted_7$a = { class: "inline-block w-full" };
 const _hoisted_8$9 = {
   key: 0,
   class: "overflow-hidden"
@@ -10233,7 +10233,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
               style: normalizeStyle({ borderLeftWidth: "3px", width: (_a2 = __props.outputWidth) != null ? _a2 : "20%" })
             }, [
               createBaseVNode("div", _hoisted_6$a, [
-                createBaseVNode("span", _hoisted_7$9, [
+                createBaseVNode("span", _hoisted_7$a, [
                   !!__props.outputLabel ? (openBlock(), createElementBlock("span", _hoisted_8$9, toDisplayString(__props.outputLabel), 1)) : (openBlock(), createElementBlock("span", _hoisted_9$9, "Output")),
                   running.value ? (openBlock(), createElementBlock("span", _hoisted_10$9, [
                     createVNode(_component_mdi_loading, { class: "overflow-hidden text-sm animate-spin text-light-900" })
@@ -10450,7 +10450,7 @@ const _hoisted_3$d = { class: "text-xl" };
 const _hoisted_4$9 = /* @__PURE__ */ createTextVNode(" String Manipulation Language");
 const _hoisted_5$9 = { class: "mt-8 text-xl" };
 const _hoisted_6$9 = /* @__PURE__ */ createTextVNode();
-const _hoisted_7$8 = /* @__PURE__ */ createBaseVNode("strong", null, "Synthesize", -1);
+const _hoisted_7$9 = /* @__PURE__ */ createBaseVNode("strong", null, "Synthesize", -1);
 const _hoisted_8$8 = /* @__PURE__ */ createTextVNode(" a program with ");
 const _hoisted_9$8 = /* @__PURE__ */ createBaseVNode("strong", null, "input-output examples", -1);
 const _hoisted_10$8 = { class: "flex justify-center items-center mt-12" };
@@ -10496,7 +10496,7 @@ const _sfc_main$h = {
               createBaseVNode("p", _hoisted_5$9, [
                 createVNode(_component_carbon_dot_mark),
                 _hoisted_6$9,
-                _hoisted_7$8,
+                _hoisted_7$9,
                 _hoisted_8$8,
                 _hoisted_9$8
               ])
@@ -10575,19 +10575,25 @@ const _hoisted_2$e = /* @__PURE__ */ createBaseVNode("p", null, [
   /* @__PURE__ */ createBaseVNode("span", { class: "font-bold underline" }, "constant string"),
   /* @__PURE__ */ createTextVNode(".")
 ], -1);
-const _hoisted_3$c = { class: "w-full text-center" };
-const _hoisted_4$8 = /* @__PURE__ */ createBaseVNode("img", {
+const _hoisted_3$c = /* @__PURE__ */ createBaseVNode("div", {
+  font: "mono",
+  text: "center"
+}, [
+  /* @__PURE__ */ createBaseVNode("span", null, "Trace(ConstStr(...), SubStr(...), ...)")
+], -1);
+const _hoisted_4$8 = { class: "w-full mt-4 text-center" };
+const _hoisted_5$8 = /* @__PURE__ */ createBaseVNode("img", {
   class: "inline-block",
   src: _imports_0$1,
   alt: "spreadsheets",
   style: { "zoom": "70%" }
 }, null, -1);
-const _hoisted_5$8 = /* @__PURE__ */ createBaseVNode("p", { class: "font-mono mt-8" }, [
+const _hoisted_6$8 = /* @__PURE__ */ createBaseVNode("p", { class: "font-mono mt-8" }, [
   /* @__PURE__ */ createBaseVNode("span", null, "Output: \u300CA lives at nanjing\u300D")
 ], -1);
-const _hoisted_6$8 = [
-  _hoisted_4$8,
-  _hoisted_5$8
+const _hoisted_7$8 = [
+  _hoisted_5$8,
+  _hoisted_6$8
 ];
 const _sfc_main$e = {
   setup(__props) {
@@ -10598,7 +10604,8 @@ const _sfc_main$e = {
         default: withCtx(() => [
           _hoisted_1$e,
           _hoisted_2$e,
-          withDirectives(createBaseVNode("div", _hoisted_3$c, _hoisted_6$8, 512), [
+          _hoisted_3$c,
+          withDirectives(createBaseVNode("div", _hoisted_4$8, _hoisted_7$8, 512), [
             [_directive_click]
           ])
         ]),
@@ -14842,20 +14849,20 @@ var _rawRoutes = [
   { path: "3", name: "page-3", component: _sfc_main$i, meta: { "clicks": 1, "slide": { "start": 29, "end": 55, "filepath": "slides.md", "id": 2, "no": 3 }, "__clicksElements": [], "__preloaded": false } },
   { path: "4", name: "page-4", component: _sfc_main$h, meta: { "clicks": 2, "slide": { "start": 55, "end": 96, "filepath": "slides.md", "id": 3, "no": 4 }, "__clicksElements": [], "__preloaded": false } },
   { path: "5", name: "page-5", component: _sfc_main$f, meta: { "layout": "center", "class": "text-center", "slide": { "start": 96, "end": 105, "filepath": "slides.md", "id": 4, "no": 5 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "6", name: "page-6", component: _sfc_main$e, meta: { "slide": { "start": 106, "end": 123, "note": "$$\n\\text{Trace Expr } e := \\text{Concatenation}(f_1, f_2, \\dots, f_n) \n$$", "filepath": "slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "7", name: "page-7", component: _sfc_main$d, meta: { "clicks": 5, "slide": { "start": 123, "end": 193, "filepath": "slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "8", name: "page-8", component: _sfc_main$c, meta: { "slide": { "start": 194, "end": 218, "filepath": "slides.md", "id": 7, "no": 8 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "9", name: "page-9", component: _sfc_main$b, meta: { "slide": { "start": 219, "end": 240, "note": "$$\n\\begin{array}{rcl}\n\\text{Trace Expr  } ~ e & := & \\text{Concatenation}(f_1, f_2, \\dots, f_n) \\\\\n\\text{Atom Expr  } ~ f & := & \\text{SubStr}(v_i, p_1, p_2) \\\\\n& | & \\text{ConstStr}(s) \\\\\n% & | & \\text{Loop}(\\lambda w : e)\n\\end{array}\n$$", "filepath": "slides.md", "id": 8, "no": 9 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "10", name: "page-10", component: _sfc_main$a, meta: { "slide": { "start": 241, "end": 260, "filepath": "slides.md", "id": 9, "no": 10 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "11", name: "page-11", component: _sfc_main$9, meta: { "slide": { "start": 261, "end": 280, "filepath": "slides.md", "id": 10, "no": 11 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "12", name: "page-12", component: _sfc_main$8, meta: { "layout": "center", "class": "text-center", "slide": { "start": 280, "end": 288, "filepath": "slides.md", "id": 11, "no": 12 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "13", name: "page-13", component: n13, meta: { "clicks": 3, "slide": { "start": 288, "end": 318, "filepath": "slides.md", "id": 12, "no": 13 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "14", name: "page-14", component: _sfc_main$6, meta: { "slide": { "start": 319, "end": 328, "note": "image", "filepath": "slides.md", "id": 13, "no": 14 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "15", name: "page-15", component: _sfc_main$5, meta: { "slide": { "start": 329, "end": 342, "filepath": "slides.md", "id": 14, "no": 15 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "16", name: "page-16", component: _sfc_main$4, meta: { "slide": { "start": 343, "end": 358, "filepath": "slides.md", "id": 15, "no": 16 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "17", name: "page-17", component: _sfc_main$3, meta: { "slide": { "start": 359, "end": 366, "filepath": "slides.md", "id": 16, "no": 17 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "18", name: "page-18", component: _sfc_main$2, meta: { "slide": { "start": 367, "end": 376, "filepath": "slides.md", "id": 17, "no": 18 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "19", name: "page-19", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 376, "end": 387, "filepath": "slides.md", "id": 18, "no": 19 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "6", name: "page-6", component: _sfc_main$e, meta: { "slide": { "start": 106, "end": 127, "note": "$$\n\\text{Trace Expr } e := \\text{Concatenation}(f_1, f_2, \\dots, f_n) \n$$", "filepath": "slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "7", name: "page-7", component: _sfc_main$d, meta: { "clicks": 5, "slide": { "start": 127, "end": 197, "filepath": "slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "8", name: "page-8", component: _sfc_main$c, meta: { "slide": { "start": 198, "end": 222, "filepath": "slides.md", "id": 7, "no": 8 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "9", name: "page-9", component: _sfc_main$b, meta: { "slide": { "start": 223, "end": 244, "note": "$$\n\\begin{array}{rcl}\n\\text{Trace Expr  } ~ e & := & \\text{Concatenation}(f_1, f_2, \\dots, f_n) \\\\\n\\text{Atom Expr  } ~ f & := & \\text{SubStr}(v_i, p_1, p_2) \\\\\n& | & \\text{ConstStr}(s) \\\\\n% & | & \\text{Loop}(\\lambda w : e)\n\\end{array}\n$$", "filepath": "slides.md", "id": 8, "no": 9 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "10", name: "page-10", component: _sfc_main$a, meta: { "slide": { "start": 245, "end": 264, "filepath": "slides.md", "id": 9, "no": 10 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "11", name: "page-11", component: _sfc_main$9, meta: { "slide": { "start": 265, "end": 284, "filepath": "slides.md", "id": 10, "no": 11 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "12", name: "page-12", component: _sfc_main$8, meta: { "layout": "center", "class": "text-center", "slide": { "start": 284, "end": 292, "filepath": "slides.md", "id": 11, "no": 12 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "13", name: "page-13", component: n13, meta: { "clicks": 3, "slide": { "start": 292, "end": 322, "filepath": "slides.md", "id": 12, "no": 13 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "14", name: "page-14", component: _sfc_main$6, meta: { "slide": { "start": 323, "end": 332, "note": "image", "filepath": "slides.md", "id": 13, "no": 14 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "15", name: "page-15", component: _sfc_main$5, meta: { "slide": { "start": 333, "end": 346, "filepath": "slides.md", "id": 14, "no": 15 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "16", name: "page-16", component: _sfc_main$4, meta: { "slide": { "start": 347, "end": 362, "filepath": "slides.md", "id": 15, "no": 16 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "17", name: "page-17", component: _sfc_main$3, meta: { "slide": { "start": 363, "end": 370, "filepath": "slides.md", "id": 16, "no": 17 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "18", name: "page-18", component: _sfc_main$2, meta: { "slide": { "start": 371, "end": 380, "filepath": "slides.md", "id": 17, "no": 18 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "19", name: "page-19", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 380, "end": 391, "filepath": "slides.md", "id": 18, "no": 19 }, "__clicksElements": [], "__preloaded": false } },
   { path: "20", component: __layout__end, meta: { layout: "end" } }
 ];
 const rawRoutes = _rawRoutes;
