@@ -9069,7 +9069,7 @@ const _sfc_main$z = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Goto = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["__scopeId", "data-v-5af5c1d4"]]);
+var Goto = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["__scopeId", "data-v-832cec56"]]);
 const _sfc_main$y = /* @__PURE__ */ defineComponent({
   setup(__props) {
     shallowRef();
@@ -9403,7 +9403,7 @@ const _sfc_main$x = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var SelectList = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["__scopeId", "data-v-6fbb6a02"]]);
+var SelectList = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["__scopeId", "data-v-a476823e"]]);
 const _hoisted_1$A = { class: "text-sm" };
 const _sfc_main$w = /* @__PURE__ */ defineComponent({
   setup(__props) {
@@ -9509,7 +9509,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.8194a7f8.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.30f592f4.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$5;
       const _component_carbon58maximize = __unplugin_components_1$3;
@@ -9664,7 +9664,7 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.85439054.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.90dbbcfa.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9714,7 +9714,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.8194a7f8.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.30f592f4.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -9768,7 +9768,7 @@ const _hoisted_1$v = { class: "slidev-layout end" };
 function _sfc_render$3(_ctx, _cache) {
   return openBlock(), createElementBlock("div", _hoisted_1$v, " END ");
 }
-var __layout__end = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$3], ["__scopeId", "data-v-7b5f9a33"]]);
+var __layout__end = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$3], ["__scopeId", "data-v-5ac61b98"]]);
 let wasm;
 let cachedTextDecoder = new TextDecoder("utf-8", { ignoreBOM: true, fatal: true });
 cachedTextDecoder.decode();
@@ -11057,7 +11057,7 @@ const _sfc_main$8 = {
   }
 };
 var _13_md_vue_type_style_index_0_scoped_true_lang = "";
-const _withScopeId = (n) => (pushScopeId("data-v-3b9bac94"), n = n(), popScopeId(), n);
+const _withScopeId = (n) => (pushScopeId("data-v-270cad73"), n = n(), popScopeId(), n);
 const _hoisted_1$6 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("h1", null, "Goal", -1));
 const _hoisted_2$6 = /* @__PURE__ */ createTextVNode("Given some input-output examples ");
 const _hoisted_3$6 = { class: "katex" };
@@ -13015,7 +13015,7 @@ const _sfc_main$7 = {
     };
   }
 };
-var n13 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-3b9bac94"]]);
+var n13 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-270cad73"]]);
 var _imports_0$1 = "/abcdef.png";
 var _imports_1 = "/bcdef.png";
 var _imports_2 = "/cdef.png";
@@ -15133,25 +15133,25 @@ const _sfc_main$1 = {
   }
 };
 var _rawRoutes = [
-  { path: "1", name: "page-1", component: _sfc_main$m, meta: { "theme": "./theme", "aspectRatio": "4/3", "title": "FlashFill", "titleTemplate": "%s", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center", "slide": { "start": 0, "end": 21, "filepath": "slides.md", "id": 0, "no": 1 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "2", name: "page-2", component: _sfc_main$k, meta: { "class": "text-center", "slide": { "start": 21, "end": 29, "filepath": "slides.md", "id": 1, "no": 2 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "3", name: "page-3", component: _sfc_main$i, meta: { "clicks": 1, "slide": { "start": 29, "end": 55, "filepath": "slides.md", "id": 2, "no": 3 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "4", name: "page-4", component: _sfc_main$h, meta: { "clicks": 2, "slide": { "start": 55, "end": 96, "filepath": "slides.md", "id": 3, "no": 4 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "5", name: "page-5", component: _sfc_main$f, meta: { "layout": "center", "class": "text-center", "slide": { "start": 96, "end": 105, "filepath": "slides.md", "id": 4, "no": 5 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "6", name: "page-6", component: _sfc_main$e, meta: { "slide": { "start": 106, "end": 127, "note": "$$\n\\text{Trace Expr } e := \\text{Concatenation}(f_1, f_2, \\dots, f_n) \n$$", "filepath": "slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "7", name: "page-7", component: _sfc_main$d, meta: { "clicks": 5, "slide": { "start": 127, "end": 197, "filepath": "slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "8", name: "page-8", component: _sfc_main$c, meta: { "slide": { "start": 198, "end": 222, "filepath": "slides.md", "id": 7, "no": 8 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "9", name: "page-9", component: _sfc_main$b, meta: { "slide": { "start": 223, "end": 244, "note": "$$\n\\begin{array}{rcl}\n\\text{Trace Expr  } ~ e & := & \\text{Concatenation}(f_1, f_2, \\dots, f_n) \\\\\n\\text{Atom Expr  } ~ f & := & \\text{SubStr}(v_i, p_1, p_2) \\\\\n& | & \\text{ConstStr}(s) \\\\\n% & | & \\text{Loop}(\\lambda w : e)\n\\end{array}\n$$", "filepath": "slides.md", "id": 8, "no": 9 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "10", name: "page-10", component: _sfc_main$a, meta: { "slide": { "start": 245, "end": 264, "filepath": "slides.md", "id": 9, "no": 10 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "11", name: "page-11", component: _sfc_main$9, meta: { "slide": { "start": 265, "end": 284, "filepath": "slides.md", "id": 10, "no": 11 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "12", name: "page-12", component: _sfc_main$8, meta: { "layout": "center", "class": "text-center", "slide": { "start": 284, "end": 292, "filepath": "slides.md", "id": 11, "no": 12 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "13", name: "page-13", component: n13, meta: { "clicks": 3, "slide": { "start": 292, "end": 322, "filepath": "slides.md", "id": 12, "no": 13 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "14", name: "page-14", component: _sfc_main$6, meta: { "clicks": 5, "slide": { "start": 322, "end": 344, "filepath": "slides.md", "id": 13, "no": 14 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "15", name: "page-15", component: _sfc_main$5, meta: { "slide": { "start": 345, "end": 364, "filepath": "slides.md", "id": 14, "no": 15 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "16", name: "page-16", component: _sfc_main$4, meta: { "slide": { "start": 365, "end": 390, "filepath": "slides.md", "id": 15, "no": 16 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "17", name: "page-17", component: _sfc_main$3, meta: { "slide": { "start": 391, "end": 398, "filepath": "slides.md", "id": 16, "no": 17 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "18", name: "page-18", component: _sfc_main$2, meta: { "slide": { "start": 399, "end": 408, "filepath": "slides.md", "id": 17, "no": 18 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "19", name: "page-19", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 408, "end": 419, "filepath": "slides.md", "id": 18, "no": 19 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "1", name: "page-1", component: _sfc_main$m, meta: { "theme": "./theme", "aspectRatio": "4/3", "title": "FlashFill", "titleTemplate": "%s", "highlighter": "shiki", "lineNumbers": true, "drawings": { "persist": false }, "layout": "intro", "class": "text-center", "slide": { "start": 0, "end": 21, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 0, "no": 1 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "2", name: "page-2", component: _sfc_main$k, meta: { "class": "text-center", "slide": { "start": 21, "end": 29, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 1, "no": 2 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "3", name: "page-3", component: _sfc_main$i, meta: { "clicks": 1, "slide": { "start": 29, "end": 55, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 2, "no": 3 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "4", name: "page-4", component: _sfc_main$h, meta: { "clicks": 2, "slide": { "start": 55, "end": 96, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 3, "no": 4 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "5", name: "page-5", component: _sfc_main$f, meta: { "layout": "center", "class": "text-center", "slide": { "start": 96, "end": 105, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 4, "no": 5 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "6", name: "page-6", component: _sfc_main$e, meta: { "slide": { "start": 106, "end": 127, "note": "$$\n\\text{Trace Expr } e := \\text{Concatenation}(f_1, f_2, \\dots, f_n) \n$$", "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 5, "no": 6 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "7", name: "page-7", component: _sfc_main$d, meta: { "clicks": 5, "slide": { "start": 127, "end": 197, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 6, "no": 7 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "8", name: "page-8", component: _sfc_main$c, meta: { "slide": { "start": 198, "end": 222, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 7, "no": 8 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "9", name: "page-9", component: _sfc_main$b, meta: { "slide": { "start": 223, "end": 244, "note": "$$\n\\begin{array}{rcl}\n\\text{Trace Expr  } ~ e & := & \\text{Concatenation}(f_1, f_2, \\dots, f_n) \\\\\n\\text{Atom Expr  } ~ f & := & \\text{SubStr}(v_i, p_1, p_2) \\\\\n& | & \\text{ConstStr}(s) \\\\\n% & | & \\text{Loop}(\\lambda w : e)\n\\end{array}\n$$", "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 8, "no": 9 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "10", name: "page-10", component: _sfc_main$a, meta: { "slide": { "start": 245, "end": 264, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 9, "no": 10 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "11", name: "page-11", component: _sfc_main$9, meta: { "slide": { "start": 265, "end": 284, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 10, "no": 11 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "12", name: "page-12", component: _sfc_main$8, meta: { "layout": "center", "class": "text-center", "slide": { "start": 284, "end": 292, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 11, "no": 12 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "13", name: "page-13", component: n13, meta: { "clicks": 3, "slide": { "start": 292, "end": 322, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 12, "no": 13 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "14", name: "page-14", component: _sfc_main$6, meta: { "clicks": 5, "slide": { "start": 322, "end": 344, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 13, "no": 14 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "15", name: "page-15", component: _sfc_main$5, meta: { "slide": { "start": 345, "end": 364, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 14, "no": 15 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "16", name: "page-16", component: _sfc_main$4, meta: { "slide": { "start": 365, "end": 390, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 15, "no": 16 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "17", name: "page-17", component: _sfc_main$3, meta: { "slide": { "start": 391, "end": 398, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 16, "no": 17 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "18", name: "page-18", component: _sfc_main$2, meta: { "slide": { "start": 399, "end": 408, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 17, "no": 18 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "19", name: "page-19", component: _sfc_main$1, meta: { "layout": "center", "class": "text-center", "slide": { "start": 408, "end": 419, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 18, "no": 19 }, "__clicksElements": [], "__preloaded": false } },
   { path: "20", component: __layout__end, meta: { layout: "end" } }
 ];
 const rawRoutes = _rawRoutes;
