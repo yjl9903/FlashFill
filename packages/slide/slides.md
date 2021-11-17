@@ -396,13 +396,13 @@ The origin <span class="font-bold">exponential</span> problem <mdi-arrow-right /
 > 
 > $$(P_1 \cap P_2, \{(i_1,o_1), (i_2,o_2)\}), (P_3 \cap \dots, \{(i_3,o_3), \dots\}), \dots$$
 
-<!-- ---
+---
 
 # Boolean Classification
 
 > **Goal-2**. Intersect programs into non-empty partitions
 > 
-> $$(P_1 \cap P_2, \{(i_1,o_1), (i_2,o_2)\}), (P_3 \cap \dots, \{(i_3,o_3), \dots\}), \dots$$ -->
+> $$(P_1 \cap P_2, \{(i_1,o_1), (i_2,o_2)\}), (P_3 \cap \dots, \{(i_3,o_3), \dots\}), \dots$$
 
 <div text="center" m="y-2">
   <mdi-arrow-down />

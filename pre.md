@@ -78,7 +78,9 @@ There is a oberservation that the left position expression is not related to the
 
 After the first step, we have generated $n$ string programs for each input-output example. In this second step, our goal is to split the programs into several groups, where the programs in will be intersected together, and the result program should be non-empty. By the way, if all the programs can be intersected into a single non-empty program, then it is just what we want, return it.
 
-In this step, we use 
+In this step, we use a greedy strategy to intersect programs. We measure the compatibility of a pair of programs. During each iteration, select a pair of programs with the highest compatibility score, until we cannot choose any pairs to intersect a non-empty program.
+
+Then, at the third step, we use the partition result of the previous step, and generate a boolean classification expression in DNF form for each group to distinguish them from each other. Finally, put them in a top-level switch-case expression, it is just the output program we want.
 
 ## Extensions
 
