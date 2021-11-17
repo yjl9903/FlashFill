@@ -9509,7 +9509,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.56513003.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.0ba462f4.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$6;
       const _component_carbon58maximize = __unplugin_components_1$3;
@@ -9664,7 +9664,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.37e1283e.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.fdec1e72.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9714,7 +9714,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.56513003.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.0ba462f4.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -10492,7 +10492,7 @@ const _hoisted_11$8 = /* @__PURE__ */ createBaseVNode("p", { class: "text-center
 const _hoisted_12$8 = { class: "ml-2 mr-2 text-center" };
 const _hoisted_13$7 = /* @__PURE__ */ createBaseVNode("div", null, "Synthesize", -1);
 const _hoisted_14$7 = /* @__PURE__ */ createBaseVNode("pre", { class: "slidev-code border !text-lg" }, [
-  /* @__PURE__ */ createBaseVNode("code", null, "SubStr2(\n  Input(2),\n  TokenSeq(AlphaToken),\n  2\n)")
+  /* @__PURE__ */ createBaseVNode("code", null, "SubStr2(\n  Address,\n  TokenSeq(AlphaToken),\n  2\n)")
 ], -1);
 const _hoisted_15$6 = /* @__PURE__ */ createBaseVNode("p", { class: "text-center" }, [
   /* @__PURE__ */ createBaseVNode("span", null, "Program")
@@ -10544,9 +10544,9 @@ const _sfc_main$j = {
                 data: [
                   { input: ["A", "Jiangsu, nanjing, nju"], output: "nanjing" }
                 ],
-                "input-label": ["1", "Input(2)"],
-                "input-width": [30, 120]
-              }, null, 8, ["input-label"]),
+                "input-label": ["1", "Address"],
+                "input-width": [30, 130]
+              }),
               _hoisted_11$8
             ], 512), [
               [_directive_click, 2]
