@@ -73,7 +73,7 @@ clicks: 2
   <div v-click="2">
     <flashfill class="text-sm" hide-run output-width="200" :data="[
       { input: ['A', 'Jiangsu, nanjing, nju'], output: 'nanjing' },
-    ]" :input-label="['1', 'Input(2)']" :input-width="[30, 120]" :output-width="60" />
+    ]" :input-label="['1', 'Address']" :input-width="[30, 130]" :output-width="60" />
     <p class="text-center">
       <span>Input-output examples</span>
     </p>
@@ -84,7 +84,7 @@ clicks: 2
   </div>
   <div v-click="1">
     <pre class="slidev-code border !text-lg"><code>SubStr2(
-  Input(2),
+  Address,
   TokenSeq(AlphaToken),
   2
 )</code></pre>
