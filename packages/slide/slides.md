@@ -289,12 +289,42 @@ class: text-center
 ## Synthesize a program with input-output examples
 
 ---
+clicks: 3
+---
 
 # Goal
 
 > Given some input-output examples $(i_1, o_1), \dots, (i_n, o_n)$,
 > 
 > Synthesize a program $P$ such that $P(i_1) = o_1, \dots, P(i_n)=o_n$.
+
+<div class="h-4"></div>
+
+1. <span v-click="1"><span class="font-bold underline">Synthesize $n$ programs $P_k$</span> such that</span>
+
+<span v-click="1" class="flex justify-center">$P_1(i_1) = o_1, P_2(i_2) = o_2, \dots, P_n(i_n) = o_n$</span>
+
+2. <span v-click="2"><span class="font-bold underline">Intersect programs</span> into non-empty paritions <strong>greedily</strong></span>
+
+<span v-click="2" class="flex justify-center">$(\text{Intersect}(P_1, P_2), \{i_1, i_2\}), (\text{Intersect}(P_3, \dots), \{i_3, \dots\}), \dots$</span>
+
+3. <span v-click="3"><span class="font-bold underline">Construct boolean classification</span> for partitions</span>
+
+<span v-click="3" class="flex justify-center">$(\text{Boolean Expr}, \text{Intersect}(P_1, P_2)), \dots$</span>
+
+<style>
+ol {
+  list-style-type: decimal;
+}
+</style>
+
+---
+
+# Generate Trace
+
+> **Goal**. Synthesize $n$ programs $P_k$ such that
+> 
+> $$P_1(i_1) = o_1, P_2(i_2) = o_2, \dots, P_n(i_n) = o_n$$
 
 ---
 layout: center

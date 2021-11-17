@@ -54,11 +54,9 @@ First, let us formally define the problem we want to solve.
 
 Given some input-output examples $(i_1, o_1), (i_2, o_2), \dots$, synthesize a program $P$ such that $P(i_1) = o_1, \dots, P(i_n)=o_n$.
 
-However, synthesizing this program directly seems to be hard. We can solve it in another way. 
+However, synthesizing this program $P$ directly seems to be hard. We can solve it in another way.
 
-Generate a program $P_i$ for each input-output example pair, and then merge them together to get the final program $P$ (**Highlight in the slide**). Sometimes, the merging operation may fail, so that in this case it is necessary to introduce a new switch-case expression.
-
-This is general steps of the algorithm.
+Divide the problem into little parts. Generate a program $P_i$ for each input-output example pair, and then merge them together to get the final program $P$ (**Highlight in the slide**). Sometimes, the merging operation may fail, so that in this case for those classes of programs cannot be merged, we generate boolean expressions to classify them.
 
 ### Learn Trace
 
