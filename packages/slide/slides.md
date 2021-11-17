@@ -330,13 +330,13 @@ clicks: 5
 > 
 > $$P_1(i_1) = o_1, P_2(i_2) = o_2, \dots, P_n(i_n) = o_n$$
 
-<div class="mt-4 flex justify-center">
+<div class="mt-8 flex justify-center">
   <img v-click src="/abcdef.png" alt="abcdef" style="zoom: 48%;">
   <img v-click src="/bcdef.png" alt="bcdef" style="zoom: 48%;">
   <img v-click src="/cdef.png" alt="cdef" style="zoom: 48%;">
 </div>
 
-<p v-click="4" text="center">Iterative <span class="font-bold">all</span> possible trace expressions
+<p v-click="4" class="mt-8 mb-4" text="center">Iterative <span class="font-bold">all</span> possible trace expressions
   <span v-click="5" font="bold">?</span>
 </p>
 
