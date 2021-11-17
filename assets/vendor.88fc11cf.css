@@ -91,6 +91,8 @@ input[type="number"][data-v-5af5c1d4] {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}ol[data-v-0b6bde58] {
+  list-style-type: decimal;
 }/* windicss layer base */
 *, ::before, ::after {
   -webkit-box-sizing: border-box;
