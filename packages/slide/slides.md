@@ -253,9 +253,9 @@ $$ -->
 </div>
 
 <div font="mono">
-  <p>Trace("case ", <span font="bold">SubStr(Num, CPos(0), CPos(-1))</span>,</p>
-  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;": return ", <span font="bold">SubStr(Rev, CPos(0), CPos(-1))</span>,</p>
-  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";")</p>
+  <p>Trace("<span class="underline">case </span>", <span font="bold">SubStr(Num, CPos(0), CPos(-1))</span>,</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<span class="underline">: return </span>", <span font="bold">SubStr(Rev, CPos(0), CPos(-1))</span>,</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<span class="underline">;</span>")</p>
 </div>
 
 ---
@@ -324,6 +324,38 @@ ol {
 > 
 > $$P_1(i_1) = o_1, P_2(i_2) = o_2, \dots, P_n(i_n) = o_n$$
 
+<!-- image -->
+
+---
+
+# DAG
+
+<span font="mono">Nodes</span> = <span class="font-bold underline">Each position</span> in the output string.
+
+<span font="mono">Edges</span> = <span class="font-bold underline">Each substring</span> $(i, j)$ where $i < j$.
+
+<!-- image -->
+
+<p text="center">
+The origin <span class="font-bold">exponential</span> problem <mdi-arrow-right /> <span class="font-bold underline">Quadratic</span> sub-problems!
+</p>
+
+---
+
+# Generate Substring
+
+<p text="center">
+The origin <span class="font-bold">exponential</span> problem <mdi-arrow-right /> <span class="font-bold underline">Quadratic</span> sub-problems
+</p>
+
+> **Goal**. For **each of $n^2$ substrings**, find all possible **atom expressions** to generate it.
+
+<!-- image -->
+
+<p font="bold" text="center">
+Use Brute-force!
+</p>
+
 ---
 
 # Generate Partitions
@@ -338,7 +370,9 @@ ol {
 
 > **Goal**. Construct boolean classification for partitions
 >
-> $$(\text{Boolean Expression}, P_1 \cap P_2), \dots$$
+> $$((\text{Predicate} \land \dots) \lor \dots, P_1 \cap P_2), \dots$$
+> where
+> $$\text{Predicate} := \text{Match}(\text{Input}, \text{RegExp}, \text{Times}) ~ | ~ \neg \text{Match}(\dots)$$
 
 ---
 layout: center

@@ -60,12 +60,22 @@ Divide the problem into little parts. Generate a program $P_i$ for each input-ou
 
 ### Learn Trace
 
-Let us talk about the first step. The goal of the first step is to generate a program $P_k$ for each input-output example $(i_k, o_k)$ such that $P_k(i_k)=o_k$.
+Let us talk about the first step. The goal of the first step is to generate a program $P_k$ for each input-output example such that $P_k(i_k)=o_k$.
 
 See this example, for us we know the output string is generated in this way. But the algorithm does not know, so this trace is also valid, as this is (**explain the example in the slide**). Since algorithm doesn't know what we really need, we must store them all for further computation. And this is our basic idea, to iterative all possible trace expressions that can construct the given output string. But the number of these traces is exponential in size of the output string, while iterating and storing consumes lots of time and space.
 
-So that we need to use a more effective way, or data structure to expressive it, which is a Directed Acyclic Graph.
+So that we need to use a more effective way, or data structure to expressive it, which is a Directed Acyclic Graph (DAG).
+
+In this DAG, we create a node for each position with in the output string. We create an edge from position $i$ to any latter position $j$, which denotes a substring of the ouptut. Then, all the valid trace can be expressed a path from the 1-st node to the last node (**explain examples**).
+
+Now, we can divide the origin exponential problem to quadratic sub-problems, that how to generate each substring of output using some input strings.
+
+So, the next goal of the algorithm is to solve these sub-problems. For each of the $n^2$ substrings, find all possible atom expressions to generate it. Just like the previous talk, generating a substring atomic may contain several different solutions. But this time, it does not explode exponentially. We can iterate all the input string, and find substrings that match the output, then generate the position expression for the left and right boundaries.
+
+### Intersect
 
 ## Extensions
 
-##### 
+### Loop
+
+### Rank
