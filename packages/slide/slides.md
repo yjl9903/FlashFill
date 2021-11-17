@@ -205,15 +205,13 @@ Only use a **small subset of regular expressions**.
   <p font="mono" text="center">R = [a-z]+ [0-9]+</p>
 </blockquote>
 
-<div v-click class="mt-8 flex items-center justify-center">
-  <div>
+<div class="mt-8 flex items-center justify-center">
+  <div v-click>
     <p>No <span class="underline">kleen star</span> <span font="mono">([a-z]*)</span>.</p>
     <p>No <span class="underline">disjunct operation</span> <span font="mono">([a-z] | [0-9])</span>.</p>
   </div>
-  <div>
+  <div v-click>
     <mdi-arrow-right-bold />
-  </div>
-  <div>
     <span class="font-bold">Efficient Algorithm</span>
   </div>
 </div>
@@ -255,8 +253,8 @@ $$ -->
 </div>
 
 <div font="mono">
-  <p>Trace("case ", SubStr(Num, CPos(0), CPos(-1)),</p>
-  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;": return ", SubStr(Rev, CPos(0), CPos(-1)),</p>
+  <p>Trace("case ", <span font="bold">SubStr(Num, CPos(0), CPos(-1))</span>,</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;": return ", <span font="bold">SubStr(Rev, CPos(0), CPos(-1))</span>,</p>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";")</p>
 </div>
 
@@ -276,7 +274,7 @@ $$ -->
 
 <div font="mono">
   <p>Trace(SubStr(Item,</p>
-  <p>Pos(TokenSeq(Colon, Space), TokenSeq(Numeric), -1),</p>
+  <p class="font-bold">Pos(TokenSeq(Colon, Space), TokenSeq(Numeric), -1),</p>
   <p>CPos(-1)))</p>
 </div>
 
@@ -304,7 +302,7 @@ clicks: 3
 
 <span v-click="1" class="flex justify-center">$P_1(i_1) = o_1, P_2(i_2) = o_2, \dots, P_n(i_n) = o_n$</span>
 
-2. <span v-click="2"><span class="font-bold underline">Intersect programs</span> into non-empty paritions <strong>greedily</strong></span>
+2. <span v-click="2"><span class="font-bold underline">Intersect programs</span> into non-empty partitions <strong>greedily</strong></span>
 
 <span v-click="2" class="flex justify-center">$(\text{Intersect}(P_1, P_2), \{i_1, i_2\}), (\text{Intersect}(P_3, \dots), \{i_3, \dots\}), \dots$</span>
 
@@ -325,6 +323,22 @@ ol {
 > **Goal**. Synthesize $n$ programs $P_k$ such that
 > 
 > $$P_1(i_1) = o_1, P_2(i_2) = o_2, \dots, P_n(i_n) = o_n$$
+
+---
+
+# Generate Partitions
+
+> **Goal**. Intersect programs into non-empty partitions
+> 
+> $$(\text{Intersect}(P_1, P_2), \{i_1, i_2\}), (\text{Intersect}(P_3, \dots), \{i_3, \dots\}), \dots$$
+
+---
+
+# Boolean Classification
+
+> **Goal**. Construct boolean classification for partitions
+>
+> $$(\text{Boolean Expr}, \text{Intersect}(P_1, P_2)), \dots$$
 
 ---
 layout: center
