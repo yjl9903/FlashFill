@@ -91,7 +91,7 @@ input[type="number"][data-v-5af5c1d4] {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}ol[data-v-0b6bde58] {
+}ol[data-v-54f01ce4] {
   list-style-type: decimal;
 }/* windicss layer base */
 *, ::before, ::after {
@@ -1660,6 +1660,9 @@ pre[class*='language-'] {
   font-weight: 700 !important;
 }
 .font-700 {
+  font-weight: 700;
+}
+[font~="bold"] {
   font-weight: 700;
 }
 .h-6 {
