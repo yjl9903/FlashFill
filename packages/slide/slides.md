@@ -321,6 +321,8 @@ ol {
 </style>
 
 ---
+clicks: 5
+---
 
 # Generate Trace
 
@@ -328,7 +330,17 @@ ol {
 > 
 > $$P_1(i_1) = o_1, P_2(i_2) = o_2, \dots, P_n(i_n) = o_n$$
 
-<!-- image -->
+<div class="mt-4 flex justify-center">
+  <img v-click src="/abcdef.png" alt="abcdef" style="zoom: 48%;">
+  <img v-click src="/bcdef.png" alt="bcdef" style="zoom: 48%;">
+  <img v-click src="/cdef.png" alt="cdef" style="zoom: 48%;">
+</div>
+
+<p v-click="4" text="center">Iterative <span class="font-bold">all</span> possible trace expressions
+  <span v-click="5" font="bold">?</span>
+</p>
+
+<span v-click="5">The number is <strong>exponential</strong> in the length of output</span> <span v-click="5">( $2^{n-1}$ ).</span>
 
 ---
 
