@@ -1,4 +1,4 @@
-import "./vendor.575de729.js";
+import "./vendor.87406d6c.js";
 const p = function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) {
