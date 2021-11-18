@@ -9509,7 +9509,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.46f5446d.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.7b952484.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$7;
       const _component_carbon58maximize = __unplugin_components_1$2;
@@ -9664,7 +9664,7 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.eac19828.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.dabe3eb1.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9714,7 +9714,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.46f5446d.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.7b952484.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -10752,7 +10752,7 @@ const _hoisted_61$3 = /* @__PURE__ */ createBaseVNode("span", null, ", ", -1);
 const _hoisted_62$3 = /* @__PURE__ */ createBaseVNode("span", { class: "text-fuchsia-500" }, "Pos(RE,\u03B5,2)", -1);
 const _hoisted_63$3 = /* @__PURE__ */ createBaseVNode("span", null, ")", -1);
 const _hoisted_64$3 = { class: "mt-2 font-mono text-center" };
-const _hoisted_65$3 = /* @__PURE__ */ createTextVNode(" where RE = LowercaseTokens ");
+const _hoisted_65$3 = /* @__PURE__ */ createTextVNode(" where RE = TokenSequence(LowercaseTokens) ");
 const _hoisted_66$3 = [
   _hoisted_65$3
 ];
@@ -13525,7 +13525,7 @@ const _hoisted_55$1 = {
   class: "mt-8 mb-4",
   text: "center"
 };
-const _hoisted_56$1 = /* @__PURE__ */ createTextVNode("Iterative ");
+const _hoisted_56$1 = /* @__PURE__ */ createTextVNode("Iterate ");
 const _hoisted_57$1 = /* @__PURE__ */ createBaseVNode("span", { class: "font-bold" }, "all", -1);
 const _hoisted_58$1 = /* @__PURE__ */ createTextVNode(" possible trace expressions ");
 const _hoisted_59$1 = { font: "bold" };
