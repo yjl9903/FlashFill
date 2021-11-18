@@ -9509,7 +9509,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.7b952484.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.d3ff0323.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$7;
       const _component_carbon58maximize = __unplugin_components_1$2;
@@ -9664,7 +9664,7 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.dabe3eb1.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.1c0c5a15.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9714,7 +9714,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.7b952484.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.d3ff0323.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -10607,8 +10607,8 @@ const _hoisted_2$d = /* @__PURE__ */ createBaseVNode("div", {
 const _hoisted_3$a = /* @__PURE__ */ createBaseVNode("p", null, [
   /* @__PURE__ */ createTextVNode("Trace Expr is a "),
   /* @__PURE__ */ createBaseVNode("span", { class: "font-bold underline" }, "concatenation"),
-  /* @__PURE__ */ createTextVNode(" of atom expressions, "),
-  /* @__PURE__ */ createBaseVNode("span", { class: "font-bold underline" }, "substrings of inputs"),
+  /* @__PURE__ */ createTextVNode(" of atom expression, which is "),
+  /* @__PURE__ */ createBaseVNode("span", { class: "font-bold underline" }, "a substring of input"),
   /* @__PURE__ */ createTextVNode(" or a "),
   /* @__PURE__ */ createBaseVNode("span", { class: "font-bold underline" }, "constant string"),
   /* @__PURE__ */ createTextVNode(".")
