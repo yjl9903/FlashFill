@@ -34,9 +34,9 @@ $Pos$ is another kind of position expression. The first two parameters are regul
 
 ### Regular Expressions
 
-In our string manipulation language, we only use a small subset of regular expressions. It is just a sequence of tokens. Each token is a category of characters, like letters, digits, spaces, and so on. In this example, this regular expression will accept the strings that start with as least one lowercase letter and end with at least one digit number, which is equivalent with the normal regular expressions `[a-z]+[0-9]+`.
+In our string manipulation language, we only use a small subset of regular expressions. It is just a sequence of tokens. 
 
-Notice that we don't support the kleen star and disjunct operation. Although we losses some expressiveness, but we can have a more efficient synthesize algorithm for that the kleen star and disjunct will consume lots of time when synthesizing program.
+Notice that we don't support the kleen star and disjunct operation. Although we losses some expressiveness, but we can have a more efficient synthesize algorithm.
 
 Moreover, we also make a trade-off that use top-level conditionals (**next slide**).
 
@@ -54,7 +54,7 @@ Let's see an example.
 
 Now, it is ready to introduce the algorithm to synthesize a program.
 
-First, let us formally define the problem we want to solve.
+First, let us formally define the problem.
 
 Given some input-output examples $(i_1, o_1), (i_2, o_2), \dots$, synthesize a program $P$ such that $P(i_1) = o_1, \dots, P(i_n)=o_n$.
 

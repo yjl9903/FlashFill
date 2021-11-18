@@ -192,7 +192,7 @@ clicks: 5
 </div>
 
 <div class="mt-2 font-mono text-center" v-click="5">
-where RE = LowercaseTokens
+where RE = TokenSequence(LowercaseTokens)
 </div>
 
 ---
@@ -320,7 +320,7 @@ clicks: 5
   <img v-click src="/cdef.png" alt="cdef" style="zoom: 48%;">
 </div>
 
-<p v-click="4" class="mt-8 mb-4" text="center">Iterative <span class="font-bold">all</span> possible trace expressions
+<p v-click="4" class="mt-8 mb-4" text="center">Iterate <span class="font-bold">all</span> possible trace expressions
   <span v-click="5" font="bold">?</span>
 </p>
 
