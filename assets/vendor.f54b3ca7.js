@@ -9509,7 +9509,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.d3ff0323.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.c3e16b62.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$7;
       const _component_carbon58maximize = __unplugin_components_1$2;
@@ -9664,7 +9664,7 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.1c0c5a15.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.be8648a2.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9714,7 +9714,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.d3ff0323.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.c3e16b62.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -10134,7 +10134,7 @@ const _hoisted_14$7 = ["onUpdate:modelValue"];
 const _hoisted_15$7 = { key: 0 };
 const _hoisted_16$6 = ["onUpdate:modelValue", "onChange"];
 const _hoisted_17$5 = { key: 2 };
-const _hoisted_18$4 = {
+const _hoisted_18$5 = {
   key: 1,
   class: "mt-4"
 };
@@ -10306,7 +10306,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
             }), 128))
           ])
         ])) : createCommentVNode("v-if", true),
-        __props.append ? (openBlock(), createElementBlock("div", _hoisted_18$4, [
+        __props.append ? (openBlock(), createElementBlock("div", _hoisted_18$5, [
           createBaseVNode("button", {
             onClick: push,
             class: "underline !outline-transparent mr-2 hover:text-gray-500"
@@ -10674,12 +10674,12 @@ const _hoisted_17$4 = [
   _hoisted_15$5,
   _hoisted_16$4
 ];
-const _hoisted_18$3 = /* @__PURE__ */ createBaseVNode("span", { font: "mono" }, "Left, Right:", -1);
+const _hoisted_18$4 = /* @__PURE__ */ createBaseVNode("span", { font: "mono" }, "Left, Right:", -1);
 const _hoisted_19$3 = /* @__PURE__ */ createTextVNode();
 const _hoisted_20$3 = /* @__PURE__ */ createBaseVNode("strong", null, "Position Expressions", -1);
 const _hoisted_21$3 = /* @__PURE__ */ createTextVNode(", the range of substring.");
 const _hoisted_22$3 = [
-  _hoisted_18$3,
+  _hoisted_18$4,
   _hoisted_19$3,
   _hoisted_20$3,
   _hoisted_21$3
@@ -11059,7 +11059,7 @@ const _hoisted_14$3 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createB
 const _hoisted_15$3 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("mo", { separator: "true" }, ",", -1));
 const _hoisted_16$3 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("mo", { stretchy: "false" }, "(", -1));
 const _hoisted_17$3 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("mi", null, "i", -1));
-const _hoisted_18$2 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("mi", null, "n", -1));
+const _hoisted_18$3 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("mi", null, "n", -1));
 const _hoisted_19$2 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("mo", { separator: "true" }, ",", -1));
 const _hoisted_20$2 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("mi", null, "o", -1));
 const _hoisted_21$2 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("mi", null, "n", -1));
@@ -12622,7 +12622,7 @@ const _sfc_main$8 = {
                         createVNode(_component_msub, null, {
                           default: withCtx(() => [
                             _hoisted_17$3,
-                            _hoisted_18$2
+                            _hoisted_18$3
                           ]),
                           _: 1
                         }),
@@ -13094,7 +13094,7 @@ const _hoisted_17$2 = {
   xmlns: "http://www.w3.org/1998/Math/MathML",
   display: "block"
 };
-const _hoisted_18$1 = /* @__PURE__ */ createBaseVNode("mi", null, "P", -1);
+const _hoisted_18$2 = /* @__PURE__ */ createBaseVNode("mi", null, "P", -1);
 const _hoisted_19$1 = /* @__PURE__ */ createBaseVNode("mn", null, "1", -1);
 const _hoisted_20$1 = /* @__PURE__ */ createBaseVNode("mo", { stretchy: "false" }, "(", -1);
 const _hoisted_21$1 = /* @__PURE__ */ createBaseVNode("mi", null, "i", -1);
@@ -13651,7 +13651,7 @@ const _sfc_main$7 = {
                         createBaseVNode("mrow", null, [
                           createVNode(_component_msub, null, {
                             default: withCtx(() => [
-                              _hoisted_18$1,
+                              _hoisted_18$2,
                               _hoisted_19$1
                             ]),
                             _: 1
@@ -14131,15 +14131,20 @@ const _hoisted_13$1 = /* @__PURE__ */ createBaseVNode("p", null, [
 const _hoisted_14$1 = /* @__PURE__ */ createBaseVNode("p", null, [
   /* @__PURE__ */ createBaseVNode("span", { font: "mono" }, "\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0"),
   /* @__PURE__ */ createTextVNode(),
+  /* @__PURE__ */ createBaseVNode("span", { font: "mono" }, "SubStr(Address, Pos(\u03B5,Lowercase,2), CPos(-6))")
+], -1);
+const _hoisted_15$1 = /* @__PURE__ */ createBaseVNode("p", null, [
+  /* @__PURE__ */ createBaseVNode("span", { font: "mono" }, "\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0"),
+  /* @__PURE__ */ createTextVNode(),
   /* @__PURE__ */ createBaseVNode("span", { font: "mono" }, "\u2026")
 ], -1);
-const _hoisted_15$1 = {
+const _hoisted_16$1 = {
   font: "bold",
   text: "center"
 };
-const _hoisted_16$1 = /* @__PURE__ */ createBaseVNode("span", null, "Use Brute-force!", -1);
-const _hoisted_17$1 = [
-  _hoisted_16$1
+const _hoisted_17$1 = /* @__PURE__ */ createBaseVNode("span", null, "Use Brute-force!", -1);
+const _hoisted_18$1 = [
+  _hoisted_17$1
 ];
 const _sfc_main$5 = {
   setup(__props) {
@@ -14165,8 +14170,9 @@ const _sfc_main$5 = {
           _hoisted_12$1,
           _hoisted_13$1,
           _hoisted_14$1,
+          _hoisted_15$1,
           createCommentVNode(" image "),
-          withDirectives(createBaseVNode("p", _hoisted_15$1, _hoisted_17$1, 512), [
+          withDirectives(createBaseVNode("p", _hoisted_16$1, _hoisted_18$1, 512), [
             [_directive_click]
           ])
         ]),
@@ -15246,10 +15252,10 @@ var _rawRoutes = [
   { path: "12", name: "page-12", component: n12, meta: { "clicks": 3, "slide": { "start": 276, "end": 306, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 11, "no": 12 }, "__clicksElements": [], "__preloaded": false } },
   { path: "13", name: "page-13", component: _sfc_main$7, meta: { "clicks": 5, "slide": { "start": 306, "end": 328, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 12, "no": 13 }, "__clicksElements": [], "__preloaded": false } },
   { path: "14", name: "page-14", component: _sfc_main$6, meta: { "slide": { "start": 329, "end": 348, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 13, "no": 14 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "15", name: "page-15", component: _sfc_main$5, meta: { "slide": { "start": 349, "end": 374, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 14, "no": 15 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "16", name: "page-16", component: _sfc_main$4, meta: { "slide": { "start": 375, "end": 398, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 15, "no": 16 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "17", name: "page-17", component: _sfc_main$3, meta: { "layout": "center", "class": "text-center", "slide": { "start": 398, "end": 425, "note": '<div font="mono">\n  <p>Trace(SubStr(Item,</p>\n  <p class="font-bold">Pos(TokenSeq(Colon, Space), TokenSeq(Numeric), -1),</p>\n  <p>CPos(-1)))</p>\n</div>', "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 16, "no": 17 }, "__clicksElements": [], "__preloaded": false } },
-  { path: "18", name: "page-18", component: _sfc_main$1, meta: { "slide": { "start": 426, "end": 431, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 17, "no": 18 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "15", name: "page-15", component: _sfc_main$5, meta: { "slide": { "start": 349, "end": 376, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 14, "no": 15 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "16", name: "page-16", component: _sfc_main$4, meta: { "slide": { "start": 377, "end": 400, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 15, "no": 16 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "17", name: "page-17", component: _sfc_main$3, meta: { "layout": "center", "class": "text-center", "slide": { "start": 400, "end": 427, "note": '<div font="mono">\n  <p>Trace(SubStr(Item,</p>\n  <p class="font-bold">Pos(TokenSeq(Colon, Space), TokenSeq(Numeric), -1),</p>\n  <p>CPos(-1)))</p>\n</div>', "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 16, "no": 17 }, "__clicksElements": [], "__preloaded": false } },
+  { path: "18", name: "page-18", component: _sfc_main$1, meta: { "slide": { "start": 428, "end": 433, "filepath": "/home/runner/work/FlashFill/FlashFill/packages/slide/slides.md", "id": 17, "no": 18 }, "__clicksElements": [], "__preloaded": false } },
   { path: "19", component: __layout__end, meta: { layout: "end" } }
 ];
 const rawRoutes = _rawRoutes;
