@@ -107,11 +107,11 @@ class: text-center
 
 # Trace
 
-Trace Expr is a <span class="font-bold underline">concatenation</span> of atom expressions, <span class="font-bold underline">substrings of inputs</span> or a <span class="font-bold underline">constant string</span>.
-
 <div font="mono" text="center">
   <span>Trace(ConstStr(...), SubStr(...), ...)</span>
 </div>
+
+Trace Expr is a <span class="font-bold underline">concatenation</span> of atom expressions, <span class="font-bold underline">substrings of inputs</span> or a <span class="font-bold underline">constant string</span>.
 
 <div v-click class="w-full mt-4 text-center">
   <img class="inline-block" src="/trace.png" alt="spreadsheets" style="zoom: 70%;">
@@ -199,9 +199,9 @@ where RE = LowercaseTokens
 
 # Regular Expressions
 
-Only use a **small subset of regular expressions**.
+<div font="mono" text="center">TokenSequence(Tokens, ...)</div>
 
-<mdi-arrow-right /> **A Sequence of Tokens**.
+Only use a **small subset of regular expressions**.
 
 <blockquote v-click class="mt-8">
   <p font="mono" text="center">R = TokenSequence(LowercaseTokens, NumericTokens)</p>
@@ -209,7 +209,7 @@ Only use a **small subset of regular expressions**.
   <p font="mono" text="center">R = [a-z]+ [0-9]+</p>
 </blockquote>
 
-<div class="mt-8 flex items-center justify-center">
+<div class="mt-4 flex items-center justify-center">
   <div v-click>
     <p>No <span class="underline">kleen star</span> <span font="mono">([a-z]*)</span>.</p>
     <p>No <span class="underline">disjunct operation</span> <span font="mono">([a-z] | [0-9])</span>.</p>
@@ -220,9 +220,13 @@ Only use a **small subset of regular expressions**.
   </div>
 </div>
 
+<div v-click class="mt-4" font="mono" text="center">
+  Switch((Boolean Expr, Trace Expr), ...)
+</div>
+
 ---
 
-# Conditionals
+# Overview / AST
 
 <!-- <div class="font-mono text-center">
   <span>Switch(</span>
@@ -260,26 +264,6 @@ $$ -->
   <p>Trace("<span class="underline">case </span>", <span font="bold">SubStr(Num, CPos(0), CPos(-1))</span>,</p>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<span class="underline">: return </span>", <span font="bold">SubStr(Rev, CPos(0), CPos(-1))</span>,</p>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<span class="underline">;</span>")</p>
-</div>
-
----
-
-# Example
-
-<div class="w-full">
-  <flashfill class="mt-8" edit :data="[
-    { input: ['Check-in: 2000 mora'], output: '2000 mora' },
-    { input: ['New character: 180 fate'], output: '180 fate' },
-    { input: ['Intertwined fate: 160 primogem'] },
-    { input: ['New weapon: 240 fate'] }
-  ]" :input-label="['Item']"
-  :input-width="[540]" :output-width="240" />
-</div>
-
-<div font="mono">
-  <p>Trace(SubStr(Item,</p>
-  <p class="font-bold">Pos(TokenSeq(Colon, Space), TokenSeq(Numeric), -1),</p>
-  <p>CPos(-1)))</p>
 </div>
 
 ---
@@ -417,11 +401,27 @@ layout: center
 class: text-center
 ---
 
-# END
+<!-- # END
 
-<div class="h-8"></div>
+<div class="h-8"></div> -->
 
 # Q & A
+
+<div class="mt-8 w-full">
+  <flashfill class="mt-8" edit :data="[
+    { input: ['Check-in: 2000 mora'], output: '2000 mora' },
+    { input: ['New character: 180 fate'], output: '180 fate' },
+    { input: ['Intertwined fate: 160 primogem'] },
+    { input: ['New weapon: 240 fate'] }
+  ]" :input-label="['Item']"
+  :input-width="[540]" :output-width="240" />
+</div>
+
+<!-- <div font="mono">
+  <p>Trace(SubStr(Item,</p>
+  <p class="font-bold">Pos(TokenSeq(Colon, Space), TokenSeq(Numeric), -1),</p>
+  <p>CPos(-1)))</p>
+</div> -->
 
 ---
 

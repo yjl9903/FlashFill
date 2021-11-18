@@ -2,29 +2,31 @@
 
 Today, I will talk about automating string processing in spreadsheets using input-output examples (**next slide**).
 
-Nowadays, spreadsheets are widely used in our daily life. Scientists use spreadsheets to organize experimental data. Marketing managers use spreadsheets to analyze the sales of goods. And we also use online spreadsheets to collect personal information (**points to picture in the slide**).
+Nowadays, spreadsheets are widely used in our daily life. Scientists use spreadsheets to organize experimental data. Marketing managers use spreadsheets to analyze the sales of goods. And we also use online spreadsheets to collect personal information like this (**points to picture in the slide**).
 
-While large number of these spreadsheets users are not programmers, and they may face some troubles doing string manipulation. Image this situation (**next slide**) that you are the class president, and you want to collect the cities that your classmates live to check whether they come from cities at high risk. But you have get the data like this, the full address of students (**points to slides**). And you just want to **extract** the city from these string. To solve it, for the users who are not programmers, they can select-copy-paste one by one, and it seems hard for them to write some string manipulation scripts with something like regular expressions. However, with the help of our technique, flashfill (**next part**), end-users just need to write a few output examples, click Run. (**perform a demo**). Now, the rest cities are generated here (**points to slides**). It is convenient.
+While large number of these spreadsheets users are not programmers, and it may trouble them to do string manipulation tasks. Imagine this situation (**next slide**) that you are the class president, and you want to collect the cities that your classmates live to check whether they come from cities at high risk. But you have get the data like this, the full address of students (**points to slides**). And you just want to **extract** the city from these string. To solve it, you may select-copy-paste one by one, or write some scripts using regular expressions. However, with the help of our technique, flashfill (**next part**), end-users just need to write a few output examples, click Run. (**perform a demo**). Now, the rest cities are generated here (**points to slides**). It is convenient.
 
-In this work (**next slide**), there are two main sections. We first describe a simple string manipulation language that is expressive enough to solve a lot of real-world tasks. Then (**next part**) we design a learning algorithm to synthesize a program in this language with some given input-output examples.
+Behind it (**next slide**), there are two main sections in this work. We first describe a domain specific language used for string manipulation. It is simpler than regular PLs, but is expressive enough to solve real-world tasks. Another thing, this language is not designed for users to write. Then (**next part**) we design an algorithm. It take several input-output examples as input to synthesize a program in this language. And it will use this program to generate output for the rest inputs.
 
 ## Language for Constructing Output Strings
 
 First (**next slide**), let us have a quick look at this string manipulation language (**next slide**).
 
-One basic assumption in our work is that the output string is generated from the input string. The string language only do syntactic pattern mattching and copy-paste the input to the output.
+One basic assumption in our work is that the output string is generated from the input string. The string language only do syntactic pattern mattching and copy fragment from input and paste to the output.
 
 ### Trace
 
-So here is the main body of the language, called Trace Expression. It is a concatenation of some atom string expressions.
+Trace Expression is the main body of the language. It represents how the output string is generated. It is a concatenation of some atom string expressions.
 
-See this example (**points to slide**), the output string consists of 3 parts, the first part "A" comes from the first input, and the second part is a constant string " lives at " encoded in the program, and the last part "nanjing" is a substring of the second input. The constant string and substring are all atom expressions. Then we concatenate them together to get the output string.
+See this example (**points to slide**), the output string consists of 3 parts, the first part "A" comes from the first input, and next is a constant string " lives at " encoded in the program, and the last part "nanjing" is a substring of the second input. The constant string and substring are all atom expressions. Then we concatenate them together to get the output string, "A lives at nanjing".
+
+Here, constant string is hard encoded in the program of our string language.
 
 ### Substring
 
-Then (**next slide**), let us see more details about what substring is. The substring consists of 3 parameters. We first choose an index $i$, that denotes which input string is used (**next click**), and two positions $left, right$ which denots the left and right boundaries of substring. And the concrete position are evaluationed by a position expression.
+Then (**next slide**), let us see more details about what substring is. The substring consists of 3 parameters. We first choose an index $i$, that denotes which input string is used (**next click**), and two positions $left, right$ which denotes the left and right boundaries of substring. And the concrete position are evaluated by a position expression.
 
-For this example, we want to extract the substring "nanjing". We first choose input column Adress. Then we need to find the left and right position. While the $CPos(k)$ is a position expression which evaluates to a constant number. Non-negative index $k$ is the $k$-th index from the left side, while the negative is from the right side.
+For this example, we want to extract the substring "nanjing". We first choose input column Address. Then we need to find the left and right position. While the $CPos(k)$ is a position expression which evaluates to a constant number. Non-negative index $k$ is the $k$-th index from the left side, while the negative is from the right side.
 
 However, in this way, we losses much generalization ability. If we use some different provinces or universities, then we will get wrong results (**next click**). As a result, we can use regular expressions.
 
@@ -34,15 +36,15 @@ $Pos$ is another kind of position expression. The first two parameters are regul
 
 In our string manipulation language, we only use a small subset of regular expressions. It is just a sequence of tokens. Each token is a category of characters, like letters, digits, spaces, and so on. In this example, this regular expression will accept the strings that start with as least one lowercase letter and end with at least one digit number, which is equivalent with the normal regular expressions `[a-z]+[0-9]+`.
 
-Notice that we don't support the kleen star and disjunct operation. Although we losses some expressiveness, but we can have a more efficient synthesize algorithm for that the kleen star and disjunct will cosume lots of time when synthesizing program.
+Notice that we don't support the kleen star and disjunct operation. Although we losses some expressiveness, but we can have a more efficient synthesize algorithm for that the kleen star and disjunct will consume lots of time when synthesizing program.
 
 Moreover, we also make a trade-off that use top-level conditionals (**next slide**).
 
 ### Conditionals
 
-The top-level of the string language is `Switch` that receives pairs of a boolean expression and a trace expression. The string language will evaluate the trace expression corresponding to the first satisfied boolean expression.
+The top-level of the string language is `Switch` that receives pairs of a Boolean expression and a trace expression. The string language will evaluate the trace expression corresponding to the first satisfied Boolean expression.
 
-The top-level is some switch-cases. Then, if the input satifies a boolean expression, the corresponding trace expression is evaluated. Then all the atom expressions in trace will be evaluated one by one. Finally, we get the output string. Now, this is all the language constructions.
+The top-level is some switch-cases. Then, if the input satifies a Boolean expression, the corresponding trace expression is evaluated. Then all the atom expressions in trace will be evaluated one by one. Finally, we get the output string. Now, this is all the language constructions.
 
 ### Example
 
@@ -58,7 +60,7 @@ Given some input-output examples $(i_1, o_1), (i_2, o_2), \dots$, synthesize a p
 
 However, synthesizing this program $P$ directly seems to be hard. We can solve it in another way.
 
-Divide the problem into little parts. Generate a program $P_i$ for each input-output example pair, and then merge them together to get the final program $P$ (**Highlight in the slide**). Sometimes, the merging operation may fail, so that in this case for those classes of programs cannot be merged, we generate boolean expressions to classify them.
+Divide the problem into little parts. Generate a program $P_i$ for each input-output example pair, and then merge them together to get the final program $P$ (**Highlight in the slide**). Sometimes, the merging operation may fail, so that in this case for those classes of programs cannot be merged, we generate Boolean expressions to classify them.
 
 ### Learn Trace
 
@@ -82,7 +84,7 @@ After the first step, we have generated $n$ string programs for each input-outpu
 
 In this step, we use a greedy strategy to intersect programs. We measure the compatibility of a pair of programs. During each iteration, select a pair of programs with the highest compatibility score, until we cannot choose any pairs to intersect a non-empty program.
 
-Then, at the third step, we use the partition result of the previous step, and generate a boolean classification expression in DNF form for each group to distinguish them from each other. Finally, put them in a top-level switch-case expression, it is just the output program we want.
+Then, at the third step, we use the partition result of the previous step, and generate a Boolean classification expression in DNF form for each group to distinguish them from each other. Finally, put them in a top-level switch-case expression, it is just the output program we want.
 
 ## Extensions
 
