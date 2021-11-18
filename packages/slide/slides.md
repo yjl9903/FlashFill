@@ -364,6 +364,8 @@ The origin <span class="font-bold">exponential</span> problem <mdi-arrow-right /
 
 <span font="mono">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span font="mono">SubStr(Address, CPos(9), CPos(16))</span>
 
+<span font="mono">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span font="mono">SubStr(Address, Pos(ε,Lowercase,2), CPos(-6))</span>
+
 <span font="mono">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span font="mono">...</span>
 
 <!-- image -->
