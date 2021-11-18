@@ -60,7 +60,7 @@ Given some input-output examples $(i_1, o_1), (i_2, o_2), \dots$, synthesize a p
 
 However, synthesizing this program $P$ directly seems to be hard. We can solve it in another way.
 
-Divide the problem into little parts. Generate a program $P_i$ for each input-output example pair, and then merge them together to get the final program $P$ (**Highlight in the slide**). Sometimes, the merging operation may fail, so that in this case for those classes of programs cannot be merged, we generate Boolean expressions to classify them.
+Divide the problem into little parts. Generate a program $P_i$ for each input-output example pair, and then merge them together to get the final program $P$ (**Highlight in the slide**).
 
 ### Learn Trace
 
