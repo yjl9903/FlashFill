@@ -9509,7 +9509,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.c3e16b62.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.1e2d1353.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$7;
       const _component_carbon58maximize = __unplugin_components_1$2;
@@ -9664,7 +9664,7 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.be8648a2.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.870ead4b.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9714,7 +9714,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.c3e16b62.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.1e2d1353.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -9770,14 +9770,14 @@ function _sfc_render$3(_ctx, _cache) {
 }
 var __layout__end = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$3], ["__scopeId", "data-v-5ac61b98"]]);
 let wasm;
-let cachedTextDecoder = new TextDecoder("utf-8", { ignoreBOM: true, fatal: true });
+const cachedTextDecoder = new TextDecoder("utf-8", { ignoreBOM: true, fatal: true });
 cachedTextDecoder.decode();
-let cachegetUint8Memory0 = null;
+let cachedUint8Memory0;
 function getUint8Memory0() {
-  if (cachegetUint8Memory0 === null || cachegetUint8Memory0.buffer !== wasm.memory.buffer) {
-    cachegetUint8Memory0 = new Uint8Array(wasm.memory.buffer);
+  if (cachedUint8Memory0.byteLength === 0) {
+    cachedUint8Memory0 = new Uint8Array(wasm.memory.buffer);
   }
-  return cachegetUint8Memory0;
+  return cachedUint8Memory0;
 }
 function getStringFromWasm0(ptr, len) {
   return cachedTextDecoder.decode(getUint8Memory0().subarray(ptr, ptr + len));
@@ -9797,7 +9797,7 @@ function getObject(idx) {
   return heap[idx];
 }
 let WASM_VECTOR_LEN = 0;
-let cachedTextEncoder = new TextEncoder("utf-8");
+const cachedTextEncoder = new TextEncoder("utf-8");
 const encodeString = typeof cachedTextEncoder.encodeInto === "function" ? function(arg, view) {
   return cachedTextEncoder.encodeInto(arg, view);
 } : function(arg, view) {
@@ -9838,12 +9838,12 @@ function passStringToWasm0(arg, malloc, realloc) {
   WASM_VECTOR_LEN = offset;
   return ptr;
 }
-let cachegetInt32Memory0 = null;
+let cachedInt32Memory0;
 function getInt32Memory0() {
-  if (cachegetInt32Memory0 === null || cachegetInt32Memory0.buffer !== wasm.memory.buffer) {
-    cachegetInt32Memory0 = new Int32Array(wasm.memory.buffer);
+  if (cachedInt32Memory0.byteLength === 0) {
+    cachedInt32Memory0 = new Int32Array(wasm.memory.buffer);
   }
-  return cachegetInt32Memory0;
+  return cachedInt32Memory0;
 }
 function dropObject(idx) {
   if (idx < 36)
@@ -9857,7 +9857,7 @@ function takeObject(idx) {
   return ret;
 }
 function run$1(inputs, results) {
-  var ret = wasm.run(addHeapObject(inputs), addHeapObject(results));
+  const ret = wasm.run(addHeapObject(inputs), addHeapObject(results));
   return takeObject(ret);
 }
 async function load(module, imports) {
@@ -9884,21 +9884,18 @@ async function load(module, imports) {
     }
   }
 }
-async function init(input) {
-  if (typeof input === "undefined") {
-    input = new URL("/assets/flashfill_core_bg.34ea50b2.wasm", self.location);
-  }
+function getImports() {
   const imports = {};
   imports.wbg = {};
   imports.wbg.__wbindgen_json_parse = function(arg0, arg1) {
-    var ret = JSON.parse(getStringFromWasm0(arg0, arg1));
+    const ret = JSON.parse(getStringFromWasm0(arg0, arg1));
     return addHeapObject(ret);
   };
   imports.wbg.__wbindgen_json_serialize = function(arg0, arg1) {
     const obj = getObject(arg1);
-    var ret = JSON.stringify(obj === void 0 ? null : obj);
-    var ptr0 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
-    var len0 = WASM_VECTOR_LEN;
+    const ret = JSON.stringify(obj === void 0 ? null : obj);
+    const ptr0 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+    const len0 = WASM_VECTOR_LEN;
     getInt32Memory0()[arg0 / 4 + 1] = len0;
     getInt32Memory0()[arg0 / 4 + 0] = ptr0;
   };
@@ -9908,13 +9905,25 @@ async function init(input) {
   imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
     takeObject(arg0);
   };
+  return imports;
+}
+function finalizeInit(instance, module) {
+  wasm = instance.exports;
+  init.__wbindgen_wasm_module = module;
+  cachedInt32Memory0 = new Int32Array(wasm.memory.buffer);
+  cachedUint8Memory0 = new Uint8Array(wasm.memory.buffer);
+  return wasm;
+}
+async function init(input) {
+  if (typeof input === "undefined") {
+    input = new URL("/assets/flashfill_core_bg.b8c3bce2.wasm", self.location);
+  }
+  const imports = getImports();
   if (typeof input === "string" || typeof Request === "function" && input instanceof Request || typeof URL === "function" && input instanceof URL) {
     input = fetch(input);
   }
   const { instance, module } = await load(await input, imports);
-  wasm = instance.exports;
-  init.__wbindgen_wasm_module = module;
-  return wasm;
+  return finalizeInit(instance, module);
 }
 let initialized = init();
 async function run(inputs, results) {
