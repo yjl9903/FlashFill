@@ -9509,7 +9509,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
     const barStyle = computed(() => props.persist ? "text-$slidev-controls-foreground bg-transparent" : "rounded-md bg-main shadow dark:border dark:border-gray-400 dark:border-opacity-10");
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.1e2d1353.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.c9bb46e6.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       const _component_carbon58minimize = __unplugin_components_0$7;
       const _component_carbon58maximize = __unplugin_components_1$2;
@@ -9664,7 +9664,7 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
         nextRoute.value.meta.__preloaded = true;
     }, { immediate: true });
     const DrawingLayer = shallowRef();
-    import("./DrawingLayer.870ead4b.js").then((v) => DrawingLayer.value = v.default);
+    import("./DrawingLayer.645e2f00.js").then((v) => DrawingLayer.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createCommentVNode(" Global Bottom "),
@@ -9714,7 +9714,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     const presistNav = computed(() => isScreenVertical.value || showEditor.value);
     shallowRef();
     const DrawingControls = shallowRef();
-    import("./DrawingControls.1e2d1353.js").then((v) => DrawingControls.value = v.default);
+    import("./DrawingControls.c9bb46e6.js").then((v) => DrawingControls.value = v.default);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
@@ -9772,9 +9772,9 @@ var __layout__end = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_re
 let wasm;
 const cachedTextDecoder = new TextDecoder("utf-8", { ignoreBOM: true, fatal: true });
 cachedTextDecoder.decode();
-let cachedUint8Memory0;
+let cachedUint8Memory0 = null;
 function getUint8Memory0() {
-  if (cachedUint8Memory0.byteLength === 0) {
+  if (cachedUint8Memory0 === null || cachedUint8Memory0.byteLength === 0) {
     cachedUint8Memory0 = new Uint8Array(wasm.memory.buffer);
   }
   return cachedUint8Memory0;
@@ -9782,7 +9782,7 @@ function getUint8Memory0() {
 function getStringFromWasm0(ptr, len) {
   return cachedTextDecoder.decode(getUint8Memory0().subarray(ptr, ptr + len));
 }
-const heap = new Array(32).fill(void 0);
+const heap = new Array(128).fill(void 0);
 heap.push(void 0, null, true, false);
 let heap_next = heap.length;
 function addHeapObject(obj) {
@@ -9838,15 +9838,15 @@ function passStringToWasm0(arg, malloc, realloc) {
   WASM_VECTOR_LEN = offset;
   return ptr;
 }
-let cachedInt32Memory0;
+let cachedInt32Memory0 = null;
 function getInt32Memory0() {
-  if (cachedInt32Memory0.byteLength === 0) {
+  if (cachedInt32Memory0 === null || cachedInt32Memory0.byteLength === 0) {
     cachedInt32Memory0 = new Int32Array(wasm.memory.buffer);
   }
   return cachedInt32Memory0;
 }
 function dropObject(idx) {
-  if (idx < 36)
+  if (idx < 132)
     return;
   heap[idx] = heap_next;
   heap_next = idx;
@@ -9899,7 +9899,7 @@ function getImports() {
     getInt32Memory0()[arg0 / 4 + 1] = len0;
     getInt32Memory0()[arg0 / 4 + 0] = ptr0;
   };
-  imports.wbg.__wbg_log_28ec202ee0469987 = function(arg0, arg1) {
+  imports.wbg.__wbg_log_e60c9de27e669d8b = function(arg0, arg1) {
     console.log(getStringFromWasm0(arg0, arg1));
   };
   imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
@@ -9910,13 +9910,13 @@ function getImports() {
 function finalizeInit(instance, module) {
   wasm = instance.exports;
   init.__wbindgen_wasm_module = module;
-  cachedInt32Memory0 = new Int32Array(wasm.memory.buffer);
-  cachedUint8Memory0 = new Uint8Array(wasm.memory.buffer);
+  cachedInt32Memory0 = null;
+  cachedUint8Memory0 = null;
   return wasm;
 }
 async function init(input) {
   if (typeof input === "undefined") {
-    input = new URL("/assets/flashfill_core_bg.b8c3bce2.wasm", self.location);
+    input = new URL("/assets/flashfill_core_bg.e36b3ccd.wasm", self.location);
   }
   const imports = getImports();
   if (typeof input === "string" || typeof Request === "function" && input instanceof Request || typeof URL === "function" && input instanceof URL) {
